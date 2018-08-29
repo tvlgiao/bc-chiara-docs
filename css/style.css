@@ -1,0 +1,58 @@
+p { 
+	margin-bottom: 1rem;
+}
+
+h2 {
+	text-transform: uppercase;
+	margin: 4.5rem 0 1.5rem;
+	padding: 1.5rem 0;
+	border-bottom: 1px solid #ccc;
+}
+
+h3 {
+	margin: 4.5rem 0 1.5rem;
+	padding: 0;
+}
+
+h4 {
+	color: #999999;
+	text-transform: uppercase;
+	margin: 4.5rem 0 1.5rem;
+}
+
+
+.rst-content .section ul.fa-ul {
+	list-style: none;
+}
+
+.rst-content .section ul.fa-ul li {
+	list-style: none;
+	margin-left: 0;
+}
+
+.rst-content .section .alert ul {
+	margin-bottom: 0;
+}
+
+pre code {
+	border: 0;
+}
+
+.wy-menu-vertical.affix {
+	position: static;
+}
+
+.wy-menu-vertical a:hover,
+.wy-menu-vertical a:focus {
+	color: #ffffff;
+}
+
+
+.highlight-code {
+	max-height: 150px;
+	overflow: auto;
+}
+
+.panel-title a {
+	display: block;
+}

@@ -1,0 +1,1 @@
+<p data-remote-banner-position="chiara-sidebar-category-banner2"><a href="{{item1_link}}"><img src="{{item1_img}}" alt="{{item1_alt}}" /></a></p>

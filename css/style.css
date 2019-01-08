@@ -56,3 +56,18 @@ pre code {
 .panel-title a {
 	display: block;
 }
+
+
+@media (min-width: 769px) {
+	.wy-nav-side {
+		width: 400px;
+	}
+
+	.wy-nav-content-wrap {
+		margin-left: 400px;
+	}
+
+	.rst-versions {
+		width: 400px;
+	}
+}

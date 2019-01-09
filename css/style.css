@@ -47,6 +47,17 @@ pre code {
 	color: #ffffff;
 }
 
+.wy-menu-vertical li.current {
+	background-color: #f0f0f0;
+}
+
+.wy-menu-vertical li.current a {
+	color: #111;
+}
+
+.wy-nav-content {
+	max-width: none;
+}
 
 .highlight-code {
 	max-height: 150px;
@@ -55,6 +66,10 @@ pre code {
 
 .panel-title a {
 	display: block;
+}
+
+.toctree-l3:not([href^='#-']) {
+	font-weight: bold;
 }
 
 

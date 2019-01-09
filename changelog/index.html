@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>FAQs - BigCommerce Theme Chiara - User Guide</title>
+  <title>Release Notes - BigCommerce Theme Chiara - User Guide</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -20,9 +20,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "FAQs";
-    var mkdocs_page_input_path = "faqs.md";
-    var mkdocs_page_url = "/faqs/index.html";
+    var mkdocs_page_name = "Release Notes";
+    var mkdocs_page_input_path = "changelog.md";
+    var mkdocs_page_url = "/changelog/index.html";
   </script>
   
   <script src="../js/jquery-2.1.1.min.js"></script>
@@ -80,23 +80,9 @@
     <a class="" href="../customization/index.html">Customization</a>
 	    </li>
           
-            <li class="toctree-l1 current">
+            <li class="toctree-l1">
 		
-    <a class="current" href="index.html">FAQs</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l2"><a href="#faqs">FAQs</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l3" href="#change-text-of-buy-button-on-the-product-page-on-mobile">Change text of BUY button on the product page on mobile</a></li>
-        
-            <li><a class="toctree-l3" href="#display-the-product-options-on-the-product-page-on-mobile">Display the product options on the product page on mobile</a></li>
-        
-        </ul>
-    
-
-    </ul>
+    <a class="" href="../faqs/index.html">FAQs</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -104,9 +90,27 @@
     <a class="" href="../support/index.html">Help & Support</a>
 	    </li>
           
-            <li class="toctree-l1">
+            <li class="toctree-l1 current">
 		
-    <a class="" href="../changelog/index.html">Release Notes</a>
+    <a class="current" href="index.html">Release Notes</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#release-notes">Release Notes</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#120-2019-01-09">1.2.0 (2019-01-09)</a></li>
+        
+            <li><a class="toctree-l3" href="#111-2018-12-27">1.1.1 (2018-12-27)</a></li>
+        
+            <li><a class="toctree-l3" href="#110-2018-12-27">1.1.0 (2018-12-27)</a></li>
+        
+            <li><a class="toctree-l3" href="#101-2018-12-19">1.0.1 (2018-12-19)</a></li>
+        
+        </ul>
+    
+
+    </ul>
 	    </li>
           
         </ul>
@@ -131,7 +135,7 @@
     
       
     
-    <li>FAQs</li>
+    <li>Release Notes</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -141,31 +145,45 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="faqs">FAQs<a class="headerlink" href="#faqs" title="Permanent link">&para;</a></h1>
-<h2 id="change-text-of-buy-button-on-the-product-page-on-mobile">Change text of BUY button on the product page on mobile<a class="headerlink" href="#change-text-of-buy-button-on-the-product-page-on-mobile" title="Permanent link">&para;</a></h2>
-<p>Add this custom code below into your <strong>Storefront</strong> &gt; <strong>Footer Scripts</strong>:</p>
-<pre><code class="html">&lt;style&gt;
-.productView-options-toggle { width: 110px; border-radius: 3px; }
-.productView-options-toggle .on { font-size: 0; }
-.productView-options-toggle .on:before { font-size: 12px; content: 'Customize'; }
-&lt;/style&gt;
-</code></pre>
-
-<p>Where <code>Customize</code> is an example text to change.</p>
-<h2 id="display-the-product-options-on-the-product-page-on-mobile">Display the product options on the product page on mobile<a class="headerlink" href="#display-the-product-options-on-the-product-page-on-mobile" title="Permanent link">&para;</a></h2>
-<p>To display the product options on the product page on mobile instead of having to click BUY button, add the code below into <strong>Storefont</strong> &gt; <strong>Footer Scripts</strong>:</p>
-<pre><code class="html">&lt;style&gt;
-@media (max-width: 800px) {
-.productView-options-toggle { display: none }
-.productView-options-content { position: static; right: 0; opacity: 1; box-shadow: none; border-top: 1px solid #ddd}
-.productView-options-panel-body { position: static; padding-bottom: 0px; }
-.productView-options-panel-heading ~ .mobile-panel-close { display: none; }
-.productView-options-content .form-action { position: static; right: auto; }
-.productView-options-panel-heading { display: none }
-.productView-options { order: 6; }
-}
-&lt;/style&gt;
-</code></pre>
+                <h1 id="release-notes">Release Notes<a class="headerlink" href="#release-notes" title="Permanent link">&para;</a></h1>
+<h2 id="120-2019-01-09">1.2.0 (2019-01-09)<a class="headerlink" href="#120-2019-01-09" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Add new feature: show image sliders on product card item.</li>
+<li>Add new feature: Show full header &amp; footer on the checkout pages.</li>
+<li>Add Also Bought (Buy Together) feature</li>
+<li>Improve:</li>
+<li>Add more products count on homepage</li>
+<li>Change loading remote banner from search page</li>
+<li>Use products_per_page for all listing pages</li>
+</ul>
+<h2 id="111-2018-12-27">1.1.1 (2018-12-27)<a class="headerlink" href="#111-2018-12-27" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Update showing qty box from theme settings.</li>
+</ul>
+<h2 id="110-2018-12-27">1.1.0 (2018-12-27)<a class="headerlink" href="#110-2018-12-27" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Update Cornerstone 3.0.0:</li>
+<li>Added defer tag to addThis and defered execution of related script <a href="https://github.com/bigcommerce/cornerstone/pull/1406">#1406</a></li>
+<li>Fixed compare buttons for product list display <a href="https://github.com/bigcommerce/cornerstone/pull/1384">#1384</a></li>
+<li>Remove unnecessary API call to get cookie notification status <a href="https://github.com/bigcommerce/cornerstone/pull/1380">#1380</a></li>
+<li>Cart switch from quote item hash to id which is immutable <a href="https://github.com/bigcommerce/cornerstone/pull/1387">#1387</a></li>
+<li>Remove extra font only used for textual store logo. <a href="https://github.com/bigcommerce/cornerstone/pull/1375">#1375</a></li>
+<li>shotaK's Add context to the menu collapsible factory target elements <a href="https://github.com/bigcommerce/cornerstone/pull/1382">#1382</a></li>
+<li>Added default rule for product carousel card title to break words on overflow. <a href="https://github.com/bigcommerce/cornerstone/pull/1389">#1389</a></li>
+<li>Only show cookie privacy notice for EU IP addresses <a href="https://github.com/bigcommerce/cornerstone/pull/1381">#1381</a></li>
+<li>Move Cart Quantity header value to a FE API call <a href="https://github.com/bigcommerce/cornerstone/pull/1379">#1379</a></li>
+<li>Make display of quantity selection box on PDP configurable. <a href="https://github.com/bigcommerce/cornerstone/pull/1398">#1398</a></li>
+<li>Don't load Cart resource on non-Cart pages <a href="https://github.com/bigcommerce/cornerstone/pull/1401">#1401</a></li>
+<li>Remove deprecated fields - delivery and event date, and configurable fields. <a href="https://github.com/bigcommerce/cornerstone/pull/1407">#1407</a></li>
+<li>Update Cornerstone 2.6.0:</li>
+<li>Add support for Card Management: List, Delete, Edit, Add and Default Payment Method <a href="https://github.com/bigcommerce/cornerstone/pull/1376">#1376</a></li>
+<li>Add support for declarative data tag analytics. <a href="https://github.com/bigcommerce/cornerstone/pull/1377">#1377</a></li>
+<li>Update Cornerstone 2.5.</li>
+</ul>
+<h2 id="101-2018-12-19">1.0.1 (2018-12-19)<a class="headerlink" href="#101-2018-12-19" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Initial release.</li>
+</ul>
               
             </div>
           </div>
@@ -173,10 +191,8 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../support/index.html" class="btn btn-neutral float-right" title="Help & Support">Next <span class="icon icon-circle-arrow-right"></span></a>
       
-      
-        <a href="../customization/index.html" class="btn btn-neutral" title="Customization"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../support/index.html" class="btn btn-neutral" title="Help & Support"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -202,10 +218,8 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../customization/index.html" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../support/index.html" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
-      
-        <span style="margin-left: 15px"><a href="../support/index.html" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

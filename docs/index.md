@@ -1,6 +1,6 @@
 # Chiara BigCommerce Theme Documentation
 
-Theme Version: 1.0.0 (2018-07-29)
+Theme Version: 1.2.0 (2019-01-08)
 
 Theme designed and developed by [Papathemes](https://papathemes.com) 
 
@@ -11,3 +11,4 @@ Theme designed and developed by [Papathemes](https://papathemes.com)
 * [Customization](customization.md)
 * [FAQs](faqs.md)
 * [Help & Support](support.md)
+* [Release Notes](changelog.md)

@@ -55,3 +55,24 @@ To edit the template files, go to admin page > __Storefront Design__ > __My Them
 
 To activate a theme style, open Theme Editor, find __Styles__ section, click on the theme variation's thumbnail to activate corresponding style.
 
+
+
+## Edit source code
+
+### Add your own CSS / SCSS:
+
+- **Option 1:** Edit file `assets/scss/_chiara-custom.scss`
+- **Option 2:** Add custom CSS  in `<style>...</style>` into **Storefront** > **Footer Scripts**.
+
+### Add your own Javascript:
+
+- **Option 1:** Add custom JS in `<script>...</script>` into **Storefront** > **Footer Scripts**.
+- **Option 2:** Add custom JS into **Storefront** > **Scripts Manager**.
+
+
+### Edit HTML:
+
+ONLY edit file `templates/chiara-custom.html`
+
+
+

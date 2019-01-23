@@ -6,6 +6,7 @@ pages:
 - Customization: customization.md
 - FAQs: faqs.md
 - Help & Support: support.md
+- Release Notes: changelog.md
 theme: readthedocs
 use_directory_urls: false
 

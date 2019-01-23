@@ -683,32 +683,8 @@
 
 # Customization
 
-## READ FIRST - Customization Guideline
 
-**Contact for Support:** <contact@papathemes.com>
-
-### How to add your own CSS / SCSS:
-
-- **Option 1:** Edit file `assets/scss/_chiara-custom.scss`
-- **Option 2:** Add custom CSS  in `<style>...</style>` into **Storefront** > **Footer Scripts**.
-
-### How to add your own Javascript:
-
-- **Option 1:** Add custom JS in `<script>...</script>` into **Storefront** > **Footer Scripts**.
-- **Option 2:** Add custom JS into **Storefront** > **Scripts Manager**.
-
-
-### Edit HTML:
-
-ONLY edit file `templates/chiara-custom.html`
-
---- 
-
-_**WARNING: EDIT OTHER FILES WILL PREVENT UPGRADING THE THEME IN THE FUTURE!**_
-
-
-
-## Headers
+## Header
 
 ![Headers](img/headers.png)
 
@@ -716,7 +692,7 @@ Theme supports 3 header with logo position left, right or center. It is configur
 
 You can configure Header style, logo size, colors, fonts in **Theme Editor** > **Header & Footer**.
 
-### Mega Menu vs. Standard Menu
+## --- Mega Menu vs. Standard Menu
 
 ![Menus](img/menus.png)
 
@@ -724,7 +700,7 @@ Theme supports both Mega Menu and Standard Menu. You can configure in **Theme Ed
 
 The menu is automatically popuplated from your product categories and web pages (in **Storefront** > **Web Pages**). You can hide all web pages on this menu by tick on the option **Hide web pages in main navigation** in **Theme Editor** > **Header & Footer**.
 
-### Top Banner
+## --- Top Banner
 
 ![top banner](img/top-banner.png)
 
@@ -734,7 +710,7 @@ You can edit the top banner on the homepage, category pages, product pages in **
 
 
 
-## Footers
+## Footer
 
 ![Footers](img/footers.png)
 
@@ -749,6 +725,7 @@ Configure the footer in **Theme Editor** > **Footer** section.
 * Show/hide payment icons.
 
 
+## Home Page
 
 
 
@@ -756,8 +733,7 @@ Configure the footer in **Theme Editor** > **Footer** section.
 
 
 
-
-## Homepage Main Carousel
+## --- Main Carousel
 
 ![Main carousel](img/main-carousel.png)
 
@@ -771,7 +747,7 @@ You can configure carousel settings in **Theme Editor** > **Home Page** > **Caro
 
 
 
-## Homepage Banners
+## --- Banners
 
 ### 5 Banners below the main carousel
 
@@ -846,7 +822,7 @@ Or use button below to generate HTML code with your custom content:
 
 
 
-## New Products / Featured Products / Bestselling Products
+## --- New / Featured / Bestselling Products
 
 **Default style:**
 
@@ -874,7 +850,7 @@ Configure New Products, Featured Products, Bestselling Products showing on the h
 
 
 
-## Categories List
+## --- Categories List
 
 ![categories list](img/homepage-categories-list.png)
 
@@ -897,7 +873,7 @@ Configure categories list in **Theme Editor** > **Homepage** > **Categories List
 
 
 
-## Recent Blog Posts
+## --- Recent Blog Posts
 
 ![homepage recent blog](img/homepage-recent-blog.png)
 
@@ -914,7 +890,7 @@ Configure Recent Blog section on the home page in **Theme Editor** > **Home Page
 
 
 
-## Instagram Photos Feed
+## --- Instagram Photos Feed
 
 ![homepage instagram](img/homepage-instagram.png)
 
@@ -934,7 +910,7 @@ Configure Instagram section on the home page in **Theme Editor** > **Home Page**
 
 
 
-## Images Carousel or Brands Carousel
+## --- Images Carousel or Brands Carousel
 
 ![homepage brands carousel](img/homepage-brands-carousel.png)
 
@@ -976,13 +952,72 @@ Or use button below to generate HTML code with your custom content:
 
 
 
+## Category & Brand Pages
+
+To display custom banners on category pages or brand pages, create a new banner in **Marketing** > **Banners**:
+
+## --- Top & bottom banners on all categories
+
+![category top banner on all pages](img/category-top-banner1.jpg)
+
+- In **Banner Content**, click HTML button to input HTML code:
+
+```html
+<!--
+  -- TOP BANNER ABOVE PRODUCTS LIST
+  -->
+<div data-remote-banner-position="chiara-category-banner1"><a href="#"><img title="1500x360" src="//placehold.it/1500x360" alt="1500x360" /></a></div>
+
+<!--
+  -- BOTTOM BANNER BELOW PRODUCTS LIST
+  -->
+<div data-remote-banner-position="chiara-category-banner3"><a href="#"><img title="1500x360" src="//placehold.it/1500x360" alt="1500x360" /></a></div>
+```
+
+
+## --- Top & bottom banners on a specific category
+
+Edit the category, in **Description** field, click HTML button to input HTML code:
+
+```html
+<!-- 
+  -- TOP BANNERS ABOVE PRODUCTS LIST 
+  -->
+<div class="chiara-banners u-hiddenVisually-mobile" data-local-banner-position="chiara-category-banner2">
+<ul class="chiara-banners-list">
+<li class="chiara-banners-item"><a href="#"><img src="//placehold.it/670x520" alt="670x520" /></a></li>
+<li class="chiara-banners-item"><a href="#"><img src="//placehold.it/670x520" alt="670x520" /></a></li>
+<li class="chiara-banners-item"><a href="#"><img src="//placehold.it/670x520" alt="670x520" /></a></li>
+</ul>
+</div>
+
+<!-- 
+  -- BOTTOM BANNERS BELOW PRODUCTS LIST 
+  -->
+<div class="chiara-banners u-hiddenVisually-mobile" data-local-banner-position="chiara-category-banner4">
+<ul class="chiara-banners-list">
+<li class="chiara-banners-item"><a href="#"><img src="//placehold.it/670x520" alt="670x520" /></a></li>
+<li class="chiara-banners-item"><a href="#"><img src="//placehold.it/670x520" alt="670x520" /></a></li>
+<li class="chiara-banners-item"><a href="#"><img src="//placehold.it/670x520" alt="670x520" /></a></li>
+</ul>
+</div>
+```
+
+## --- Top banner on all brands
+
+- In **Banner Content**, click HTML button to input HTML code:
+
+```html
+<div data-remote-banner-position="chiara-brand-banner1"><a href="#"><img title="1500x360" src="//placehold.it/1500x360" alt="1500x360" /></a></div>
+```
+
+
+- **Show on Page**: `Search Results Page`
+- **Location**: `Top of Page`
 
 
 
-
-## Sidebar - New Products, Banners & Facebook
-
-### Custom banners on the sidebar
+## --- Custom banners on the sidebar
 
 Theme support custom banners display on the sidebar for category pages and brand pages.
 
@@ -995,7 +1030,9 @@ To enable these banners, open **Theme Editor** > **Sidebar**, tick on these opti
 
 Create a new banner in **Marketing** > **Banners**:
 
-#### Banner 1 on category pages
+### Banner 1 on category pages
+
+![Sidebar banner1](img/sidebar-banner1.jpg)
 
 * **Banner Name**: `Sidebar banner on category pages (chiara-sidebar-category-banner1)`
 * **Banner Content**: Click on the HTML to edit HTML source.
@@ -1010,11 +1047,13 @@ Or use button below to generate HTML code with your custom content:
   Launch Banner Code Generator
 </button>
 
-* **Show on Page**: `Home Page`
+* **Show on Page**: `Search Results Page`
 * **Location**: `Top of Page`
 
 
-#### Banner 2 on category pages
+### Banner 2 on category pages
+
+![Sidebar banner2](img/sidebar-banner2.jpg)
 
 * **Banner Name**: `Sidebar banner on category pages (chiara-sidebar-category-banner2)`
 * **Banner Content**: Click on the HTML to edit HTML source.
@@ -1029,12 +1068,12 @@ Or use button below to generate HTML code with your custom content:
   Launch Banner Code Generator
 </button>
 
-* **Show on Page**: `Home Page`
+* **Show on Page**: `Search Results Page`
 * **Location**: `Top of Page`
 
 
 
-#### Banner 1 on brand pages
+### Banner 1 on brand pages
 
 * **Banner Name**: `Sidebar banner on brand pages (chiara-sidebar-brand-banner1)`
 * **Banner Content**: Click on the HTML to edit HTML source.
@@ -1049,11 +1088,11 @@ Or use button below to generate HTML code with your custom content:
   Launch Banner Code Generator
 </button>
 
-* **Show on Page**: `Home Page`
+* **Show on Page**: `Search Results Page`
 * **Location**: `Top of Page`
 
 
-#### Banner 2 on brand pages
+### Banner 2 on brand pages
 
 * **Banner Name**: `Sidebar banner on brand pages (chiara-sidebar-brand-banner2)`
 * **Banner Content**: Click on the HTML to edit HTML source.
@@ -1068,12 +1107,12 @@ Or use button below to generate HTML code with your custom content:
   Launch Banner Code Generator
 </button>
 
-* **Show on Page**: `Home Page`
+* **Show on Page**: `Search Results Page`
 * **Location**: `Top of Page`
 
 
 
-### New Products
+## --- New Products on sidebar
 
 ![Sidebar new products](img/sidebar-new-products.png)
 
@@ -1082,7 +1121,7 @@ Configure in **Theme Editor** > **Sidebar**:
 * **New products**: number of products to display.
 
 
-### Facebook likes & chat box
+## --- Facebook likes & chat box
 
 ![sidebar facebook](img/sidebar-facebook.png)
 
@@ -1090,14 +1129,79 @@ Configure in **Theme Editor** > **Sidebar**, input your facebook page name in **
 
 
 
+## Product Pages
 
-## Product Page Settings
+## -- Custom content placement
+
+![product page banner placement](img/product-banner-placement.jpg)
+
+### Display custom content on all product pages under product ratings:
+
+Create a new banner in **Marketing** > **Banners**:
+
+-- **Banner Content** click HTML button to input HTML code:
+
+```html
+<div data-remote-banner-position="chiara-productpage-banner1">
+  ADD YOUR CUSTOM CONTENT HERE...
+</div>
+```
+
+- **Show on Page**: `Search Results Page`
+- **Location**: `Top of Page`
+
+
+
+### Display custom content on a specific product page under product ratings:
+
+Edit a product, in **Description** field, click HTML button to input HTML code:
+
+```html
+<div data-local-banner-position="chiara-productpage-banner2">
+  ADD YOUR CUSTOM CONTENT HERE...
+</div>
+```
+
+
+### Display custom content on all product pages under add to cart button:
+
+Create a new banner in **Marketing** > **Banners**:
+
+-- **Banner Content** click HTML button to input HTML code:
+
+```html
+<div data-remote-banner-position="chiara-productpage-banner3">
+  ADD YOUR CUSTOM CONTENT HERE...
+</div>
+```
+
+- **Show on Page**: `Search Results Page`
+- **Location**: `Top of Page`
+
+
+### Display custom content on a specific page under add to cart button:
+
+
+Edit a product, in **Description** field, click HTML button to input HTML code:
+
+```html
+<div data-local-banner-position="chiara-productpage-banner4">
+  ADD YOUR CUSTOM CONTENT HERE...
+</div>
+```
+
+## --- Product page settings
 
 Configure settings for product pages in **Theme Editor** > **Products**.
 
 
 
-## Infinite product loading
+
+## Settings & Features
+
+
+
+## --- Infinite product loading
 
 Theme support infinite product loading or infinite scroll on category pages, brand pages and search results pages. It is automatically enabled by default. You can configure this option in **Theme Editor** > **Products** > **Infinite Scroll**:
 
@@ -1108,7 +1212,7 @@ Theme support infinite product loading or infinite scroll on category pages, bra
 
 
 
-## Product Card & Color Swatches
+## --- Product Card & Color Swatches
 
 ![product card](img/product-card.png)
 
@@ -1120,7 +1224,7 @@ Configure how products display on listing in **Theme Editor** > **Products** > *
 * **Show color swatches**: To display color swatches for product options with type "Swatches".
 
 
-## Bottom bar on mobile
+## --- Bottom bar on mobile
 
 ![mobile bottom bar](img/mobile-bottom-bar.png)
 

@@ -272,7 +272,7 @@
         },
         {
             "location": "/faqs/index.html",
-            "text": "FAQs\n\u00b6\n\n\nChange text of BUY button on the product page on mobile\n\u00b6\n\n\nAdd this custom code below into your \nStorefront\n > \nFooter Scripts\n:\n\n\n<style>\n.productView-options-toggle { width: 110px; border-radius: 3px; }\n.productView-options-toggle .on { font-size: 0; }\n.productView-options-toggle .on:before { font-size: 12px; content: 'Customize'; }\n</style>\n\n\n\n\nWhere \nCustomize\n is an example text to change.\n\n\nDisplay the product options on the product page on mobile\n\u00b6\n\n\nTo display the product options on the product page on mobile instead of having to click BUY button, add the code below into \nStorefont\n > \nFooter Scripts\n:\n\n\n<style>\n@media (max-width: 800px) {\n.productView-options-toggle { display: none }\n.productView-options-content { position: static; right: 0; opacity: 1; box-shadow: none; border-top: 1px solid #ddd}\n.productView-options-panel-body { position: static; padding-bottom: 0px; }\n.productView-options-panel-heading ~ .mobile-panel-close { display: none; }\n.productView-options-content .form-action { position: static; right: auto; }\n.productView-options-panel-heading { display: none }\n.productView-options { order: 6; }\n}\n</style>",
+            "text": "FAQs\n\u00b6\n\n\nChange text of BUY button on the product page on mobile\n\u00b6\n\n\nAdd this custom code below into your \nStorefront\n > \nFooter Scripts\n:\n\n\n<style>\n.productView-options-toggle { width: 110px; border-radius: 3px; }\n.productView-options-toggle .on { font-size: 0; }\n.productView-options-toggle .on:before { font-size: 12px; content: 'Customize'; }\n</style>\n\n\n\n\nWhere \nCustomize\n is an example text to change.\n\n\nDisplay the product options on the product page on mobile\n\u00b6\n\n\nTo display the product options on the product page on mobile instead of having to click BUY button, add the code below into \nStorefont\n > \nFooter Scripts\n:\n\n\n<style>\n@media (max-width: 800px) {\n.productView-options-toggle { display: none }\n.productView-options-content { position: static; right: 0; opacity: 1; box-shadow: none; border-top: 1px solid #ddd}\n.productView-options-panel-body { position: static; padding-bottom: 0px; }\n.productView-options-panel-heading ~ .mobile-panel-close { display: none; }\n.productView-options-content .form-action { position: static; right: auto; }\n.productView-options-panel-heading { display: none }\n.productView-options { order: 6; }\n}\n</style>\n\n\n\n\nHide the \"Home\" link on the main menu\n\u00b6\n\n\nAdd the custom code below into \nStorefront\n > \nFooter Scripts\n:\n\n\n<style>\n#navPages-main > .navPages-item:first-child { display: none }\n</style>",
             "title": "FAQs"
         },
         {
@@ -289,6 +289,11 @@
             "location": "/faqs/index.html#display-the-product-options-on-the-product-page-on-mobile",
             "text": "To display the product options on the product page on mobile instead of having to click BUY button, add the code below into  Storefont  >  Footer Scripts :  <style>\n@media (max-width: 800px) {\n.productView-options-toggle { display: none }\n.productView-options-content { position: static; right: 0; opacity: 1; box-shadow: none; border-top: 1px solid #ddd}\n.productView-options-panel-body { position: static; padding-bottom: 0px; }\n.productView-options-panel-heading ~ .mobile-panel-close { display: none; }\n.productView-options-content .form-action { position: static; right: auto; }\n.productView-options-panel-heading { display: none }\n.productView-options { order: 6; }\n}\n</style>",
             "title": "Display the product options on the product page on mobile"
+        },
+        {
+            "location": "/faqs/index.html#hide-the-home-link-on-the-main-menu",
+            "text": "Add the custom code below into  Storefront  >  Footer Scripts :  <style>\n#navPages-main > .navPages-item:first-child { display: none }\n</style>",
+            "title": "Hide the \"Home\" link on the main menu"
         },
         {
             "location": "/support/index.html",

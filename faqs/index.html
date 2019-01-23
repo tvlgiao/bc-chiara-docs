@@ -93,6 +93,8 @@
         
             <li><a class="toctree-l3" href="#display-the-product-options-on-the-product-page-on-mobile">Display the product options on the product page on mobile</a></li>
         
+            <li><a class="toctree-l3" href="#hide-the-home-link-on-the-main-menu">Hide the "Home" link on the main menu</a></li>
+        
         </ul>
     
 
@@ -164,6 +166,13 @@
 .productView-options-panel-heading { display: none }
 .productView-options { order: 6; }
 }
+&lt;/style&gt;
+</code></pre>
+
+<h2 id="hide-the-home-link-on-the-main-menu">Hide the "Home" link on the main menu<a class="headerlink" href="#hide-the-home-link-on-the-main-menu" title="Permanent link">&para;</a></h2>
+<p>Add the custom code below into <strong>Storefront</strong> &gt; <strong>Footer Scripts</strong>:</p>
+<pre><code class="html">&lt;style&gt;
+#navPages-main &gt; .navPages-item:first-child { display: none }
 &lt;/style&gt;
 </code></pre>
               

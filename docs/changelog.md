@@ -1,5 +1,16 @@
 # Release Notes
 
+## 1.3.0 (2019-02-15)
+- Fix header sticky menu dropdown glitch on ipad 1024.
+- Fix category menu (+) icon on category page.
+- Update BUY button to use icon cart-add.
+- Fix BUY button glitch when product description is overflow.
+- Hide Specifications tabs when there is no product custom fields.
+- Fix banner CSS break when BC banner content being wrapped by a div
+- Show SKU on the dropdown cart & cart page.
+- Auto show vertical scrollbar on the dropdown cart.
+- Update Cornerstone 3.2.1.
+
 ## 1.2.0 (2019-01-09)
 - Add new feature: show image sliders on product card item.
 - Add new feature: Show full header & footer on the checkout pages.

@@ -1,5 +1,30 @@
 # Release Notes
 
+## 1.4.0 (2019-03-25)
+- Add extra CSS class to productView-tab
+- Fix top banner text color setting
+- Fix Also Bought Together product price changed
+- Fix the main navigation overlapped on iPad 1024
+- Fix product option value tooltip didn't show
+- Fix product details wrong order on mobile after add Also Bought
+- Add banner placement before product rating
+- Fix price update on product card when color swatch is selected
+- Fix setting of Footer Hover Link
+- Fix reviews link didn't work when reviews are in tab
+- Fix description tab didn't work after add Also Bought
+- Add block chiara-productpage-rating
+- Add option "Show Add to Cart on mobile" to show inline / popup panel
+- Fix option show address on top header didn't work
+- Fix z-index of add to cart button on mobile
+- Fix footer newsletter box not full width on mobile
+- Fix footer SSL seal CSS
+- Fix a gitch of "Payment Methods" link on the right user panel
+- Fix duplicate header footer scripts on checkout page if show header & footer
+- Customer Also Bought get product from
+- Optimize theme settings
+- Fix AJAX conflicting with BigCommerce Data Tags
+- Add banner position before full width description
+
 ## 1.3.0 (2019-02-15)
 - Fix header sticky menu dropdown glitch on ipad 1024.
 - Fix category menu (+) icon on category page.

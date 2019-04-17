@@ -727,6 +727,13 @@ Configure the footer in **Theme Editor** > **Footer** section.
 
 ## Home Page
 
+## --- Customizing Sections
+
+You can customize the content display on Home Page, rearrange content blocks, show or hide them from **Theme Editor** > **Home Page** > **Sections**.
+
+Check out this video for quick start:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/CvSspnJlfTo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
 

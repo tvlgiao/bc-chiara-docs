@@ -741,6 +741,7 @@ Main carousel displays on the home page can be input in **Storefront** > **Home 
 
 You can configure carousel settings in **Theme Editor** > **Home Page** > **Carousel** section. Here you can turn on/off this carousel, configure colors, content position and so on.
 
+Our recommended image size is **1920x770px**.
 
 
 
@@ -784,7 +785,7 @@ Or use button below to generate HTML code with your custom content:
 * **Show on Page**: `Home Page`
 * **Location**: `Top of Page`
 
-
+Our recommended image size is **496x431px** for the first row and **747x430px** for the second row.
 
 
 ### Fullwidth Banner
@@ -817,7 +818,7 @@ Or use button below to generate HTML code with your custom content:
 * **Show on Page**: `Home Page`
 * **Location**: `Top of Page`
 
-
+Our recommended image size is **1500x306px**.
 
 
 
@@ -843,6 +844,8 @@ Configure New Products, Featured Products, Bestselling Products showing on the h
 * Type (Grid or List).
 * Style (default or parallax).
 
+Our recommended parallax background image size is **1720x450px**.
+
 
 
 
@@ -862,7 +865,7 @@ Configure categories list in **Theme Editor** > **Homepage** > **Categories List
 * **Heading**
 * **Subheading**
 * **Show banners?** If checked, input the banner image urls in the below input boxes to display beside the category names.
-* **Banner 1** to **Banner 10**: Upload your banner images in **Storefront** > **Image Manager** and copy links to here. Example: `/product_images/uploaded_images/furniture-home-cat1.jpg`
+* **Banner 1** to **Banner 10**: Upload your banner images in **Storefront** > **Image Manager** and copy links to here. Example: `/product_images/uploaded_images/furniture-home-cat1.jpg`. Recommended image size is **400x572px**. For **Fashion** style, recommended image size is **400x454px**.
 * **Show on desktop?**
 * **Show on tablet?**
 * **Show on mobile?**
@@ -883,6 +886,8 @@ Configure Recent Blog section on the home page in **Theme Editor** > **Home Page
 * **Display Type**
 * **Heading**
 * **Subheading**
+
+All blog images should have same size to have the best visual display. No image size is restricted.
 
 
 
@@ -948,6 +953,7 @@ Or use button below to generate HTML code with your custom content:
 * **Show on Page**: `Home Page`
 * **Location**: `Top of Page`
 
+Our recommended image size is **220x100px**.
 
 
 
@@ -974,6 +980,7 @@ To display custom banners on category pages or brand pages, create a new banner 
 <div data-remote-banner-position="chiara-category-banner3"><a href="#"><img title="1500x360" src="//placehold.it/1500x360" alt="1500x360" /></a></div>
 ```
 
+Our recommended image size is **1500x360px**.
 
 ## --- Top & bottom banners on a specific category
 
@@ -1002,6 +1009,9 @@ Edit the category, in **Description** field, click HTML button to input HTML cod
 </ul>
 </div>
 ```
+
+Our recommended image size is **670x520px**.
+
 
 ## --- Top banner on all brands
 
@@ -1050,6 +1060,8 @@ Or use button below to generate HTML code with your custom content:
 * **Show on Page**: `Search Results Page`
 * **Location**: `Top of Page`
 
+Our recommended image size is **302x302px**.
+
 
 ### Banner 2 on category pages
 
@@ -1071,6 +1083,7 @@ Or use button below to generate HTML code with your custom content:
 * **Show on Page**: `Search Results Page`
 * **Location**: `Top of Page`
 
+Our recommended image size is **302x500px**.
 
 
 ### Banner 1 on brand pages

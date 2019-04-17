@@ -7,33 +7,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   
-  <link rel="shortcut icon" href="../img/favicon.ico">
+  <link rel="shortcut icon" href="img/favicon.ico">
   <title>Customization - BigCommerce Theme Chiara - User Guide</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
-  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="../css/highlight.css">
+  <link rel="stylesheet" href="css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet">
-  <link href="../css/style.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
   
   <script>
     // Current page data
     var mkdocs_page_name = "Customization";
     var mkdocs_page_input_path = "customization.md";
-    var mkdocs_page_url = "/customization/index.html";
+    var mkdocs_page_url = null;
   </script>
   
-  <script src="../js/jquery-2.1.1.min.js"></script>
-  <script src="../js/modernizr-2.8.3.min.js"></script>
-  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
+  <script src="js/jquery-2.1.1.min.js" defer></script>
+  <script src="js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
   
   <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
       ga('create', 'UA-241859-16', 'tvlgiao.github.io');
       ga('send', 'pageview');
@@ -48,10 +49,10 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
-        <a href="../index.html" class="icon icon-home"> BigCommerce Theme Chiara - User Guide</a>
+        <a href="index.html" class="icon icon-home"> BigCommerce Theme Chiara - User Guide</a>
         <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
@@ -62,22 +63,22 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../index.html">Home</a>
+    <a class="" href="index.html">Home</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../installation/index.html">Install the theme</a>
+    <a class="" href="installation.html">Install the theme</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../quickstart/index.html">Quick Start Guide</a>
+    <a class="" href="quickstart.html">Quick Start Guide</a>
 	    </li>
           
             <li class="toctree-l1 current">
 		
-    <a class="current" href="index.html">Customization</a>
+    <a class="current" href="customization.html">Customization</a>
     <ul class="subnav">
             
     <li class="toctree-l2"><a href="#customization">Customization</a></li>
@@ -144,17 +145,17 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../faqs/index.html">FAQs</a>
+    <a class="" href="faqs.html">FAQs</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../support/index.html">Help & Support</a>
+    <a class="" href="support.html">Help & Support</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../changelog/index.html">Release Notes</a>
+    <a class="" href="changelog.html">Release Notes</a>
 	    </li>
           
         </ul>
@@ -167,7 +168,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../index.html">BigCommerce Theme Chiara - User Guide</a>
+        <a href="index.html">BigCommerce Theme Chiara - User Guide</a>
       </nav>
 
       
@@ -175,7 +176,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="../index.html">Docs</a> &raquo;</li>
+    <li><a href="index.html">Docs</a> &raquo;</li>
     
       
     
@@ -872,18 +873,18 @@
 
 <h1 id="customization">Customization<a class="headerlink" href="#customization" title="Permanent link">&para;</a></h1>
 <h2 id="header">Header<a class="headerlink" href="#header" title="Permanent link">&para;</a></h2>
-<p><img alt="Headers" src="../img/headers.png" /></p>
+<p><img alt="Headers" src="img/headers.png" /></p>
 <p>Theme supports 3 header with logo position left, right or center. It is configured in <strong>Theme Editor</strong> &gt; <strong>Header &amp; Footer</strong> &gt; <strong>Logo position</strong>.</p>
 <p>You can configure Header style, logo size, colors, fonts in <strong>Theme Editor</strong> &gt; <strong>Header &amp; Footer</strong>.</p>
 <h2 id="-mega-menu-vs-standard-menu">--- Mega Menu vs. Standard Menu<a class="headerlink" href="#-mega-menu-vs-standard-menu" title="Permanent link">&para;</a></h2>
-<p><img alt="Menus" src="../img/menus.png" /></p>
+<p><img alt="Menus" src="img/menus.png" /></p>
 <p>Theme supports both Mega Menu and Standard Menu. You can configure in <strong>Theme Editor</strong> &gt; <strong>Header &amp; Footer</strong> &gt; <strong>Main Navigation</strong> &gt; <strong>Navigation design</strong>.</p>
 <p>The menu is automatically popuplated from your product categories and web pages (in <strong>Storefront</strong> &gt; <strong>Web Pages</strong>). You can hide all web pages on this menu by tick on the option <strong>Hide web pages in main navigation</strong> in <strong>Theme Editor</strong> &gt; <strong>Header &amp; Footer</strong>.</p>
 <h2 id="-top-banner">--- Top Banner<a class="headerlink" href="#-top-banner" title="Permanent link">&para;</a></h2>
-<p><img alt="top banner" src="../img/top-banner.png" /></p>
+<p><img alt="top banner" src="img/top-banner.png" /></p>
 <p>You can edit the top banner on the homepage, category pages, product pages in <strong>Marketing</strong> &gt; <strong>Banner Manager</strong>.</p>
 <h2 id="footer">Footer<a class="headerlink" href="#footer" title="Permanent link">&para;</a></h2>
-<p><img alt="Footers" src="../img/footers.png" /></p>
+<p><img alt="Footers" src="img/footers.png" /></p>
 <p>Configure the footer in <strong>Theme Editor</strong> &gt; <strong>Footer</strong> section. </p>
 <ul>
 <li>You can change colors.</li>
@@ -896,12 +897,13 @@
 </ul>
 <h2 id="home-page">Home Page<a class="headerlink" href="#home-page" title="Permanent link">&para;</a></h2>
 <h2 id="-main-carousel">--- Main Carousel<a class="headerlink" href="#-main-carousel" title="Permanent link">&para;</a></h2>
-<p><img alt="Main carousel" src="../img/main-carousel.png" /></p>
+<p><img alt="Main carousel" src="img/main-carousel.png" /></p>
 <p>Main carousel displays on the home page can be input in <strong>Storefront</strong> &gt; <strong>Home Page Carousel</strong>.</p>
 <p>You can configure carousel settings in <strong>Theme Editor</strong> &gt; <strong>Home Page</strong> &gt; <strong>Carousel</strong> section. Here you can turn on/off this carousel, configure colors, content position and so on.</p>
+<p>Our recommended image size is <strong>1920x770px</strong>.</p>
 <h2 id="-banners">--- Banners<a class="headerlink" href="#-banners" title="Permanent link">&para;</a></h2>
 <h3 id="5-banners-below-the-main-carousel">5 Banners below the main carousel<a class="headerlink" href="#5-banners-below-the-main-carousel" title="Permanent link">&para;</a></h3>
-<p><img alt="homepage 5 banners" src="../img/homepage-5-banners.png" /></p>
+<p><img alt="homepage 5 banners" src="img/homepage-5-banners.png" /></p>
 <p>Create a new banner in <strong>Marketing</strong> &gt; <strong>Banners</strong>.</p>
 <ul>
 <li><strong>Banner Name</strong>: <code>5 banners below the main carousel (home-banner1)</code></li>
@@ -932,8 +934,9 @@
 <li><strong>Show on Page</strong>: <code>Home Page</code></li>
 <li><strong>Location</strong>: <code>Top of Page</code></li>
 </ul>
+<p>Our recommended image size is <strong>496x431px</strong> for the first row and <strong>747x430px</strong> for the second row.</p>
 <h3 id="fullwidth-banner">Fullwidth Banner<a class="headerlink" href="#fullwidth-banner" title="Permanent link">&para;</a></h3>
-<p><img alt="homepage fullwidth banner" src="../img/homepage-fullwidth-banner.png" /></p>
+<p><img alt="homepage fullwidth banner" src="img/homepage-fullwidth-banner.png" /></p>
 <p>Create a new banner in <strong>Marketing</strong> &gt; <strong>Banners</strong>.</p>
 <ul>
 <li><strong>Banner Name</strong>: <code>Full width banner (home-banner2)</code></li>
@@ -958,11 +961,12 @@
 <li><strong>Show on Page</strong>: <code>Home Page</code></li>
 <li><strong>Location</strong>: <code>Top of Page</code></li>
 </ul>
+<p>Our recommended image size is <strong>1500x306px</strong>.</p>
 <h2 id="-new-featured-bestselling-products">--- New / Featured / Bestselling Products<a class="headerlink" href="#-new-featured-bestselling-products" title="Permanent link">&para;</a></h2>
 <p><strong>Default style:</strong></p>
-<p><img alt="Homepage new products" src="../img/homepage-new-products.png" /></p>
+<p><img alt="Homepage new products" src="img/homepage-new-products.png" /></p>
 <p><strong>Parallax style:</strong></p>
-<p><img alt="Homepage featured products" src="../img/homepage-featured-products.png" /></p>
+<p><img alt="Homepage featured products" src="img/homepage-featured-products.png" /></p>
 <p>Configure New Products, Featured Products, Bestselling Products showing on the home page in <strong>Theme Editor</strong> &gt; <strong>Homepage</strong>:</p>
 <ul>
 <li>Number of products to display.</li>
@@ -974,8 +978,9 @@
 <li>Type (Grid or List).</li>
 <li>Style (default or parallax).</li>
 </ul>
+<p>Our recommended parallax background image size is <strong>1720x450px</strong>.</p>
 <h2 id="-categories-list">--- Categories List<a class="headerlink" href="#-categories-list" title="Permanent link">&para;</a></h2>
-<p><img alt="categories list" src="../img/homepage-categories-list.png" /></p>
+<p><img alt="categories list" src="img/homepage-categories-list.png" /></p>
 <p>Configure categories list in <strong>Theme Editor</strong> &gt; <strong>Homepage</strong> &gt; <strong>Categories List</strong>:</p>
 <ul>
 <li><strong>Categories ID</strong>: input your category IDs seperated by a comma. If not specify, categories will be display in default order automatically. Example: <code>40,25</code>. Also check <a href="https://bit.ly/2LrjUjh">How to find category ID</a>.</li>
@@ -984,13 +989,13 @@
 <li><strong>Heading</strong></li>
 <li><strong>Subheading</strong></li>
 <li><strong>Show banners?</strong> If checked, input the banner image urls in the below input boxes to display beside the category names.</li>
-<li><strong>Banner 1</strong> to <strong>Banner 10</strong>: Upload your banner images in <strong>Storefront</strong> &gt; <strong>Image Manager</strong> and copy links to here. Example: <code>/product_images/uploaded_images/furniture-home-cat1.jpg</code></li>
+<li><strong>Banner 1</strong> to <strong>Banner 10</strong>: Upload your banner images in <strong>Storefront</strong> &gt; <strong>Image Manager</strong> and copy links to here. Example: <code>/product_images/uploaded_images/furniture-home-cat1.jpg</code>. Recommended image size is <strong>400x572px</strong>. For <strong>Fashion</strong> style, recommended image size is <strong>400x454px</strong>.</li>
 <li><strong>Show on desktop?</strong></li>
 <li><strong>Show on tablet?</strong></li>
 <li><strong>Show on mobile?</strong></li>
 </ul>
 <h2 id="-recent-blog-posts">--- Recent Blog Posts<a class="headerlink" href="#-recent-blog-posts" title="Permanent link">&para;</a></h2>
-<p><img alt="homepage recent blog" src="../img/homepage-recent-blog.png" /></p>
+<p><img alt="homepage recent blog" src="img/homepage-recent-blog.png" /></p>
 <p>Configure Recent Blog section on the home page in <strong>Theme Editor</strong> &gt; <strong>Home Page</strong> &gt; <strong>Recent Blog</strong>:</p>
 <ul>
 <li><strong>Number of posts</strong></li>
@@ -998,8 +1003,9 @@
 <li><strong>Heading</strong></li>
 <li><strong>Subheading</strong></li>
 </ul>
+<p>All blog images should have same size to have the best visual display. No image size is restricted.</p>
 <h2 id="-instagram-photos-feed">--- Instagram Photos Feed<a class="headerlink" href="#-instagram-photos-feed" title="Permanent link">&para;</a></h2>
-<p><img alt="homepage instagram" src="../img/homepage-instagram.png" /></p>
+<p><img alt="homepage instagram" src="img/homepage-instagram.png" /></p>
 <p>Configure Instagram section on the home page in <strong>Theme Editor</strong> &gt; <strong>Home Page</strong> &gt; <strong>Instagram</strong>:</p>
 <ul>
 <li><strong>Token Access</strong>: Use this tool to generate your Instagram token access code: <a href="https://bit.ly/2rpaWxU">https://bit.ly/2rpaWxU</a>.</li>
@@ -1011,7 +1017,7 @@
 <li><strong>Image fit</strong>: <code>Cover</code> or <code>Contain</code>.</li>
 </ul>
 <h2 id="-images-carousel-or-brands-carousel">--- Images Carousel or Brands Carousel<a class="headerlink" href="#-images-carousel-or-brands-carousel" title="Permanent link">&para;</a></h2>
-<p><img alt="homepage brands carousel" src="../img/homepage-brands-carousel.png" /></p>
+<p><img alt="homepage brands carousel" src="img/homepage-brands-carousel.png" /></p>
 <p>To display the images carousel, create a new banner in <strong>Marketing</strong> &gt; <strong>Banners</strong>:</p>
 <ul>
 <li><strong>Banner Name</strong>: <code>Brands carousel (home-banner3)</code></li>
@@ -1045,10 +1051,11 @@
 <li><strong>Show on Page</strong>: <code>Home Page</code></li>
 <li><strong>Location</strong>: <code>Top of Page</code></li>
 </ul>
+<p>Our recommended image size is <strong>220x100px</strong>.</p>
 <h2 id="category-brand-pages">Category &amp; Brand Pages<a class="headerlink" href="#category-brand-pages" title="Permanent link">&para;</a></h2>
 <p>To display custom banners on category pages or brand pages, create a new banner in <strong>Marketing</strong> &gt; <strong>Banners</strong>:</p>
 <h2 id="-top-bottom-banners-on-all-categories">--- Top &amp; bottom banners on all categories<a class="headerlink" href="#-top-bottom-banners-on-all-categories" title="Permanent link">&para;</a></h2>
-<p><img alt="category top banner on all pages" src="../img/category-top-banner1.jpg" /></p>
+<p><img alt="category top banner on all pages" src="img/category-top-banner1.jpg" /></p>
 <ul>
 <li>In <strong>Banner Content</strong>, click HTML button to input HTML code:</li>
 </ul>
@@ -1063,6 +1070,7 @@
 &lt;div data-remote-banner-position=&quot;chiara-category-banner3&quot;&gt;&lt;a href=&quot;#&quot;&gt;&lt;img title=&quot;1500x360&quot; src=&quot;//placehold.it/1500x360&quot; alt=&quot;1500x360&quot; /&gt;&lt;/a&gt;&lt;/div&gt;
 </code></pre>
 
+<p>Our recommended image size is <strong>1500x360px</strong>.</p>
 <h2 id="-top-bottom-banners-on-a-specific-category">--- Top &amp; bottom banners on a specific category<a class="headerlink" href="#-top-bottom-banners-on-a-specific-category" title="Permanent link">&para;</a></h2>
 <p>Edit the category, in <strong>Description</strong> field, click HTML button to input HTML code:</p>
 <pre><code class="html">&lt;!-- 
@@ -1088,6 +1096,7 @@
 &lt;/div&gt;
 </code></pre>
 
+<p>Our recommended image size is <strong>670x520px</strong>.</p>
 <h2 id="-top-banner-on-all-brands">--- Top banner on all brands<a class="headerlink" href="#-top-banner-on-all-brands" title="Permanent link">&para;</a></h2>
 <ul>
 <li>In <strong>Banner Content</strong>, click HTML button to input HTML code:</li>
@@ -1110,7 +1119,7 @@
 </ul>
 <p>Create a new banner in <strong>Marketing</strong> &gt; <strong>Banners</strong>:</p>
 <h3 id="banner-1-on-category-pages">Banner 1 on category pages<a class="headerlink" href="#banner-1-on-category-pages" title="Permanent link">&para;</a></h3>
-<p><img alt="Sidebar banner1" src="../img/sidebar-banner1.jpg" /></p>
+<p><img alt="Sidebar banner1" src="img/sidebar-banner1.jpg" /></p>
 <ul>
 <li><strong>Banner Name</strong>: <code>Sidebar banner on category pages (chiara-sidebar-category-banner1)</code></li>
 <li><strong>Banner Content</strong>: Click on the HTML to edit HTML source.</li>
@@ -1128,8 +1137,9 @@
 <li><strong>Show on Page</strong>: <code>Search Results Page</code></li>
 <li><strong>Location</strong>: <code>Top of Page</code></li>
 </ul>
+<p>Our recommended image size is <strong>302x302px</strong>.</p>
 <h3 id="banner-2-on-category-pages">Banner 2 on category pages<a class="headerlink" href="#banner-2-on-category-pages" title="Permanent link">&para;</a></h3>
-<p><img alt="Sidebar banner2" src="../img/sidebar-banner2.jpg" /></p>
+<p><img alt="Sidebar banner2" src="img/sidebar-banner2.jpg" /></p>
 <ul>
 <li><strong>Banner Name</strong>: <code>Sidebar banner on category pages (chiara-sidebar-category-banner2)</code></li>
 <li><strong>Banner Content</strong>: Click on the HTML to edit HTML source.</li>
@@ -1147,6 +1157,7 @@
 <li><strong>Show on Page</strong>: <code>Search Results Page</code></li>
 <li><strong>Location</strong>: <code>Top of Page</code></li>
 </ul>
+<p>Our recommended image size is <strong>302x500px</strong>.</p>
 <h3 id="banner-1-on-brand-pages">Banner 1 on brand pages<a class="headerlink" href="#banner-1-on-brand-pages" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>Banner Name</strong>: <code>Sidebar banner on brand pages (chiara-sidebar-brand-banner1)</code></li>
@@ -1184,17 +1195,17 @@
 <li><strong>Location</strong>: <code>Top of Page</code></li>
 </ul>
 <h2 id="-new-products-on-sidebar">--- New Products on sidebar<a class="headerlink" href="#-new-products-on-sidebar" title="Permanent link">&para;</a></h2>
-<p><img alt="Sidebar new products" src="../img/sidebar-new-products.png" /></p>
+<p><img alt="Sidebar new products" src="img/sidebar-new-products.png" /></p>
 <p>Configure in <strong>Theme Editor</strong> &gt; <strong>Sidebar</strong>:</p>
 <ul>
 <li><strong>New products</strong>: number of products to display.</li>
 </ul>
 <h2 id="-facebook-likes-chat-box">--- Facebook likes &amp; chat box<a class="headerlink" href="#-facebook-likes-chat-box" title="Permanent link">&para;</a></h2>
-<p><img alt="sidebar facebook" src="../img/sidebar-facebook.png" /></p>
+<p><img alt="sidebar facebook" src="img/sidebar-facebook.png" /></p>
 <p>Configure in <strong>Theme Editor</strong> &gt; <strong>Sidebar</strong>, input your facebook page name in <strong>Facebook page</strong> text box. If your facebook page URL is <code>https://facebook.com/papathemes</code>, input only <code>papathemes</code>. Make sure your Facebook page is public for anyone in order to display on your store.</p>
 <h2 id="product-pages">Product Pages<a class="headerlink" href="#product-pages" title="Permanent link">&para;</a></h2>
 <h2 id="-custom-content-placement">-- Custom content placement<a class="headerlink" href="#-custom-content-placement" title="Permanent link">&para;</a></h2>
-<p><img alt="product page banner placement" src="../img/product-banner-placement.jpg" /></p>
+<p><img alt="product page banner placement" src="img/product-banner-placement.jpg" /></p>
 <h3 id="display-custom-content-on-all-product-pages-under-product-ratings">Display custom content on all product pages under product ratings:<a class="headerlink" href="#display-custom-content-on-all-product-pages-under-product-ratings" title="Permanent link">&para;</a></h3>
 <p>Create a new banner in <strong>Marketing</strong> &gt; <strong>Banners</strong>:</p>
 <p>-- <strong>Banner Content</strong> click HTML button to input HTML code:</p>
@@ -1245,7 +1256,7 @@
 <li><strong>Search pages</strong></li>
 </ul>
 <h2 id="-product-card-color-swatches">--- Product Card &amp; Color Swatches<a class="headerlink" href="#-product-card-color-swatches" title="Permanent link">&para;</a></h2>
-<p><img alt="product card" src="../img/product-card.png" /></p>
+<p><img alt="product card" src="img/product-card.png" /></p>
 <p>Configure how products display on listing in <strong>Theme Editor</strong> &gt; <strong>Products</strong> &gt; <strong>Product cards</strong>:</p>
 <ul>
 <li><strong>Product title color &amp; hover color</strong>.</li>
@@ -1254,7 +1265,7 @@
 <li><strong>Show color swatches</strong>: To display color swatches for product options with type "Swatches".</li>
 </ul>
 <h2 id="-bottom-bar-on-mobile">--- Bottom bar on mobile<a class="headerlink" href="#-bottom-bar-on-mobile" title="Permanent link">&para;</a></h2>
-<p><img alt="mobile bottom bar" src="../img/mobile-bottom-bar.png" /></p>
+<p><img alt="mobile bottom bar" src="img/mobile-bottom-bar.png" /></p>
 <p>Configure this bottom bar in <strong>Theme Editor</strong> &gt; <strong>Footer</strong> &gt; <strong>Bottom bar on mobile</strong>:</p>
 <ul>
 <li><strong>Background color</strong></li>
@@ -1265,7 +1276,7 @@
 <li><strong>Show Shop by Brands in Store panel</strong>: Display "Show by Brands" link in the menu panel when lick on the Store icon.</li>
 </ul>
 <h3 id="contact-info">Contact info<a class="headerlink" href="#contact-info" title="Permanent link">&para;</a></h3>
-<p><img alt="mobile contact info" src="../img/mobile-contact-info.png" /></p>
+<p><img alt="mobile contact info" src="img/mobile-contact-info.png" /></p>
 <p>Configure contact info to display when click the Contact icon in <strong>Theme Editor</strong> &gt; <strong>Storewide</strong> &gt; <strong>Contact info</strong>:</p>
 <ul>
 <li><strong>Email</strong></li>
@@ -1281,10 +1292,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../faqs/index.html" class="btn btn-neutral float-right" title="FAQs">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="faqs.html" class="btn btn-neutral float-right" title="FAQs">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../quickstart/index.html" class="btn btn-neutral" title="Quick Start Guide"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="quickstart.html" class="btn btn-neutral" title="Quick Start Guide"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -1310,25 +1321,24 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../quickstart/index.html" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="quickstart.html" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../faqs/index.html" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="faqs.html" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
-    <script>var base_url = '..';</script>
-    <script src="../js/theme.js"></script>
-      <script src="https://use.fontawesome.com/540034d990.js"></script>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-highlightjs/0.7.1/angular-highlightjs.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js"></script>
-      <script src="../js/main.js"></script>
-      <script src="../search/require.js"></script>
-      <script src="../search/search.js"></script>
+    <script>var base_url = '.';</script>
+    <script src="js/theme.js" defer></script>
+      <script src="https://use.fontawesome.com/540034d990.js" defer></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" defer></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" defer></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js" defer></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" defer></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-highlightjs/0.7.1/angular-highlightjs.js" defer></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" defer></script>
+      <script src="js/main.js" defer></script>
+      <script src="search/main.js" defer></script>
 
 </body>
 </html>

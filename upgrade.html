@@ -7,19 +7,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   
-  <link rel="shortcut icon" href="/img/favicon.ico">
-  <title>BigCommerce Theme Chiara - User Guide</title>
+  <link rel="shortcut icon" href="img/favicon.ico">
+  <title>Upgrade Theme - BigCommerce Theme Chiara - User Guide</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
-  <link rel="stylesheet" href="/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="/css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="css/theme_extra.css" type="text/css" />
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet">
-  <link href="/css/style.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
   
-  <script src="/js/jquery-2.1.1.min.js" defer></script>
-  <script src="/js/modernizr-2.8.3.min.js" defer></script>
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Upgrade Theme";
+    var mkdocs_page_input_path = "upgrade.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="js/jquery-2.1.1.min.js" defer></script>
+  <script src="js/modernizr-2.8.3.min.js" defer></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script> 
   
@@ -42,9 +49,9 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
-        <a href="/index.html" class="icon icon-home"> BigCommerce Theme Chiara - User Guide</a>
+        <a href="index.html" class="icon icon-home"> BigCommerce Theme Chiara - User Guide</a>
         <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="//search.html" method="get">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
   </form>
 </div>
@@ -56,37 +63,37 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="/index.html">Home</a>
+    <a class="" href="index.html">Home</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="/installation.html">Install the theme</a>
+    <a class="" href="installation.html">Install the theme</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="/quickstart.html">Quick Start Guide</a>
+    <a class="" href="quickstart.html">Quick Start Guide</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="/customization.html">Customization</a>
+    <a class="" href="customization.html">Customization</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="/faqs.html">FAQs</a>
+    <a class="" href="faqs.html">FAQs</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="/support.html">Help & Support</a>
+    <a class="" href="support.html">Help & Support</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="/changelog.html">Release Notes</a>
+    <a class="" href="changelog.html">Release Notes</a>
 	    </li>
           
         </ul>
@@ -99,7 +106,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="/index.html">BigCommerce Theme Chiara - User Guide</a>
+        <a href="index.html">BigCommerce Theme Chiara - User Guide</a>
       </nav>
 
       
@@ -107,9 +114,11 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="/index.html">Docs</a> &raquo;</li>
+    <li><a href="index.html">Docs</a> &raquo;</li>
     
+      
     
+    <li>Upgrade Theme</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -119,12 +128,18 @@
           <div role="main">
             <div class="section">
               
-
-  <h1 id="404-page-not-found">404</h1>
-
-  <p><strong>Page not found</strong></p>
-
-
+                <h1 id="upgrade-theme">Upgrade Theme<a class="headerlink" href="#upgrade-theme" title="Permanent link">&para;</a></h1>
+<p>Automatic upgrade theme won't work if you have edited theme files.</p>
+<p>To manually upgrade the theme, please follow the steps below:</p>
+<ol>
+<li>Upgrade the original theme but DO NOT activate it.</li>
+<li>Click <strong>Customize</strong> the original theme to go to Theme Editor. Reconfigure the theme style and settings.</li>
+<li>Make a new copy of the original theme.</li>
+<li>Edit theme files of the new copied theme to re-add your custom work.</li>
+<li>Test the new copied theme in the preview panel.</li>
+<li>Activate the new copied theme if no error.</li>
+</ol>
+              
             </div>
           </div>
           <footer>
@@ -154,8 +169,8 @@
       
     </span>
 </div>
-    <script>var base_url = '/';</script>
-    <script src="/js/theme.js" defer></script>
+    <script>var base_url = '.';</script>
+    <script src="js/theme.js" defer></script>
       <script src="https://use.fontawesome.com/540034d990.js" defer></script>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" defer></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" defer></script>
@@ -163,8 +178,8 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" defer></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-highlightjs/0.7.1/angular-highlightjs.js" defer></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" defer></script>
-      <script src="/js/main.js" defer></script>
-      <script src="/search/main.js" defer></script>
+      <script src="js/main.js" defer></script>
+      <script src="search/main.js" defer></script>
 
 </body>
 </html>

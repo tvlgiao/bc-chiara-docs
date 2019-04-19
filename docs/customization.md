@@ -987,7 +987,18 @@ To display custom banners on category pages or brand pages, create a new banner 
 <div data-remote-banner-position="chiara-category-banner3"><a href="#"><img title="1500x360" src="//placehold.it/1500x360" alt="1500x360" /></a></div>
 ```
 
+- **Show on Page**: choose `Search Results Page` - **IMPORTANT**.
+- **Location**: `Top of Page`.
+
+
 Our recommended image size is **1500x360px**.
+
+
+Watch this video for a step by step tutorial:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/he297sHxfKA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
 
 ## --- Top & bottom banners on a specific category
 

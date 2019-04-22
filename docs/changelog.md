@@ -1,5 +1,11 @@
 # Release Notes
 
+## 1.4.1 (2019-04-22)
+- Hide card swatches if request error
+- Fix related product price changed when no Also Bought
+- Load async for Instagram script
+- Fix duplicate price on product page when no option
+
 ## 1.4.0 (2019-03-25)
 - Add extra CSS class to productView-tab
 - Fix top banner text color setting

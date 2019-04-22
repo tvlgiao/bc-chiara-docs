@@ -794,6 +794,11 @@ Or use button below to generate HTML code with your custom content:
 
 Our recommended image size is **496x431px** for the first row and **747x430px** for the second row.
 
+Check out the video step by step how to create these banners:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/m8wSJxzYJJI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
 
 ### Fullwidth Banner
 
@@ -878,7 +883,9 @@ Configure categories list in **Theme Editor** > **Homepage** > **Categories List
 * **Show on mobile?**
 
 
+Check out this video how to display the images:
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/FQ06yPF5qwY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
 

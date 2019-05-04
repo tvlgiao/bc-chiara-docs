@@ -1,5 +1,23 @@
 # Release Notes
 
+## 1.4.2 (2019-05-04)
+- Fix bug cannot change the quantity on the cart page
+- Fix issue server error when requesting 11th banner of category list on homepage.
+- Align center images when customers upload a small image
+- Add setting to show different image on hover product card
+- Add schema markup for MPN, GTIN
+- Fix Google schema for product page.
+- Add option to show properties below price or in tab.
+- Lazy load image for category list on homepage.
+- Declare window.chiarajQuery globally.
+- Allow to show more than 10 images of the category list on homepage.
+- Update footer columns.
+- Show 6 thumbnails on product page.
+- Allow to restore default image after select product option.
+- Fix product card buttons overlapped by product image.
+- Fix compare issue when change page or filter.
+- Hide a custom field has special character "__" on compare table.
+
 ## 1.4.1 (2019-04-22)
 - Hide card swatches if request error
 - Fix related product price changed when no Also Bought

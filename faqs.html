@@ -96,6 +96,8 @@
         
             <li><a class="toctree-l3" href="#hide-the-home-link-on-the-main-menu">Hide the "Home" link on the main menu</a></li>
         
+            <li><a class="toctree-l3" href="#fix-products-bought-together-stop-working-after-bigcommerce-api-changed">Fix Products Bought Together stop working after BigCommerce API changed</a></li>
+        
         </ul>
     
 
@@ -176,6 +178,33 @@
 #navPages-main &gt; .navPages-item:first-child { display: none }
 &lt;/style&gt;
 </code></pre>
+
+<h2 id="fix-products-bought-together-stop-working-after-bigcommerce-api-changed">Fix Products Bought Together stop working after BigCommerce API changed<a class="headerlink" href="#fix-products-bought-together-stop-working-after-bigcommerce-api-changed" title="Permanent link">&para;</a></h2>
+<p>If you suddenly get a problem that the products also bought together stop working on your product pages. 
+That is because BigCommerce has changed the content type of product ajax request.</p>
+<p>To workaround this issue while waiting for the fix from BigCommerce or the theme update, please follow
+this instruction.</p>
+<p>Login to your store admin panel, go to <strong>Storefront</strong> &gt; <strong>Script Manager</strong> &gt; click on the button <strong>Create a Script</strong>.</p>
+<p>Input:</p>
+<ul>
+<li><strong>Name of Script</strong>: <code>Fix Also Bought Products stop working after BC API changed</code> or whatever.</li>
+<li><strong>Location of page</strong>: <code>Footer</code></li>
+<li><strong>Select pages where script will be added</strong>: <code>Store pages</code>.</li>
+<li><strong>Script type</strong>: <code>Script</code>.</li>
+<li><strong>Script contents</strong>:</li>
+</ul>
+<pre><code class="html">&lt;script&gt;
+window.chiarajQuery(document).ajaxSend((event, xhr, settings) =&gt; {
+    if (settings.url.match(/\/products\.php/)) {
+        xhr.setRequestHeader('x-requested-with', '');
+    }
+});
+&lt;/script&gt;
+</code></pre>
+
+<p>Then click <strong>Save</strong> button.</p>
+<p>Your script should look like this screenshot:</p>
+<p><img alt="Fix products also bought together" src="img/fix-products-bought-together-api-changed.png" /></p>
               
             </div>
           </div>

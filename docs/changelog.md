@@ -1,5 +1,44 @@
 # Release Notes
 
+<div class="alert alert-info h4">
+    If you encounter any issues, please <a href="https://papathemes.com/contact-us/">report to us</a>. You can always <a href="https://support.bigcommerce.com/s/article/Marketplace-Theme-Updates#restore">restore the ealier theme version</a>, check this <a href="https://youtu.be/eZdmudDUrQE">video</a> for instruction.
+</div>
+
+## 1.5.0 (2019-06-24)
+- Fix mobile layout issue when show header/footer on checkout page.
+- Add banner position for brand page.
+- Fix blurry modal.
+- Fix footer column break on Safari.
+- Add support of the brand carousel speed.
+- Enlarge logo on sticky header.
+- Fix GeoTrust logo alignment.
+- Optimize theme options schema.json.
+- Show My Account & Logout link when customer logged in.
+- Add the optimized checkout translation to en.json
+- Show release date on product page.
+- Fix data tags.
+- Fix blog break on Edge.
+- Fix mega menu issue on Safari.
+- Fix Google structured data error.
+- Fix unavailable option strike-through style.
+- Fix brand logo size.
+- Add support displaying sub pages on the navigation.
+- Add class 'productView-info-bulkPricing'.
+- Update carousel font size on mobile.
+- Fix share url and FB like button.
+- Hide Filter button when not available.
+- Fix Sort button on search page.
+- Add option to show category image as thumbnail.
+- Add option top/bottom/hamburger for the mobile menu bar.
+- Optimize performance and Google Page Speed.
+- Add Lazyload for instagram photos.
+- Improve lazyload of category list section's images
+- Fix extra space of form field on also bought products.
+- Fix review link align & increase width of user panel
+- Fix footer newsletter form space
+- Add support window.chiaraSettings
+- Add support logo position top
+
 ## 1.4.2 (2019-05-04)
 - Fix bug cannot change the quantity on the cart page
 - Fix issue server error when requesting 11th banner of category list on homepage.

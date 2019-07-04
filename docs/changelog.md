@@ -4,6 +4,10 @@
     If you encounter any issues, please <a href="https://papathemes.com/contact-us/">report to us</a>. You can always <a href="https://support.bigcommerce.com/s/article/Marketplace-Theme-Updates#restore">restore the ealier theme version</a>, check this <a href="https://youtu.be/eZdmudDUrQE">video</a> for instruction.
 </div>
 
+## 1.5.1 (2019-06-25)
+- Hide the parent menu in dropdown list on hover mode
+- Fix missing desktop more panel when enabling hamburger menu
+
 ## 1.5.0 (2019-06-24)
 - Fix mobile layout issue when show header/footer on checkout page.
 - Add banner position for brand page.

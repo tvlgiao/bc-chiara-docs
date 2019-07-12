@@ -1,9 +1,10 @@
 site_name: "BigCommerce Theme Chiara - User Guide"
 nav:
 - Home: index.md
-- Install the theme: installation.md
+- Theme Installation: installation.md
 - Quick Start Guide: quickstart.md
 - Customization: customization.md
+- Update Guide: update.md
 - FAQs: faqs.md
 - Help & Support: support.md
 - Release Notes: changelog.md

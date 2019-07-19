@@ -8,6 +8,13 @@
 
 If you're updating your theme to 1.5.x version, please check the [update note](update.md#additional-note-for-updating-14-to-15).
 
+## 1.5.2 (2019-07-19)
+- Fix categories menu error on mobile when not using mega menu.
+- Fix product image not center on product card.
+- Add custom CSS class to the top header links.
+- Fix Price schema for Google structured data.
+- Fix Add to Cart button overlap the mega menu.
+
 ## 1.5.1 (2019-06-25)
 - Hide the parent menu in dropdown list on hover mode
 - Fix missing desktop more panel when enabling hamburger menu

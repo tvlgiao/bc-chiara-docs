@@ -1228,6 +1228,13 @@ Edit a product, in **Description** field, click HTML button to input HTML code:
 </div>
 ```
 
+## --- Add to Cart & Buy Now button
+
+Theme allows to display **Add to Cart** or **Buy Now** button or both. Configuring this option in **Theme Editor** > **Storewide** > **Purchase Options** > **Show Add to Cart & Buy Now** as the screenshot below:
+
+![Configure Add to Cart & Buy Now button](img/config-add-to-cart-buy-now.png)
+
+
 ## --- Product page settings
 
 Configure settings for product pages in **Theme Editor** > **Products**.

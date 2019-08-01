@@ -1,7 +1,5 @@
 # Chiara BigCommerce Theme Documentation
 
-Theme Version: 1.5.1
-
 Theme designed and developed by [Papathemes](https://papathemes.com) 
 
 ## Documentation Contents

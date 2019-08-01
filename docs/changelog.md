@@ -8,6 +8,11 @@
 
 If you're updating your theme to 1.5.x version, please check the [update note](update.md#additional-note-for-updating-14-to-15).
 
+## 1.5.3 (2019-08-01)
+- Fix [THEME-1833] Chiara v1.5.2 - Multi-line text field will not allow creation of new line.
+- Show inline product options by default on PDP.
+- Add new feature to support Buy Now button.
+
 ## 1.5.2 (2019-07-19)
 - Fix categories menu error on mobile when not using mega menu.
 - Fix product image not center on product card.

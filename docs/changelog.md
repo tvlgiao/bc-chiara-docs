@@ -8,6 +8,10 @@
 
 If you're updating your theme to 1.5.x version, please check the [update note](update.md#additional-note-for-updating-14-to-15).
 
+## 1.5.4 (2019-09-06)
+- Fix dropdown cart overflowed by the main menu when site logo set top
+- Update jQuery to 3.4.1 [#1502](https://github.com/bigcommerce/cornerstone/pull/1502)
+
 ## 1.5.3 (2019-08-01)
 - Fix [THEME-1833] Chiara v1.5.2 - Multi-line text field will not allow creation of new line.
 - Show inline product options by default on PDP.

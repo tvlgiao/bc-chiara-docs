@@ -107,6 +107,8 @@
         
             <li><a class="toctree-l3" href="#collapse-product-description-tab-by-default-on-product-pages">Collapse product description tab by default on product pages</a></li>
         
+            <li><a class="toctree-l3" href="#make-responsive-top-banner">Make responsive top banner</a></li>
+        
         </ul>
     
 
@@ -235,6 +237,63 @@ window.chiarajQuery(document).ajaxSend((event, xhr, settings) =&gt; {
 })(window.chiarajQuery || window.$);
 &lt;/script&gt;
 </code></pre>
+
+<h2 id="make-responsive-top-banner">Make responsive top banner<a class="headerlink" href="#make-responsive-top-banner" title="Permanent link">&para;</a></h2>
+<p><img alt="responsive top banner" src="img/responsive-top-banner.png" /></p>
+<p>Add the custom CSS below to <strong>Storefront</strong> &gt; <strong>Footer Scripts</strong> or add to file <code>assets/scss/_chiara-custom.scss</code> if you prefer to edit theme files:</p>
+<pre><code class="html">&lt;style&gt;
+.list-unstyled { display: block; list-style: none; margin: 0; padding: 0; }
+.font-size-larger { font-size: larger }
+
+@media (min-width: 801px) {
+    .flex-desktop { display: flex }
+    .flex-desktop &gt; * { flex: 1 }
+    .display-inline-desktop { display: inline }
+    .ml-2-desktop { margin-left: 2rem }
+}
+
+@media (max-width: 550px) {
+    .hide-mobile { display: none }
+}
+
+@media (min-width: 551px) and (max-width: 800px) {
+    .hide-tablet { display: none }
+}
+&lt;/style&gt;
+</code></pre>
+
+<h3 id="banner-1">Banner 1<a class="headerlink" href="#banner-1" title="Permanent link">&para;</a></h3>
+<p>Create a new banner, open HTML source editor and add the code below:</p>
+<pre><code class="html">&lt;ul class=&quot;list-unstyled flex-desktop&quot;&gt;
+    &lt;li class=&quot;hide-mobile hide-tablet&quot;&gt;EAST COAST STORES NOW OPEN&lt;/li&gt;
+    &lt;li&gt;FREE SHIPPING WITH ORDERS OVER $100&lt;/li&gt;
+    &lt;li class=&quot;hide-mobile hide-tablet&quot;&gt;FREE RETURNS ON ALL ORDERS&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+
+<p>The banner will shows 3 column on desktop. On mobile and tablet, only "FREE SHIPPING WITH ORDERS OVER $100" is displayed.</p>
+<p>CSS class explanation:</p>
+<ul>
+<li><code>list-unstyled</code>: use to reset the UL element.</li>
+<li><code>flex-desktop</code>: allow UL show as flex layout (columns) on desktop.</li>
+<li><code>hide-mobile</code>: hide the element on mobile.</li>
+<li><code>hide-mobile</code>: hide the element on tablet.</li>
+</ul>
+<h3 id="banner-2">Banner 2<a class="headerlink" href="#banner-2" title="Permanent link">&para;</a></h3>
+<p>Create a new banner, open HTML source editor and add the code below:</p>
+<pre><code class="html">&lt;div&gt;
+    &lt;p class=&quot;display-inline-desktop&quot;&gt;One Day Only! Online Only&lt;/p&gt;
+    &lt;p class=&quot;display-inline-desktop font-size-larger ml-2-desktop&quot;&gt;&lt;strong&gt;HAPPY FRIDAY THE 13TH! · TAKE 13% OFF YOUR ENTIRE ORDER&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p>The banner will shows 2 rows on mobile and tablet, but 1 row on desktop. Text "HAPPY FRIDAY THE 13TH! · TAKE 13% OFF YOUR ENTIRE ORDER" will have larger font size.</p>
+<p>CSS class explanation:</p>
+<ul>
+<li><code>display-inline-desktop</code>: display inline (same row) on desktop.</li>
+<li><code>font-size-larger</code>: allow font size larger.</li>
+<li><code>ml-2-desktop</code>: have a margin left 2rem on desktop.</li>
+</ul>
               
             </div>
           </div>

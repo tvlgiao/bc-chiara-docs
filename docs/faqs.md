@@ -79,3 +79,35 @@ Your script should look like this screenshot:
 
 ![Fix products also bought together](img/fix-products-bought-together-api-changed.png)
 
+
+
+## Add custom text on the orders page
+
+![add custom text on the orders page](img/add-custom-text-on-orders-page.png)
+
+Add the code below to **Storefront** > **Script Manager**:
+
+```html
+<script>
+(function($) {
+    if ($('body').is('.page-type-account_orderstatus, .papaSupermarket-pageType--account-orderstatus')) {
+        $('.account').before('<p style="font-size:large;text-align:center">Click on the Order # to go to your download links</p>');
+    }
+})(window.jQuerySupermarket || window.chiarajQuery || window.jQuery);
+</script>
+```
+
+Choose location = **Footer**.
+
+
+## Collapse product description tab by default on product pages
+
+Add the code below to **Storefront** > **Script Manager** at Footer position:
+
+```html
+<script>
+(function($) {
+    $('.productView-tab--description.is-active, .productView-desc.is-active').removeClass('is-active');
+})(window.chiarajQuery || window.$);
+</script>
+```

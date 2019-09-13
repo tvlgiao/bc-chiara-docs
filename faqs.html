@@ -103,6 +103,10 @@
         
             <li><a class="toctree-l3" href="#fix-products-bought-together-stop-working-after-bigcommerce-api-changed">Fix Products Bought Together stop working after BigCommerce API changed</a></li>
         
+            <li><a class="toctree-l3" href="#add-custom-text-on-the-orders-page">Add custom text on the orders page</a></li>
+        
+            <li><a class="toctree-l3" href="#collapse-product-description-tab-by-default-on-product-pages">Collapse product description tab by default on product pages</a></li>
+        
         </ul>
     
 
@@ -210,6 +214,27 @@ window.chiarajQuery(document).ajaxSend((event, xhr, settings) =&gt; {
 <p>Then click <strong>Save</strong> button.</p>
 <p>Your script should look like this screenshot:</p>
 <p><img alt="Fix products also bought together" src="img/fix-products-bought-together-api-changed.png" /></p>
+<h2 id="add-custom-text-on-the-orders-page">Add custom text on the orders page<a class="headerlink" href="#add-custom-text-on-the-orders-page" title="Permanent link">&para;</a></h2>
+<p><img alt="add custom text on the orders page" src="img/add-custom-text-on-orders-page.png" /></p>
+<p>Add the code below to <strong>Storefront</strong> &gt; <strong>Script Manager</strong>:</p>
+<pre><code class="html">&lt;script&gt;
+(function($) {
+    if ($('body').is('.page-type-account_orderstatus, .papaSupermarket-pageType--account-orderstatus')) {
+        $('.account').before('&lt;p style=&quot;font-size:large;text-align:center&quot;&gt;Click on the Order # to go to your download links&lt;/p&gt;');
+    }
+})(window.jQuerySupermarket || window.chiarajQuery || window.jQuery);
+&lt;/script&gt;
+</code></pre>
+
+<p>Choose location = <strong>Footer</strong>.</p>
+<h2 id="collapse-product-description-tab-by-default-on-product-pages">Collapse product description tab by default on product pages<a class="headerlink" href="#collapse-product-description-tab-by-default-on-product-pages" title="Permanent link">&para;</a></h2>
+<p>Add the code below to <strong>Storefront</strong> &gt; <strong>Script Manager</strong> at Footer position:</p>
+<pre><code class="html">&lt;script&gt;
+(function($) {
+    $('.productView-tab--description.is-active, .productView-desc.is-active').removeClass('is-active');
+})(window.chiarajQuery || window.$);
+&lt;/script&gt;
+</code></pre>
               
             </div>
           </div>

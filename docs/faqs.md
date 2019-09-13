@@ -111,3 +111,77 @@ Add the code below to **Storefront** > **Script Manager** at Footer position:
 })(window.chiarajQuery || window.$);
 </script>
 ```
+
+
+## Make responsive top banner
+
+![responsive top banner](img/responsive-top-banner.png)
+
+Add the custom CSS below to **Storefront** > **Footer Scripts** or add to file `assets/scss/_chiara-custom.scss` if you prefer to edit theme files:
+
+```html
+<style>
+.list-unstyled { display: block; list-style: none; margin: 0; padding: 0; }
+.font-size-larger { font-size: larger }
+
+@media (min-width: 801px) {
+    .flex-desktop { display: flex }
+    .flex-desktop > * { flex: 1 }
+    .display-inline-desktop { display: inline }
+    .ml-2-desktop { margin-left: 2rem }
+}
+
+@media (max-width: 550px) {
+    .hide-mobile { display: none }
+}
+
+@media (min-width: 551px) and (max-width: 800px) {
+    .hide-tablet { display: none }
+}
+</style>
+```
+
+
+### Banner 1
+
+Create a new banner, open HTML source editor and add the code below:
+
+```html
+<ul class="list-unstyled flex-desktop">
+    <li class="hide-mobile hide-tablet">EAST COAST STORES NOW OPEN</li>
+    <li>FREE SHIPPING WITH ORDERS OVER $100</li>
+    <li class="hide-mobile hide-tablet">FREE RETURNS ON ALL ORDERS</li>
+</ul>
+```
+
+The banner will shows 3 column on desktop. On mobile and tablet, only "FREE SHIPPING WITH ORDERS OVER $100" is displayed.
+
+CSS class explanation:
+
+- `list-unstyled`: use to reset the UL element.
+- `flex-desktop`: allow UL show as flex layout (columns) on desktop.
+- `hide-mobile`: hide the element on mobile.
+- `hide-mobile`: hide the element on tablet.
+
+
+### Banner 2
+
+Create a new banner, open HTML source editor and add the code below:
+
+```html
+<div>
+    <p class="display-inline-desktop">One Day Only! Online Only</p>
+    <p class="display-inline-desktop font-size-larger ml-2-desktop"><strong>HAPPY FRIDAY THE 13TH! · TAKE 13% OFF YOUR ENTIRE ORDER</strong></p>
+</div>
+```
+The banner will shows 2 rows on mobile and tablet, but 1 row on desktop. Text "HAPPY FRIDAY THE 13TH! · TAKE 13% OFF YOUR ENTIRE ORDER" will have larger font size.
+
+CSS class explanation:
+
+- `display-inline-desktop`: display inline (same row) on desktop.
+- `font-size-larger`: allow font size larger.
+- `ml-2-desktop`: have a margin left 2rem on desktop.
+
+
+
+

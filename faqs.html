@@ -109,6 +109,8 @@
         
             <li><a class="toctree-l3" href="#make-responsive-top-banner">Make responsive top banner</a></li>
         
+            <li><a class="toctree-l3" href="#show-all-the-main-navigations-items-without-icon">Show all the main navigation's items without (...) icon</a></li>
+        
         </ul>
     
 
@@ -294,6 +296,13 @@ window.chiarajQuery(document).ajaxSend((event, xhr, settings) =&gt; {
 <li><code>font-size-larger</code>: allow font size larger.</li>
 <li><code>ml-2-desktop</code>: have a margin left 2rem on desktop.</li>
 </ul>
+<h2 id="show-all-the-main-navigations-items-without-icon">Show all the main navigation's items without (...) icon<a class="headerlink" href="#show-all-the-main-navigations-items-without-icon" title="Permanent link">&para;</a></h2>
+<p>Add the custom code below to Storefront &gt; Script Manager, choose <strong>Page</strong> = <code>All Pages</code> and <strong>Location</strong> = <code>Footer</code>:</p>
+<pre><code class="html">&lt;script&gt;
+if (!window.chiaraSettings) window.chiaraSettings = {};
+window.chiaraSettings.disableAutoSizeNavPages = true;
+&lt;/script&gt;
+</code></pre>
               
             </div>
           </div>

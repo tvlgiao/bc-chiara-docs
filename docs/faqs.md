@@ -184,4 +184,14 @@ CSS class explanation:
 
 
 
+## Show all the main navigation's items without (...) icon
+
+Add the custom code below to Storefront > Script Manager, choose **Page** = `All Pages` and **Location** = `Footer`:
+
+```html
+<script>
+if (!window.chiaraSettings) window.chiaraSettings = {};
+window.chiaraSettings.disableAutoSizeNavPages = true;
+</script>
+```
 

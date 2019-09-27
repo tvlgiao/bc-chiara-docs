@@ -186,7 +186,7 @@ CSS class explanation:
 
 ## Show all the main navigation's items without (...) icon
 
-Add the custom code below to Storefront > Script Manager, choose **Page** = `All Pages` and **Location** = `Footer`:
+Add the custom code below to **Storefront** > **Script Manager**, choose **Page** = `All Pages` and **Location** = `Footer`:
 
 ```html
 <script>
@@ -195,3 +195,19 @@ window.chiaraSettings.disableAutoSizeNavPages = true;
 </script>
 ```
 
+
+
+## Move product properties to show before Add to Cart button on PDP
+
+![move product properties position](img/move-product-properties-position.png)
+
+Add the custom code below to **Storefront** > **Script Manager**, choose **Page** = `All Storefront Pages` and **Location** = `Footer`:
+
+```html
+<script>
+(function($) {
+    var $el = $('.productView-info--desktopOnly').css('margin-top', '1rem');
+    $('.productView-options-content .form-action-group').before($el);
+})(window.chiarajQuery || window.$);
+</script>
+```

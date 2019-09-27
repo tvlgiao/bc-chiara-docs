@@ -111,6 +111,8 @@
         
             <li><a class="toctree-l3" href="#show-all-the-main-navigations-items-without-icon">Show all the main navigation's items without (...) icon</a></li>
         
+            <li><a class="toctree-l3" href="#move-product-properties-to-show-before-add-to-cart-button-on-pdp">Move product properties to show before Add to Cart button on PDP</a></li>
+        
         </ul>
     
 
@@ -297,10 +299,21 @@ window.chiarajQuery(document).ajaxSend((event, xhr, settings) =&gt; {
 <li><code>ml-2-desktop</code>: have a margin left 2rem on desktop.</li>
 </ul>
 <h2 id="show-all-the-main-navigations-items-without-icon">Show all the main navigation's items without (...) icon<a class="headerlink" href="#show-all-the-main-navigations-items-without-icon" title="Permanent link">&para;</a></h2>
-<p>Add the custom code below to Storefront &gt; Script Manager, choose <strong>Page</strong> = <code>All Pages</code> and <strong>Location</strong> = <code>Footer</code>:</p>
+<p>Add the custom code below to <strong>Storefront</strong> &gt; <strong>Script Manager</strong>, choose <strong>Page</strong> = <code>All Pages</code> and <strong>Location</strong> = <code>Footer</code>:</p>
 <pre><code class="html">&lt;script&gt;
 if (!window.chiaraSettings) window.chiaraSettings = {};
 window.chiaraSettings.disableAutoSizeNavPages = true;
+&lt;/script&gt;
+</code></pre>
+
+<h2 id="move-product-properties-to-show-before-add-to-cart-button-on-pdp">Move product properties to show before Add to Cart button on PDP<a class="headerlink" href="#move-product-properties-to-show-before-add-to-cart-button-on-pdp" title="Permanent link">&para;</a></h2>
+<p><img alt="move product properties position" src="img/move-product-properties-position.png" /></p>
+<p>Add the custom code below to <strong>Storefront</strong> &gt; <strong>Script Manager</strong>, choose <strong>Page</strong> = <code>All Storefront Pages</code> and <strong>Location</strong> = <code>Footer</code>:</p>
+<pre><code class="html">&lt;script&gt;
+(function($) {
+    var $el = $('.productView-info--desktopOnly').css('margin-top', '1rem');
+    $('.productView-options-content .form-action-group').before($el);
+})(window.chiarajQuery || window.$);
 &lt;/script&gt;
 </code></pre>
               

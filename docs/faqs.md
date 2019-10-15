@@ -228,3 +228,12 @@ Insert the code below to **Storefront** > **Footer Scripts**:
 </style>
 ```
 
+Add item units behind prices (i.e $19.95 lb)
+
+Yes, it is possible. Simply add the custom code below to **Storefront** > **Footer Scripts**:
+
+```html
+<style>
+.price:after { content: ' lb'; }
+</style>
+```

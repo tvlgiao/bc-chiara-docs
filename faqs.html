@@ -329,6 +329,13 @@ window.chiaraSettings.disableAutoSizeNavPages = true;
 }
 &lt;/style&gt;
 </code></pre>
+
+<p>Add item units behind prices (i.e $19.95 lb)</p>
+<p>Yes, it is possible. Simply add the custom code below to <strong>Storefront</strong> &gt; <strong>Footer Scripts</strong>:</p>
+<pre><code class="html">&lt;style&gt;
+.price:after { content: ' lb'; }
+&lt;/style&gt;
+</code></pre>
               
             </div>
           </div>

@@ -228,7 +228,7 @@ Insert the code below to **Storefront** > **Footer Scripts**:
 </style>
 ```
 
-Add item units behind prices (i.e $19.95 lb)
+## Add item units behind prices (i.e $19.95 lb)
 
 Yes, it is possible. Simply add the custom code below to **Storefront** > **Footer Scripts**:
 
@@ -236,4 +236,54 @@ Yes, it is possible. Simply add the custom code below to **Storefront** > **Foot
 <style>
 .price:after { content: ' lb'; }
 </style>
+```
+
+
+## Move Compare button to under Add to Cart button on product card items
+
+Add the custom code below to **Storefront** > **Script Manager**, choose **Page** = `All Storefront Pages` and **Location** = `Footer`:
+
+```html
+<script>
+(function($) {
+    function throttle(callback, wait, immediate = false) {
+      let timeout = null 
+      let initialCall = true
+
+      return function() {
+        const callNow = immediate && initialCall
+        const next = () => {
+          callback.apply(this, arguments)
+          timeout = null
+        }
+
+        if (callNow) { 
+          initialCall = false
+          next()
+        }
+
+        if (!timeout) {
+          timeout = setTimeout(next, wait)
+        }
+      }
+    }
+
+    function main() {
+        $('.card').not('[data-compare-button-moved]').each(function(i, el) {
+            var $card = $(el);
+            var $btn = $card.find('.card-figcaption-body-alt .card-figcaption-button.compare');
+
+            $btn.appendTo($card.find('.card-figcaption-body'))
+                .addClass('button--small')
+                .attr('data-compare-button-moved', true);
+
+            $btn.find('span').removeClass('is-srOnly');
+            $btn.find('.icon').remove();
+
+        });
+    }
+
+    $(window).on('scroll resize load', throttle(main, 300, true));
+})(window.chiarajQuery || window.jQuery);
+</script>
 ```

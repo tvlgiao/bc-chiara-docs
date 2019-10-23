@@ -115,6 +115,10 @@
         
             <li><a class="toctree-l3" href="#show-your-site-logo-on-all-pages-on-mobile">Show your site logo on all pages on mobile</a></li>
         
+            <li><a class="toctree-l3" href="#add-item-units-behind-prices-ie-1995-lb">Add item units behind prices (i.e $19.95 lb)</a></li>
+        
+            <li><a class="toctree-l3" href="#move-compare-button-to-under-add-to-cart-button-on-product-card-items">Move Compare button to under Add to Cart button on product card items</a></li>
+        
         </ul>
     
 
@@ -330,11 +334,57 @@ window.chiaraSettings.disableAutoSizeNavPages = true;
 &lt;/style&gt;
 </code></pre>
 
-<p>Add item units behind prices (i.e $19.95 lb)</p>
+<h2 id="add-item-units-behind-prices-ie-1995-lb">Add item units behind prices (i.e $19.95 lb)<a class="headerlink" href="#add-item-units-behind-prices-ie-1995-lb" title="Permanent link">&para;</a></h2>
 <p>Yes, it is possible. Simply add the custom code below to <strong>Storefront</strong> &gt; <strong>Footer Scripts</strong>:</p>
 <pre><code class="html">&lt;style&gt;
 .price:after { content: ' lb'; }
 &lt;/style&gt;
+</code></pre>
+
+<h2 id="move-compare-button-to-under-add-to-cart-button-on-product-card-items">Move Compare button to under Add to Cart button on product card items<a class="headerlink" href="#move-compare-button-to-under-add-to-cart-button-on-product-card-items" title="Permanent link">&para;</a></h2>
+<p>Add the custom code below to <strong>Storefront</strong> &gt; <strong>Script Manager</strong>, choose <strong>Page</strong> = <code>All Storefront Pages</code> and <strong>Location</strong> = <code>Footer</code>:</p>
+<pre><code class="html">&lt;script&gt;
+(function($) {
+    function throttle(callback, wait, immediate = false) {
+      let timeout = null 
+      let initialCall = true
+
+      return function() {
+        const callNow = immediate &amp;&amp; initialCall
+        const next = () =&gt; {
+          callback.apply(this, arguments)
+          timeout = null
+        }
+
+        if (callNow) { 
+          initialCall = false
+          next()
+        }
+
+        if (!timeout) {
+          timeout = setTimeout(next, wait)
+        }
+      }
+    }
+
+    function main() {
+        $('.card').not('[data-compare-button-moved]').each(function(i, el) {
+            var $card = $(el);
+            var $btn = $card.find('.card-figcaption-body-alt .card-figcaption-button.compare');
+
+            $btn.appendTo($card.find('.card-figcaption-body'))
+                .addClass('button--small')
+                .attr('data-compare-button-moved', true);
+
+            $btn.find('span').removeClass('is-srOnly');
+            $btn.find('.icon').remove();
+
+        });
+    }
+
+    $(window).on('scroll resize load', throttle(main, 300, true));
+})(window.chiarajQuery || window.jQuery);
+&lt;/script&gt;
 </code></pre>
               
             </div>

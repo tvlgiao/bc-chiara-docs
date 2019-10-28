@@ -119,6 +119,8 @@
         
             <li><a class="toctree-l3" href="#move-compare-button-to-under-add-to-cart-button-on-product-card-items">Move Compare button to under Add to Cart button on product card items</a></li>
         
+            <li><a class="toctree-l3" href="#rename-related-products-tab">Rename related products tab</a></li>
+        
         </ul>
     
 
@@ -228,7 +230,13 @@ window.chiarajQuery(document).ajaxSend((event, xhr, settings) =&gt; {
 <p><img alt="Fix products also bought together" src="img/fix-products-bought-together-api-changed.png" /></p>
 <h2 id="add-custom-text-on-the-orders-page">Add custom text on the orders page<a class="headerlink" href="#add-custom-text-on-the-orders-page" title="Permanent link">&para;</a></h2>
 <p><img alt="add custom text on the orders page" src="img/add-custom-text-on-orders-page.png" /></p>
-<p>Add the code below to <strong>Storefront</strong> &gt; <strong>Script Manager</strong>:</p>
+<p>Go to <strong>Storefront</strong> &gt; <strong>Script Manager</strong>, click <strong>Create a Script</strong>, choose:</p>
+<ul>
+<li><strong>Location on page</strong> = <code>Footer</code></li>
+<li><strong>Select pages where script will be added</strong> = <code>All pages</code></li>
+<li><strong>Script type</strong> = <code>Script</code></li>
+</ul>
+<p>Enter the script below to <strong>Scripts contents</strong>: </p>
 <pre><code class="html">&lt;script&gt;
 (function($) {
     if ($('body').is('.page-type-account_orderstatus, .papaSupermarket-pageType--account-orderstatus')) {
@@ -240,7 +248,13 @@ window.chiarajQuery(document).ajaxSend((event, xhr, settings) =&gt; {
 
 <p>Choose location = <strong>Footer</strong>.</p>
 <h2 id="collapse-product-description-tab-by-default-on-product-pages">Collapse product description tab by default on product pages<a class="headerlink" href="#collapse-product-description-tab-by-default-on-product-pages" title="Permanent link">&para;</a></h2>
-<p>Add the code below to <strong>Storefront</strong> &gt; <strong>Script Manager</strong> at Footer position:</p>
+<p>Go to <strong>Storefront</strong> &gt; <strong>Script Manager</strong>, click <strong>Create a Script</strong>, choose:</p>
+<ul>
+<li><strong>Location on page</strong> = <code>Footer</code></li>
+<li><strong>Select pages where script will be added</strong> = <code>Store pages</code></li>
+<li><strong>Script type</strong> = <code>Script</code></li>
+</ul>
+<p>Enter the script below to <strong>Scripts contents</strong>: </p>
 <pre><code class="html">&lt;script&gt;
 (function($) {
     $('.productView-tab--description.is-active, .productView-desc.is-active').removeClass('is-active');
@@ -305,7 +319,13 @@ window.chiarajQuery(document).ajaxSend((event, xhr, settings) =&gt; {
 <li><code>ml-2-desktop</code>: have a margin left 2rem on desktop.</li>
 </ul>
 <h2 id="show-all-the-main-navigations-items-without-icon">Show all the main navigation's items without (...) icon<a class="headerlink" href="#show-all-the-main-navigations-items-without-icon" title="Permanent link">&para;</a></h2>
-<p>Add the custom code below to <strong>Storefront</strong> &gt; <strong>Script Manager</strong>, choose <strong>Page</strong> = <code>All Pages</code> and <strong>Location</strong> = <code>Footer</code>:</p>
+<p>Go to <strong>Storefront</strong> &gt; <strong>Script Manager</strong>, click <strong>Create a Script</strong>, choose:</p>
+<ul>
+<li><strong>Location on page</strong> = <code>Footer</code></li>
+<li><strong>Select pages where script will be added</strong> = <code>All pages</code></li>
+<li><strong>Script type</strong> = <code>Script</code></li>
+</ul>
+<p>Enter the script below to <strong>Scripts contents</strong>: </p>
 <pre><code class="html">&lt;script&gt;
 if (!window.chiaraSettings) window.chiaraSettings = {};
 window.chiaraSettings.disableAutoSizeNavPages = true;
@@ -314,7 +334,13 @@ window.chiaraSettings.disableAutoSizeNavPages = true;
 
 <h2 id="move-product-properties-to-show-before-add-to-cart-button-on-pdp">Move product properties to show before Add to Cart button on PDP<a class="headerlink" href="#move-product-properties-to-show-before-add-to-cart-button-on-pdp" title="Permanent link">&para;</a></h2>
 <p><img alt="move product properties position" src="img/move-product-properties-position.png" /></p>
-<p>Add the custom code below to <strong>Storefront</strong> &gt; <strong>Script Manager</strong>, choose <strong>Page</strong> = <code>All Storefront Pages</code> and <strong>Location</strong> = <code>Footer</code>:</p>
+<p>Go to <strong>Storefront</strong> &gt; <strong>Script Manager</strong>, click <strong>Create a Script</strong>, choose:</p>
+<ul>
+<li><strong>Location on page</strong> = <code>Footer</code></li>
+<li><strong>Select pages where script will be added</strong> = <code>Store pages</code></li>
+<li><strong>Script type</strong> = <code>Script</code></li>
+</ul>
+<p>Enter the script below to <strong>Scripts contents</strong>: </p>
 <pre><code class="html">&lt;script&gt;
 (function($) {
     var $el = $('.productView-info--desktopOnly').css('margin-top', '1rem');
@@ -342,7 +368,13 @@ window.chiaraSettings.disableAutoSizeNavPages = true;
 </code></pre>
 
 <h2 id="move-compare-button-to-under-add-to-cart-button-on-product-card-items">Move Compare button to under Add to Cart button on product card items<a class="headerlink" href="#move-compare-button-to-under-add-to-cart-button-on-product-card-items" title="Permanent link">&para;</a></h2>
-<p>Add the custom code below to <strong>Storefront</strong> &gt; <strong>Script Manager</strong>, choose <strong>Page</strong> = <code>All Storefront Pages</code> and <strong>Location</strong> = <code>Footer</code>:</p>
+<p>Go to <strong>Storefront</strong> &gt; <strong>Script Manager</strong>, click <strong>Create a Script</strong>, choose:</p>
+<ul>
+<li><strong>Location on page</strong> = <code>Footer</code></li>
+<li><strong>Select pages where script will be added</strong> = <code>All pages</code></li>
+<li><strong>Script type</strong> = <code>Script</code></li>
+</ul>
+<p>Enter the script below to <strong>Scripts contents</strong>: </p>
 <pre><code class="html">&lt;script&gt;
 (function($) {
     function throttle(callback, wait, immediate = false) {
@@ -386,6 +418,23 @@ window.chiaraSettings.disableAutoSizeNavPages = true;
 })(window.chiarajQuery || window.jQuery);
 &lt;/script&gt;
 </code></pre>
+
+<h2 id="rename-related-products-tab">Rename related products tab<a class="headerlink" href="#rename-related-products-tab" title="Permanent link">&para;</a></h2>
+<p>Go to <strong>Storefront</strong> &gt; <strong>Script Manager</strong>, click <strong>Create a Script</strong>, choose:</p>
+<ul>
+<li><strong>Location on page</strong> = <code>Footer</code></li>
+<li><strong>Select pages where script will be added</strong> = <code>Store pages</code></li>
+<li><strong>Script type</strong> = <code>Script</code></li>
+</ul>
+<p>Enter the script below to <strong>Scripts contents</strong>: </p>
+<pre><code class="html">&lt;script&gt;
+(function($) {
+    $('.productView-productsList--related .productView-productsList-heading').text('RELATED PRODUCTS TITLE');
+})(window.chiarajQuery || window.jQuery);
+&lt;/script&gt;
+</code></pre>
+
+<p>Replace <code>RELATED PRODUCTS TITLE</code> with your real title.</p>
               
             </div>
           </div>

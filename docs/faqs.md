@@ -85,7 +85,13 @@ Your script should look like this screenshot:
 
 ![add custom text on the orders page](img/add-custom-text-on-orders-page.png)
 
-Add the code below to **Storefront** > **Script Manager**:
+Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
+
+- **Location on page** = `Footer`
+- **Select pages where script will be added** = `All pages`
+- **Script type** = `Script`
+
+Enter the script below to **Scripts contents**: 
 
 ```html
 <script>
@@ -102,7 +108,13 @@ Choose location = **Footer**.
 
 ## Collapse product description tab by default on product pages
 
-Add the code below to **Storefront** > **Script Manager** at Footer position:
+Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
+
+- **Location on page** = `Footer`
+- **Select pages where script will be added** = `Store pages`
+- **Script type** = `Script`
+
+Enter the script below to **Scripts contents**: 
 
 ```html
 <script>
@@ -186,7 +198,13 @@ CSS class explanation:
 
 ## Show all the main navigation's items without (...) icon
 
-Add the custom code below to **Storefront** > **Script Manager**, choose **Page** = `All Pages` and **Location** = `Footer`:
+Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
+
+- **Location on page** = `Footer`
+- **Select pages where script will be added** = `All pages`
+- **Script type** = `Script`
+
+Enter the script below to **Scripts contents**: 
 
 ```html
 <script>
@@ -201,7 +219,13 @@ window.chiaraSettings.disableAutoSizeNavPages = true;
 
 ![move product properties position](img/move-product-properties-position.png)
 
-Add the custom code below to **Storefront** > **Script Manager**, choose **Page** = `All Storefront Pages` and **Location** = `Footer`:
+Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
+
+- **Location on page** = `Footer`
+- **Select pages where script will be added** = `Store pages`
+- **Script type** = `Script`
+
+Enter the script below to **Scripts contents**: 
 
 ```html
 <script>
@@ -241,7 +265,13 @@ Yes, it is possible. Simply add the custom code below to **Storefront** > **Foot
 
 ## Move Compare button to under Add to Cart button on product card items
 
-Add the custom code below to **Storefront** > **Script Manager**, choose **Page** = `All Storefront Pages` and **Location** = `Footer`:
+Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
+
+- **Location on page** = `Footer`
+- **Select pages where script will be added** = `All pages`
+- **Script type** = `Script`
+
+Enter the script below to **Scripts contents**: 
 
 ```html
 <script>
@@ -287,3 +317,26 @@ Add the custom code below to **Storefront** > **Script Manager**, choose **Page*
 })(window.chiarajQuery || window.jQuery);
 </script>
 ```
+
+
+## Rename related products tab
+
+Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
+
+- **Location on page** = `Footer`
+- **Select pages where script will be added** = `Store pages`
+- **Script type** = `Script`
+
+
+Enter the script below to **Scripts contents**: 
+
+```html
+<script>
+(function($) {
+    $('.productView-productsList--related .productView-productsList-heading').text('RELATED PRODUCTS TITLE');
+})(window.chiarajQuery || window.jQuery);
+</script>
+```
+
+Replace `RELATED PRODUCTS TITLE` with your real title.
+

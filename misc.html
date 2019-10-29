@@ -5,10 +5,10 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="None">
+  
   
   <link rel="shortcut icon" href="img/favicon.ico">
-  <title>Home - BigCommerce Theme Chiara - User Guide</title>
+  <title>Misc - BigCommerce Theme Chiara - User Guide</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="css/theme.css" type="text/css" />
@@ -20,8 +20,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Home";
-    var mkdocs_page_input_path = "index.md";
+    var mkdocs_page_name = "Misc";
+    var mkdocs_page_input_path = "misc.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -61,21 +61,9 @@
 	<ul class="current">
 	  
           
-            <li class="toctree-l1 current">
+            <li class="toctree-l1">
 		
-    <a class="current" href="index.html">Home</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l2"><a href="#chiara-bigcommerce-theme-documentation">Chiara BigCommerce Theme Documentation</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l3" href="#documentation-contents">Documentation Contents</a></li>
-        
-        </ul>
-    
-
-    </ul>
+    <a class="" href="index.html">Home</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -135,7 +123,7 @@
     
       
     
-    <li>Home</li>
+    <li>Misc</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -145,28 +133,32 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="chiara-bigcommerce-theme-documentation">Chiara BigCommerce Theme Documentation<a class="headerlink" href="#chiara-bigcommerce-theme-documentation" title="Permanent link">&para;</a></h1>
-<p>Theme designed and developed by <a href="https://papathemes.com">Papathemes</a> </p>
-<h2 id="documentation-contents">Documentation Contents<a class="headerlink" href="#documentation-contents" title="Permanent link">&para;</a></h2>
+                <h1 id="misc">Misc<a class="headerlink" href="#misc" title="Permanent link">&para;</a></h1>
+<h2 id="display-big-sales-section-from-angels-theme">Display Big Sales section from Angels theme<a class="headerlink" href="#display-big-sales-section-from-angels-theme" title="Permanent link">&para;</a></h2>
+<p>You can replace <code>Fullwidth Banner (home-banner2)</code> or any banner by Big Sales section from Angels theme. Edit <code>Fullwidth banner</code>, in <strong>Banner content</strong> editor, click <strong>HTML</strong> button to open <strong>HTML Source Editor</strong>, replace all exist content with the content below:</p>
+<pre><code class="html">&lt;div class=&quot;chiara-section angels-section--cosmeticBigsales&quot; data-local-banner-position=&quot;chiara-home-banner2&quot;&gt;
+    &lt;div class=&quot;angels-cosmeticBigsales wow fadeIn&quot;&gt;
+        &lt;div class=&quot;angels-cosmeticBigsales-inner&quot;&gt;
+            &lt;p class=&quot;angels-cosmeticBigsales-title&quot;&gt;Big Sales&lt;/p&gt;
+            &lt;p class=&quot;angels-cosmeticBigsales-desc&quot;&gt;Donec ullamcorper nulla non metus auctor fringilla. Sed posuere consectetur est at lobortis.&lt;/p&gt;
+            &lt;div class=&quot;angels-cosmeticBigsales-grid&quot; data-products-by-category=&quot;/shop-all/?sort=newest&amp;amp;limit=4&quot; data-template=&quot;angels/sections/cosmetic-bigsales-grid&quot;&gt;
+                &lt;img src=&quot;data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==&quot; alt=&quot;Loading&quot; /&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p>You are freely to edit the heading, short description or product category:</p>
 <ul>
-<li><a href="installation.html">Install the theme</a></li>
-<li><a href="quickstart.html">Quick Start Guide</a></li>
-<li><a href="customization.html">Customization</a></li>
-<li><a href="faqs.html">FAQs</a></li>
-<li><a href="support.html">Help &amp; Support</a></li>
-<li><a href="changelog.html">Release Notes</a></li>
+<li><code>Big Sales</code>: replace by your own heading.</li>
+<li><code>Donec ullamcorper nulla non metus auctor fringilla. Sed posuere consectetur est at lobortis.</code>: replace by your own description.</li>
+<li><code>/shop-all/?sort=newest&amp;amp;limit=4</code> replace by your own category page link. note the url query <code>?sort=newest&amp;amp;limit=4</code> allow you to sort products by newest added date, and limit number of products returned = 4.</li>
 </ul>
               
             </div>
           </div>
           <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="installation.html" class="btn btn-neutral float-right" title="Theme Installation">Next <span class="icon icon-circle-arrow-right"></span></a>
-      
-      
-    </div>
   
 
   <hr/>
@@ -191,8 +183,6 @@
       
       
       
-        <span style="margin-left: 15px"><a href="installation.html" style="color: #fcfcfc">Next &raquo;</a></span>
-      
     </span>
 </div>
     <script>var base_url = '.';</script>
@@ -209,8 +199,3 @@
 
 </body>
 </html>
-
-<!--
-MkDocs version : 1.0.4
-Build Date UTC : 2019-10-29 03:49:00
--->

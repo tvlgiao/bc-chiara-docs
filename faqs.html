@@ -121,6 +121,8 @@
         
             <li><a class="toctree-l3" href="#rename-related-products-tab">Rename related products tab</a></li>
         
+            <li><a class="toctree-l3" href="#rename-the-tabs-on-product-pages">Rename the tabs on product pages</a></li>
+        
         </ul>
     
 
@@ -435,6 +437,24 @@ window.chiaraSettings.disableAutoSizeNavPages = true;
 </code></pre>
 
 <p>Replace <code>RELATED PRODUCTS TITLE</code> with your real title.</p>
+<h2 id="rename-the-tabs-on-product-pages">Rename the tabs on product pages<a class="headerlink" href="#rename-the-tabs-on-product-pages" title="Permanent link">&para;</a></h2>
+<p>Go to <strong>Storefront</strong> &gt; <strong>Script Manager</strong>, click <strong>Create a Script</strong>, choose:</p>
+<ul>
+<li><strong>Location on page</strong> = <code>Footer</code></li>
+<li><strong>Select pages where script will be added</strong> = <code>Store pages</code></li>
+<li><strong>Script type</strong> = <code>Script</code></li>
+</ul>
+<p>Enter the script below to <strong>Scripts contents</strong>: </p>
+<pre><code class="html">&lt;script&gt;
+(function($) {
+    $('.productView-tab--description .productView-tab-title').html('YOUR DESCRIPTION TITLE');
+    $('.productView-tab--properties .productView-tab-title').html('YOUR INFO TITLE');
+    $('.productView-tab--addition .productView-tab-title').html('YOUR FEATURES TITLE');
+})(window.chiarajQuery || window.jQuery);
+&lt;/script&gt;
+</code></pre>
+
+<p>Replace <code>YOUR DESCRIPTION TITLE</code>, <code>YOUR INFO TITLE</code>, <code>YOUR FEATURES TITLE</code> as you wish.</p>
               
             </div>
           </div>

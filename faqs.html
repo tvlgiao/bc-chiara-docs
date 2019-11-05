@@ -123,6 +123,8 @@
         
             <li><a class="toctree-l3" href="#rename-the-tabs-on-product-pages">Rename the tabs on product pages</a></li>
         
+            <li><a class="toctree-l3" href="#tweak-the-checkout-with-paypal-buttons-and-other-additional-buttons-on-the-cart-page">Tweak the checkout with PayPal buttons and other additional buttons on the cart page</a></li>
+        
         </ul>
     
 
@@ -447,14 +449,52 @@ window.chiaraSettings.disableAutoSizeNavPages = true;
 <p>Enter the script below to <strong>Scripts contents</strong>: </p>
 <pre><code class="html">&lt;script&gt;
 (function($) {
-    $('.productView-tab--description .productView-tab-title').html('YOUR DESCRIPTION TITLE');
-    $('.productView-tab--properties .productView-tab-title').html('YOUR INFO TITLE');
-    $('.productView-tab--addition .productView-tab-title').html('YOUR FEATURES TITLE');
+    function update() {
+        $('.productView-tab--desc .productView-tab-title, .productView-desc-heading').html('YOUR DESCRIPTION TITLE');
+        $('.productView-tab--warranty .productView-tab-title, .productView-warranty-heading').html('YOUR WARRANTEY TITLE');
+        $('.productView-tab--properties .productView-tab-title, .productView-properties-heading').html('YOUR INFO TITLE');
+        $('.productView-tab--addition .productView-tab-title, .productView-addition-heading').html('YOUR FEATURES TITLE');
+    }
+
+    $(document).ajaxComplete(function(event, xhr, options) {
+       if (options.headers['stencil-options'].match(/quick-view/)) {
+            setTimeout(update, 500);
+       }
+    });
+    update();
 })(window.chiarajQuery || window.jQuery);
 &lt;/script&gt;
 </code></pre>
 
 <p>Replace <code>YOUR DESCRIPTION TITLE</code>, <code>YOUR INFO TITLE</code>, <code>YOUR FEATURES TITLE</code> as you wish.</p>
+<h2 id="tweak-the-checkout-with-paypal-buttons-and-other-additional-buttons-on-the-cart-page">Tweak the checkout with PayPal buttons and other additional buttons on the cart page<a class="headerlink" href="#tweak-the-checkout-with-paypal-buttons-and-other-additional-buttons-on-the-cart-page" title="Permanent link">&para;</a></h2>
+<p>Add the custom CSS below to <strong>Storefront</strong> &gt; <strong>Footer Scripts</strong>:</p>
+<pre><code class="html">&lt;style&gt;
+@media (max-width: 550px) {
+    .cart-additionalCheckoutButtons { margin-top: 1.5rem }
+    .cart-additionalCheckoutButtons .FloatRight div { float: none; text-align: center }
+    .cart-additionalCheckoutButtons .FloatRight .or-use-label { display: none }
+    .paypal-smart-buttons { margin-top: 0; margin-bottom: 0; }
+}
+
+@media (min-width: 501px) and (max-width: 800px) {
+    .cart-totals { float: none; margin: 0 auto; }
+    .cart-actions { text-align: center }
+    .cart-actions .button { float: none; min-width: 400px }
+    .cart-additionalCheckoutButtons { margin-top: 1.5rem }
+    .cart-additionalCheckoutButtons .CheckoutButton { text-align: center }
+    .cart-additionalCheckoutButtons .FloatRight div { float: none; margin: 0; }
+    .cart-additionalCheckoutButtons .FloatRight .or-use-label { display: none }
+}
+
+@media (min-width: 801px) {
+    .cart-actions .button { min-width: 400px }
+    .paypal-smart-buttons { margin: 0 }
+    .cart-additionalCheckoutButtons { margin-top: 1.5rem }
+    .cart-additionalCheckoutButtons .FloatRight .or-use-label { display: none }
+}
+&lt;/style&gt;
+</code></pre>
               
             </div>
           </div>

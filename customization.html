@@ -1284,6 +1284,30 @@
 <h2 id="-add-to-cart-buy-now-button">--- Add to Cart &amp; Buy Now button<a class="headerlink" href="#-add-to-cart-buy-now-button" title="Permanent link">&para;</a></h2>
 <p>Theme allows to display <strong>Add to Cart</strong> or <strong>Buy Now</strong> button or both. Configuring this option in <strong>Theme Editor</strong> &gt; <strong>Storewide</strong> &gt; <strong>Purchase Options</strong> &gt; <strong>Show Add to Cart &amp; Buy Now</strong> as the screenshot below:</p>
 <p><img alt="Configure Add to Cart &amp; Buy Now button" src="img/config-add-to-cart-buy-now.png" /></p>
+<h3 id="buy-now-button-color">Buy Now button color<a class="headerlink" href="#buy-now-button-color" title="Permanent link">&para;</a></h3>
+<p>Buy Now button color is the primary color. You can change the primary color in <strong>Theme Editor</strong> &gt; <strong>Storewide</strong> &gt; <strong>Primary color</strong>.</p>
+<p>If you want Buy Now button color separately, you can insert the custom CSS to <strong>Storefront</strong> &gt; <strong>Footer Scripts</strong>. Example to change the button to green:</p>
+<pre><code class="html">&lt;style&gt;
+  /* Default state */
+  .button--buyNow,
+  .card-figcaption-body .button--buyNow:not([disabled]) {
+    background-color: green;
+    border-color: green;
+    color: white;
+  }
+
+  /* Hover and click state */
+  .button--buyNow:not([disabled]):focus,
+  .button--buyNow:not([disabled]):hover,
+  .card-figcaption-body .button--buyNow:not([disabled]):focus,
+  .card-figcaption-body .button--buyNow:not([disabled]):hover {
+    background-color: white;
+    border-color: green;
+    color: green;
+  }
+&lt;/style&gt;
+</code></pre>
+
 <h2 id="-product-description">--- Product description<a class="headerlink" href="#-product-description" title="Permanent link">&para;</a></h2>
 <h3 id="display-product-description-in-tab">Display product description in tab<a class="headerlink" href="#display-product-description-in-tab" title="Permanent link">&para;</a></h3>
 <p><img alt="display-description-in-tab" src="img/display-description-in-tab.png" /></p>

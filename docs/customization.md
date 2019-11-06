@@ -1235,6 +1235,36 @@ Theme allows to display **Add to Cart** or **Buy Now** button or both. Configuri
 ![Configure Add to Cart & Buy Now button](img/config-add-to-cart-buy-now.png)
 
 
+### Buy Now button color
+
+Buy Now button color is the primary color. You can change the primary color in **Theme Editor** > **Storewide** > **Primary color**.
+
+If you want Buy Now button color separately, you can insert the custom CSS to **Storefront** > **Footer Scripts**. Example to change the button to green:
+
+```html
+<style>
+  /* Default state */
+  .button--buyNow,
+  .card-figcaption-body .button--buyNow:not([disabled]) {
+    background-color: green;
+    border-color: green;
+    color: white;
+  }
+
+  /* Hover and click state */
+  .button--buyNow:not([disabled]):focus,
+  .button--buyNow:not([disabled]):hover,
+  .card-figcaption-body .button--buyNow:not([disabled]):focus,
+  .card-figcaption-body .button--buyNow:not([disabled]):hover {
+    background-color: white;
+    border-color: green;
+    color: green;
+  }
+</style>
+```
+
+
+
 ## --- Product description
 
 ### Display product description in tab

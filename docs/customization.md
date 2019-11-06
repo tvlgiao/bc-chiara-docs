@@ -1167,7 +1167,7 @@ Configure in **Theme Editor** > **Sidebar**, input your facebook page name in **
 
 
 
-## Product Pages
+## Product Page
 
 ## -- Custom content placement
 
@@ -1233,6 +1233,85 @@ Edit a product, in **Description** field, click HTML button to input HTML code:
 Theme allows to display **Add to Cart** or **Buy Now** button or both. Configuring this option in **Theme Editor** > **Storewide** > **Purchase Options** > **Show Add to Cart & Buy Now** as the screenshot below:
 
 ![Configure Add to Cart & Buy Now button](img/config-add-to-cart-buy-now.png)
+
+
+## --- Product description
+
+### Display product description in tab
+
+![display-description-in-tab](img/display-description-in-tab.png)
+
+Go to **Theme Editor** > **Products** > **Product page** > tick on **Show description in tab**.
+
+### Display product description below product details
+
+![display-description-below-details](img/display-description-below-details.png)
+
+Go to **Theme Editor** > **Products** > **Product page** > untick on **Show description in tab**.
+
+
+## --- Product Info
+
+The built-in product properties such as **SKU**, **UPC**, **MPN**, **Availibility**, **Weight**, .... can be display in **Info** tab or display before the product options.
+
+Input these product properties by editing the product, input **SKU**, **UPC**, **MPN** and other properties in **Details** tab and **Other Details** tabs:
+
+![edit product details](img/edit-product-details.png)
+
+![edit product other details](img/edit-product-other-details.png)
+
+### Display product properties in Info tab
+
+![product-properties-in-info-tab](img/product-properties-in-info-tab.png)
+
+In **Theme Editor** > **Products** > **Product pages** > tick on **Show properties in tab**.
+
+### Display product properties inline under ratings
+
+![product-properties-after-ratings](img/product-properties-after-ratings.png)
+
+
+## --- Specifications tab
+
+**Specificaitions** tab shows the product custom fields. You can create any product custom fields by editing the product, open tab **Custom Fields**:
+
+![edit-product-custom-fields](img/edit-product-custom-fields.png)
+
+### Display product custom fields in Specifications tab
+
+![display-custom-fields-in-tab](img/display-custom-fields-in-tab.png)
+
+In Theme Editor > Products > Product pages > tick on **Show custom fields in tab**.
+
+### Display product custom fields together with product properties
+
+![display-custom-fields-together-properties](img/display-custom-fields-together-properties.png)
+
+In **Theme Editor** > **Products** > **Product pages** > untick on **Show custom fields in tab**.
+
+
+## --- Warranty tab
+
+![warranty-tab](img/warranty-tab.png)
+
+To display warranty content in the tab, editing your product, enter Warranty Information.
+
+
+## --- Reviews
+
+### Display reviews in tab
+
+![display-reviews-in-tab](img/display-reviews-in-tab.png)
+
+In **Theme Editor** > **Products** > **Product pages** > tick on **Reviews Show in tab**.
+
+
+### Display reviews below description
+
+![display-reviews-below-description](img/display-reviews-below-description.png)
+
+In **Theme Editor** > **Products** > **Product pages** > untick on **Reviews Show in tab**.
+
 
 
 ## --- Product page settings

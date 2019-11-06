@@ -340,3 +340,71 @@ Enter the script below to **Scripts contents**:
 
 Replace `RELATED PRODUCTS TITLE` with your real title.
 
+
+
+## Rename the tabs on product pages
+
+Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
+
+- **Location on page** = `Footer`
+- **Select pages where script will be added** = `Store pages`
+- **Script type** = `Script`
+
+Enter the script below to **Scripts contents**: 
+
+```html
+<script>
+(function($) {
+    function update() {
+        $('.productView-tab--desc .productView-tab-title, .productView-desc-heading').html('YOUR DESCRIPTION TITLE');
+        $('.productView-tab--warranty .productView-tab-title, .productView-warranty-heading').html('YOUR WARRANTEY TITLE');
+        $('.productView-tab--properties .productView-tab-title, .productView-properties-heading').html('YOUR INFO TITLE');
+        $('.productView-tab--addition .productView-tab-title, .productView-addition-heading').html('YOUR FEATURES TITLE');
+    }
+
+    $(document).ajaxComplete(function(event, xhr, options) {
+       if (options.headers['stencil-options'].match(/quick-view/)) {
+            setTimeout(update, 500);
+       }
+    });
+    update();
+})(window.chiarajQuery || window.jQuery);
+</script>
+```
+
+Replace `YOUR DESCRIPTION TITLE`, `YOUR INFO TITLE`, `YOUR FEATURES TITLE` as you wish.
+
+
+
+## Tweak the checkout with PayPal buttons and other additional buttons on the cart page
+
+Add the custom CSS below to **Storefront** > **Footer Scripts**:
+
+```html
+<style>
+@media (max-width: 550px) {
+    .cart-additionalCheckoutButtons { margin-top: 1.5rem }
+    .cart-additionalCheckoutButtons .FloatRight div { float: none; text-align: center }
+    .cart-additionalCheckoutButtons .FloatRight .or-use-label { display: none }
+    .paypal-smart-buttons { margin-top: 0; margin-bottom: 0; }
+}
+
+@media (min-width: 501px) and (max-width: 800px) {
+    .cart-totals { float: none; margin: 0 auto; }
+    .cart-actions { text-align: center }
+    .cart-actions .button { float: none; min-width: 400px }
+    .cart-additionalCheckoutButtons { margin-top: 1.5rem }
+    .cart-additionalCheckoutButtons .CheckoutButton { text-align: center }
+    .cart-additionalCheckoutButtons .FloatRight div { float: none; margin: 0; }
+    .cart-additionalCheckoutButtons .FloatRight .or-use-label { display: none }
+}
+
+@media (min-width: 801px) {
+    .cart-actions .button { min-width: 400px }
+    .paypal-smart-buttons { margin: 0 }
+    .cart-additionalCheckoutButtons { margin-top: 1.5rem }
+    .cart-additionalCheckoutButtons .FloatRight .or-use-label { display: none }
+}
+</style>
+```
+

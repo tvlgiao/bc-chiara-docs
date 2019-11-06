@@ -8,6 +8,18 @@
 
 If you're updating your theme to 1.5.x version, please check the [update note](update.md#additional-note-for-updating-14-to-15).
 
+## 1.5.5 (2019-11-06)
+- Fix subcategories not appear on the sidebar when reach to menu max depth.
+- Fix Out of Stock badge not show on PDP
+- Fix currency selector should hide when no additional currencies in Fashion style
+- Fix the coupon form mess up on the checkout page on mobile
+- Fix alert modal cannot close on mobile
+- Show shipping method on order details page
+- Improve payment buttons style
+- Fix styling of the checkout page embed in theme
+- Fix styling of newsletter form when showing first name
+- Adjust the icons position on the header
+
 ## 1.5.4 (2019-09-06)
 - Fix dropdown cart overflowed by the main menu when site logo set top
 - Update jQuery to 3.4.1 [#1502](https://github.com/bigcommerce/cornerstone/pull/1502)

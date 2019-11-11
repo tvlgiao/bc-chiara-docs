@@ -8,6 +8,10 @@
 
 If you're updating your theme to 1.5.x version, please check the [update note](update.md#additional-note-for-updating-14-to-15).
 
+## 1.5.6 (2019-11-11)
+- Fix flyout menu cannot click 3rd level menu item
+- Fix [THEME-1892] Add new option: Heading color when having background
+
 ## 1.5.5 (2019-11-06)
 - Fix subcategories not appear on the sidebar when reach to menu max depth.
 - Fix Out of Stock badge not show on PDP

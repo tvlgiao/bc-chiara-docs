@@ -1350,6 +1350,20 @@ Configure settings for product pages in **Theme Editor** > **Products**.
 
 
 
+## Checkout Page
+
+## --- Show full header & footer
+
+If you are using [Optimized One-Page Checkout](https://support.bigcommerce.com/s/article/Optimized-Single-Page-Checkout), our theme allows to display full header and footer of your store. Enable it in **Theme Editor** > **Optimized Checkout** > tick **Show full header & footer**.
+
+![theme-editor-checkout-show-header-footer](img/theme-editor-checkout-show-header-footer.png)
+
+![theme-editor-checkout-show-header-footer-mobile](img/theme-editor-checkout-show-header-footer-mobile.png)
+
+## --- Colors & Style
+
+Configure colors and style in **Theme Editor** > **Optimized Checkout** section.
+
 
 ## Settings & Features
 

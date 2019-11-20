@@ -125,6 +125,8 @@
         
             <li><a class="toctree-l3" href="#tweak-the-checkout-with-paypal-buttons-and-other-additional-buttons-on-the-cart-page">Tweak the checkout with PayPal buttons and other additional buttons on the cart page</a></li>
         
+            <li><a class="toctree-l3" href="#always-show-add-to-cart-button-on-desktop-screens">Always show Add to Cart button on desktop screens</a></li>
+        
         </ul>
     
 
@@ -494,6 +496,19 @@ window.chiaraSettings.disableAutoSizeNavPages = true;
     .cart-additionalCheckoutButtons .FloatRight .or-use-label { display: none }
 }
 &lt;/style&gt;
+</code></pre>
+
+<h2 id="always-show-add-to-cart-button-on-desktop-screens">Always show Add to Cart button on desktop screens<a class="headerlink" href="#always-show-add-to-cart-button-on-desktop-screens" title="Permanent link">&para;</a></h2>
+<p>Add the custom CSS below to <strong>Storefront</strong> &gt; <strong>Footer Scripts</strong>:</p>
+<pre><code class="html">&lt;script&gt;
+@media (min-width: 801px) {
+.card-img-container { position: relative }
+.card-figcaption { position: static; display: block; opacity: 1; margin-top: .42857rem; overflow: visible }
+.card-figcaption-body { position: static; transform: none; display: block }
+.card-figcaption-body-alt { z-index: 2; display: none }
+.card-figure:hover .card-figcaption-body-alt { display: block }
+}
+&lt;/script&gt;
 </code></pre>
               
             </div>

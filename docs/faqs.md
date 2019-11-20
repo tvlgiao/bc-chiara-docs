@@ -408,3 +408,18 @@ Add the custom CSS below to **Storefront** > **Footer Scripts**:
 </style>
 ```
 
+## Always show Add to Cart button on desktop screens
+
+Add the custom CSS below to **Storefront** > **Footer Scripts**:
+
+```html
+<script>
+@media (min-width: 801px) {
+.card-img-container { position: relative }
+.card-figcaption { position: static; display: block; opacity: 1; margin-top: .42857rem; overflow: visible }
+.card-figcaption-body { position: static; transform: none; display: block }
+.card-figcaption-body-alt { z-index: 2; display: none }
+.card-figure:hover .card-figcaption-body-alt { display: block }
+}
+</script>
+```

@@ -413,7 +413,7 @@ Add the custom CSS below to **Storefront** > **Footer Scripts**:
 Add the custom CSS below to **Storefront** > **Footer Scripts**:
 
 ```html
-<script>
+<style>
 @media (min-width: 801px) {
 .card-img-container { position: relative }
 .card-figcaption { position: static; display: block; opacity: 1; margin-top: .42857rem; overflow: visible }
@@ -421,5 +421,5 @@ Add the custom CSS below to **Storefront** > **Footer Scripts**:
 .card-figcaption-body-alt { z-index: 2; display: none }
 .card-figure:hover .card-figcaption-body-alt { display: block }
 }
-</script>
+</style>
 ```

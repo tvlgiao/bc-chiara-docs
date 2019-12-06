@@ -127,6 +127,8 @@
         
             <li><a class="toctree-l3" href="#always-show-add-to-cart-button-on-desktop-screens">Always show Add to Cart button on desktop screens</a></li>
         
+            <li><a class="toctree-l3" href="#fix-product-variant-image-not-change-when-click-on-product-swatches-on-product-card-items-if-show-image-slider-is-enabled">Fix product variant image not change when click on product swatches on product card items if "Show Image Slider" is enabled</a></li>
+        
         </ul>
     
 
@@ -509,6 +511,27 @@ window.chiaraSettings.disableAutoSizeNavPages = true;
 .card-figure:hover .card-figcaption-body-alt { display: block }
 }
 &lt;/style&gt;
+</code></pre>
+
+<h2 id="fix-product-variant-image-not-change-when-click-on-product-swatches-on-product-card-items-if-show-image-slider-is-enabled">Fix product variant image not change when click on product swatches on product card items if "Show Image Slider" is enabled<a class="headerlink" href="#fix-product-variant-image-not-change-when-click-on-product-swatches-on-product-card-items-if-show-image-slider-is-enabled" title="Permanent link">&para;</a></h2>
+<p>Go to <strong>Storefront</strong> &gt; <strong>Script Manager</strong>, click <strong>Create a Script</strong>, choose:</p>
+<ul>
+<li><strong>Location on page</strong> = <code>Footer</code></li>
+<li><strong>Select pages where script will be added</strong> = <code>All pages</code></li>
+<li><strong>Script type</strong> = <code>Script</code></li>
+</ul>
+<p>Enter the script below to <strong>Scripts contents</strong>: </p>
+<pre><code class="html">&lt;script&gt;
+(function($) {
+    $('body').on('click', '.productCard-colorSwatch', function() {
+        var $img = $(event.target).closest('.card').find('.card-image.first');
+        if ($img.length &gt; 0) {
+            $img.siblings('.is-active').removeClass('is-active');
+            $img.addClass('is-active');
+        }
+    });
+})(window.chiarajQuery);
+&lt;/script&gt;
 </code></pre>
               
             </div>

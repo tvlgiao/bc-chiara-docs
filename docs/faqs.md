@@ -423,3 +423,28 @@ Add the custom CSS below to **Storefront** > **Footer Scripts**:
 }
 </style>
 ```
+
+## Fix product variant image not change when click on product swatches on product card items if "Show Image Slider" is enabled
+
+Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
+
+- **Location on page** = `Footer`
+- **Select pages where script will be added** = `All pages`
+- **Script type** = `Script`
+
+Enter the script below to **Scripts contents**: 
+
+
+```html
+<script>
+(function($) {
+    $('body').on('click', '.productCard-colorSwatch', function() {
+        var $img = $(event.target).closest('.card').find('.card-image.first');
+        if ($img.length > 0) {
+            $img.siblings('.is-active').removeClass('is-active');
+            $img.addClass('is-active');
+        }
+    });
+})(window.chiarajQuery);
+</script>
+```

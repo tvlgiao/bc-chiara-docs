@@ -448,3 +448,51 @@ Enter the script below to **Scripts contents**:
 })(window.chiarajQuery);
 </script>
 ```
+
+
+## Change "Already have an account? Sign in now" in Checkout page
+
+Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
+
+- **Location on page** = `Footer`
+- **Select pages where script will be added** = `Checkout`
+- **Script type** = `Script`
+
+Enter the script below to **Scripts contents**:
+
+```html
+<script>
+(function($) {
+    var CREATE_ACCOUNT_HTML = '<a href="/login.php">Login</a> to your account or <a href="/login.php?action=create_account">Create an account</a> for faster checkout in the future';
+
+    function debounce(func, wait, immediate) {
+        var timeout;
+        return function() {
+            var context = this, args = arguments;
+            var later = function() {
+                timeout = null;
+                if (!immediate) func.apply(context, args);
+            };
+            var callNow = immediate && !timeout;
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+            if (callNow) func.apply(context, args);
+        };
+    };
+
+    function main() {
+        var $orgSignin = $('.customerEmail-container + p');
+        var $newSignin = $orgSignin.next('.customerEmail-signin');
+
+        if ($orgSignin.length > 0 && $newSignin.length === 0) {
+            $newSignin = $('<p class="customerEmail-signin">' + CREATE_ACCOUNT_HTML + '</p>');
+            $orgSignin.hide().after($newSignin);
+        }
+    }
+
+    var debounceMain = debounce(main, 200);
+
+    (new MutationObserver(debounceMain)).observe(document.getElementById('checkout-app'), { childList: true, subtree: true });
+})(window.chiarajQuery);
+</script>
+```

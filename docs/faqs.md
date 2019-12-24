@@ -496,3 +496,18 @@ Enter the script below to **Scripts contents**:
 })(window.chiarajQuery);
 </script>
 ```
+
+## Show all image thumbnails and display videos at third position on PDP
+
+Add the custom CSS below to **Storefront** > **Footer Scripts**:
+
+```html
+<style>
+.productView-imageCarousel-nav { height: auto !important; max-height: none !important }
+.productView-imageCarousel-nav .slick-track { width: auto !important; transform: none !important; display: flex; flex-wrap: wrap }
+.productView-imageCarousel-nav-item { margin: 0.1875rem !important; max-width: 100px !important; order: 5 }
+.productView-imageCarousel-nav .productView-imageCarousel-nav-item:nth-child(1) { order: 1 }
+.productView-imageCarousel-nav .productView-imageCarousel-nav-item:nth-child(2) { order: 2 }
+.productView-imageCarousel-nav .productView-imageCarousel-nav-item--video { order: 3 }
+</style>
+```

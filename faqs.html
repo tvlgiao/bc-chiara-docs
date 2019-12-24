@@ -131,6 +131,8 @@
         
             <li><a class="toctree-l3" href="#change-already-have-an-account-sign-in-now-in-checkout-page">Change "Already have an account? Sign in now" in Checkout page</a></li>
         
+            <li><a class="toctree-l3" href="#show-all-image-thumbnails-and-display-videos-at-third-position-on-pdp">Show all image thumbnails and display videos at third position on PDP</a></li>
+        
         </ul>
     
 
@@ -578,6 +580,18 @@ window.chiaraSettings.disableAutoSizeNavPages = true;
     (new MutationObserver(debounceMain)).observe(document.getElementById('checkout-app'), { childList: true, subtree: true });
 })(window.chiarajQuery);
 &lt;/script&gt;
+</code></pre>
+
+<h2 id="show-all-image-thumbnails-and-display-videos-at-third-position-on-pdp">Show all image thumbnails and display videos at third position on PDP<a class="headerlink" href="#show-all-image-thumbnails-and-display-videos-at-third-position-on-pdp" title="Permanent link">&para;</a></h2>
+<p>Add the custom CSS below to <strong>Storefront</strong> &gt; <strong>Footer Scripts</strong>:</p>
+<pre><code class="html">&lt;style&gt;
+.productView-imageCarousel-nav { height: auto !important; max-height: none !important }
+.productView-imageCarousel-nav .slick-track { width: auto !important; transform: none !important; display: flex; flex-wrap: wrap }
+.productView-imageCarousel-nav-item { margin: 0.1875rem !important; max-width: 100px !important; order: 5 }
+.productView-imageCarousel-nav .productView-imageCarousel-nav-item:nth-child(1) { order: 1 }
+.productView-imageCarousel-nav .productView-imageCarousel-nav-item:nth-child(2) { order: 2 }
+.productView-imageCarousel-nav .productView-imageCarousel-nav-item--video { order: 3 }
+&lt;/style&gt;
 </code></pre>
               
             </div>

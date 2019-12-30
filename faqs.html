@@ -133,6 +133,8 @@
         
             <li><a class="toctree-l3" href="#show-all-image-thumbnails-and-display-videos-at-third-position-on-pdp">Show all image thumbnails and display videos at third position on PDP</a></li>
         
+            <li><a class="toctree-l3" href="#how-to-make-the-custom-footer-links-open-in-the-new-window">How to make the custom footer links open in the new window</a></li>
+        
         </ul>
     
 
@@ -592,6 +594,23 @@ window.chiaraSettings.disableAutoSizeNavPages = true;
 .productView-imageCarousel-nav .productView-imageCarousel-nav-item:nth-child(2) { order: 2 }
 .productView-imageCarousel-nav .productView-imageCarousel-nav-item--video { order: 3 }
 &lt;/style&gt;
+</code></pre>
+
+<h2 id="how-to-make-the-custom-footer-links-open-in-the-new-window">How to make the custom footer links open in the new window<a class="headerlink" href="#how-to-make-the-custom-footer-links-open-in-the-new-window" title="Permanent link">&para;</a></h2>
+<p>Go to <strong>Storefront</strong> &gt; <strong>Script Manager</strong>, click <strong>Create a Script</strong>, choose:</p>
+<ul>
+<li><strong>Location on page</strong> = <code>Footer</code></li>
+<li><strong>Select pages where script will be added</strong> = <code>All Pages</code></li>
+<li><strong>Script type</strong> = <code>Script</code></li>
+</ul>
+<pre><code class="html">&lt;script&gt;
+(function() {
+   var links = document.querySelectorAll('#footer-info-list-custom1 a, #footer-info-list-custom2 a, #footer-info-list-custom3 a');
+   for (var i in links) {
+       links[i].target = '_blank';
+   }
+})();
+&lt;/script&gt;
 </code></pre>
               
             </div>

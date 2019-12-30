@@ -511,3 +511,24 @@ Add the custom CSS below to **Storefront** > **Footer Scripts**:
 .productView-imageCarousel-nav .productView-imageCarousel-nav-item--video { order: 3 }
 </style>
 ```
+
+
+## How to make the custom footer links open in the new window
+
+Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
+
+- **Location on page** = `Footer`
+- **Select pages where script will be added** = `All Pages`
+- **Script type** = `Script`
+
+
+```html
+<script>
+(function() {
+   var links = document.querySelectorAll('#footer-info-list-custom1 a, #footer-info-list-custom2 a, #footer-info-list-custom3 a');
+   for (var i in links) {
+       links[i].target = '_blank';
+   }
+})();
+</script>
+```

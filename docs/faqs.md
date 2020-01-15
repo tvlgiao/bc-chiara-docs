@@ -532,3 +532,40 @@ Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
 })();
 </script>
 ```
+
+
+## Fix Main Navigation dropdown error on Safari
+
+This bug seems to appear on version 1.5.6 and lower.
+
+Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
+
+- **Location on page** = `Footer`
+- **Select pages where script will be added** = `All Pages`
+- **Script type** = `Script`
+
+```html
+<script>
+    (function() {
+        var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+        if (!isSafari) return;
+		
+        function main($) {
+            var $nav = $('.navPages-container, .navPages-container .navPages');
+            $(window).on('resize load', function() {
+                $nav.css('overflow', '');
+                setTimeout(function() {
+                    $nav.css('overflow', 'visible');
+                }, 500);
+            });
+        }
+        
+        var ti = setInterval(function() {
+            if (typeof window.chiarajQuery !== 'undefined') {
+            	clearInterval(ti);
+                main(window.chiarajQuery);
+            }
+        }, 200);
+    })();
+</script>
+```

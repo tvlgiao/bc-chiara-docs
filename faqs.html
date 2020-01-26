@@ -137,6 +137,8 @@
         
             <li><a class="toctree-l3" href="#fix-main-navigation-dropdown-error-on-safari">Fix Main Navigation dropdown error on Safari</a></li>
         
+            <li><a class="toctree-l3" href="#remove-imbypasson-on-pdp">Remove imbypass=on on PDP</a></li>
+        
         </ul>
     
 
@@ -605,6 +607,7 @@ window.chiaraSettings.disableAutoSizeNavPages = true;
 <li><strong>Select pages where script will be added</strong> = <code>All Pages</code></li>
 <li><strong>Script type</strong> = <code>Script</code></li>
 </ul>
+<p>Enter the script below to <strong>Scripts contents</strong>:</p>
 <pre><code class="html">&lt;script&gt;
 (function() {
    var links = document.querySelectorAll('#footer-info-list-custom1 a, #footer-info-list-custom2 a, #footer-info-list-custom3 a');
@@ -623,6 +626,7 @@ window.chiaraSettings.disableAutoSizeNavPages = true;
 <li><strong>Select pages where script will be added</strong> = <code>All Pages</code></li>
 <li><strong>Script type</strong> = <code>Script</code></li>
 </ul>
+<p>Enter the script below to <strong>Scripts contents</strong>:</p>
 <pre><code class="html">&lt;script&gt;
     (function() {
         var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
@@ -645,6 +649,27 @@ window.chiaraSettings.disableAutoSizeNavPages = true;
             }
         }, 200);
     })();
+&lt;/script&gt;
+</code></pre>
+
+<h2 id="remove-imbypasson-on-pdp">Remove <code>imbypass=on</code> on PDP<a class="headerlink" href="#remove-imbypasson-on-pdp" title="Permanent link">&para;</a></h2>
+<p>Go to <strong>Storefront</strong> &gt; <strong>Script Manager</strong>, click <strong>Create a Script</strong>, choose:</p>
+<ul>
+<li><strong>Location on page</strong> = <code>Footer</code></li>
+<li><strong>Select pages where script will be added</strong> = <code>Store Pages</code></li>
+<li><strong>Script type</strong> = <code>Script</code></li>
+</ul>
+<p>Enter the script below to <strong>Scripts contents</strong>:</p>
+<pre><code class="html">&lt;script&gt;
+(function($) {
+    var $el = $('a[data-zoom-image]');
+    if ($el.length &gt; 0) {
+        var href = $el.attr('href'),
+            zoom = $el.attr('data-zoom-image');
+        $el.attr('href', href.replace(/[?&amp;]imbypass=on/g, ''))
+            .attr('data-zoom-image', zoom.replace(/[?&amp;]imbypass=on/g, ''));
+    }
+})(window.chiarajQuery || window.jQuery);
 &lt;/script&gt;
 </code></pre>
               

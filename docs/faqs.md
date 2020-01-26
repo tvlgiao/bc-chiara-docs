@@ -521,6 +521,7 @@ Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
 - **Select pages where script will be added** = `All Pages`
 - **Script type** = `Script`
 
+Enter the script below to **Scripts contents**:
 
 ```html
 <script>
@@ -543,6 +544,8 @@ Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
 - **Location on page** = `Footer`
 - **Select pages where script will be added** = `All Pages`
 - **Script type** = `Script`
+
+Enter the script below to **Scripts contents**:
 
 ```html
 <script>
@@ -567,5 +570,30 @@ Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
             }
         }, 200);
     })();
+</script>
+```
+
+
+## Remove `imbypass=on` on PDP
+
+Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
+
+- **Location on page** = `Footer`
+- **Select pages where script will be added** = `Store Pages`
+- **Script type** = `Script`
+
+Enter the script below to **Scripts contents**:
+
+```html
+<script>
+(function($) {
+    var $el = $('a[data-zoom-image]');
+    if ($el.length > 0) {
+        var href = $el.attr('href'),
+            zoom = $el.attr('data-zoom-image');
+        $el.attr('href', href.replace(/[?&]imbypass=on/g, ''))
+            .attr('data-zoom-image', zoom.replace(/[?&]imbypass=on/g, ''));
+    }
+})(window.chiarajQuery || window.jQuery);
 </script>
 ```

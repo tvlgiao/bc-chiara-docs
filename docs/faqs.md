@@ -587,13 +587,15 @@ Enter the script below to **Scripts contents**:
 ```html
 <script>
 (function($) {
-    var $el = $('a[data-zoom-image]');
-    if ($el.length > 0) {
+    $('a[data-zoom-image]').each(function(i, el) {
+        var $el = $(el);
         var href = $el.attr('href'),
             zoom = $el.attr('data-zoom-image');
         $el.attr('href', href.replace(/[?&]imbypass=on/g, ''))
             .attr('data-zoom-image', zoom.replace(/[?&]imbypass=on/g, ''));
-    }
+    });
 })(window.chiarajQuery || window.jQuery);
 </script>
 ```
+
+

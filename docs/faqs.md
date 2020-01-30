@@ -599,3 +599,26 @@ Enter the script below to **Scripts contents**:
 ```
 
 
+## Display Add to Cart button inline on PDP on mobile
+
+Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
+
+- **Location on page** = `Footer`
+- **Select pages where script will be added** = `Store Pages`
+- **Script type** = `Script`
+
+Enter the script below to **Scripts contents**: 
+
+```html
+<script>
+(function() {
+    var css = document.createElement('style');
+    css.innerHTML = '@media (max-width: 800px) {'
+        + '.productView-options .form-action-group { position: static; border-top: 0; padding-left: 0; padding-right: 0; margin: 0 -5px }'
+        + '.productView-options { display: block !important; height: auto }'
+        + '.productView-options-panel-heading { display: none }'
+        + '}';
+    document.head.appendChild(css);
+})();
+</script>
+```

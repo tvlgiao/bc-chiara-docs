@@ -139,6 +139,8 @@
         
             <li><a class="toctree-l3" href="#remove-imbypasson-on-pdp">Remove imbypass=on on PDP</a></li>
         
+            <li><a class="toctree-l3" href="#display-add-to-cart-button-inline-on-pdp-on-mobile">Display Add to Cart button inline on PDP on mobile</a></li>
+        
         </ul>
     
 
@@ -670,6 +672,27 @@ window.chiaraSettings.disableAutoSizeNavPages = true;
             .attr('data-zoom-image', zoom.replace(/[?&amp;]imbypass=on/g, ''));
     });
 })(window.chiarajQuery || window.jQuery);
+&lt;/script&gt;
+</code></pre>
+
+<h2 id="display-add-to-cart-button-inline-on-pdp-on-mobile">Display Add to Cart button inline on PDP on mobile<a class="headerlink" href="#display-add-to-cart-button-inline-on-pdp-on-mobile" title="Permanent link">&para;</a></h2>
+<p>Go to <strong>Storefront</strong> &gt; <strong>Script Manager</strong>, click <strong>Create a Script</strong>, choose:</p>
+<ul>
+<li><strong>Location on page</strong> = <code>Footer</code></li>
+<li><strong>Select pages where script will be added</strong> = <code>Store Pages</code></li>
+<li><strong>Script type</strong> = <code>Script</code></li>
+</ul>
+<p>Enter the script below to <strong>Scripts contents</strong>: </p>
+<pre><code class="html">&lt;script&gt;
+(function() {
+    var css = document.createElement('style');
+    css.innerHTML = '@media (max-width: 800px) {'
+        + '.productView-options .form-action-group { position: static; border-top: 0; padding-left: 0; padding-right: 0; margin: 0 -5px }'
+        + '.productView-options { display: block !important; height: auto }'
+        + '.productView-options-panel-heading { display: none }'
+        + '}';
+    document.head.appendChild(css);
+})();
 &lt;/script&gt;
 </code></pre>
               

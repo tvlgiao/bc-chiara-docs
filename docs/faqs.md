@@ -644,3 +644,27 @@ Enter the script below to **Scripts contents**:
 </script>
 ```
 
+## Display full warranty content on PDP on mobile
+
+Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
+
+- **Location on page** = `Footer`
+- **Select pages where script will be added** = `Store Pages`
+- **Script type** = `Script`
+
+Enter the script below to **Scripts contents**: 
+
+```html
+<script>
+(function() {
+    var css = document.createElement('style');
+    css.innerHTML = ''
+        + '.productView-warranty-heading-toggle > .icon { display: none }'
+        + '.productView-warranty-summary { display: none }'
+        + '.productView-warranty-content { position: static; opacity: 1; background-color: transparent; box-shadow: none }'
+        + '.productView-warranty-panel-body { position: static; }'
+        + '.productView-warranty-panel-heading { display: none }';
+    document.head.appendChild(css);
+})();
+</script>
+```

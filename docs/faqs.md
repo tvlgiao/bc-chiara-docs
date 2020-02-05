@@ -357,9 +357,9 @@ Enter the script below to **Scripts contents**:
 (function($) {
     function update() {
         $('.productView-tab--desc .productView-tab-title, .productView-desc-heading').html('YOUR DESCRIPTION TITLE');
-        $('.productView-tab--warranty .productView-tab-title, .productView-warranty-heading').html('YOUR WARRANTEY TITLE');
-        $('.productView-tab--properties .productView-tab-title, .productView-properties-heading').html('YOUR INFO TITLE');
-        $('.productView-tab--addition .productView-tab-title, .productView-addition-heading').html('YOUR FEATURES TITLE');
+        $('.productView-tab--warranty .productView-tab-title, .productView-warranty-heading, .productView-warranty-panel-heading').html('YOUR WARRANTEY TITLE');
+        $('.productView-tab--properties .productView-tab-title, .productView-properties-heading, .productView-properties-panel-heading').html('YOUR INFO TITLE');
+        $('.productView-tab--addition .productView-tab-title, .productView-addition-heading, .productView-addition-panel-heading').html('YOUR FEATURES TITLE');
     }
 
     $(document).ajaxComplete(function(event, xhr, options) {
@@ -622,3 +622,25 @@ Enter the script below to **Scripts contents**:
 })();
 </script>
 ```
+
+
+## Hide Info section on PDP on mobile when it is empty
+
+Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
+
+- **Location on page** = `Footer`
+- **Select pages where script will be added** = `Store Pages`
+- **Script type** = `Script`
+
+Enter the script below to **Scripts contents**: 
+
+```html
+<script>
+(function() {
+    if (document.querySelector('.productView-info').innerText.trim() === '') {
+        document.querySelector('.productView-properties').style += ';display:none;';
+    }
+})();
+</script>
+```
+

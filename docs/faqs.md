@@ -668,3 +668,56 @@ Enter the script below to **Scripts contents**:
 })();
 </script>
 ```
+
+## Display full product info and custom fields on mobile
+
+
+Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
+
+- **Location on page** = `Footer`
+- **Select pages where script will be added** = `Store Pages`
+- **Script type** = `Script`
+
+Enter the script below to **Scripts contents**: 
+
+```html
+<script>
+(function() {
+    var css = document.createElement('style');
+    css.innerHTML = ''
+        + '.productView-properties-subheading { display: none }'
+        + '.productView-properties-heading-toggle > .icon { display: none }'
+        + '.productView-properties-summary { display: none }'
+        + '.productView-properties-content { position: static; opacity: 1; background-color: transparent; box-shadow: none }'
+        + '.productView-properties-panel-body { position: static; }'
+        + '.productView-properties-panel-heading { display: none }';
+    document.head.appendChild(css);
+})();
+</script>
+```
+
+## Display selected swatch option name on PDP
+
+Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
+
+- **Location on page** = `Footer`
+- **Select pages where script will be added** = `Store Pages`
+- **Script type** = `Script`
+
+Enter the script below to **Scripts contents**: 
+
+```html
+<script>
+(function() {
+    var css = document.createElement('style');
+    css.innerHTML = ''
+        + '[data-product-attribute="swatch"] { position: relative; }'
+        + '[data-product-attribute="swatch"] .form-option { position: static; }'
+        + '[data-product-attribute="swatch"] .form-option-expanded { left: auto; top: auto; margin-top: 25px; margin-left: 30px; }'
+        + '[data-product-attribute="swatch"] .form-radio:checked+.form-option .form-option-variant:after { content: attr(title); position: absolute; top: 0; left: 120px; }';
+    document.head.appendChild(css);
+})();  
+</script>
+```
+
+You can adjust `left: 120px` if the option label is longer.

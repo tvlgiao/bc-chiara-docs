@@ -145,6 +145,10 @@
         
             <li><a class="toctree-l3" href="#display-full-warranty-content-on-pdp-on-mobile">Display full warranty content on PDP on mobile</a></li>
         
+            <li><a class="toctree-l3" href="#display-full-product-info-and-custom-fields-on-mobile">Display full product info and custom fields on mobile</a></li>
+        
+            <li><a class="toctree-l3" href="#display-selected-swatch-option-name-on-pdp">Display selected swatch option name on PDP</a></li>
+        
         </ul>
     
 
@@ -738,6 +742,52 @@ window.chiaraSettings.disableAutoSizeNavPages = true;
 })();
 &lt;/script&gt;
 </code></pre>
+
+<h2 id="display-full-product-info-and-custom-fields-on-mobile">Display full product info and custom fields on mobile<a class="headerlink" href="#display-full-product-info-and-custom-fields-on-mobile" title="Permanent link">&para;</a></h2>
+<p>Go to <strong>Storefront</strong> &gt; <strong>Script Manager</strong>, click <strong>Create a Script</strong>, choose:</p>
+<ul>
+<li><strong>Location on page</strong> = <code>Footer</code></li>
+<li><strong>Select pages where script will be added</strong> = <code>Store Pages</code></li>
+<li><strong>Script type</strong> = <code>Script</code></li>
+</ul>
+<p>Enter the script below to <strong>Scripts contents</strong>: </p>
+<pre><code class="html">&lt;script&gt;
+(function() {
+    var css = document.createElement('style');
+    css.innerHTML = ''
+        + '.productView-properties-subheading { display: none }'
+        + '.productView-properties-heading-toggle &gt; .icon { display: none }'
+        + '.productView-properties-summary { display: none }'
+        + '.productView-properties-content { position: static; opacity: 1; background-color: transparent; box-shadow: none }'
+        + '.productView-properties-panel-body { position: static; }'
+        + '.productView-properties-panel-heading { display: none }';
+    document.head.appendChild(css);
+})();
+&lt;/script&gt;
+</code></pre>
+
+<h2 id="display-selected-swatch-option-name-on-pdp">Display selected swatch option name on PDP<a class="headerlink" href="#display-selected-swatch-option-name-on-pdp" title="Permanent link">&para;</a></h2>
+<p>Go to <strong>Storefront</strong> &gt; <strong>Script Manager</strong>, click <strong>Create a Script</strong>, choose:</p>
+<ul>
+<li><strong>Location on page</strong> = <code>Footer</code></li>
+<li><strong>Select pages where script will be added</strong> = <code>Store Pages</code></li>
+<li><strong>Script type</strong> = <code>Script</code></li>
+</ul>
+<p>Enter the script below to <strong>Scripts contents</strong>: </p>
+<pre><code class="html">&lt;script&gt;
+(function() {
+    var css = document.createElement('style');
+    css.innerHTML = ''
+        + '[data-product-attribute=&quot;swatch&quot;] { position: relative; }'
+        + '[data-product-attribute=&quot;swatch&quot;] .form-option { position: static; }'
+        + '[data-product-attribute=&quot;swatch&quot;] .form-option-expanded { left: auto; top: auto; margin-top: 25px; margin-left: 30px; }'
+        + '[data-product-attribute=&quot;swatch&quot;] .form-radio:checked+.form-option .form-option-variant:after { content: attr(title); position: absolute; top: 0; left: 120px; }';
+    document.head.appendChild(css);
+})();  
+&lt;/script&gt;
+</code></pre>
+
+<p>You can adjust <code>left: 120px</code> if the option label is longer.</p>
               
             </div>
           </div>

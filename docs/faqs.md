@@ -721,3 +721,27 @@ Enter the script below to **Scripts contents**:
 ```
 
 You can adjust `left: 120px` if the option label is longer.
+
+## Fix cart popup display overlapped by the main menu on Firefox
+
+
+Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
+
+- **Location on page** = `Footer`
+- **Select pages where script will be added** = `All Pages`
+- **Script type** = `Script`
+
+Enter the script below to **Scripts contents**: 
+
+```html
+<script>
+(function() {
+    var css = document.createElement('style');
+    css.innerHTML = ''
+        + '@media (min-width: 801px) {'
+        + '.navUser { z-index: 55 }'
+        + '}';
+    document.head.appendChild(css);
+})();
+</script>
+```

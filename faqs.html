@@ -149,6 +149,8 @@
         
             <li><a class="toctree-l3" href="#display-selected-swatch-option-name-on-pdp">Display selected swatch option name on PDP</a></li>
         
+            <li><a class="toctree-l3" href="#fix-cart-popup-display-overlapped-by-the-main-menu-on-firefox">Fix cart popup display overlapped by the main menu on Firefox</a></li>
+        
         </ul>
     
 
@@ -788,6 +790,25 @@ window.chiaraSettings.disableAutoSizeNavPages = true;
 </code></pre>
 
 <p>You can adjust <code>left: 120px</code> if the option label is longer.</p>
+<h2 id="fix-cart-popup-display-overlapped-by-the-main-menu-on-firefox">Fix cart popup display overlapped by the main menu on Firefox<a class="headerlink" href="#fix-cart-popup-display-overlapped-by-the-main-menu-on-firefox" title="Permanent link">&para;</a></h2>
+<p>Go to <strong>Storefront</strong> &gt; <strong>Script Manager</strong>, click <strong>Create a Script</strong>, choose:</p>
+<ul>
+<li><strong>Location on page</strong> = <code>Footer</code></li>
+<li><strong>Select pages where script will be added</strong> = <code>All Pages</code></li>
+<li><strong>Script type</strong> = <code>Script</code></li>
+</ul>
+<p>Enter the script below to <strong>Scripts contents</strong>: </p>
+<pre><code class="html">&lt;script&gt;
+(function() {
+    var css = document.createElement('style');
+    css.innerHTML = ''
+        + '@media (min-width: 801px) {'
+        + '.navUser { z-index: 55 }'
+        + '}';
+    document.head.appendChild(css);
+})();
+&lt;/script&gt;
+</code></pre>
               
             </div>
           </div>

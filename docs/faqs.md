@@ -771,3 +771,54 @@ Enter the script below to **Scripts contents**:
 })();
 </script>
 ```
+
+
+
+## And a custom link on the main navigation
+
+Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
+
+- **Location on page** = `Footer`
+- **Select pages where script will be added** = `All Pages`
+- **Script type** = `Script`
+
+Enter the script below to **Scripts contents**: 
+
+```html
+<script>
+(function(link, title) {
+    var lastEl = Array.from(document.querySelectorAll('.navPages .navPages-list--main > .navPages-item--category')).pop();
+    var li = document.createElement('li');
+    li.setAttribute('class', 'navPages-item navPages-item-page');
+    li.innerHTML = '<a class="navPages-action is-root" href="' + link + '">' + title + '</a>';
+    lastEl.parentNode.insertBefore(li, lastEl.nextSibling);
+})(
+    'YOUR CUSTOM LINK HERE',
+    'YOUR LINK TITLE HERE'
+);
+</script>
+```
+
+- Replace `YOUR CUSTOM LINK HERE` by your link URL.
+- Replace `YOUR LINK TITLE HERE` by your link title.
+
+
+## Hide all MSRP price store wide
+
+Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
+
+- **Location on page** = `Footer`
+- **Select pages where script will be added** = `All Pages`
+- **Script type** = `Script`
+
+Enter the script below to **Scripts contents**: 
+
+```html
+<script>
+(function() {
+    var css = document.createElement('style');
+    css.innerHTML = '.price-section.rrp-price--withoutTax, .price-section.rrp-price--withTax { display: none }';
+    document.head.appendChild(css);
+})();
+</script>
+```

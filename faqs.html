@@ -151,6 +151,8 @@
         
             <li><a class="toctree-l3" href="#fix-cart-popup-display-overlapped-by-the-main-menu-on-firefox">Fix cart popup display overlapped by the main menu on Firefox</a></li>
         
+            <li><a class="toctree-l3" href="#hide-phone-number-call-us-on-mobile">Hide phone number (Call Us) on mobile</a></li>
+        
         </ul>
     
 
@@ -804,6 +806,26 @@ window.chiaraSettings.disableAutoSizeNavPages = true;
     css.innerHTML = ''
         + '@media (min-width: 801px) {'
         + '.navUser { z-index: 55 }'
+        + '}';
+    document.head.appendChild(css);
+})();
+&lt;/script&gt;
+</code></pre>
+
+<h2 id="hide-phone-number-call-us-on-mobile">Hide phone number (Call Us) on mobile<a class="headerlink" href="#hide-phone-number-call-us-on-mobile" title="Permanent link">&para;</a></h2>
+<p>Go to <strong>Storefront</strong> &gt; <strong>Script Manager</strong>, click <strong>Create a Script</strong>, choose:</p>
+<ul>
+<li><strong>Location on page</strong> = <code>Footer</code></li>
+<li><strong>Select pages where script will be added</strong> = <code>All Pages</code></li>
+<li><strong>Script type</strong> = <code>Script</code></li>
+</ul>
+<p>Enter the script below to <strong>Scripts contents</strong>: </p>
+<pre><code class="html">&lt;script&gt;
+(function() {
+    var css = document.createElement('style');
+    css.innerHTML = ''
+        + '@media (max-width: 800px) {'
+        + '.bottomBar-contactPanel .button[href^=tel] { display: none }'
         + '}';
     document.head.appendChild(css);
 })();

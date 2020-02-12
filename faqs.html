@@ -155,6 +155,8 @@
         
             <li><a class="toctree-l3" href="#and-a-custom-link-on-the-main-navigation">And a custom link on the main navigation</a></li>
         
+            <li><a class="toctree-l3" href="#hide-all-msrp-price-store-wide">Hide all MSRP price store wide</a></li>
+        
         </ul>
     
 
@@ -860,6 +862,22 @@ window.chiaraSettings.disableAutoSizeNavPages = true;
 <li>Replace <code>YOUR CUSTOM LINK HERE</code> by your link URL.</li>
 <li>Replace <code>YOUR LINK TITLE HERE</code> by your link title.</li>
 </ul>
+<h2 id="hide-all-msrp-price-store-wide">Hide all MSRP price store wide<a class="headerlink" href="#hide-all-msrp-price-store-wide" title="Permanent link">&para;</a></h2>
+<p>Go to <strong>Storefront</strong> &gt; <strong>Script Manager</strong>, click <strong>Create a Script</strong>, choose:</p>
+<ul>
+<li><strong>Location on page</strong> = <code>Footer</code></li>
+<li><strong>Select pages where script will be added</strong> = <code>All Pages</code></li>
+<li><strong>Script type</strong> = <code>Script</code></li>
+</ul>
+<p>Enter the script below to <strong>Scripts contents</strong>: </p>
+<pre><code class="html">&lt;script&gt;
+(function() {
+    var css = document.createElement('style');
+    css.innerHTML = '.price-section.rrp-price--withoutTax, .price-section.rrp-price--withTax { display: none }';
+    document.head.appendChild(css);
+})();
+&lt;/script&gt;
+</code></pre>
               
             </div>
           </div>

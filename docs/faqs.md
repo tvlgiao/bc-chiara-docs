@@ -378,35 +378,135 @@ Replace `YOUR DESCRIPTION TITLE`, `YOUR INFO TITLE`, `YOUR FEATURES TITLE` as yo
 
 ## Tweak the checkout with PayPal buttons and other additional buttons on the cart page
 
-Add the custom CSS below to **Storefront** > **Footer Scripts**:
+Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
+
+- **Location on page** = `Footer`
+- **Select pages where script will be added** = `All Pages`
+- **Script type** = `Script`
+
+Enter the script below to **Scripts contents**: 
 
 ```html
-<style>
-@media (max-width: 550px) {
-    .cart-additionalCheckoutButtons { margin-top: 1.5rem }
-    .cart-additionalCheckoutButtons .FloatRight div { float: none; text-align: center }
-    .cart-additionalCheckoutButtons .FloatRight .or-use-label { display: none }
-    .paypal-smart-buttons { margin-top: 0; margin-bottom: 0; }
-}
-
-@media (min-width: 501px) and (max-width: 800px) {
-    .cart-totals { float: none; margin: 0 auto; }
-    .cart-actions { text-align: center }
-    .cart-actions .button { float: none; min-width: 400px }
-    .cart-additionalCheckoutButtons { margin-top: 1.5rem }
-    .cart-additionalCheckoutButtons .CheckoutButton { text-align: center }
-    .cart-additionalCheckoutButtons .FloatRight div { float: none; margin: 0; }
-    .cart-additionalCheckoutButtons .FloatRight .or-use-label { display: none }
-}
-
-@media (min-width: 801px) {
-    .cart-actions .button { min-width: 400px }
-    .paypal-smart-buttons { margin: 0 }
-    .cart-additionalCheckoutButtons { margin-top: 1.5rem }
-    .cart-additionalCheckoutButtons .FloatRight .or-use-label { display: none }
-}
-</style>
+<script>
+    (function() {
+        var css = document.createElement('style');
+        css.innerHTML = ''
+            + '#checkout-app .cart-additionalCheckoutButtons .PayPalExpressCheckout:before { text-align: left }'
+        	+ '@media (max-width: 550px) {'
+        	+ '.cart-additionalCheckoutButtons { margin-top: .75rem }'
+        	+ '.cart-additionalCheckoutButtons .CheckoutButton { margin-bottom: .75rem }'
+        	+ '.cart-additionalCheckoutButtons .FloatRight div { float: none; text-align: center; display: block }'
+        	+ '.cart-additionalCheckoutButtons .FloatRight .or-use-label { display: none }'
+        	+ '.cart-additionalCheckoutButtons .PayPalExpressCheckout:before { display: block; content: "Or continue with Express Checkout"; text-align: center; width: 100%; margin: .5rem 0 }'
+        	+ '.paypal-smart-buttons { margin-top: 0 !important; margin-bottom: 0 !important; }'
+        	+ '.paypal-smart-buttons .zoid-outlet { width: 100% !important }'
+        	+ '.amazonpay-button-inner-image { width: 100%; max-height: none !important }'
+    		+ '}'
+			+ '@media (min-width: 501px) and (max-width: 800px) {'
+        	+ '.cart-totals { float: none; margin: 0 auto; }'
+        	+ '.cart-actions { text-align: center }'
+        	+ '.cart-actions .button { float: none; min-width: 296px }'
+        	+ '.cart-additionalCheckoutButtons { margin-top: .75rem }'
+        	+ '.cart-additionalCheckoutButtons .CheckoutButton { text-align: center }'
+        	+ '.cart-additionalCheckoutButtons .FloatRight div { float: none; margin: 0; display: block }'
+        	+ '.cart-additionalCheckoutButtons .FloatRight .or-use-label { display: none }'
+        	+ '.cart-additionalCheckoutButtons .PayPalExpressCheckout:before { display: block; content: "Or continue with Express Checkout"; text-align: center; width: 296px; margin: .5rem auto }'
+        	+ '.paypal-smart-buttons .zoid-outlet { width: 296px !important }'
+        	+ '.amazonpay-button-inner-image { width: 296px; max-height: none !important }'
+    		+ '}'
+    		+ '@media (min-width: 801px) {'
+        	+ '.cart-actions .button { min-width: 296px }'
+        	+ '.paypal-smart-buttons { margin: 0 !important }'
+        	+ '.paypal-smart-buttons .zoid-outlet { width: 296px !important }'
+        	+ '.cart-additionalCheckoutButtons { margin-top: .75rem }'
+        	+ '.cart-additionalCheckoutButtons .FloatRight { display: block }'
+        	+ '.cart-additionalCheckoutButtons .FloatRight .or-use-label { display: none }'
+        	+ '.cart-additionalCheckoutButtons .PayPalExpressCheckout:before { display: block; content: "Or continue with Express Checkout"; text-align: center; width: 296px; margin: .5rem 0 .5rem auto }'
+        	+ '.amazonpay-button-inner-image { width: 296px; max-height: none !important }'
+    		+ '}';
+        document.head.appendChild(css);
+        
+        var observer = new MutationObserver(function() {
+            var img = document.querySelector('.amazonpay-button-inner-image');
+            if (img) {
+                img.src = img.src.replace(/small/, 'large');
+            }
+        });
+        observer.observe(document.querySelector('.CheckoutButtonAmazon'), { childList: true });
+    })();
+</script>
 ```
+
+
+# Display additional checkout buttons on the checkout page
+
+![display-additional-checkout-buttons-on-checkout-page](img/display-additional-checkout-buttons-on-checkout-page.png)
+
+Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
+
+- **Location on page** = `Footer`
+- **Select pages where script will be added** = `All Pages`
+- **Script type** = `Script`
+
+Enter the script below to **Scripts contents**: 
+
+```html
+<script type="text/javascript" src="https://static-na.payments-amazon.com/OffAmazonPayments/us/js/Widgets.js?sellerId=A3CUXN3OT1IR26" defer></script>
+<script type="text/javascript" src="https://cdn11.bigcommerce.com/shared/bower/checkout-sdk/dist/checkout-button.umd-885565be8216c9c2857dcfce98505b42e97a9661.js" defer></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js" integrity="sha256-+nuEu243+6BveXk5N+Vbr268G+4FHjUOEcfKaBqfPbc=" crossorigin="anonymous"></script>
+<script>
+(function($) {
+    var css = document.createElement('style');
+    css.innerHTML = ''
+    	+ '#checkout-app .customerEmail-container { margin-bottom: 0 }'
+    	+ '#checkout-app .customerEmail-container + p { display: none }';
+    document.head.appendChild(css);
+    
+    function checkoutButtons() {
+        var $checkoutRemote = $('.checkoutRemote');
+        if ($checkoutRemote.length == 0 || $checkoutRemote.data('updated')) {
+            return;
+        }
+        $.get('/cart.php', function(resp) {
+            $resp = $(resp);
+            $checkoutRemote.html('').append($resp.find('.cart-additionalCheckoutButtons'));
+            $checkoutRemote.data('updated', true);
+            var img = document.querySelector('.amazonpay-button-inner-image');
+            if (img) {
+                img.src = img.src.replace(/small/, 'large');
+            }
+        });
+    }
+    function customerSection() {
+        var $section = $('#checkout-customer-guest');
+        if ($section.length === 0 || $section.data('updated')) {
+            return;
+        }
+        $section.data('updated', true);
+        $section.find('.form-body > p:nth-child(3)').prependTo($section.find('.form-body'));
+    }
+    var observer = new MutationObserver($.debounce(200, function() {
+        checkoutButtons();
+        customerSection();
+    }));
+    observer.observe(document.querySelector('#checkout-app'), { childList: true, subtree: true })
+})(window.jQuery);
+</script>
+```
+
+Replace 2 lines in the script by your own code:
+
+```html
+<script type="text/javascript" src="https://static-na.payments-amazon.com/OffAmazonPayments/us/js/Widgets.js?sellerId=A3CUXN3OT1IR26" defer></script>
+<script type="text/javascript" src="https://cdn11.bigcommerce.com/shared/bower/checkout-sdk/dist/checkout-button.umd-885565be8216c9c2857dcfce98505b42e97a9661.js" defer></script>
+```
+
+You can find it by going to your cart page after added some products to cart, right click > **View page source** (or **Ctrl + U**), search `checkout-button.umd` and copy 2 lines around like this example:
+
+![view-source-cart-page-checkout-buttons](img/view-source-cart-page-checkout-buttons.png)
+
+
 
 ## Always show Add to Cart button on desktop screens
 

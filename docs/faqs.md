@@ -817,7 +817,7 @@ Enter the script below to **Scripts contents**:
 <script>
 (function() {
     var css = document.createElement('style');
-    css.innerHTML = '.price-section.rrp-price--withoutTax, .price-section.rrp-price--withTax { display: none }';
+    css.innerHTML = '.price-section.rrp-price--withoutTax, .price-section.rrp-price--withTax { display: none !important }';
     document.head.appendChild(css);
 })();
 </script>

@@ -873,7 +873,7 @@ window.chiaraSettings.disableAutoSizeNavPages = true;
 <pre><code class="html">&lt;script&gt;
 (function() {
     var css = document.createElement('style');
-    css.innerHTML = '.price-section.rrp-price--withoutTax, .price-section.rrp-price--withTax { display: none }';
+    css.innerHTML = '.price-section.rrp-price--withoutTax, .price-section.rrp-price--withTax { display: none !important }';
     document.head.appendChild(css);
 })();
 &lt;/script&gt;

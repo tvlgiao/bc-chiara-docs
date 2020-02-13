@@ -125,6 +125,13 @@
         
             <li><a class="toctree-l3" href="#tweak-the-checkout-with-paypal-buttons-and-other-additional-buttons-on-the-cart-page">Tweak the checkout with PayPal buttons and other additional buttons on the cart page</a></li>
         
+        </ul>
+    
+
+    <li class="toctree-l2"><a href="#display-additional-checkout-buttons-on-the-checkout-page">Display additional checkout buttons on the checkout page</a></li>
+    
+        <ul>
+        
             <li><a class="toctree-l3" href="#always-show-add-to-cart-button-on-desktop-screens">Always show Add to Cart button on desktop screens</a></li>
         
             <li><a class="toctree-l3" href="#fix-product-variant-image-not-change-when-click-on-product-swatches-on-product-card-items-if-show-image-slider-is-enabled">Fix product variant image not change when click on product swatches on product card items if "Show Image Slider" is enabled</a></li>
@@ -500,34 +507,123 @@ window.chiaraSettings.disableAutoSizeNavPages = true;
 
 <p>Replace <code>YOUR DESCRIPTION TITLE</code>, <code>YOUR INFO TITLE</code>, <code>YOUR FEATURES TITLE</code> as you wish.</p>
 <h2 id="tweak-the-checkout-with-paypal-buttons-and-other-additional-buttons-on-the-cart-page">Tweak the checkout with PayPal buttons and other additional buttons on the cart page<a class="headerlink" href="#tweak-the-checkout-with-paypal-buttons-and-other-additional-buttons-on-the-cart-page" title="Permanent link">&para;</a></h2>
-<p>Add the custom CSS below to <strong>Storefront</strong> &gt; <strong>Footer Scripts</strong>:</p>
-<pre><code class="html">&lt;style&gt;
-@media (max-width: 550px) {
-    .cart-additionalCheckoutButtons { margin-top: 1.5rem }
-    .cart-additionalCheckoutButtons .FloatRight div { float: none; text-align: center }
-    .cart-additionalCheckoutButtons .FloatRight .or-use-label { display: none }
-    .paypal-smart-buttons { margin-top: 0; margin-bottom: 0; }
-}
+<p>Go to <strong>Storefront</strong> &gt; <strong>Script Manager</strong>, click <strong>Create a Script</strong>, choose:</p>
+<ul>
+<li><strong>Location on page</strong> = <code>Footer</code></li>
+<li><strong>Select pages where script will be added</strong> = <code>All Pages</code></li>
+<li><strong>Script type</strong> = <code>Script</code></li>
+</ul>
+<p>Enter the script below to <strong>Scripts contents</strong>: </p>
+<pre><code class="html">&lt;script&gt;
+    (function() {
+        var css = document.createElement('style');
+        css.innerHTML = ''
+            + '#checkout-app .cart-additionalCheckoutButtons .PayPalExpressCheckout:before { text-align: left }'
+            + '@media (max-width: 550px) {'
+            + '.cart-additionalCheckoutButtons { margin-top: .75rem }'
+            + '.cart-additionalCheckoutButtons .CheckoutButton { margin-bottom: .75rem }'
+            + '.cart-additionalCheckoutButtons .FloatRight div { float: none; text-align: center; display: block }'
+            + '.cart-additionalCheckoutButtons .FloatRight .or-use-label { display: none }'
+            + '.cart-additionalCheckoutButtons .PayPalExpressCheckout:before { display: block; content: &quot;Or continue with Express Checkout&quot;; text-align: center; width: 100%; margin: .5rem 0 }'
+            + '.paypal-smart-buttons { margin-top: 0 !important; margin-bottom: 0 !important; }'
+            + '.paypal-smart-buttons .zoid-outlet { width: 100% !important }'
+            + '.amazonpay-button-inner-image { width: 100%; max-height: none !important }'
+            + '}'
+            + '@media (min-width: 501px) and (max-width: 800px) {'
+            + '.cart-totals { float: none; margin: 0 auto; }'
+            + '.cart-actions { text-align: center }'
+            + '.cart-actions .button { float: none; min-width: 296px }'
+            + '.cart-additionalCheckoutButtons { margin-top: .75rem }'
+            + '.cart-additionalCheckoutButtons .CheckoutButton { text-align: center }'
+            + '.cart-additionalCheckoutButtons .FloatRight div { float: none; margin: 0; display: block }'
+            + '.cart-additionalCheckoutButtons .FloatRight .or-use-label { display: none }'
+            + '.cart-additionalCheckoutButtons .PayPalExpressCheckout:before { display: block; content: &quot;Or continue with Express Checkout&quot;; text-align: center; width: 296px; margin: .5rem auto }'
+            + '.paypal-smart-buttons .zoid-outlet { width: 296px !important }'
+            + '.amazonpay-button-inner-image { width: 296px; max-height: none !important }'
+            + '}'
+            + '@media (min-width: 801px) {'
+            + '.cart-actions .button { min-width: 296px }'
+            + '.paypal-smart-buttons { margin: 0 !important }'
+            + '.paypal-smart-buttons .zoid-outlet { width: 296px !important }'
+            + '.cart-additionalCheckoutButtons { margin-top: .75rem }'
+            + '.cart-additionalCheckoutButtons .FloatRight { display: block }'
+            + '.cart-additionalCheckoutButtons .FloatRight .or-use-label { display: none }'
+            + '.cart-additionalCheckoutButtons .PayPalExpressCheckout:before { display: block; content: &quot;Or continue with Express Checkout&quot;; text-align: center; width: 296px; margin: .5rem 0 .5rem auto }'
+            + '.amazonpay-button-inner-image { width: 296px; max-height: none !important }'
+            + '}';
+        document.head.appendChild(css);
 
-@media (min-width: 501px) and (max-width: 800px) {
-    .cart-totals { float: none; margin: 0 auto; }
-    .cart-actions { text-align: center }
-    .cart-actions .button { float: none; min-width: 400px }
-    .cart-additionalCheckoutButtons { margin-top: 1.5rem }
-    .cart-additionalCheckoutButtons .CheckoutButton { text-align: center }
-    .cart-additionalCheckoutButtons .FloatRight div { float: none; margin: 0; }
-    .cart-additionalCheckoutButtons .FloatRight .or-use-label { display: none }
-}
-
-@media (min-width: 801px) {
-    .cart-actions .button { min-width: 400px }
-    .paypal-smart-buttons { margin: 0 }
-    .cart-additionalCheckoutButtons { margin-top: 1.5rem }
-    .cart-additionalCheckoutButtons .FloatRight .or-use-label { display: none }
-}
-&lt;/style&gt;
+        var observer = new MutationObserver(function() {
+            var img = document.querySelector('.amazonpay-button-inner-image');
+            if (img) {
+                img.src = img.src.replace(/small/, 'large');
+            }
+        });
+        observer.observe(document.querySelector('.CheckoutButtonAmazon'), { childList: true });
+    })();
+&lt;/script&gt;
 </code></pre>
 
+<h1 id="display-additional-checkout-buttons-on-the-checkout-page">Display additional checkout buttons on the checkout page<a class="headerlink" href="#display-additional-checkout-buttons-on-the-checkout-page" title="Permanent link">&para;</a></h1>
+<p><img alt="display-additional-checkout-buttons-on-checkout-page" src="img/display-additional-checkout-buttons-on-checkout-page.png" /></p>
+<p>Go to <strong>Storefront</strong> &gt; <strong>Script Manager</strong>, click <strong>Create a Script</strong>, choose:</p>
+<ul>
+<li><strong>Location on page</strong> = <code>Footer</code></li>
+<li><strong>Select pages where script will be added</strong> = <code>All Pages</code></li>
+<li><strong>Script type</strong> = <code>Script</code></li>
+</ul>
+<p>Enter the script below to <strong>Scripts contents</strong>: </p>
+<pre><code class="html">&lt;script type=&quot;text/javascript&quot; src=&quot;https://static-na.payments-amazon.com/OffAmazonPayments/us/js/Widgets.js?sellerId=A3CUXN3OT1IR26&quot; defer&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;https://cdn11.bigcommerce.com/shared/bower/checkout-sdk/dist/checkout-button.umd-885565be8216c9c2857dcfce98505b42e97a9661.js&quot; defer&gt;&lt;/script&gt;
+&lt;script src=&quot;https://code.jquery.com/jquery-3.4.1.min.js&quot; integrity=&quot;sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js&quot; integrity=&quot;sha256-+nuEu243+6BveXk5N+Vbr268G+4FHjUOEcfKaBqfPbc=&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+(function($) {
+    var css = document.createElement('style');
+    css.innerHTML = ''
+        + '#checkout-app .customerEmail-container { margin-bottom: 0 }'
+        + '#checkout-app .customerEmail-container + p { display: none }';
+    document.head.appendChild(css);
+
+    function checkoutButtons() {
+        var $checkoutRemote = $('.checkoutRemote');
+        if ($checkoutRemote.length == 0 || $checkoutRemote.data('updated')) {
+            return;
+        }
+        $.get('/cart.php', function(resp) {
+            $resp = $(resp);
+            $checkoutRemote.html('').append($resp.find('.cart-additionalCheckoutButtons'));
+            $checkoutRemote.data('updated', true);
+            var img = document.querySelector('.amazonpay-button-inner-image');
+            if (img) {
+                img.src = img.src.replace(/small/, 'large');
+            }
+        });
+    }
+    function customerSection() {
+        var $section = $('#checkout-customer-guest');
+        if ($section.length === 0 || $section.data('updated')) {
+            return;
+        }
+        $section.data('updated', true);
+        $section.find('.form-body &gt; p:nth-child(3)').prependTo($section.find('.form-body'));
+    }
+    var observer = new MutationObserver($.debounce(200, function() {
+        checkoutButtons();
+        customerSection();
+    }));
+    observer.observe(document.querySelector('#checkout-app'), { childList: true, subtree: true })
+})(window.jQuery);
+&lt;/script&gt;
+</code></pre>
+
+<p>Replace 2 lines in the script by your own code:</p>
+<pre><code class="html">&lt;script type=&quot;text/javascript&quot; src=&quot;https://static-na.payments-amazon.com/OffAmazonPayments/us/js/Widgets.js?sellerId=A3CUXN3OT1IR26&quot; defer&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;https://cdn11.bigcommerce.com/shared/bower/checkout-sdk/dist/checkout-button.umd-885565be8216c9c2857dcfce98505b42e97a9661.js&quot; defer&gt;&lt;/script&gt;
+</code></pre>
+
+<p>You can find it by going to your cart page after added some products to cart, right click &gt; <strong>View page source</strong> (or <strong>Ctrl + U</strong>), search <code>checkout-button.umd</code> and copy 2 lines around like this example:</p>
+<p><img alt="view-source-cart-page-checkout-buttons" src="img/view-source-cart-page-checkout-buttons.png" /></p>
 <h2 id="always-show-add-to-cart-button-on-desktop-screens">Always show Add to Cart button on desktop screens<a class="headerlink" href="#always-show-add-to-cart-button-on-desktop-screens" title="Permanent link">&para;</a></h2>
 <p>Add the custom CSS below to <strong>Storefront</strong> &gt; <strong>Footer Scripts</strong>:</p>
 <pre><code class="html">&lt;style&gt;

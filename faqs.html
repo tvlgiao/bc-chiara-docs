@@ -1008,7 +1008,7 @@ window.chiaraSettings.disableAutoSizeNavPages = true;
 </code></pre>
 
 <h2 id="show-the-related-products-when-frequently-bought-together-is-enabled">Show the related products when Frequently Bought Together is enabled<a class="headerlink" href="#show-the-related-products-when-frequently-bought-together-is-enabled" title="Permanent link">&para;</a></h2>
-<p>If you want to show the related products for a specific products while Products Frequently Bought Together feature is enabled, follow the instruction below.</p>
+<p>If you want to show the related products for a specific products while Products Frequently Bought Together feature is enabled, follow the instruction below. Frequently Bought Together is also hidden for these products.</p>
 <ol>
 <li>
 <p>Create a custom field with name <code>ShowRelatedProducts</code> with value = <code>1</code> in a specific product.</p>
@@ -1044,6 +1044,8 @@ window.chiaraSettings.disableAutoSizeNavPages = true;
             if ($scope.find('.productView-info-name--cfShowrelatedproducts').length === 0) {
                 return;
             }
+
+            $scope.find('.productView-alsoBought').hide();
 
             var  productId = $scope.find('input[name=product_id]').val();
             if (!productId) {
@@ -1110,7 +1112,7 @@ window.chiaraSettings.disableAutoSizeNavPages = true;
 </code></pre>
 
 <p>Or enter the compressed code:</p>
-<pre><code class="html">&lt;script&gt;!function(t){function e(e){if(0!==e.find(&quot;.productView-info-name--cfShowrelatedproducts&quot;).length){var i=e.find(&quot;input[name=product_id]&quot;).val();i&amp;&amp;stencilUtils.api.product.getById(i,{template:&quot;products/tabs&quot;,config:{product:{related_products:!0}}},function(i,d){if(!i){var o=t('&lt;section class=&quot;productView-productsList productView-productsList--related&quot;&gt;&lt;h3 class=&quot;productView-productsList-heading&quot;&gt;Related Products&lt;/h3&gt;&lt;div class=&quot;productView-productsList-content&quot; data-content&gt;&lt;/div&gt;&lt;/section&gt;'),n=o.find(&quot;[data-content]&quot;);if(t(&quot;&lt;div&gt;&quot;).append(d).find(&quot;.productCarousel&quot;).first().appendTo(n),n.children().length&gt;0){e.append(o);var c=n.find(&quot;[data-slick]&quot;),a=c.data(&quot;slick&quot;);a.responsive[0].settings.slidesToShow=5,c.slick(a)}}})}}t(document).ready(function(){var i,d,o,n;t(&quot;head&quot;).append(&quot;&lt;style&gt;.productView-info-name--cfShowrelatedproducts, .productView-info-value--cfShowrelatedproducts { display: none }&lt;/style&gt;&quot;),t(&quot;.productView-container&quot;).each(function(i,d){e(t(d))}),new MutationObserver((i=function(){t(&quot;.modal-body.quickView .productView&quot;).each(function(i,d){var o=t(d);o.data(&quot;initRelatedProducts&quot;)||(o.data(&quot;initRelatedProducts&quot;,!0),e(o))})},d=300,function(){var t=this,e=arguments,c=o&amp;&amp;!n;clearTimeout(n),n=setTimeout(function(){n=null,o||i.apply(t,e)},d),c&amp;&amp;i.apply(t,e)})).observe(document.querySelector(&quot;body&quot;),{childList:!0,subtree:!0})})}(window.chiarajQuery||window.jQuery);&lt;/script&gt;
+<pre><code class="html">&lt;script&gt;!function(t){function e(e){if(0!==e.find(&quot;.productView-info-name--cfShowrelatedproducts&quot;).length){e.find(&quot;.productView-alsoBought&quot;).hide();var i=e.find(&quot;input[name=product_id]&quot;).val();i&amp;&amp;stencilUtils.api.product.getById(i,{template:&quot;products/tabs&quot;,config:{product:{related_products:!0}}},function(i,d){if(!i){var o=t('&lt;section class=&quot;productView-productsList productView-productsList--related&quot;&gt;&lt;h3 class=&quot;productView-productsList-heading&quot;&gt;Related Products&lt;/h3&gt;&lt;div class=&quot;productView-productsList-content&quot; data-content&gt;&lt;/div&gt;&lt;/section&gt;'),n=o.find(&quot;[data-content]&quot;);if(t(&quot;&lt;div&gt;&quot;).append(d).find(&quot;.productCarousel&quot;).first().appendTo(n),n.children().length&gt;0){e.append(o);var c=n.find(&quot;[data-slick]&quot;),a=c.data(&quot;slick&quot;);a.responsive[0].settings.slidesToShow=5,c.slick(a)}}})}}t(document).ready(function(){var i,d,o,n;t(&quot;head&quot;).append(&quot;&lt;style&gt;.productView-info-name--cfShowrelatedproducts, .productView-info-value--cfShowrelatedproducts { display: none }&lt;/style&gt;&quot;),t(&quot;.productView-container&quot;).each(function(i,d){e(t(d))}),new MutationObserver((i=function(){t(&quot;.modal-body.quickView .productView&quot;).each(function(i,d){var o=t(d);o.data(&quot;initRelatedProducts&quot;)||(o.data(&quot;initRelatedProducts&quot;,!0),e(o))})},d=300,function(){var t=this,e=arguments,c=o&amp;&amp;!n;clearTimeout(n),n=setTimeout(function(){n=null,o||i.apply(t,e)},d),c&amp;&amp;i.apply(t,e)})).observe(document.querySelector(&quot;body&quot;),{childList:!0,subtree:!0})})}(window.chiarajQuery||window.jQuery);&lt;/script&gt;
 </code></pre>
               
             </div>

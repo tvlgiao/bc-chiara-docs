@@ -953,3 +953,111 @@ Enter the script below to **Scripts contents**:
 })();
 </script>
 ```
+
+
+## Show the related products when Frequently Bought Together is enabled
+
+If you want to show the related products for a specific products while Products Frequently Bought Together feature is enabled, follow the instruction below.
+
+1. Create a custom field with name `ShowRelatedProducts` with value = `1` in a specific product.
+
+2. Create a custom script in **Storefront** > **Script Manager**, click **Create a Script**, choose:
+
+- **Location on page** = `Footer`
+- **Select pages where script will be added** = `All Pages`
+- **Script type** = `Script`
+
+Enter the script below to **Scripts contents**: 
+
+```html
+<script>
+    (function($) {
+        function debounce(func, wait, immediate) {
+            var timeout;
+            return function() {
+                var context = this, args = arguments;
+                var later = function() {
+                    timeout = null;
+                    if (!immediate) func.apply(context, args);
+                };
+                var callNow = immediate && !timeout;
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+                if (callNow) func.apply(context, args);
+            };
+        };
+
+        function init($scope) {
+            if ($scope.find('.productView-info-name--cfShowrelatedproducts').length === 0) {
+                return;
+            }
+            
+            var  productId = $scope.find('input[name=product_id]').val();
+            if (!productId) {
+                return;
+            }
+
+            stencilUtils.api.product.getById(productId, {
+                template: 'products/tabs',
+                config: {
+                    product: {
+                        related_products: true
+                    }
+                }
+            }, function(err, resp) {
+                if (err) {
+                    return;
+                }
+                
+                var $wrapper = $('<section class="productView-productsList productView-productsList--related"><h3 class="productView-productsList-heading">Related Products</h3><div class="productView-productsList-content" data-content></div></section>');
+                var $content = $wrapper.find('[data-content]');
+
+                $('<div>').append(resp).find('.productCarousel').first().appendTo($content);
+
+                if ($content.children().length > 0) {
+                    $scope.append($wrapper);
+
+                    var $slick = $content.find('[data-slick]');
+                    var opts = $slick.data('slick');
+
+                    opts.responsive[0].settings.slidesToShow = 5;
+
+                    $slick.slick(opts);
+                }
+            });
+        }
+
+        function css() {
+            $('head').append(''
+                + '<style>'
+                + '.productView-info-name--cfShowrelatedproducts, .productView-info-value--cfShowrelatedproducts { display: none }'
+                + '</style>');
+        }
+
+        $(document).ready(function() {
+            css();
+
+            $('.productView-container').each(function(i, el) {
+                init($(el));
+            });
+
+            var ob = new MutationObserver(debounce(function() {
+                $('.modal-body.quickView .productView').each(function(i, el) {
+                    var $el = $(el);
+                    if (!$el.data('initRelatedProducts')) {
+                        $el.data('initRelatedProducts', true);
+                        init($el);
+                    }
+                });
+            }, 300));
+            ob.observe(document.querySelector('body'), { childList: true, subtree: true });
+        });
+    })(window.chiarajQuery || window.jQuery);
+</script>
+```
+
+Or enter the compressed code:
+
+```html
+<script>!function(t){function e(e){if(0!==e.find(".productView-info-name--cfShowrelatedproducts").length){var i=e.find("input[name=product_id]").val();i&&stencilUtils.api.product.getById(i,{template:"products/tabs",config:{product:{related_products:!0}}},function(i,d){if(!i){var o=t('<section class="productView-productsList productView-productsList--related"><h3 class="productView-productsList-heading">Related Products</h3><div class="productView-productsList-content" data-content></div></section>'),n=o.find("[data-content]");if(t("<div>").append(d).find(".productCarousel").first().appendTo(n),n.children().length>0){e.append(o);var c=n.find("[data-slick]"),a=c.data("slick");a.responsive[0].settings.slidesToShow=5,c.slick(a)}}})}}t(document).ready(function(){var i,d,o,n;t("head").append("<style>.productView-info-name--cfShowrelatedproducts, .productView-info-value--cfShowrelatedproducts { display: none }</style>"),t(".productView-container").each(function(i,d){e(t(d))}),new MutationObserver((i=function(){t(".modal-body.quickView .productView").each(function(i,d){var o=t(d);o.data("initRelatedProducts")||(o.data("initRelatedProducts",!0),e(o))})},d=300,function(){var t=this,e=arguments,c=o&&!n;clearTimeout(n),n=setTimeout(function(){n=null,o||i.apply(t,e)},d),c&&i.apply(t,e)})).observe(document.querySelector("body"),{childList:!0,subtree:!0})})}(window.chiarajQuery||window.jQuery);</script>
+```

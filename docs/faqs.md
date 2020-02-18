@@ -85,21 +85,23 @@ Your script should look like this screenshot:
 
 ![add custom text on the orders page](img/add-custom-text-on-orders-page.png)
 
-Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
-
-- **Location on page** = `Footer`
-- **Select pages where script will be added** = `All pages`
-- **Script type** = `Script`
-
-Enter the script below to **Scripts contents**: 
+Add the scripts below to **Footer Scripts**:
 
 ```html
 <script>
-(function($) {
-    if ($('body').is('.page-type-account_orderstatus, .papaSupermarket-pageType--account-orderstatus')) {
-        $('.account').before('<p style="font-size:large;text-align:center">Click on the Order # to go to your download links</p>');
-    }
-})(window.jQuerySupermarket || window.chiarajQuery || window.jQuery);
+(function () {
+    var t = setInterval(function () {
+        var $ = window.jQuerySupermarket || window.chiarajQuery || window.jQuery;
+        if (typeof $ === 'undefined') {
+            return;
+        }
+        clearInterval(t);
+
+        if ($('body').is('.page-type-account_orderstatus, .papaSupermarket-pageType--account-orderstatus')) {
+            $('.account').before('<p style="font-size:large;text-align:center">Click on your Order # to view details and tracking number</p>');
+        }
+    }, 200);
+})();
 </script>
 ```
 
@@ -1099,3 +1101,89 @@ Enter the script below to **Scripts contents**:
     ob.observe(document.querySelector('#faceted-search-container'), { childList: true });
 })();
 </script>
+```
+
+## Display the top banner on Home page to all pages in Chiara Fashion
+
+Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
+
+- **Location on page** = `Footer`
+- **Select pages where script will be added** = `All Pages`
+- **Script type** = `Script`
+
+Enter the script below to **Scripts contents**: 
+
+```html
+<script>
+(function($) {
+    if ($('.header-top-item--banner').length === 0) {
+        stencilUtils.api.getPage('/', {}, function(err, resp) {
+            $(resp).find('.header-top-item--banner').prependTo($('.header-top-list'));
+        });
+    }
+})(window.chiarajQuery);
+</script>
+```
+
+## Display a better bulk discount rates table to show per piece price and savings
+
+![edit-bulk-price-table-file](img/edit-bulk-price-table-file.png)
+
+Edit file `templates/components/products/bulk-discount-rates.html` in **Edit Theme Files**.
+
+Replace the table HTML:
+
+``html
+<table class="productView-bulkPricing-table table">
+...
+</table>
+```
+
+By the code below:
+
+```html
+<table class="productView-bulkPricing-table table">
+    <tbody class="table-tbody">
+        <tr>
+            <td>Quantity</td>
+            {{#each bulk_discount_rates}}
+                <td>{{lang 'products.bulk_pricing.range' min=min max=max}}</td>
+            {{/each}}
+        </tr>
+        <tr>
+            <td>Per Piece</td>
+            {{#each bulk_discount_rates}}
+                <td>
+                    {{#if type '===' 'percent'}}
+                        {{../../settings.money.currency_token}}{{divide (round (multiply ../../product.price.without_tax.value (subtract 100 discount.value))) 100}}
+                    {{/if}}
+                    {{#if type '===' 'fixed'}}
+                        {{lang 'products.bulk_pricing.fixed' discount=discount.formatted}}
+                    {{/if}}
+                    {{#if type '===' 'price'}}
+                        {{../../settings.money.currency_token}}{{divide (round (multiply (subtract ../../product.price.without_tax.value discount.value) 100)) 100}}
+                    {{/if}}
+                </td>
+            {{/each}}
+        </tr>
+        <tr>
+            <td>Savings</td>
+            {{#each bulk_discount_rates}}
+                <td>
+                    {{#if type '===' 'percent'}}
+                        <!-- {{lang 'products.bulk_pricing.percent' discount=discount.formatted}} -->
+                        {{discount.value}}% off
+                    {{/if}}
+                    {{#if type '===' 'fixed'}}
+                        {{../../settings.money.currency_token}}{{subtract ../../product.price.without_tax.value discount.value}}
+                    {{/if}}
+                    {{#if type '===' 'price'}}
+                        <td>{{divide (round (multiply (divide discount.value ../../product.price.without_tax.value) 10000) 2) 100}}%</td>
+                    {{/if}}
+                </td>
+            {{/each}}
+        </tr>
+    </tbody>
+</table>
+```
+

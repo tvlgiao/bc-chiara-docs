@@ -170,6 +170,10 @@
         
             <li><a class="toctree-l3" href="#fix-facebook-box-not-reload-when-go-to-the-next-page-if-faceted-filters-is-enabled">Fix Facebook box not reload when go to the next page if Faceted Filters is enabled</a></li>
         
+            <li><a class="toctree-l3" href="#display-the-top-banner-on-home-page-to-all-pages-in-chiara-fashion">Display the top banner on Home page to all pages in Chiara Fashion</a></li>
+        
+            <li><a class="toctree-l3" href="#display-a-better-bulk-discount-rates-table-to-show-per-piece-price-and-savings">Display a better bulk discount rates table to show per piece price and savings</a></li>
+        
         </ul>
     
 
@@ -279,19 +283,21 @@ window.chiarajQuery(document).ajaxSend((event, xhr, settings) =&gt; {
 <p><img alt="Fix products also bought together" src="img/fix-products-bought-together-api-changed.png" /></p>
 <h2 id="add-custom-text-on-the-orders-page">Add custom text on the orders page<a class="headerlink" href="#add-custom-text-on-the-orders-page" title="Permanent link">&para;</a></h2>
 <p><img alt="add custom text on the orders page" src="img/add-custom-text-on-orders-page.png" /></p>
-<p>Go to <strong>Storefront</strong> &gt; <strong>Script Manager</strong>, click <strong>Create a Script</strong>, choose:</p>
-<ul>
-<li><strong>Location on page</strong> = <code>Footer</code></li>
-<li><strong>Select pages where script will be added</strong> = <code>All pages</code></li>
-<li><strong>Script type</strong> = <code>Script</code></li>
-</ul>
-<p>Enter the script below to <strong>Scripts contents</strong>: </p>
+<p>Add the scripts below to <strong>Footer Scripts</strong>:</p>
 <pre><code class="html">&lt;script&gt;
-(function($) {
-    if ($('body').is('.page-type-account_orderstatus, .papaSupermarket-pageType--account-orderstatus')) {
-        $('.account').before('&lt;p style=&quot;font-size:large;text-align:center&quot;&gt;Click on the Order # to go to your download links&lt;/p&gt;');
-    }
-})(window.jQuerySupermarket || window.chiarajQuery || window.jQuery);
+(function () {
+    var t = setInterval(function () {
+        var $ = window.jQuerySupermarket || window.chiarajQuery || window.jQuery;
+        if (typeof $ === 'undefined') {
+            return;
+        }
+        clearInterval(t);
+
+        if ($('body').is('.page-type-account_orderstatus, .papaSupermarket-pageType--account-orderstatus')) {
+            $('.account').before('&lt;p style=&quot;font-size:large;text-align:center&quot;&gt;Click on your Order # to view details and tracking number&lt;/p&gt;');
+        }
+    }, 200);
+})();
 &lt;/script&gt;
 </code></pre>
 
@@ -1148,6 +1154,82 @@ window.chiaraSettings.disableAutoSizeNavPages = true;
     ob.observe(document.querySelector('#faceted-search-container'), { childList: true });
 })();
 &lt;/script&gt;
+</code></pre>
+
+<h2 id="display-the-top-banner-on-home-page-to-all-pages-in-chiara-fashion">Display the top banner on Home page to all pages in Chiara Fashion<a class="headerlink" href="#display-the-top-banner-on-home-page-to-all-pages-in-chiara-fashion" title="Permanent link">&para;</a></h2>
+<p>Go to <strong>Storefront</strong> &gt; <strong>Script Manager</strong>, click <strong>Create a Script</strong>, choose:</p>
+<ul>
+<li><strong>Location on page</strong> = <code>Footer</code></li>
+<li><strong>Select pages where script will be added</strong> = <code>All Pages</code></li>
+<li><strong>Script type</strong> = <code>Script</code></li>
+</ul>
+<p>Enter the script below to <strong>Scripts contents</strong>: </p>
+<pre><code class="html">&lt;script&gt;
+(function($) {
+    if ($('.header-top-item--banner').length === 0) {
+        stencilUtils.api.getPage('/', {}, function(err, resp) {
+            $(resp).find('.header-top-item--banner').prependTo($('.header-top-list'));
+        });
+    }
+})(window.chiarajQuery);
+&lt;/script&gt;
+</code></pre>
+
+<h2 id="display-a-better-bulk-discount-rates-table-to-show-per-piece-price-and-savings">Display a better bulk discount rates table to show per piece price and savings<a class="headerlink" href="#display-a-better-bulk-discount-rates-table-to-show-per-piece-price-and-savings" title="Permanent link">&para;</a></h2>
+<p><img alt="edit-bulk-price-table-file" src="img/edit-bulk-price-table-file.png" /></p>
+<p>Edit file <code>templates/components/products/bulk-discount-rates.html</code> in <strong>Edit Theme Files</strong>.</p>
+<p>Replace the table HTML:</p>
+<p>``html
+<table class="productView-bulkPricing-table table">
+...
+</table></p>
+<pre><code>
+By the code below:
+
+```html
+&lt;table class=&quot;productView-bulkPricing-table table&quot;&gt;
+    &lt;tbody class=&quot;table-tbody&quot;&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Quantity&lt;/td&gt;
+            {{#each bulk_discount_rates}}
+                &lt;td&gt;{{lang 'products.bulk_pricing.range' min=min max=max}}&lt;/td&gt;
+            {{/each}}
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Per Piece&lt;/td&gt;
+            {{#each bulk_discount_rates}}
+                &lt;td&gt;
+                    {{#if type '===' 'percent'}}
+                        {{../../settings.money.currency_token}}{{divide (round (multiply ../../product.price.without_tax.value (subtract 100 discount.value))) 100}}
+                    {{/if}}
+                    {{#if type '===' 'fixed'}}
+                        {{lang 'products.bulk_pricing.fixed' discount=discount.formatted}}
+                    {{/if}}
+                    {{#if type '===' 'price'}}
+                        {{../../settings.money.currency_token}}{{divide (round (multiply (subtract ../../product.price.without_tax.value discount.value) 100)) 100}}
+                    {{/if}}
+                &lt;/td&gt;
+            {{/each}}
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Savings&lt;/td&gt;
+            {{#each bulk_discount_rates}}
+                &lt;td&gt;
+                    {{#if type '===' 'percent'}}
+                        &lt;!-- {{lang 'products.bulk_pricing.percent' discount=discount.formatted}} --&gt;
+                        {{discount.value}}% off
+                    {{/if}}
+                    {{#if type '===' 'fixed'}}
+                        {{../../settings.money.currency_token}}{{subtract ../../product.price.without_tax.value discount.value}}
+                    {{/if}}
+                    {{#if type '===' 'price'}}
+                        &lt;td&gt;{{divide (round (multiply (divide discount.value ../../product.price.without_tax.value) 10000) 2) 100}}%&lt;/td&gt;
+                    {{/if}}
+                &lt;/td&gt;
+            {{/each}}
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
 </code></pre>
               
             </div>

@@ -168,6 +168,8 @@
         
             <li><a class="toctree-l3" href="#show-the-related-products-when-frequently-bought-together-is-enabled">Show the related products when Frequently Bought Together is enabled</a></li>
         
+            <li><a class="toctree-l3" href="#fix-facebook-box-not-reload-when-go-to-the-next-page-if-faceted-filters-is-enabled">Fix Facebook box not reload when go to the next page if Faceted Filters is enabled</a></li>
+        
         </ul>
     
 
@@ -1113,6 +1115,39 @@ window.chiaraSettings.disableAutoSizeNavPages = true;
 
 <p>Or enter the compressed code:</p>
 <pre><code class="html">&lt;script&gt;!function(t){function e(e){if(0!==e.find(&quot;.productView-info-name--cfShowrelatedproducts&quot;).length){e.find(&quot;.productView-alsoBought&quot;).hide();var i=e.find(&quot;input[name=product_id]&quot;).val();i&amp;&amp;stencilUtils.api.product.getById(i,{template:&quot;products/tabs&quot;,config:{product:{related_products:!0}}},function(i,d){if(!i){var o=t('&lt;section class=&quot;productView-productsList productView-productsList--related&quot;&gt;&lt;h3 class=&quot;productView-productsList-heading&quot;&gt;Related Products&lt;/h3&gt;&lt;div class=&quot;productView-productsList-content&quot; data-content&gt;&lt;/div&gt;&lt;/section&gt;'),n=o.find(&quot;[data-content]&quot;);if(t(&quot;&lt;div&gt;&quot;).append(d).find(&quot;.productCarousel&quot;).first().appendTo(n),n.children().length&gt;0){e.append(o);var c=n.find(&quot;[data-slick]&quot;),a=c.data(&quot;slick&quot;);a.responsive[0].settings.slidesToShow=5,c.slick(a)}}})}}t(document).ready(function(){var i,d,o,n;t(&quot;head&quot;).append(&quot;&lt;style&gt;.productView-info-name--cfShowrelatedproducts, .productView-info-value--cfShowrelatedproducts { display: none }&lt;/style&gt;&quot;),t(&quot;.productView-container&quot;).each(function(i,d){e(t(d))}),new MutationObserver((i=function(){t(&quot;.modal-body.quickView .productView&quot;).each(function(i,d){var o=t(d);o.data(&quot;initRelatedProducts&quot;)||(o.data(&quot;initRelatedProducts&quot;,!0),e(o))})},d=300,function(){var t=this,e=arguments,c=o&amp;&amp;!n;clearTimeout(n),n=setTimeout(function(){n=null,o||i.apply(t,e)},d),c&amp;&amp;i.apply(t,e)})).observe(document.querySelector(&quot;body&quot;),{childList:!0,subtree:!0})})}(window.chiarajQuery||window.jQuery);&lt;/script&gt;
+</code></pre>
+
+<h2 id="fix-facebook-box-not-reload-when-go-to-the-next-page-if-faceted-filters-is-enabled">Fix Facebook box not reload when go to the next page if Faceted Filters is enabled<a class="headerlink" href="#fix-facebook-box-not-reload-when-go-to-the-next-page-if-faceted-filters-is-enabled" title="Permanent link">&para;</a></h2>
+<p>Go to <strong>Storefront</strong> &gt; <strong>Script Manager</strong>, click <strong>Create a Script</strong>, choose:</p>
+<ul>
+<li><strong>Location on page</strong> = <code>Footer</code></li>
+<li><strong>Select pages where script will be added</strong> = <code>All Pages</code></li>
+<li><strong>Script type</strong> = <code>Script</code></li>
+</ul>
+<p>Enter the script below to <strong>Scripts contents</strong>: </p>
+<pre><code class="html">&lt;script&gt;
+(function() {
+    function debounce(func, wait, immediate) {
+        var timeout;
+        return function() {
+            var context = this, args = arguments;
+            var later = function() {
+                timeout = null;
+                if (!immediate) func.apply(context, args);
+            };
+            var callNow = immediate &amp;&amp; !timeout;
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+            if (callNow) func.apply(context, args);
+        };
+    };
+
+    var ob = new MutationObserver(debounce(function() {
+        FB.XFBML.parse();
+    }), 300);
+    ob.observe(document.querySelector('#faceted-search-container'), { childList: true });
+})();
+&lt;/script&gt;
 </code></pre>
               
             </div>

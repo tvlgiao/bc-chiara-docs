@@ -163,6 +163,51 @@
 <li><code>2020-12-12T00:00:00Z</code>: count-down date time in GMT.</li>
 <li><code>//chiara.mybigcommerce.com/product_images/uploaded_images/angels-cosmetic-bigsales-img.jpg</code>: replace by your own banner image uploaded in <strong>Storefront</strong> &gt; <strong>Image Manager</strong>.</li>
 </ul>
+<h2 id="hide-all-countries-except-usa-in-the-checkout-page-and-create-account-page">Hide all countries except USA in the checkout page and create account page<a class="headerlink" href="#hide-all-countries-except-usa-in-the-checkout-page-and-create-account-page" title="Permanent link">&para;</a></h2>
+<pre><code class="html">&lt;script src=&quot;https://code.jquery.com/jquery-3.4.1.min.js&quot; integrity=&quot;sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://cdn.jsdelivr.net/npm/javascript-debounce@1.0.1/dist/javascript-debounce.min.js&quot; integrity=&quot;sha256-yppCMizPjrL8s22FQM9X70dJSYbV39pH9VA/gc2nlUE=&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+    (function($) {
+        function checkoutPage() {
+            var ob = new MutationObserver(debounce(function() {
+                var $el = $('#countryCodeInput');
+                var el = $el.get(0);
+
+                if ($el.length &gt; 0 &amp;&amp; !$el.data('updatedCountries')) {
+                    $el.data('updatedCountries', true);
+                    $el.find('option').not('[value=US]').remove();
+                    $el.val('US');
+
+                    // Trigger onchange event
+                    // https://stackoverflow.com/questions/23892547/what-is-the-best-way-to-trigger-onchange-event-in-react-js
+                    var ev = new Event('change', { bubbles: true });
+                    ev.simulated = true;
+                    el.value = 'US';
+                    el.dispatchEvent(ev);
+                }
+            }, 300));
+            ob.observe(document.getElementById('checkout-app'), { childList: true, subtree: true });
+        }
+
+        function createAccountPage() {
+            var $el = $('select[data-field-type=Country]');
+            if ($el.length &gt; 0 &amp;&amp; !$el.data('updatedCountries')) {
+                $el.data('updatedCountries', true);
+                $el.find('option').not('[value=&quot;United States&quot;]').remove();
+                $el.val('United States').trigger('change');
+            }
+        }
+
+        if (document.getElementById('checkout-app')) {
+            checkoutPage();
+        }
+
+        if ($('body').hasClass('page-type-createaccount')) {
+            createAccountPage();
+        }
+    })(window.chiarajQuery || window.jQuery);
+&lt;/script&gt;
+</code></pre>
               
             </div>
           </div>

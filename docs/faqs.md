@@ -1194,3 +1194,25 @@ By the code below:
 </table>
 ```
 
+## Add a custom label (HOT) on a main menu item
+
+Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
+
+- **Location on page** = `Footer`
+- **Select pages where script will be added** = `All Pages`
+- **Script type** = `Script`
+
+Enter the script below to **Scripts contents**: 
+
+```html
+<script>
+    (function() {
+        var css = document.createElement('style');
+        css.innerHTML = ".navPages-container .navPages > .navPages-list > .navPages-item:nth-child(5) > a:before { content: 'HOT'; display: block; position: absolute; top: calc(50% - 24px); right: 0; padding: 0px 4px; font-size: 10px; font-weight: bold; color: #ffffff; background-color: red; }";
+        document.head.appendChild(css);
+    })();
+</script>
+```
+
+Update `nth-child(5)` coresponding to your menu item order number.
+

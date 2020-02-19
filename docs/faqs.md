@@ -1142,6 +1142,11 @@ Replace the table HTML:
 By the code below:
 
 ```html
+{{#if product}}
+    {{#if (merge this _price=product.price)}}{{/if}}
+{{else}}
+    {{#if (merge this _price=price)}}{{/if}}
+{{/if}}
 <table class="productView-bulkPricing-table table">
     <tbody class="table-tbody">
         <tr>
@@ -1155,13 +1160,15 @@ By the code below:
             {{#each bulk_discount_rates}}
                 <td>
                     {{#if type '===' 'percent'}}
-                        {{../../settings.money.currency_token}}{{divide (round (multiply ../../product.price.without_tax.value (subtract 100 discount.value))) 100}}
+                        {{../../settings.money.currency_token}}{{divide (round (multiply ../../_price.without_tax.value (subtract 100 discount.value))) 100}}
+                        <!-- {{../../_price.without_tax.value}} -->
+                        <!-- {{discount.value}} -->
                     {{/if}}
                     {{#if type '===' 'fixed'}}
                         {{lang 'products.bulk_pricing.fixed' discount=discount.formatted}}
                     {{/if}}
                     {{#if type '===' 'price'}}
-                        {{../../settings.money.currency_token}}{{divide (round (multiply (subtract ../../product.price.without_tax.value discount.value) 100)) 100}}
+                        {{../../settings.money.currency_token}}{{divide (round (multiply (subtract ../../_price.without_tax.value discount.value) 100)) 100}}
                     {{/if}}
                 </td>
             {{/each}}
@@ -1175,10 +1182,10 @@ By the code below:
                         {{discount.value}}% off
                     {{/if}}
                     {{#if type '===' 'fixed'}}
-                        {{../../settings.money.currency_token}}{{subtract ../../product.price.without_tax.value discount.value}}
+                        {{../../settings.money.currency_token}}{{subtract ../../_price.without_tax.value discount.value}}
                     {{/if}}
                     {{#if type '===' 'price'}}
-                        <td>{{divide (round (multiply (divide discount.value ../../product.price.without_tax.value) 10000) 2) 100}}%</td>
+                        <td>{{divide (round (multiply (divide discount.value ../../_price.without_tax.value) 10000) 2) 100}}%</td>
                     {{/if}}
                 </td>
             {{/each}}

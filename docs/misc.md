@@ -33,3 +33,51 @@ You are freely to edit the heading, short description or product category:
 - `//chiara.mybigcommerce.com/product_images/uploaded_images/angels-cosmetic-bigsales-img.jpg`: replace by your own banner image uploaded in **Storefront** > **Image Manager**.
 
 
+
+## Hide all countries except USA in the checkout page and create account page
+
+```html
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/javascript-debounce@1.0.1/dist/javascript-debounce.min.js" integrity="sha256-yppCMizPjrL8s22FQM9X70dJSYbV39pH9VA/gc2nlUE=" crossorigin="anonymous"></script>
+<script>
+    (function($) {
+        function checkoutPage() {
+            var ob = new MutationObserver(debounce(function() {
+                var $el = $('#countryCodeInput');
+                var el = $el.get(0);
+
+                if ($el.length > 0 && !$el.data('updatedCountries')) {
+                    $el.data('updatedCountries', true);
+                    $el.find('option').not('[value=US]').remove();
+                    $el.val('US');
+
+                    // Trigger onchange event
+                    // https://stackoverflow.com/questions/23892547/what-is-the-best-way-to-trigger-onchange-event-in-react-js
+                    var ev = new Event('change', { bubbles: true });
+                    ev.simulated = true;
+                    el.value = 'US';
+                    el.dispatchEvent(ev);
+                }
+            }, 300));
+            ob.observe(document.getElementById('checkout-app'), { childList: true, subtree: true });
+        }
+
+        function createAccountPage() {
+            var $el = $('select[data-field-type=Country]');
+            if ($el.length > 0 && !$el.data('updatedCountries')) {
+                $el.data('updatedCountries', true);
+                $el.find('option').not('[value="United States"]').remove();
+                $el.val('United States').trigger('change');
+            }
+        }
+
+        if (document.getElementById('checkout-app')) {
+            checkoutPage();
+        }
+
+        if ($('body').hasClass('page-type-createaccount')) {
+            createAccountPage();
+        }
+    })(window.chiarajQuery || window.jQuery);
+</script>
+```

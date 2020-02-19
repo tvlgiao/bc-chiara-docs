@@ -174,6 +174,8 @@
         
             <li><a class="toctree-l3" href="#display-a-better-bulk-discount-rates-table-to-show-per-piece-price-and-savings">Display a better bulk discount rates table to show per piece price and savings</a></li>
         
+            <li><a class="toctree-l3" href="#add-a-custom-label-hot-on-a-main-menu-item">Add a custom label (HOT) on a main menu item</a></li>
+        
         </ul>
     
 
@@ -1238,6 +1240,25 @@ By the code below:
     &lt;/tbody&gt;
 &lt;/table&gt;
 </code></pre>
+
+<h2 id="add-a-custom-label-hot-on-a-main-menu-item">Add a custom label (HOT) on a main menu item<a class="headerlink" href="#add-a-custom-label-hot-on-a-main-menu-item" title="Permanent link">&para;</a></h2>
+<p>Go to <strong>Storefront</strong> &gt; <strong>Script Manager</strong>, click <strong>Create a Script</strong>, choose:</p>
+<ul>
+<li><strong>Location on page</strong> = <code>Footer</code></li>
+<li><strong>Select pages where script will be added</strong> = <code>All Pages</code></li>
+<li><strong>Script type</strong> = <code>Script</code></li>
+</ul>
+<p>Enter the script below to <strong>Scripts contents</strong>: </p>
+<pre><code class="html">&lt;script&gt;
+    (function() {
+        var css = document.createElement('style');
+        css.innerHTML = &quot;.navPages-container .navPages &gt; .navPages-list &gt; .navPages-item:nth-child(5) &gt; a:before { content: 'HOT'; display: block; position: absolute; top: calc(50% - 24px); right: 0; padding: 0px 4px; font-size: 10px; font-weight: bold; color: #ffffff; background-color: red; }&quot;;
+        document.head.appendChild(css);
+    })();
+&lt;/script&gt;
+</code></pre>
+
+<p>Update <code>nth-child(5)</code> coresponding to your menu item order number.</p>
               
             </div>
           </div>

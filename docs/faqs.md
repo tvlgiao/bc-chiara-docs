@@ -1247,3 +1247,32 @@ Enter the script below to **Scripts contents**:
     })();
 </script>
 ```
+
+
+## Fix icons disappeared recently due to the CORS policy changed from BigCommerce server
+
+Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
+
+- **Location on page** = `Footer`
+- **Select pages where script will be added** = `All Pages`
+- **Script type** = `Script`
+
+Enter the script below to **Scripts contents**: 
+
+```html
+<script>
+(function() {
+    var t = setInterval(function() {
+        if (window.chiarajQuery) {
+            clearInterval(t);
+        }
+
+        var $ = window.chiarajQuery;
+        stencilUtils.api.getPage('/', { template: 'amp/common/icon-defs' }, function(err, resp) {
+           var $svg = $(resp);
+           $svg.addClass('icons-svg-sprite').appendTo('body');
+        });
+    }, 200);
+})();
+</script>
+```

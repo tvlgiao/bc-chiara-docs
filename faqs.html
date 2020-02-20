@@ -1304,6 +1304,8 @@ By the code below:
     var t = setInterval(function() {
         if (window.chiarajQuery) {
             clearInterval(t);
+        } else {
+            return;
         }
 
         if (i++ &gt; 100) {

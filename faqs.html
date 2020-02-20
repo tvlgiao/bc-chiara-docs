@@ -176,6 +176,10 @@
         
             <li><a class="toctree-l3" href="#add-a-custom-label-hot-on-a-main-menu-item">Add a custom label (HOT) on a main menu item</a></li>
         
+            <li><a class="toctree-l3" href="#hide-paypal-express-checkout-buttons">Hide PayPal Express Checkout buttons</a></li>
+        
+            <li><a class="toctree-l3" href="#fix-icons-disappeared-recently-due-to-the-cors-policy-changed-from-bigcommerce-server">Fix icons disappeared recently due to the CORS policy changed from BigCommerce server</a></li>
+        
         </ul>
     
 
@@ -1170,7 +1174,17 @@ window.chiaraSettings.disableAutoSizeNavPages = true;
 (function($) {
     if ($('.header-top-item--banner').length === 0) {
         stencilUtils.api.getPage('/', {}, function(err, resp) {
-            $(resp).find('.header-top-item--banner').prependTo($('.header-top-list'));
+            var $content = $(resp).find('.header-top-item--banner');
+            if ($content.length &gt; 0) {
+                $content.prependTo($('.header-top-list'));
+
+                var $top = $('.banners[data-banner-location=&quot;top&quot;]');
+                if ($top.length === 0) {
+                    $top = $('&lt;div class=&quot;banners u-hiddenVisually-desktop&quot; data-banner-location=&quot;top&quot;&gt;');
+                    $('.header').first().before($top);
+                }
+                $top.html($content.html());
+            }
         });
     }
 })(window.chiarajQuery);
@@ -1259,6 +1273,47 @@ By the code below:
 </code></pre>
 
 <p>Update <code>nth-child(5)</code> coresponding to your menu item order number.</p>
+<h2 id="hide-paypal-express-checkout-buttons">Hide PayPal Express Checkout buttons<a class="headerlink" href="#hide-paypal-express-checkout-buttons" title="Permanent link">&para;</a></h2>
+<p>Go to <strong>Storefront</strong> &gt; <strong>Script Manager</strong>, click <strong>Create a Script</strong>, choose:</p>
+<ul>
+<li><strong>Location on page</strong> = <code>Footer</code></li>
+<li><strong>Select pages where script will be added</strong> = <code>All Pages</code></li>
+<li><strong>Script type</strong> = <code>Script</code></li>
+</ul>
+<p>Enter the script below to <strong>Scripts contents</strong>: </p>
+<pre><code class="html">&lt;script&gt;
+    (function() {
+        var css = document.createElement('style');
+        css.innerHTML = '.PayPalExpressCheckout { display: none !important }';
+        document.head.appendChild(css);
+    })();
+&lt;/script&gt;
+</code></pre>
+
+<h2 id="fix-icons-disappeared-recently-due-to-the-cors-policy-changed-from-bigcommerce-server">Fix icons disappeared recently due to the CORS policy changed from BigCommerce server<a class="headerlink" href="#fix-icons-disappeared-recently-due-to-the-cors-policy-changed-from-bigcommerce-server" title="Permanent link">&para;</a></h2>
+<p>Go to <strong>Storefront</strong> &gt; <strong>Script Manager</strong>, click <strong>Create a Script</strong>, choose:</p>
+<ul>
+<li><strong>Location on page</strong> = <code>Footer</code></li>
+<li><strong>Select pages where script will be added</strong> = <code>All Pages</code></li>
+<li><strong>Script type</strong> = <code>Script</code></li>
+</ul>
+<p>Enter the script below to <strong>Scripts contents</strong>: </p>
+<pre><code class="html">&lt;script&gt;
+(function() {
+    var t = setInterval(function() {
+        if (window.chiarajQuery) {
+            clearInterval(t);
+        }
+
+        var $ = window.chiarajQuery;
+        stencilUtils.api.getPage('/', { template: 'amp/common/icon-defs' }, function(err, resp) {
+           var $svg = $(resp);
+           $svg.addClass('icons-svg-sprite').appendTo('body');
+        });
+    }, 200);
+})();
+&lt;/script&gt;
+</code></pre>
               
             </div>
           </div>

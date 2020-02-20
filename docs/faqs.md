@@ -1118,7 +1118,17 @@ Enter the script below to **Scripts contents**:
 (function($) {
     if ($('.header-top-item--banner').length === 0) {
         stencilUtils.api.getPage('/', {}, function(err, resp) {
-            $(resp).find('.header-top-item--banner').prependTo($('.header-top-list'));
+            var $content = $(resp).find('.header-top-item--banner');
+            if ($content.length > 0) {
+                $content.prependTo($('.header-top-list'));
+                
+                var $top = $('.banners[data-banner-location="top"]');
+                if ($top.length === 0) {
+                    $top = $('<div class="banners u-hiddenVisually-desktop" data-banner-location="top">');
+                    $('.header').first().before($top);
+                }
+                $top.html($content.html());
+            }
         });
     }
 })(window.chiarajQuery);
@@ -1216,3 +1226,24 @@ Enter the script below to **Scripts contents**:
 
 Update `nth-child(5)` coresponding to your menu item order number.
 
+
+
+## Hide PayPal Express Checkout buttons
+
+Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
+
+- **Location on page** = `Footer`
+- **Select pages where script will be added** = `All Pages`
+- **Script type** = `Script`
+
+Enter the script below to **Scripts contents**: 
+
+```html
+<script>
+    (function() {
+        var css = document.createElement('style');
+        css.innerHTML = '.PayPalExpressCheckout { display: none !important }';
+        document.head.appendChild(css);
+    })();
+</script>
+```

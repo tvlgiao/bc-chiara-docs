@@ -1300,9 +1300,15 @@ By the code below:
 <p>Enter the script below to <strong>Scripts contents</strong>: </p>
 <pre><code class="html">&lt;script&gt;
 (function() {
+    var i = 0;
     var t = setInterval(function() {
         if (window.chiarajQuery) {
             clearInterval(t);
+        }
+
+        if (i++ &gt; 100) {
+            clearInterval(t);
+            return;
         }
 
         var $ = window.chiarajQuery;

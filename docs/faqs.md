@@ -1262,9 +1262,17 @@ Enter the script below to **Scripts contents**:
 ```html
 <script>
 (function() {
+    var i = 0;
     var t = setInterval(function() {
         if (window.chiarajQuery) {
             clearInterval(t);
+        } else {
+            return;
+        }
+
+        if (i++ > 100) {
+            clearInterval(t);
+            return;
         }
 
         var $ = window.chiarajQuery;
@@ -1274,5 +1282,35 @@ Enter the script below to **Scripts contents**:
         });
     }, 200);
 })();
+</script>
+```
+
+
+## Move Cookie Consent notification to bottom of page
+
+To move the notification bar **Manage Website Data Collection Preferences** to bottom of page, 
+
+Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
+
+- **Location on page** = `Footer`
+- **Select pages where script will be added** = `All Pages`
+- **Script type** = `Script`
+
+Enter the script below to **Scripts contents**: 
+
+![move-cookie-consent-bar-to-bottom-of-page](img/move-cookie-consent-bar-to-bottom-of-page.png)
+
+
+```html
+<script>
+    (function() {
+        var css = document.createElement('style');
+        css.innerHTML = ''
+            + '#consent-manager-update-banner { position: static !important; height: auto !important }'
+            + '@media (max-width: 800px) {'
+            + '#consent-manager-update-banner { padding-bottom: 55px; margin-top: -55px }'
+            + '}';
+        document.head.appendChild(css);
+    })();
 </script>
 ```

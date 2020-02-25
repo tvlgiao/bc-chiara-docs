@@ -182,6 +182,8 @@
         
             <li><a class="toctree-l3" href="#move-cookie-consent-notification-to-bottom-of-page">Move Cookie Consent notification to bottom of page</a></li>
         
+            <li><a class="toctree-l3" href="#set-position-of-the-site-logo-always-center-on-mobile">Set position of the site logo always center on mobile</a></li>
+        
         </ul>
     
 
@@ -1342,6 +1344,25 @@ By the code below:
             + '#consent-manager-update-banner { position: static !important; height: auto !important }'
             + '@media (max-width: 800px) {'
             + '#consent-manager-update-banner { padding-bottom: 55px; margin-top: -55px }'
+            + '}';
+        document.head.appendChild(css);
+    })();
+&lt;/script&gt;
+</code></pre>
+
+<h2 id="set-position-of-the-site-logo-always-center-on-mobile">Set position of the site logo always center on mobile<a class="headerlink" href="#set-position-of-the-site-logo-always-center-on-mobile" title="Permanent link">&para;</a></h2>
+<p>Go to <strong>Storefront</strong> &gt; <strong>Script Manager</strong>, click <strong>Create a Script</strong>, choose:</p>
+<ul>
+<li><strong>Location on page</strong> = <code>Footer</code></li>
+<li><strong>Select pages where script will be added</strong> = <code>All Pages</code></li>
+<li><strong>Script type</strong> = <code>Script</code></li>
+</ul>
+<p>Enter the script below to <strong>Scripts contents</strong>: </p>
+<pre><code class="html">&lt;script&gt;
+    (function() {
+        var css = document.createElement('style');
+        css.innerHTML = '@media (max-width: 800px) {'
+            + '.header-logo-image-container { margin: auto !important }'
             + '}';
         document.head.appendChild(css);
     })();

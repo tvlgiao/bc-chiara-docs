@@ -1314,3 +1314,28 @@ Enter the script below to **Scripts contents**:
     })();
 </script>
 ```
+
+
+
+## Set position of the site logo always center on mobile
+
+Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
+
+- **Location on page** = `Footer`
+- **Select pages where script will be added** = `All Pages`
+- **Script type** = `Script`
+
+Enter the script below to **Scripts contents**: 
+
+```html
+<script>
+    (function() {
+        var css = document.createElement('style');
+        css.innerHTML = '@media (max-width: 800px) {'
+            + '.header-logo-image-container { margin: auto !important }'
+            + '}';
+        document.head.appendChild(css);
+    })();
+</script>
+```
+

@@ -4,6 +4,34 @@
     If you encounter any issues, please <a href="https://papathemes.com/contact-us/">report to us</a>. You can always <a href="https://support.bigcommerce.com/s/article/Marketplace-Theme-Updates#restore">restore the ealier theme version</a>, check this <a href="https://youtu.be/eZdmudDUrQE">video</a> for instruction.
 </div>
 
+## 1.6.0 (2020-02-26)
+- Fix color of flyout menu sub items when hover.
+- Fix Mobile Not Friendly when Card Image Slider is enabled.
+- Fix the close button color.
+- Fix categories and pages panel color when header color is dark.
+- Fix custom fields start with __ still show on mobile.
+- Add new option allow to turn off Login panel.
+- Fix product variant image not change when click on product swatches on product card items if "Show Image Slider" is enabled.
+- Fix mega menu dropdown not work on iPad iOS 13+
+- Add new feature support Youtube video on Home Carousel
+- Add option to disable thumbnails carousel on PDP
+- Fix Call for Price should have same style as Price
+- Fix Facebook box not reload on the next page when faceted search enabled
+- Fix click on the search icon scroll the page to top
+- Fix remove wishlist buttons not align properly on wishlist page
+- [CORNERSTONE] feat(search): ES-721 fixed the issue for price filter collapse CP settings
+- Fix product columns display 5 on tablet
+- Fix logo center not center properly
+- Fix register link show twice if top header enabled
+- [CORNERSTONE] ES-97 fixed the html special chars issue in facet names
+- [CORNERSTONE] ES-98 Product filters configured to not display product count show a count when you use the "More" modal
+- Add translation key for "read more" blog post link
+- Update @bigcommerce/stencil-utils 5.0.3
+- Fix main navigation underline position
+- Fix quick search box z-index overlap header
+- Move Cookie Consent message to bottom of page
+- Fix the main carousel dots overflow mobile screen width
+
 ## 1.5
 
 If you're updating your theme to 1.5.x version, please check the [update note](update.md#additional-note-for-updating-14-to-15).

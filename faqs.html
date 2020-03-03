@@ -186,6 +186,8 @@
         
             <li><a class="toctree-l3" href="#display-the-social-sharing-icons-inline-and-disable-the-dropdown">Display the social sharing icons inline and disable the dropdown</a></li>
         
+            <li><a class="toctree-l3" href="#add-a-custom-link-to-the-phone-call-position-on-the-top-header">Add a custom link to the phone call position on the top header</a></li>
+        
         </ul>
     
 
@@ -1396,6 +1398,31 @@ By the code below:
     })();
 &lt;/script&gt;
 </code></pre>
+
+<h2 id="add-a-custom-link-to-the-phone-call-position-on-the-top-header">Add a custom link to the phone call position on the top header<a class="headerlink" href="#add-a-custom-link-to-the-phone-call-position-on-the-top-header" title="Permanent link">&para;</a></h2>
+<p><img alt="add-custom-link-to-top-header-phone-call" src="img/add-custom-link-to-top-header-phone-call.png" /></p>
+<p>Go to <strong>Storefront</strong> &gt; <strong>Script Manager</strong>, click <strong>Create a Script</strong>, choose:</p>
+<ul>
+<li><strong>Location on page</strong> = <code>Footer</code></li>
+<li><strong>Select pages where script will be added</strong> = <code>All Pages</code></li>
+<li><strong>Script type</strong> = <code>Script</code></li>
+</ul>
+<p>Enter the script below to <strong>Scripts contents</strong>: </p>
+<pre><code class="html">&lt;script&gt;
+    (function() {
+        var el = document.querySelector('.header-top-item--phone');
+        if (el) {
+            var link = document.createElement('a');
+            link.href = &quot;ADD YOUR LINK URL HERE&quot;;
+            link.innerHTML = &quot;ADD YOUR LINK TEXT HERE&quot;;
+            link.className = &quot;header-top-action&quot;;
+            el.appendChild(link);
+        }
+    })();
+&lt;/script&gt;
+</code></pre>
+
+<p>Replace <code>ADD YOUR LINK URL HERE</code> by your link URL and <code>ADD YOUR LINK TEXT HERE</code> by your link text.</p>
               
             </div>
           </div>

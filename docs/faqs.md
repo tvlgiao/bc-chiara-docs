@@ -841,7 +841,7 @@ Enter the script below to **Scripts contents**:
     var css = document.createElement('style');
     css.innerHTML = ''
         + '@media (min-width: 801px) {'
-        + '.navUser { z-index: 55 }'
+        + '.navUser { z-index: 60 }'
         + '}';
     document.head.appendChild(css);
 })();
@@ -1338,4 +1338,34 @@ Enter the script below to **Scripts contents**:
     })();
 </script>
 ```
+
+## Display the social sharing icons inline and disable the dropdown
+
+Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
+
+- **Location on page** = `Footer`
+- **Select pages where script will be added** = `Store Pages`
+- **Script type** = `Script`
+
+Enter the script below to **Scripts contents**: 
+
+```html
+<script>
+    (function() {
+        var css = document.createElement('style');
+        css.innerHTML = ''
+            + '.productView-priceShareWrapper { flex-wrap: wrap }'
+            + '.productView-share-toggle { display: none }'
+            + '.productView-share-dropdown { position: static !important; padding: 0; margin: 0; box-shadow: none }'
+            + '.productView-share-dropdown .socialLinks { display: flex; flex-wrap: wrap; line-height: 1 }'
+            + '.productView-share-dropdown .socialLinks-item { margin: .25rem }'
+            + '.productView-share-dropdown .socialLinks .icon { width: 24px !important; height: 24px !important; border-radius: 12px; padding: 6px }'
+            + '@media (max-width: 800px) {'
+            + '.productView-otherButtons { margin-left: 0 }'
+            + '}';
+        document.head.appendChild(css);
+    })();
+</script>
+```
+
 

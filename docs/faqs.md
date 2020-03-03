@@ -1398,3 +1398,31 @@ Enter the script below to **Scripts contents**:
 
 Replace `ADD YOUR LINK URL HERE` by your link URL and `ADD YOUR LINK TEXT HERE` by your link text.
 
+
+## Insert AfterPay banner on product pages
+
+Please follow this instruction: https://support.bigcommerce.com/s/article/Connecting-with-Afterpay#widget
+
+
+## Display category images with original size
+
+Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
+
+- **Location on page** = `Footer`
+- **Select pages where script will be added** = `Store Pages`
+- **Script type** = `Script`
+
+Enter the script below to **Scripts contents**: 
+
+```html
+<script>
+    (function() {
+        var el = document.querySelector('.chiara-category-mainImage img');
+        if (el) {
+            var url = el.getAttribute('data-src').replace(/stencil\/([^\/]+)\//, 'stencil/original/');
+            el.setAttribute('data-src', url);
+            el.src = url;
+        }
+    })();
+</script>
+```

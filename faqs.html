@@ -184,6 +184,8 @@
         
             <li><a class="toctree-l3" href="#set-position-of-the-site-logo-always-center-on-mobile">Set position of the site logo always center on mobile</a></li>
         
+            <li><a class="toctree-l3" href="#display-the-social-sharing-icons-inline-and-disable-the-dropdown">Display the social sharing icons inline and disable the dropdown</a></li>
+        
         </ul>
     
 
@@ -927,7 +929,7 @@ window.chiaraSettings.disableAutoSizeNavPages = true;
     var css = document.createElement('style');
     css.innerHTML = ''
         + '@media (min-width: 801px) {'
-        + '.navUser { z-index: 55 }'
+        + '.navUser { z-index: 60 }'
         + '}';
     document.head.appendChild(css);
 })();
@@ -1363,6 +1365,32 @@ By the code below:
         var css = document.createElement('style');
         css.innerHTML = '@media (max-width: 800px) {'
             + '.header-logo-image-container { margin: auto !important }'
+            + '}';
+        document.head.appendChild(css);
+    })();
+&lt;/script&gt;
+</code></pre>
+
+<h2 id="display-the-social-sharing-icons-inline-and-disable-the-dropdown">Display the social sharing icons inline and disable the dropdown<a class="headerlink" href="#display-the-social-sharing-icons-inline-and-disable-the-dropdown" title="Permanent link">&para;</a></h2>
+<p>Go to <strong>Storefront</strong> &gt; <strong>Script Manager</strong>, click <strong>Create a Script</strong>, choose:</p>
+<ul>
+<li><strong>Location on page</strong> = <code>Footer</code></li>
+<li><strong>Select pages where script will be added</strong> = <code>Store Pages</code></li>
+<li><strong>Script type</strong> = <code>Script</code></li>
+</ul>
+<p>Enter the script below to <strong>Scripts contents</strong>: </p>
+<pre><code class="html">&lt;script&gt;
+    (function() {
+        var css = document.createElement('style');
+        css.innerHTML = ''
+            + '.productView-priceShareWrapper { flex-wrap: wrap }'
+            + '.productView-share-toggle { display: none }'
+            + '.productView-share-dropdown { position: static !important; padding: 0; margin: 0; box-shadow: none }'
+            + '.productView-share-dropdown .socialLinks { display: flex; flex-wrap: wrap; line-height: 1 }'
+            + '.productView-share-dropdown .socialLinks-item { margin: .25rem }'
+            + '.productView-share-dropdown .socialLinks .icon { width: 24px !important; height: 24px !important; border-radius: 12px; padding: 6px }'
+            + '@media (max-width: 800px) {'
+            + '.productView-otherButtons { margin-left: 0 }'
             + '}';
         document.head.appendChild(css);
     })();

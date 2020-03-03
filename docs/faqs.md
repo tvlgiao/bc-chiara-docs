@@ -1369,3 +1369,32 @@ Enter the script below to **Scripts contents**:
 ```
 
 
+## Add a custom link to the phone call position on the top header
+
+![add-custom-link-to-top-header-phone-call](img/add-custom-link-to-top-header-phone-call.png)
+
+Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
+
+- **Location on page** = `Footer`
+- **Select pages where script will be added** = `All Pages`
+- **Script type** = `Script`
+
+Enter the script below to **Scripts contents**: 
+
+```html
+<script>
+    (function() {
+        var el = document.querySelector('.header-top-item--phone');
+        if (el) {
+            var link = document.createElement('a');
+            link.href = "ADD YOUR LINK URL HERE";
+            link.innerHTML = "ADD YOUR LINK TEXT HERE";
+            link.className = "header-top-action";
+            el.appendChild(link);
+        }
+    })();
+</script>
+```
+
+Replace `ADD YOUR LINK URL HERE` by your link URL and `ADD YOUR LINK TEXT HERE` by your link text.
+

@@ -659,9 +659,11 @@ Enter the script below to **Scripts contents**:
             var $nav = $('.navPages-container, .navPages-container .navPages');
             $(window).on('resize load', function() {
                 $nav.css('overflow', '');
-                setTimeout(function() {
-                    $nav.css('overflow', 'visible');
-                }, 500);
+                if ($(window).width() >= 801) {
+                    setTimeout(function() {
+                        $nav.css('overflow', 'visible');
+                    }, 500);
+                }
             });
         }
         
@@ -1426,3 +1428,26 @@ Enter the script below to **Scripts contents**:
     })();
 </script>
 ```
+
+## Display sub-category thumbnails on the category pages on desktop screen
+
+1. Go to **Theme Editor** > **Products** > **Displaying products** > tick on **Show category images**.
+
+2. Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
+
+- **Location on page** = `Footer`
+- **Select pages where script will be added** = `Store Pages`
+- **Script type** = `Script`
+
+Enter the script below to **Scripts contents**: 
+
+```html
+<script>
+    (function() {
+        var css = document.createElement('style');
+        css.innerHTML = '.category-listing-container { display: block }';
+        document.head.appendChild(css);
+    })();
+</script>
+```
+

@@ -192,6 +192,8 @@
         
             <li><a class="toctree-l3" href="#display-category-images-with-original-size">Display category images with original size</a></li>
         
+            <li><a class="toctree-l3" href="#display-sub-category-thumbnails-on-the-category-pages-on-desktop-screen">Display sub-category thumbnails on the category pages on desktop screen</a></li>
+        
         </ul>
     
 
@@ -780,9 +782,11 @@ window.chiaraSettings.disableAutoSizeNavPages = true;
             var $nav = $('.navPages-container, .navPages-container .navPages');
             $(window).on('resize load', function() {
                 $nav.css('overflow', '');
-                setTimeout(function() {
-                    $nav.css('overflow', 'visible');
-                }, 500);
+                if ($(window).width() &gt;= 801) {
+                    setTimeout(function() {
+                        $nav.css('overflow', 'visible');
+                    }, 500);
+                }
             });
         }
 
@@ -1445,6 +1449,30 @@ By the code below:
             el.setAttribute('data-src', url);
             el.src = url;
         }
+    })();
+&lt;/script&gt;
+</code></pre>
+
+<h2 id="display-sub-category-thumbnails-on-the-category-pages-on-desktop-screen">Display sub-category thumbnails on the category pages on desktop screen<a class="headerlink" href="#display-sub-category-thumbnails-on-the-category-pages-on-desktop-screen" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>Go to <strong>Theme Editor</strong> &gt; <strong>Products</strong> &gt; <strong>Displaying products</strong> &gt; tick on <strong>Show category images</strong>.</p>
+</li>
+<li>
+<p>Go to <strong>Storefront</strong> &gt; <strong>Script Manager</strong>, click <strong>Create a Script</strong>, choose:</p>
+</li>
+</ol>
+<ul>
+<li><strong>Location on page</strong> = <code>Footer</code></li>
+<li><strong>Select pages where script will be added</strong> = <code>Store Pages</code></li>
+<li><strong>Script type</strong> = <code>Script</code></li>
+</ul>
+<p>Enter the script below to <strong>Scripts contents</strong>: </p>
+<pre><code class="html">&lt;script&gt;
+    (function() {
+        var css = document.createElement('style');
+        css.innerHTML = '.category-listing-container { display: block }';
+        document.head.appendChild(css);
     })();
 &lt;/script&gt;
 </code></pre>

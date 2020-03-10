@@ -1495,7 +1495,7 @@ By the code below:
 <p>Edit file <code>templates\layout\base.html</code></p>
 <p>Insert the code below:</p>
 <pre><code class="html">&lt;script&gt;
-    (function() {
+    (function($) {
         stencilUtils.api.getPage('/login.php', {}, function(err, resp) {
             if (err) {
                 return;

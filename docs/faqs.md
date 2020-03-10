@@ -1451,3 +1451,49 @@ Enter the script below to **Scripts contents**:
 </script>
 ```
 
+
+## Add reCaptcha on the login forms
+
+Edit file `templates\pages\auth\login.html`
+
+Insert the code below:
+
+```
+{{{forms.login.recaptcha.markup}}}
+```
+
+Before:
+
+```html
+<div class="form-actions">
+    <input type="submit" class="button button--primary" value="{{lang 'login.submit_value' }}">
+    <a class="forgot-password" href="{{urls.auth.forgot_password}}">{{lang 'login.forgot_password' }}</a>
+</div>
+```
+
+Edit file `templates\layout\base.html`
+
+Insert the code below:
+
+```html
+<script>
+    (function() {
+        stencilUtils.api.getPage('/login.php', {}, function(err, resp) {
+            if (err) {
+                return;
+            }
+            var $el = $(resp).find('.g-recaptcha');
+            if ($el.length > 0) {
+                $('form[data-login-form] .form-actions').before($el.clone());
+                $('head').append('<scr' + 'ipt src="https://www.google.com/recaptcha/api.js" async defer></scr' + 'ipt>');
+            }
+        });
+    })(window.chiarajQuery);
+</script>
+```
+
+Before:
+
+```html
+</body>
+```

@@ -1477,7 +1477,7 @@ Insert the code below:
 
 ```html
 <script>
-    (function() {
+    (function($) {
         stencilUtils.api.getPage('/login.php', {}, function(err, resp) {
             if (err) {
                 return;
@@ -1496,4 +1496,46 @@ Before:
 
 ```html
 </body>
+```
+
+## Display store address, phone, and contact email in the footer
+
+Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
+
+- **Location on page** = `Footer`
+- **Select pages where script will be added** = `All Pages`
+- **Script type** = `Script`
+
+Enter the script below to **Scripts contents**: 
+
+```html
+<script type="text/html" id="footer-address">
+    <article class="footer-info-col" data-section-type="footer-webPages">
+        <p><a href="{{urls.home}}"><span class="header-logo-text">{{settings.store_logo.title}}</span></a></p>
+        <ul class="footer-info-col-contactList">
+            <li><strong>A</strong> <a><address>{{settings.address}}</address></a></li>
+            <li><strong>T</strong> <a href="tel:{{settings.phone_number}}">{{settings.phone_number}}</a></li>
+            <li><strong>E</strong> <a href="mailto:contact@example.com">contact@example.com</a></li>
+        </ul>
+    </article>
+</script>
+<script type="text/html" id="footer-address-css">
+    @media(min-width: 801px) {
+        .footer-info-left .footer-info-col { width: 25% }
+        .footer-info-col + .footer-info-col + .footer-info-col + .footer-info-col { margin-top: 0 }
+    }
+</script>
+<script>
+    (function() {
+        var css = document.createElement('style');
+        css.innerHTML = document.querySelector('#footer-address-css').innerHTML;
+        document.head.appendChild(css);
+
+        var div = document.createElement('div');
+        div.innerHTML = document.querySelector('#footer-address').innerHTML;
+
+        var firstCol = document.querySelector('.footer .footer-info-col');
+        firstCol.parentNode.insertBefore(div.querySelector('.footer-info-col'), firstCol);
+    })();
+</script>
 ```

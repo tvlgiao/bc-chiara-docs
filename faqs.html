@@ -196,6 +196,8 @@
         
             <li><a class="toctree-l3" href="#add-recaptcha-on-the-login-forms">Add reCaptcha on the login forms</a></li>
         
+            <li><a class="toctree-l3" href="#display-store-address-phone-and-contact-email-in-the-footer">Display store address, phone, and contact email in the footer</a></li>
+        
         </ul>
     
 
@@ -1512,6 +1514,45 @@ By the code below:
 
 <p>Before:</p>
 <pre><code class="html">&lt;/body&gt;
+</code></pre>
+
+<h2 id="display-store-address-phone-and-contact-email-in-the-footer">Display store address, phone, and contact email in the footer<a class="headerlink" href="#display-store-address-phone-and-contact-email-in-the-footer" title="Permanent link">&para;</a></h2>
+<p>Go to <strong>Storefront</strong> &gt; <strong>Script Manager</strong>, click <strong>Create a Script</strong>, choose:</p>
+<ul>
+<li><strong>Location on page</strong> = <code>Footer</code></li>
+<li><strong>Select pages where script will be added</strong> = <code>All Pages</code></li>
+<li><strong>Script type</strong> = <code>Script</code></li>
+</ul>
+<p>Enter the script below to <strong>Scripts contents</strong>: </p>
+<pre><code class="html">&lt;script type=&quot;text/html&quot; id=&quot;footer-address&quot;&gt;
+    &lt;article class=&quot;footer-info-col&quot; data-section-type=&quot;footer-webPages&quot;&gt;
+        &lt;p&gt;&lt;a href=&quot;{{urls.home}}&quot;&gt;&lt;span class=&quot;header-logo-text&quot;&gt;{{settings.store_logo.title}}&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+        &lt;ul class=&quot;footer-info-col-contactList&quot;&gt;
+            &lt;li&gt;&lt;strong&gt;A&lt;/strong&gt; &lt;a&gt;&lt;address&gt;{{settings.address}}&lt;/address&gt;&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;strong&gt;T&lt;/strong&gt; &lt;a href=&quot;tel:{{settings.phone_number}}&quot;&gt;{{settings.phone_number}}&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;strong&gt;E&lt;/strong&gt; &lt;a href=&quot;mailto:contact@example.com&quot;&gt;contact@example.com&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/article&gt;
+&lt;/script&gt;
+&lt;script type=&quot;text/html&quot; id=&quot;footer-address-css&quot;&gt;
+    @media(min-width: 801px) {
+        .footer-info-left .footer-info-col { width: 25% }
+        .footer-info-col + .footer-info-col + .footer-info-col + .footer-info-col { margin-top: 0 }
+    }
+&lt;/script&gt;
+&lt;script&gt;
+    (function() {
+        var css = document.createElement('style');
+        css.innerHTML = document.querySelector('#footer-address-css').innerHTML;
+        document.head.appendChild(css);
+
+        var div = document.createElement('div');
+        div.innerHTML = document.querySelector('#footer-address').innerHTML;
+
+        var firstCol = document.querySelector('.footer .footer-info-col');
+        firstCol.parentNode.insertBefore(div.querySelector('.footer-info-col'), firstCol);
+    })();
+&lt;/script&gt;
 </code></pre>
               
             </div>

@@ -1342,6 +1342,24 @@ In **Theme Editor** > **Products** > **Product pages** > tick on **Reviews Show 
 
 In **Theme Editor** > **Products** > **Product pages** > untick on **Reviews Show in tab**.
 
+## --- Frequently Bought Together
+
+![frequently-bought-together](img/frequently-bought-together.png)
+
+Enable this feature in **Theme Editor** > **Products** > **Product Pages** > tick on **Show Buy Together**.
+
+Configure **Get products from**:
+
+- `Related products`: to display the related products here.
+- `Similiar by views`: to display the similiar by views products here.
+- `Custom fields`: to display the specific products from the product custom fields, by adding a custom field name `__alsobought` and value as the frequently bought product ID:
+
+
+![edit-product-bought-together.png](img/edit-product-bought-together.png)
+
+To find the **product ID**, edit the product, then look at the URL address box on your web browser, the number between `products/` and `/edit` is the product ID.
+
+![find-product-id](img/find-product-id.png)
 
 
 ## --- Product page settings

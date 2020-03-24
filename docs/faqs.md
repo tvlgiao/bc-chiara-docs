@@ -1105,7 +1105,7 @@ Enter the script below to **Scripts contents**:
 </script>
 ```
 
-## Display the top most banner on Home page to all pages
+## Display the top banner on Home page to all pages
 
 Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
 
@@ -1363,6 +1363,7 @@ Enter the script below to **Scripts contents**:
         var css = document.createElement('style');
         css.innerHTML = '@media (max-width: 800px) {'
             + '.header-logo-image-container { margin: auto !important }'
+            + '.header-logo a { justify-content: center }'
             + '}';
         document.head.appendChild(css);
     })();

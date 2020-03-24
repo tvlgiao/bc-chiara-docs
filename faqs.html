@@ -170,6 +170,8 @@
         
             <li><a class="toctree-l3" href="#fix-facebook-box-not-reload-when-go-to-the-next-page-if-faceted-filters-is-enabled">Fix Facebook box not reload when go to the next page if Faceted Filters is enabled</a></li>
         
+            <li><a class="toctree-l3" href="#display-the-top-most-banner-on-home-page-to-all-pages">Display the top most banner on Home page to all pages</a></li>
+        
             <li><a class="toctree-l3" href="#display-the-top-banner-on-home-page-to-all-pages-in-chiara-fashion">Display the top banner on Home page to all pages in Chiara Fashion</a></li>
         
             <li><a class="toctree-l3" href="#display-a-better-bulk-discount-rates-table-to-show-per-piece-price-and-savings">Display a better bulk discount rates table to show per piece price and savings</a></li>
@@ -1181,6 +1183,30 @@ window.chiaraSettings.disableAutoSizeNavPages = true;
     }), 300);
     ob.observe(document.querySelector('#faceted-search-container'), { childList: true });
 })();
+&lt;/script&gt;
+</code></pre>
+
+<h2 id="display-the-top-most-banner-on-home-page-to-all-pages">Display the top most banner on Home page to all pages<a class="headerlink" href="#display-the-top-most-banner-on-home-page-to-all-pages" title="Permanent link">&para;</a></h2>
+<p>Go to <strong>Storefront</strong> &gt; <strong>Script Manager</strong>, click <strong>Create a Script</strong>, choose:</p>
+<ul>
+<li><strong>Location on page</strong> = <code>Footer</code></li>
+<li><strong>Select pages where script will be added</strong> = <code>All Pages</code></li>
+<li><strong>Script type</strong> = <code>Script</code></li>
+</ul>
+<p>Enter the script below to <strong>Scripts contents</strong>: </p>
+<pre><code>&lt;script&gt;
+(function($) {
+    if (!$('body').is('.page-type-default')) {
+        stencilUtils.api.getPage('/', { template: 'common/header' }, function(err, resp) {
+            if (!err &amp;&amp; resp) {
+                var $banners = $(resp).filter('[data-banner-location=top]').first();
+                if ($banners.length &gt; 0) {
+                    $('body').prepend($banners);
+                }
+            }
+        });
+    }
+})(window.chiarajQuery)
 &lt;/script&gt;
 </code></pre>
 

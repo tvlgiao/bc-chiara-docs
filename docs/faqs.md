@@ -1105,6 +1105,34 @@ Enter the script below to **Scripts contents**:
 </script>
 ```
 
+## Display the top most banner on Home page to all pages
+
+Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
+
+- **Location on page** = `Footer`
+- **Select pages where script will be added** = `All Pages`
+- **Script type** = `Script`
+
+Enter the script below to **Scripts contents**: 
+
+```
+<script>
+(function($) {
+    if (!$('body').is('.page-type-default')) {
+        stencilUtils.api.getPage('/', { template: 'common/header' }, function(err, resp) {
+            if (!err && resp) {
+                var $banners = $(resp).filter('[data-banner-location=top]').first();
+                if ($banners.length > 0) {
+                    $('body').prepend($banners);
+                }
+            }
+        });
+    }
+})(window.chiarajQuery)
+</script>
+```
+
+
 ## Display the top banner on Home page to all pages in Chiara Fashion
 
 Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:

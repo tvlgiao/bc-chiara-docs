@@ -390,52 +390,57 @@ Enter the script below to **Scripts contents**:
 
 ```html
 <script>
-    (function() {
-        var css = document.createElement('style');
-        css.innerHTML = ''
-            + '#checkout-app .cart-additionalCheckoutButtons .PayPalExpressCheckout:before { text-align: left }'
-        	+ '@media (max-width: 550px) {'
-        	+ '.cart-additionalCheckoutButtons { margin-top: .75rem }'
-        	+ '.cart-additionalCheckoutButtons .CheckoutButton { margin-bottom: .75rem }'
-        	+ '.cart-additionalCheckoutButtons .FloatRight div { float: none; text-align: center; display: block }'
-        	+ '.cart-additionalCheckoutButtons .FloatRight .or-use-label { display: none }'
-        	+ '.cart-additionalCheckoutButtons .PayPalExpressCheckout:before { display: block; content: "Or continue with Express Checkout"; text-align: center; width: 100%; margin: .5rem 0 }'
-        	+ '.paypal-smart-buttons { margin-top: 0 !important; margin-bottom: 0 !important; }'
-        	+ '.paypal-smart-buttons .zoid-outlet { width: 100% !important }'
-        	+ '.amazonpay-button-inner-image { width: 100%; max-height: none !important }'
-    		+ '}'
-			+ '@media (min-width: 501px) and (max-width: 800px) {'
-        	+ '.cart-totals { float: none; margin: 0 auto; }'
-        	+ '.cart-actions { text-align: center }'
-        	+ '.cart-actions .button { float: none; min-width: 296px }'
-        	+ '.cart-additionalCheckoutButtons { margin-top: .75rem }'
-        	+ '.cart-additionalCheckoutButtons .CheckoutButton { text-align: center }'
-        	+ '.cart-additionalCheckoutButtons .FloatRight div { float: none; margin: 0; display: block }'
-        	+ '.cart-additionalCheckoutButtons .FloatRight .or-use-label { display: none }'
-        	+ '.cart-additionalCheckoutButtons .PayPalExpressCheckout:before { display: block; content: "Or continue with Express Checkout"; text-align: center; width: 296px; margin: .5rem auto }'
-        	+ '.paypal-smart-buttons .zoid-outlet { width: 296px !important }'
-        	+ '.amazonpay-button-inner-image { width: 296px; max-height: none !important }'
-    		+ '}'
-    		+ '@media (min-width: 801px) {'
-        	+ '.cart-actions .button { min-width: 296px }'
-        	+ '.paypal-smart-buttons { margin: 0 !important }'
-        	+ '.paypal-smart-buttons .zoid-outlet { width: 296px !important }'
-        	+ '.cart-additionalCheckoutButtons { margin-top: .75rem }'
-        	+ '.cart-additionalCheckoutButtons .FloatRight { display: block }'
-        	+ '.cart-additionalCheckoutButtons .FloatRight .or-use-label { display: none }'
-        	+ '.cart-additionalCheckoutButtons .PayPalExpressCheckout:before { display: block; content: "Or continue with Express Checkout"; text-align: center; width: 296px; margin: .5rem 0 .5rem auto }'
-        	+ '.amazonpay-button-inner-image { width: 296px; max-height: none !important }'
-    		+ '}';
-        document.head.appendChild(css);
-        
-        var observer = new MutationObserver(function() {
-            var img = document.querySelector('.amazonpay-button-inner-image');
-            if (img) {
-                img.src = img.src.replace(/small/, 'large');
-            }
-        });
-        observer.observe(document.querySelector('.CheckoutButtonAmazon'), { childList: true });
-    })();
+(function() {
+    var css = document.createElement('style');
+    css.innerHTML = ''
+        + '.checkoutRemote { flex-direction: column; }'
+        + '.checkoutRemote > div { margin-bottom: 1rem }'
+        + '.visa-checkout-wrapper { display: inline-flex; flex-direction: column }'
+        + '#checkout-app .cart-additionalCheckoutButtons .PayPalExpressCheckout:before { text-align: left }'
+        + '.cart-additionalCheckoutButtons .FloatRight { display: flex; flex-direction: column; align-items: center; justify-content: center; }'
+        + '.cart-additionalCheckoutButtons .FloatRight > p { display: none !important }'
+        + '@media (max-width: 550px) {'
+        + '.cart-additionalCheckoutButtons { margin-top: .75rem }'
+        + '.cart-additionalCheckoutButtons .CheckoutButton { margin-bottom: .75rem }'
+        + '.cart-additionalCheckoutButtons .FloatRight > div { float: none; text-align: center; display: block; width: 100% }'
+        + '.cart-additionalCheckoutButtons .FloatRight .or-use-label { display: none }'
+        + '.cart-additionalCheckoutButtons .PayPalExpressCheckout:before { display: block; content: "Or continue with Express Checkout"; text-align: center; width: 100%; margin: .5rem 0 }'
+        + '.paypal-smart-buttons { margin-top: 0 !important; margin-bottom: 0 !important; }'
+        + '.paypal-smart-buttons .zoid-outlet { width: 100% !important }'
+        + '/*.amazonpay-button-inner-image { width: 100%; max-height: none !important }*/'
+        + '}'
+        + '@media (min-width: 551px) and (max-width: 800px) {'
+        + '.cart-totals { float: none; margin: 0 auto; }'
+        + '.cart-actions { text-align: center }'
+        + '.cart-actions .button { float: none; min-width: 296px }'
+        + '.cart-additionalCheckoutButtons { margin-top: .75rem }'
+        + '.cart-additionalCheckoutButtons .CheckoutButton { text-align: center }'
+        + '.cart-additionalCheckoutButtons .FloatRight > div { float: none; margin: 0; display: block }'
+        + '.cart-additionalCheckoutButtons .FloatRight .or-use-label { display: none }'
+        + '.cart-additionalCheckoutButtons .PayPalExpressCheckout:before { display: block; content: "Or continue with Express Checkout"; text-align: center; width: 296px; margin: .5rem auto }'
+        + '.paypal-smart-buttons .zoid-outlet { width: 296px !important }'
+        + '/*.amazonpay-button-inner-image { width: 200px; max-height: none !important }*/'
+        + '}'
+        + '@media (min-width: 801px) {'
+        + '.cart-actions .button { min-width: 296px }'
+        + '.paypal-smart-buttons { margin: 0 !important }'
+        + '.paypal-smart-buttons .zoid-outlet { width: 296px !important }'
+        + '.cart-additionalCheckoutButtons { margin-top: .75rem }'
+        + '.cart-additionalCheckoutButtons .FloatRight { display: block }'
+        + '.cart-additionalCheckoutButtons .FloatRight .or-use-label { display: none }'
+        + '.cart-additionalCheckoutButtons .PayPalExpressCheckout:before { display: block; content: "Or continue with Express Checkout"; text-align: center; width: 296px; margin: .5rem auto }'
+        + '/*.amazonpay-button-inner-image { width: 200px; max-height: none !important }*/'
+        + '}';
+    document.head.appendChild(css);
+
+    var observer = new MutationObserver(function() {
+        var img = document.querySelector('.amazonpay-button-inner-image');
+        if (img) {
+            img.src = img.src.replace(/small/, 'large');
+        }
+    });
+    observer.observe(document.querySelector('.CheckoutButtonAmazon'), { childList: true });
+})();
 </script>
 ```
 
@@ -1619,3 +1624,23 @@ Edit line:
 `var color = '#ff0000';` 
 
 Change `#ff0000` by the color hex code you want.
+
+
+# Move Yotpo reviews on PDP down on mobile
+
+Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
+
+- **Location on page** = `Footer`
+- **Select pages where script will be added** = `Store Pages`
+- **Script type** = `Script`
+
+Enter the script below to **Scripts contents**: 
+
+```html
+<script>
+    (function() {
+        var css = document.createElement('style');
+        css.innerHTML = '.yotpo-main-widget { order: 100 } ';
+        document.head.appendChild(css);
+    })();
+</script>

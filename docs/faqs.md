@@ -1626,7 +1626,7 @@ Edit line:
 Change `#ff0000` by the color hex code you want.
 
 
-# Move Yotpo reviews on PDP down on mobile
+## Move Yotpo reviews on PDP down on mobile
 
 Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
 
@@ -1644,3 +1644,58 @@ Enter the script below to **Scripts contents**:
         document.head.appendChild(css);
     })();
 </script>
+```
+
+
+## Make the header logo sharper on Retina screens
+
+Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
+
+- **Location on page** = `Footer`
+- **Select pages where script will be added** = `Store pages`
+- **Script type** = `Script`
+
+
+Enter the script below to **Scripts contents**: 
+
+```html
+<script>
+    (function($) {
+        var $img = $('.header-logo-image');
+        if ($img.length > 0) {
+            var src = $img.attr('src');
+            var s = src.replace(/stencil\/[^\/]+\//, 'stencil/***/');
+            $img.attr('srcset', src + ' 1x, ' + s.replace('***', '640w') + ' 2x');
+        }
+        
+    })(window.chiarajQuery || window.jQuery);
+</script>
+```
+
+
+Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
+
+- **Location on page** = `Footer`
+- **Select pages where script will be added** = `Checkout`
+- **Script type** = `Script`
+
+
+Enter the script below to **Scripts contents**: 
+
+
+```html
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+<script>
+(function($) {
+    var $img = $('#logoImage'); 
+    var src = $img.attr('src');
+    var s = src.replace(/stencil\/[^\/]+\//, 'stencil/***/');
+                        console.log(s);
+    $img.attr('srcset', src + ' 1x, ' + s.replace('***', '640w') + ' 2x');
+    
+})(window.chiarajQuery || window.jQuery);
+</script>
+```

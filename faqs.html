@@ -204,6 +204,8 @@
         
             <li><a class="toctree-l3" href="#move-yotpo-reviews-on-pdp-down-on-mobile">Move Yotpo reviews on PDP down on mobile</a></li>
         
+            <li><a class="toctree-l3" href="#make-the-header-logo-sharper-on-retina-screens">Make the header logo sharper on Retina screens</a></li>
+        
         </ul>
     
 
@@ -1648,6 +1650,50 @@ By the code below:
         css.innerHTML = '.yotpo-main-widget { order: 100 } ';
         document.head.appendChild(css);
     })();
+&lt;/script&gt;
+</code></pre>
+
+<h2 id="make-the-header-logo-sharper-on-retina-screens">Make the header logo sharper on Retina screens<a class="headerlink" href="#make-the-header-logo-sharper-on-retina-screens" title="Permanent link">&para;</a></h2>
+<p>Go to <strong>Storefront</strong> &gt; <strong>Script Manager</strong>, click <strong>Create a Script</strong>, choose:</p>
+<ul>
+<li><strong>Location on page</strong> = <code>Footer</code></li>
+<li><strong>Select pages where script will be added</strong> = <code>Store pages</code></li>
+<li><strong>Script type</strong> = <code>Script</code></li>
+</ul>
+<p>Enter the script below to <strong>Scripts contents</strong>: </p>
+<pre><code class="html">&lt;script&gt;
+    (function($) {
+        var $img = $('.header-logo-image');
+        if ($img.length &gt; 0) {
+            var src = $img.attr('src');
+            var s = src.replace(/stencil\/[^\/]+\//, 'stencil/***/');
+            $img.attr('srcset', src + ' 1x, ' + s.replace('***', '640w') + ' 2x');
+        }
+
+    })(window.chiarajQuery || window.jQuery);
+&lt;/script&gt;
+</code></pre>
+
+<p>Go to <strong>Storefront</strong> &gt; <strong>Script Manager</strong>, click <strong>Create a Script</strong>, choose:</p>
+<ul>
+<li><strong>Location on page</strong> = <code>Footer</code></li>
+<li><strong>Select pages where script will be added</strong> = <code>Checkout</code></li>
+<li><strong>Script type</strong> = <code>Script</code></li>
+</ul>
+<p>Enter the script below to <strong>Scripts contents</strong>: </p>
+<pre><code class="html">&lt;script
+  src=&quot;https://code.jquery.com/jquery-3.4.1.min.js&quot;
+  integrity=&quot;sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=&quot;
+  crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+(function($) {
+    var $img = $('#logoImage'); 
+    var src = $img.attr('src');
+    var s = src.replace(/stencil\/[^\/]+\//, 'stencil/***/');
+                        console.log(s);
+    $img.attr('srcset', src + ' 1x, ' + s.replace('***', '640w') + ' 2x');
+
+})(window.chiarajQuery || window.jQuery);
 &lt;/script&gt;
 </code></pre>
               

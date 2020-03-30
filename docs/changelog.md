@@ -4,6 +4,12 @@
     If you encounter any issues, please <a href="https://papathemes.com/contact-us/">report to us</a>. You can always <a href="https://support.bigcommerce.com/s/article/Marketplace-Theme-Updates#restore">restore the ealier theme version</a>, check this <a href="https://youtu.be/eZdmudDUrQE">video</a> for instruction.
 </div>
 
+## 1.6.1 (2020-03-30)
+- Add regions like Cornersone
+- Add option to show store addres & phone in the footer
+- Remove title/desc "created with sketch" in svg icons
+- Add region 'page_builder_content' to page.html
+- 
 ## 1.6.0 (2020-02-26)
 - Fix color of flyout menu sub items when hover.
 - Fix Mobile Not Friendly when Card Image Slider is enabled.

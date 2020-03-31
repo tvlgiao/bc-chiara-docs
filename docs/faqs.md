@@ -1699,3 +1699,108 @@ Enter the script below to **Scripts contents**:
 })(window.chiarajQuery || window.jQuery);
 </script>
 ```
+
+
+
+## Display % discount badge on all product items
+
+![display-discount-percent-on-sale-badge](img/display-discount-percent-on-sale-badge.jpg)
+
+Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
+
+- **Location on page** = `Footer`
+- **Select pages where script will be added** = `All Pages`
+- **Script type** = `Script`
+
+
+Enter the script below to **Scripts contents**: 
+
+```html
+<script>
+(function() {
+    var $;
+
+    function debounce(func, wait, immediate) {
+        var timeout;
+        return function() {
+            var context = this, args = arguments;
+            var later = function() {
+                timeout = null;
+                if (!immediate) func.apply(context, args);
+            };
+            var callNow = immediate && !timeout;
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+            if (callNow) func.apply(context, args);
+        };
+    };
+
+    function main() {
+        $('.card, .productView').each(function(i, el) {
+            var $el = $(el);
+            if ($el.data('percentDiscountBadgeInitialized')) {
+                return;
+            }
+
+            $el.data('percentDiscountBadgeInitialized', true);
+
+            var $scope = $el.is('.productView') ? $el.find('[data-also-bought-parent-scope]') : $el;
+
+            // Prices with tax
+            var price = Number($('[data-product-price-with-tax]', $scope).first().text().trim().split(/\s-/)[0].replace(/[^0-9\.]/g, ''));
+            var nonsale = Number($('[data-product-non-sale-price-with-tax]', $scope).first().text().trim().split(/\s-/)[0].replace(/[^0-9\.]/g, ''));
+            var rrp = Number($('[data-product-rrp-with-tax]', $scope).first().text().trim().split(/\s-/)[0].replace(/[^0-9\.]/g, ''));
+
+            // Prices without tax
+            if (!price) {
+                price = Number($('[data-product-price-without-tax]', $scope).first().text().trim().split(/\s-/)[0].replace(/[^0-9\.]/g, ''));
+                nonsale = Number($('[data-product-non-sale-price-without-tax]', $scope).first().text().trim().split(/\s-/)[0].replace(/[^0-9\.]/g, ''));
+                rrp = Number($('[data-product-rrp-without-tax]', $scope).first().text().trim().split(/\s-/)[0].replace(/[^0-9\.]/g, ''));
+            }
+            
+            // Stop if no sale
+            if (!nonsale && !rrp) {
+                return;
+            }
+
+            var discountPercent = -Math.round(100 - price / (nonsale ? nonsale : rrp) * 100);
+
+            // Display % only if discount percent is less than 0
+            if (discountPercent < 0) {
+                // Create sale badge if not exist
+                if ($('.sale-flag-side', $scope).not('[class*="sale-flag-side--"]').length === 0) {
+                    if ($el.is('.productView')) {
+                        $scope.find('.productView-images .productView-imageCarousel-main')
+                            .after('<div class="sale-flag-side"><span class="sale-text">Sale</span></div>');
+                    } else {
+                        $scope.find('.card-figure')
+                            .prepend('<div class="sale-flag-side"><span class="sale-text">Sale</span></div>');
+                    }
+                }
+                var $badge = $('.sale-flag-side', $scope).not('[class*="sale-flag-side--"]').find('.sale-text');                
+                $badge.html(discountPercent + '%');
+            }
+        });
+    }
+
+    var t = setInterval(function() {
+        if (!window.chiarajQuery) {
+            return;
+        }
+        clearInterval(t);
+        $ = window.chiarajQuery;
+        main();
+        (new MutationObserver(debounce(main, 300))).observe(document.body, { subtree: true, childList: true });
+    }, 100);
+
+})();
+</script>
+```
+
+Or use the minified version:
+
+```html
+<script>
+!function(){var t;function a(){t(".card, .productView").each(function(a,e){var i=t(e);if(!i.data("percentDiscountBadgeInitialized")){i.data("percentDiscountBadgeInitialized",!0);var r=i.is(".productView")?i.find("[data-also-bought-parent-scope]"):i,s=Number(t("[data-product-price-with-tax]",r).first().text().trim().split(/\s-/)[0].replace(/[^0-9\.]/g,"")),l=Number(t("[data-product-non-sale-price-with-tax]",r).first().text().trim().split(/\s-/)[0].replace(/[^0-9\.]/g,"")),c=Number(t("[data-product-rrp-with-tax]",r).first().text().trim().split(/\s-/)[0].replace(/[^0-9\.]/g,""));if(s||(s=Number(t("[data-product-price-without-tax]",r).first().text().trim().split(/\s-/)[0].replace(/[^0-9\.]/g,"")),l=Number(t("[data-product-non-sale-price-without-tax]",r).first().text().trim().split(/\s-/)[0].replace(/[^0-9\.]/g,"")),c=Number(t("[data-product-rrp-without-tax]",r).first().text().trim().split(/\s-/)[0].replace(/[^0-9\.]/g,""))),l||c){var d=-Math.round(100-s/(l||c)*100);if(d<0)0===t(".sale-flag-side",r).not('[class*="sale-flag-side--"]').length&&(i.is(".productView")?r.find(".productView-images .productView-imageCarousel-main").after('<div class="sale-flag-side"><span class="sale-text">Sale</span></div>'):r.find(".card-figure").prepend('<div class="sale-flag-side"><span class="sale-text">Sale</span></div>')),t(".sale-flag-side",r).not('[class*="sale-flag-side--"]').find(".sale-text").html(d+"%")}}})}var e=setInterval(function(){var i,r,s,l;window.chiarajQuery&&(clearInterval(e),t=window.chiarajQuery,a(),new MutationObserver((i=a,r=300,function(){var t=this,a=arguments,e=s&&!l;clearTimeout(l),l=setTimeout(function(){l=null,s||i.apply(t,a)},r),e&&i.apply(t,a)})).observe(document.body,{subtree:!0,childList:!0}))},100)}();
+</script>
+```

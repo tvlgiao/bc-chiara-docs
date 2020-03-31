@@ -206,6 +206,8 @@
         
             <li><a class="toctree-l3" href="#make-the-header-logo-sharper-on-retina-screens">Make the header logo sharper on Retina screens</a></li>
         
+            <li><a class="toctree-l3" href="#display-discount-badge-on-all-product-items">Display % discount badge on all product items</a></li>
+        
         </ul>
     
 
@@ -1694,6 +1696,102 @@ By the code below:
     $img.attr('srcset', src + ' 1x, ' + s.replace('***', '640w') + ' 2x');
 
 })(window.chiarajQuery || window.jQuery);
+&lt;/script&gt;
+</code></pre>
+
+<h2 id="display-discount-badge-on-all-product-items">Display % discount badge on all product items<a class="headerlink" href="#display-discount-badge-on-all-product-items" title="Permanent link">&para;</a></h2>
+<p><img alt="display-discount-percent-on-sale-badge" src="img/display-discount-percent-on-sale-badge.jpg" /></p>
+<p>Go to <strong>Storefront</strong> &gt; <strong>Script Manager</strong>, click <strong>Create a Script</strong>, choose:</p>
+<ul>
+<li><strong>Location on page</strong> = <code>Footer</code></li>
+<li><strong>Select pages where script will be added</strong> = <code>All Pages</code></li>
+<li><strong>Script type</strong> = <code>Script</code></li>
+</ul>
+<p>Enter the script below to <strong>Scripts contents</strong>: </p>
+<pre><code class="html">&lt;script&gt;
+(function() {
+    var $;
+
+    function debounce(func, wait, immediate) {
+        var timeout;
+        return function() {
+            var context = this, args = arguments;
+            var later = function() {
+                timeout = null;
+                if (!immediate) func.apply(context, args);
+            };
+            var callNow = immediate &amp;&amp; !timeout;
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+            if (callNow) func.apply(context, args);
+        };
+    };
+
+    function main() {
+        $('.card, .productView').each(function(i, el) {
+            var $el = $(el);
+            if ($el.data('percentDiscountBadgeInitialized')) {
+                return;
+            }
+
+            $el.data('percentDiscountBadgeInitialized', true);
+
+            var $scope = $el.is('.productView') ? $el.find('[data-also-bought-parent-scope]') : $el;
+
+            // Prices with tax
+            var price = Number($('[data-product-price-with-tax]', $scope).first().text().trim().split(/\s-/)[0].replace(/[^0-9\.]/g, ''));
+            var nonsale = Number($('[data-product-non-sale-price-with-tax]', $scope).first().text().trim().split(/\s-/)[0].replace(/[^0-9\.]/g, ''));
+            var rrp = Number($('[data-product-rrp-with-tax]', $scope).first().text().trim().split(/\s-/)[0].replace(/[^0-9\.]/g, ''));
+
+            // Prices without tax
+            if (!price) {
+                price = Number($('[data-product-price-without-tax]', $scope).first().text().trim().split(/\s-/)[0].replace(/[^0-9\.]/g, ''));
+                nonsale = Number($('[data-product-non-sale-price-without-tax]', $scope).first().text().trim().split(/\s-/)[0].replace(/[^0-9\.]/g, ''));
+                rrp = Number($('[data-product-rrp-without-tax]', $scope).first().text().trim().split(/\s-/)[0].replace(/[^0-9\.]/g, ''));
+            }
+
+            // Stop if no sale
+            if (!nonsale &amp;&amp; !rrp) {
+                return;
+            }
+
+            var discountPercent = -Math.round(100 - price / (nonsale ? nonsale : rrp) * 100);
+
+            // Display % only if discount percent is less than 0
+            if (discountPercent &lt; 0) {
+                // Create sale badge if not exist
+                if ($('.sale-flag-side', $scope).not('[class*=&quot;sale-flag-side--&quot;]').length === 0) {
+                    if ($el.is('.productView')) {
+                        $scope.find('.productView-images .productView-imageCarousel-main')
+                            .after('&lt;div class=&quot;sale-flag-side&quot;&gt;&lt;span class=&quot;sale-text&quot;&gt;Sale&lt;/span&gt;&lt;/div&gt;');
+                    } else {
+                        $scope.find('.card-figure')
+                            .prepend('&lt;div class=&quot;sale-flag-side&quot;&gt;&lt;span class=&quot;sale-text&quot;&gt;Sale&lt;/span&gt;&lt;/div&gt;');
+                    }
+                }
+                var $badge = $('.sale-flag-side', $scope).not('[class*=&quot;sale-flag-side--&quot;]').find('.sale-text');                
+                $badge.html(discountPercent + '%');
+            }
+        });
+    }
+
+    var t = setInterval(function() {
+        if (!window.chiarajQuery) {
+            return;
+        }
+        clearInterval(t);
+        $ = window.chiarajQuery;
+        main();
+        (new MutationObserver(debounce(main, 300))).observe(document.body, { subtree: true, childList: true });
+    }, 100);
+
+})();
+&lt;/script&gt;
+</code></pre>
+
+<p>Or use the minified version:</p>
+<pre><code class="html">&lt;script&gt;
+!function(){var t;function a(){t(&quot;.card, .productView&quot;).each(function(a,e){var i=t(e);if(!i.data(&quot;percentDiscountBadgeInitialized&quot;)){i.data(&quot;percentDiscountBadgeInitialized&quot;,!0);var r=i.is(&quot;.productView&quot;)?i.find(&quot;[data-also-bought-parent-scope]&quot;):i,s=Number(t(&quot;[data-product-price-with-tax]&quot;,r).first().text().trim().split(/\s-/)[0].replace(/[^0-9\.]/g,&quot;&quot;)),l=Number(t(&quot;[data-product-non-sale-price-with-tax]&quot;,r).first().text().trim().split(/\s-/)[0].replace(/[^0-9\.]/g,&quot;&quot;)),c=Number(t(&quot;[data-product-rrp-with-tax]&quot;,r).first().text().trim().split(/\s-/)[0].replace(/[^0-9\.]/g,&quot;&quot;));if(s||(s=Number(t(&quot;[data-product-price-without-tax]&quot;,r).first().text().trim().split(/\s-/)[0].replace(/[^0-9\.]/g,&quot;&quot;)),l=Number(t(&quot;[data-product-non-sale-price-without-tax]&quot;,r).first().text().trim().split(/\s-/)[0].replace(/[^0-9\.]/g,&quot;&quot;)),c=Number(t(&quot;[data-product-rrp-without-tax]&quot;,r).first().text().trim().split(/\s-/)[0].replace(/[^0-9\.]/g,&quot;&quot;))),l||c){var d=-Math.round(100-s/(l||c)*100);if(d&lt;0)0===t(&quot;.sale-flag-side&quot;,r).not('[class*=&quot;sale-flag-side--&quot;]').length&amp;&amp;(i.is(&quot;.productView&quot;)?r.find(&quot;.productView-images .productView-imageCarousel-main&quot;).after('&lt;div class=&quot;sale-flag-side&quot;&gt;&lt;span class=&quot;sale-text&quot;&gt;Sale&lt;/span&gt;&lt;/div&gt;'):r.find(&quot;.card-figure&quot;).prepend('&lt;div class=&quot;sale-flag-side&quot;&gt;&lt;span class=&quot;sale-text&quot;&gt;Sale&lt;/span&gt;&lt;/div&gt;')),t(&quot;.sale-flag-side&quot;,r).not('[class*=&quot;sale-flag-side--&quot;]').find(&quot;.sale-text&quot;).html(d+&quot;%&quot;)}}})}var e=setInterval(function(){var i,r,s,l;window.chiarajQuery&amp;&amp;(clearInterval(e),t=window.chiarajQuery,a(),new MutationObserver((i=a,r=300,function(){var t=this,a=arguments,e=s&amp;&amp;!l;clearTimeout(l),l=setTimeout(function(){l=null,s||i.apply(t,a)},r),e&amp;&amp;i.apply(t,a)})).observe(document.body,{subtree:!0,childList:!0}))},100)}();
 &lt;/script&gt;
 </code></pre>
               

@@ -1804,3 +1804,117 @@ Or use the minified version:
 !function(){var t;function a(){t(".card, .productView").each(function(a,e){var i=t(e);if(!i.data("percentDiscountBadgeInitialized")){i.data("percentDiscountBadgeInitialized",!0);var r=i.is(".productView")?i.find("[data-also-bought-parent-scope]"):i,s=Number(t("[data-product-price-with-tax]",r).first().text().trim().split(/\s-/)[0].replace(/[^0-9\.]/g,"")),l=Number(t("[data-product-non-sale-price-with-tax]",r).first().text().trim().split(/\s-/)[0].replace(/[^0-9\.]/g,"")),c=Number(t("[data-product-rrp-with-tax]",r).first().text().trim().split(/\s-/)[0].replace(/[^0-9\.]/g,""));if(s||(s=Number(t("[data-product-price-without-tax]",r).first().text().trim().split(/\s-/)[0].replace(/[^0-9\.]/g,"")),l=Number(t("[data-product-non-sale-price-without-tax]",r).first().text().trim().split(/\s-/)[0].replace(/[^0-9\.]/g,"")),c=Number(t("[data-product-rrp-without-tax]",r).first().text().trim().split(/\s-/)[0].replace(/[^0-9\.]/g,""))),l||c){var d=-Math.round(100-s/(l||c)*100);if(d<0)0===t(".sale-flag-side",r).not('[class*="sale-flag-side--"]').length&&(i.is(".productView")?r.find(".productView-images .productView-imageCarousel-main").after('<div class="sale-flag-side"><span class="sale-text">Sale</span></div>'):r.find(".card-figure").prepend('<div class="sale-flag-side"><span class="sale-text">Sale</span></div>')),t(".sale-flag-side",r).not('[class*="sale-flag-side--"]').find(".sale-text").html(d+"%")}}})}var e=setInterval(function(){var i,r,s,l;window.chiarajQuery&&(clearInterval(e),t=window.chiarajQuery,a(),new MutationObserver((i=a,r=300,function(){var t=this,a=arguments,e=s&&!l;clearTimeout(l),l=setTimeout(function(){l=null,s||i.apply(t,a)},r),e&&i.apply(t,a)})).observe(document.body,{subtree:!0,childList:!0}))},100)}();
 </script>
 ```
+
+
+## Display % discount text on all product items
+
+
+![display-discount-percent-on-product-card](img/display-discount-percent-on-product-card.jpg)
+
+Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
+
+- **Location on page** = `Footer`
+- **Select pages where script will be added** = `All Pages`
+- **Script type** = `Script`
+
+
+Enter the script below to **Scripts contents**: 
+
+```html
+<script>
+(function() {
+    var $;
+
+    function debounce(func, wait, immediate) {
+        var timeout;
+        return function() {
+            var context = this, args = arguments;
+            var later = function() {
+                timeout = null;
+                if (!immediate) func.apply(context, args);
+            };
+            var callNow = immediate && !timeout;
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+            if (callNow) func.apply(context, args);
+        };
+    };
+
+    function css() {
+        var style = document.createElement('style');
+        style.innerHTML = ''
+            + '.sale-flag-side { width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 10px; font-weight: bold }'
+            + '@media (min-width: 801px) {'
+            + '.sale-flag-side { width: 50px; height: 50px; font-size: 14px }'
+            + '}';
+        document.head.appendChild(style);
+    }
+
+    function main() {
+        $('.card, .productView').each(function(i, el) {
+            var $el = $(el);
+            if ($el.data('percentDiscountTextInitialized')) {
+                return;
+            }
+
+            $el.data('percentDiscountTextInitialized', true);
+
+            var $scope = $el.is('.productView') ? $el.find('[data-also-bought-parent-scope]') : $el;
+
+            // Prices with tax
+            var price = Number($('[data-product-price-with-tax]', $scope).first().text().trim().split(/\s-/)[0].replace(/[^0-9\.]/g, ''));
+            var nonsale = Number($('[data-product-non-sale-price-with-tax]', $scope).first().text().trim().split(/\s-/)[0].replace(/[^0-9\.]/g, ''));
+            var rrp = Number($('[data-product-rrp-with-tax]', $scope).first().text().trim().split(/\s-/)[0].replace(/[^0-9\.]/g, ''));
+
+            // Prices without tax
+            if (!price) {
+                price = Number($('[data-product-price-without-tax]', $scope).first().text().trim().split(/\s-/)[0].replace(/[^0-9\.]/g, ''));
+                nonsale = Number($('[data-product-non-sale-price-without-tax]', $scope).first().text().trim().split(/\s-/)[0].replace(/[^0-9\.]/g, ''));
+                rrp = Number($('[data-product-rrp-without-tax]', $scope).first().text().trim().split(/\s-/)[0].replace(/[^0-9\.]/g, ''));
+            }
+            
+            // Stop if no sale
+            if (!nonsale && !rrp) {
+                return;
+            }
+
+            var discountPercent = Math.round(100 - price / (nonsale ? nonsale : rrp) * 100);
+            var discountPrice = ((nonsale ? nonsale : rrp) - price).toFixed(2);
+
+            // Display % only if discount percent is less than 0
+            if (discountPercent > 0) {
+
+                if ($('[data-product-price-saved]', $scope).length === 0) {
+                    if (!$el.is('.productView')) {
+                        $scope.find('[data-test-info-type="price"]')
+                            .append('<span class="price">You save</span> <span data-product-price-saved class="price price--saving">$' + discountPrice
+ + '</span>');
+                    }
+                }
+                var $saving = $('[data-product-price-saved]', $scope);
+                $saving.append(' (' + discountPercent + '%)');
+            }
+        });
+    }
+
+    css();
+    var t = setInterval(function() {
+        if (!window.chiarajQuery) {
+            return;
+        }
+        clearInterval(t);
+        $ = window.chiarajQuery;
+        main();
+        (new MutationObserver(debounce(main, 300))).observe(document.body, { subtree: true, childList: true });
+    }, 100);
+})();
+</script>
+```
+
+Or use the minified version:
+
+```html
+<script>
+!function(){var t,e;function i(){t(".card, .productView").each(function(e,i){var a=t(i);if(!a.data("percentDiscountTextInitialized")){a.data("percentDiscountTextInitialized",!0);var r=a.is(".productView")?a.find("[data-also-bought-parent-scope]"):a,p=Number(t("[data-product-price-with-tax]",r).first().text().trim().split(/\s-/)[0].replace(/[^0-9\.]/g,"")),n=Number(t("[data-product-non-sale-price-with-tax]",r).first().text().trim().split(/\s-/)[0].replace(/[^0-9\.]/g,"")),s=Number(t("[data-product-rrp-with-tax]",r).first().text().trim().split(/\s-/)[0].replace(/[^0-9\.]/g,""));if(p||(p=Number(t("[data-product-price-without-tax]",r).first().text().trim().split(/\s-/)[0].replace(/[^0-9\.]/g,"")),n=Number(t("[data-product-non-sale-price-without-tax]",r).first().text().trim().split(/\s-/)[0].replace(/[^0-9\.]/g,"")),s=Number(t("[data-product-rrp-without-tax]",r).first().text().trim().split(/\s-/)[0].replace(/[^0-9\.]/g,""))),n||s){var d=Math.round(100-p/(n||s)*100),c=((n||s)-p).toFixed(2);if(d>0)0===t("[data-product-price-saved]",r).length&&(a.is(".productView")||r.find('[data-test-info-type="price"]').append('<span class="price">You save</span> <span data-product-price-saved class="price price--saving">$'+c+"</span>")),t("[data-product-price-saved]",r).append(" ("+d+"%)")}}})}(e=document.createElement("style")).innerHTML=".sale-flag-side { width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 10px; font-weight: bold }@media (min-width: 801px) {.sale-flag-side { width: 50px; height: 50px; font-size: 14px }}",document.head.appendChild(e);var a=setInterval(function(){var e,r,p,n;window.chiarajQuery&&(clearInterval(a),t=window.chiarajQuery,i(),new MutationObserver((e=i,r=300,function(){var t=this,i=arguments,a=p&&!n;clearTimeout(n),n=setTimeout(function(){n=null,p||e.apply(t,i)},r),a&&e.apply(t,i)})).observe(document.body,{subtree:!0,childList:!0}))},100)}();
+</script>
+```

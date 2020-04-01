@@ -208,6 +208,8 @@
         
             <li><a class="toctree-l3" href="#display-discount-badge-on-all-product-items">Display % discount badge on all product items</a></li>
         
+            <li><a class="toctree-l3" href="#display-discount-text-on-all-product-items">Display % discount text on all product items</a></li>
+        
         </ul>
     
 
@@ -1792,6 +1794,111 @@ By the code below:
 <p>Or use the minified version:</p>
 <pre><code class="html">&lt;script&gt;
 !function(){var t;function a(){t(&quot;.card, .productView&quot;).each(function(a,e){var i=t(e);if(!i.data(&quot;percentDiscountBadgeInitialized&quot;)){i.data(&quot;percentDiscountBadgeInitialized&quot;,!0);var r=i.is(&quot;.productView&quot;)?i.find(&quot;[data-also-bought-parent-scope]&quot;):i,s=Number(t(&quot;[data-product-price-with-tax]&quot;,r).first().text().trim().split(/\s-/)[0].replace(/[^0-9\.]/g,&quot;&quot;)),l=Number(t(&quot;[data-product-non-sale-price-with-tax]&quot;,r).first().text().trim().split(/\s-/)[0].replace(/[^0-9\.]/g,&quot;&quot;)),c=Number(t(&quot;[data-product-rrp-with-tax]&quot;,r).first().text().trim().split(/\s-/)[0].replace(/[^0-9\.]/g,&quot;&quot;));if(s||(s=Number(t(&quot;[data-product-price-without-tax]&quot;,r).first().text().trim().split(/\s-/)[0].replace(/[^0-9\.]/g,&quot;&quot;)),l=Number(t(&quot;[data-product-non-sale-price-without-tax]&quot;,r).first().text().trim().split(/\s-/)[0].replace(/[^0-9\.]/g,&quot;&quot;)),c=Number(t(&quot;[data-product-rrp-without-tax]&quot;,r).first().text().trim().split(/\s-/)[0].replace(/[^0-9\.]/g,&quot;&quot;))),l||c){var d=-Math.round(100-s/(l||c)*100);if(d&lt;0)0===t(&quot;.sale-flag-side&quot;,r).not('[class*=&quot;sale-flag-side--&quot;]').length&amp;&amp;(i.is(&quot;.productView&quot;)?r.find(&quot;.productView-images .productView-imageCarousel-main&quot;).after('&lt;div class=&quot;sale-flag-side&quot;&gt;&lt;span class=&quot;sale-text&quot;&gt;Sale&lt;/span&gt;&lt;/div&gt;'):r.find(&quot;.card-figure&quot;).prepend('&lt;div class=&quot;sale-flag-side&quot;&gt;&lt;span class=&quot;sale-text&quot;&gt;Sale&lt;/span&gt;&lt;/div&gt;')),t(&quot;.sale-flag-side&quot;,r).not('[class*=&quot;sale-flag-side--&quot;]').find(&quot;.sale-text&quot;).html(d+&quot;%&quot;)}}})}var e=setInterval(function(){var i,r,s,l;window.chiarajQuery&amp;&amp;(clearInterval(e),t=window.chiarajQuery,a(),new MutationObserver((i=a,r=300,function(){var t=this,a=arguments,e=s&amp;&amp;!l;clearTimeout(l),l=setTimeout(function(){l=null,s||i.apply(t,a)},r),e&amp;&amp;i.apply(t,a)})).observe(document.body,{subtree:!0,childList:!0}))},100)}();
+&lt;/script&gt;
+</code></pre>
+
+<h2 id="display-discount-text-on-all-product-items">Display % discount text on all product items<a class="headerlink" href="#display-discount-text-on-all-product-items" title="Permanent link">&para;</a></h2>
+<p><img alt="display-discount-percent-on-product-card" src="img/display-discount-percent-on-product-card.jpg" /></p>
+<p>Go to <strong>Storefront</strong> &gt; <strong>Script Manager</strong>, click <strong>Create a Script</strong>, choose:</p>
+<ul>
+<li><strong>Location on page</strong> = <code>Footer</code></li>
+<li><strong>Select pages where script will be added</strong> = <code>All Pages</code></li>
+<li><strong>Script type</strong> = <code>Script</code></li>
+</ul>
+<p>Enter the script below to <strong>Scripts contents</strong>: </p>
+<pre><code class="html">&lt;script&gt;
+(function() {
+    var $;
+
+    function debounce(func, wait, immediate) {
+        var timeout;
+        return function() {
+            var context = this, args = arguments;
+            var later = function() {
+                timeout = null;
+                if (!immediate) func.apply(context, args);
+            };
+            var callNow = immediate &amp;&amp; !timeout;
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+            if (callNow) func.apply(context, args);
+        };
+    };
+
+    function css() {
+        var style = document.createElement('style');
+        style.innerHTML = ''
+            + '.sale-flag-side { width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 10px; font-weight: bold }'
+            + '@media (min-width: 801px) {'
+            + '.sale-flag-side { width: 50px; height: 50px; font-size: 14px }'
+            + '}';
+        document.head.appendChild(style);
+    }
+
+    function main() {
+        $('.card, .productView').each(function(i, el) {
+            var $el = $(el);
+            if ($el.data('percentDiscountTextInitialized')) {
+                return;
+            }
+
+            $el.data('percentDiscountTextInitialized', true);
+
+            var $scope = $el.is('.productView') ? $el.find('[data-also-bought-parent-scope]') : $el;
+
+            // Prices with tax
+            var price = Number($('[data-product-price-with-tax]', $scope).first().text().trim().split(/\s-/)[0].replace(/[^0-9\.]/g, ''));
+            var nonsale = Number($('[data-product-non-sale-price-with-tax]', $scope).first().text().trim().split(/\s-/)[0].replace(/[^0-9\.]/g, ''));
+            var rrp = Number($('[data-product-rrp-with-tax]', $scope).first().text().trim().split(/\s-/)[0].replace(/[^0-9\.]/g, ''));
+
+            // Prices without tax
+            if (!price) {
+                price = Number($('[data-product-price-without-tax]', $scope).first().text().trim().split(/\s-/)[0].replace(/[^0-9\.]/g, ''));
+                nonsale = Number($('[data-product-non-sale-price-without-tax]', $scope).first().text().trim().split(/\s-/)[0].replace(/[^0-9\.]/g, ''));
+                rrp = Number($('[data-product-rrp-without-tax]', $scope).first().text().trim().split(/\s-/)[0].replace(/[^0-9\.]/g, ''));
+            }
+
+            // Stop if no sale
+            if (!nonsale &amp;&amp; !rrp) {
+                return;
+            }
+
+            var discountPercent = Math.round(100 - price / (nonsale ? nonsale : rrp) * 100);
+            var discountPrice = ((nonsale ? nonsale : rrp) - price).toFixed(2);
+
+            // Display % only if discount percent is less than 0
+            if (discountPercent &gt; 0) {
+
+                if ($('[data-product-price-saved]', $scope).length === 0) {
+                    if (!$el.is('.productView')) {
+                        $scope.find('[data-test-info-type=&quot;price&quot;]')
+                            .append('&lt;span class=&quot;price&quot;&gt;You save&lt;/span&gt; &lt;span data-product-price-saved class=&quot;price price--saving&quot;&gt;$' + discountPrice
+ + '&lt;/span&gt;');
+                    }
+                }
+                var $saving = $('[data-product-price-saved]', $scope);
+                $saving.append(' (' + discountPercent + '%)');
+            }
+        });
+    }
+
+    css();
+    var t = setInterval(function() {
+        if (!window.chiarajQuery) {
+            return;
+        }
+        clearInterval(t);
+        $ = window.chiarajQuery;
+        main();
+        (new MutationObserver(debounce(main, 300))).observe(document.body, { subtree: true, childList: true });
+    }, 100);
+})();
+&lt;/script&gt;
+</code></pre>
+
+<p>Or use the minified version:</p>
+<pre><code class="html">&lt;script&gt;
+!function(){var t,e;function i(){t(&quot;.card, .productView&quot;).each(function(e,i){var a=t(i);if(!a.data(&quot;percentDiscountTextInitialized&quot;)){a.data(&quot;percentDiscountTextInitialized&quot;,!0);var r=a.is(&quot;.productView&quot;)?a.find(&quot;[data-also-bought-parent-scope]&quot;):a,p=Number(t(&quot;[data-product-price-with-tax]&quot;,r).first().text().trim().split(/\s-/)[0].replace(/[^0-9\.]/g,&quot;&quot;)),n=Number(t(&quot;[data-product-non-sale-price-with-tax]&quot;,r).first().text().trim().split(/\s-/)[0].replace(/[^0-9\.]/g,&quot;&quot;)),s=Number(t(&quot;[data-product-rrp-with-tax]&quot;,r).first().text().trim().split(/\s-/)[0].replace(/[^0-9\.]/g,&quot;&quot;));if(p||(p=Number(t(&quot;[data-product-price-without-tax]&quot;,r).first().text().trim().split(/\s-/)[0].replace(/[^0-9\.]/g,&quot;&quot;)),n=Number(t(&quot;[data-product-non-sale-price-without-tax]&quot;,r).first().text().trim().split(/\s-/)[0].replace(/[^0-9\.]/g,&quot;&quot;)),s=Number(t(&quot;[data-product-rrp-without-tax]&quot;,r).first().text().trim().split(/\s-/)[0].replace(/[^0-9\.]/g,&quot;&quot;))),n||s){var d=Math.round(100-p/(n||s)*100),c=((n||s)-p).toFixed(2);if(d&gt;0)0===t(&quot;[data-product-price-saved]&quot;,r).length&amp;&amp;(a.is(&quot;.productView&quot;)||r.find('[data-test-info-type=&quot;price&quot;]').append('&lt;span class=&quot;price&quot;&gt;You save&lt;/span&gt; &lt;span data-product-price-saved class=&quot;price price--saving&quot;&gt;$'+c+&quot;&lt;/span&gt;&quot;)),t(&quot;[data-product-price-saved]&quot;,r).append(&quot; (&quot;+d+&quot;%)&quot;)}}})}(e=document.createElement(&quot;style&quot;)).innerHTML=&quot;.sale-flag-side { width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 10px; font-weight: bold }@media (min-width: 801px) {.sale-flag-side { width: 50px; height: 50px; font-size: 14px }}&quot;,document.head.appendChild(e);var a=setInterval(function(){var e,r,p,n;window.chiarajQuery&amp;&amp;(clearInterval(a),t=window.chiarajQuery,i(),new MutationObserver((e=i,r=300,function(){var t=this,i=arguments,a=p&amp;&amp;!n;clearTimeout(n),n=setTimeout(function(){n=null,p||e.apply(t,i)},r),a&amp;&amp;e.apply(t,i)})).observe(document.body,{subtree:!0,childList:!0}))},100)}();
 &lt;/script&gt;
 </code></pre>
               

@@ -1912,8 +1912,7 @@ By the code below:
 <li><strong>Script type</strong> = <code>Script</code></li>
 </ul>
 <p>Enter the script below to <strong>Scripts contents</strong>: </p>
-<p>```html
-<script>
+<pre><code class="html">&lt;script&gt;
 (function() {
     var $;
     function debounce(func, wait, immediate) {
@@ -1931,7 +1930,7 @@ By the code below:
         };
     };
     function main() {
-        $('#form-action-addToCart[value="Pre-Order Now"]').parent().nextAll().hide();
+        $('#form-action-addToCart[value=&quot;Pre-Order Now&quot;]').parent().nextAll().hide();
     }
     var t = setInterval(function() {
         if (window.chiarajQuery) {
@@ -1942,7 +1941,8 @@ By the code below:
         }
     }, 200);
 })();
-</script></p>
+&lt;/script&gt;
+</code></pre>
               
             </div>
           </div>

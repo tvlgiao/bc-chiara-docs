@@ -1044,16 +1044,41 @@
 <p>All blog images should have same size to have the best visual display. No image size is restricted.</p>
 <h2 id="-instagram-photos-feed">--- Instagram Photos Feed<a class="headerlink" href="#-instagram-photos-feed" title="Permanent link">&para;</a></h2>
 <p><img alt="homepage instagram" src="img/homepage-instagram.png" /></p>
-<p>Configure Instagram section on the home page in <strong>Theme Editor</strong> &gt; <strong>Home Page</strong> &gt; <strong>Instagram</strong>:</p>
+<p>The old Instagram API has been retired from Oct 15 2019. We've built another tool: <a href="https://papathemes.com/embed-instagram-photos-on-bigcommerce-shopify-wordpress/">https://papathemes.com/embed-instagram-photos-on-bigcommerce-shopify-wordpress/</a></p>
+<p>Please use this tool to generate the custom code snippet. For example your generated code is:</p>
+<pre><code class="html">&lt;script&gt;!function(){var e=document.createElement(&quot;script&quot;);e.defer=!0,e.src=&quot;https://papathemes.s3.amazonaws.com/instagramapp/assets/js/embed-1.0.1.js&quot;,e.onload=function(){PapathemesInstagramApp.init({account_id:&quot;XXXXXXXXXXXXXXXXXXXX&quot;,element_id:&quot;papainstagram-render&quot;,limit:&quot;12&quot;,preset:&quot;grid&quot;})},document.body.appendChild(e)}();&lt;/script&gt;
+</code></pre>
+
+<p>Create a new banner in <strong>Marketing</strong> &gt; <strong>Banners</strong> &gt; click <button disabled><strong>Create a Banner</strong></button> button.</p>
+<p>Click <button disabled><strong>HTML</strong></button> in <strong>Banner Content</strong> editor to open <strong>HTML Source Editor</strong>:</p>
+<p>Insert to code below:</p>
+<pre><code class="html">&lt;h2 class=&quot;page-heading&quot;&gt;INSTAGRAM&lt;/h2&gt;
+&lt;p class=&quot;page-subheading&quot;&gt;Follow us on instagram&lt;/p&gt;
+&lt;div id=&quot;papainstagram-render&quot;&gt;&amp;nbsp;&lt;/div&gt;
+
+&lt;script type=&quot;text/javascript&quot;&gt;// &lt;![CDATA[
+(function() {
+var style = document.createElement('style');
+style.innerHTML = '.banners[data-banner-location=&quot;bottom&quot;] { background-color: transparent }';
+document.head.appendChild(style);
+})();
+// ]]&gt;&lt;/script&gt;
+</code></pre>
+
+<p>Then insert the generated code after:</p>
+<pre><code class="html">&lt;script&gt;!function(){var e=document.createElement(&quot;script&quot;);e.defer=!0,e.src=&quot;https://papathemes.s3.amazonaws.com/instagramapp/assets/js/embed-1.0.1.js&quot;,e.onload=function(){PapathemesInstagramApp.init({account_id:&quot;XXXXXXXXXXXXXXXXXXXX&quot;,element_id:&quot;papainstagram-render&quot;,limit:&quot;12&quot;,preset:&quot;grid&quot;})},document.body.appendChild(e)}();&lt;/script&gt;
+</code></pre>
+
+<p>The banner content code should like below screenshot:</p>
+<p><img alt="edit-instagram-banner" src="img/edit-instagram-banner.png" /></p>
+<p>Click <button disabled><strong>Update</strong></button>.</p>
+<p>Choose other options:</p>
 <ul>
-<li><strong>Token Access</strong>: Use this tool to generate your Instagram token access code: <a href="https://bit.ly/2rpaWxU">https://bit.ly/2rpaWxU</a>.</li>
-<li><strong>Number of photos</strong> to display.</li>
-<li><strong>Columns</strong> (or photos per row).</li>
-<li><strong>Type</strong>: <code>Boxed</code> - display like Furniture demo. <code>Fullwidth</code> - display like Fashion demo.</li>
-<li><strong>Heading</strong>.</li>
-<li><strong>Subheading</strong>.</li>
-<li><strong>Image fit</strong>: <code>Cover</code> or <code>Contain</code>.</li>
+<li><strong>Show on Page</strong>: <code>Home Page</code></li>
+<li><strong>Visible</strong>: <code>Yes</code></li>
+<li><strong>Location</strong>: <code>Bottom of Page</code></li>
 </ul>
+<p>Then click <button disabled><strong>Save</strong></button> to save your banner.</p>
 <h2 id="-images-carousel-or-brands-carousel">--- Images Carousel or Brands Carousel<a class="headerlink" href="#-images-carousel-or-brands-carousel" title="Permanent link">&para;</a></h2>
 <p><img alt="homepage brands carousel" src="img/homepage-brands-carousel.png" /></p>
 <p>To display the images carousel, create a new banner in <strong>Marketing</strong> &gt; <strong>Banners</strong>:</p>

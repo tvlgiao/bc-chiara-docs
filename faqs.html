@@ -1870,12 +1870,21 @@ By the code below:
 
             // Display % only if discount percent is less than 0
             if (discountPercent &gt; 0) {
-
+                // Create sale badge if not exist
+                if ($('.sale-flag-side', $scope).not('[class*=&quot;sale-flag-side--&quot;]').length === 0) {
+                    if ($el.is('.productView')) {
+                        $scope.find('.productView-images .productView-imageCarousel-main')
+                            .after('&lt;div class=&quot;sale-flag-side&quot;&gt;&lt;span class=&quot;sale-text&quot;&gt;Sale&lt;/span&gt;&lt;/div&gt;');
+                    } else {
+                        $scope.find('.card-figure')
+                            .prepend('&lt;div class=&quot;sale-flag-side&quot;&gt;&lt;span class=&quot;sale-text&quot;&gt;Sale&lt;/span&gt;&lt;/div&gt;');
+                    }
+                }
+                // Create &quot;You save...&quot;
                 if ($('[data-product-price-saved]', $scope).length === 0) {
                     if (!$el.is('.productView')) {
                         $scope.find('[data-test-info-type=&quot;price&quot;]')
-                            .append('&lt;span class=&quot;price&quot;&gt;You save&lt;/span&gt; &lt;span data-product-price-saved class=&quot;price price--saving&quot;&gt;$' + discountPrice
- + '&lt;/span&gt;');
+                            .append('&lt;span class=&quot;price&quot;&gt;You save&lt;/span&gt; &lt;span data-product-price-saved class=&quot;price price--saving&quot;&gt;$' + discountPrice + '&lt;/span&gt;');
                     }
                 }
                 var $saving = $('[data-product-price-saved]', $scope);

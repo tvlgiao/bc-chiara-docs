@@ -1883,12 +1883,21 @@ Enter the script below to **Scripts contents**:
 
             // Display % only if discount percent is less than 0
             if (discountPercent > 0) {
-
+                // Create sale badge if not exist
+                if ($('.sale-flag-side', $scope).not('[class*="sale-flag-side--"]').length === 0) {
+                    if ($el.is('.productView')) {
+                        $scope.find('.productView-images .productView-imageCarousel-main')
+                            .after('<div class="sale-flag-side"><span class="sale-text">Sale</span></div>');
+                    } else {
+                        $scope.find('.card-figure')
+                            .prepend('<div class="sale-flag-side"><span class="sale-text">Sale</span></div>');
+                    }
+                }
+                // Create "You save..."
                 if ($('[data-product-price-saved]', $scope).length === 0) {
                     if (!$el.is('.productView')) {
                         $scope.find('[data-test-info-type="price"]')
-                            .append('<span class="price">You save</span> <span data-product-price-saved class="price price--saving">$' + discountPrice
- + '</span>');
+                            .append('<span class="price">You save</span> <span data-product-price-saved class="price price--saving">$' + discountPrice + '</span>');
                     }
                 }
                 var $saving = $('[data-product-price-saved]', $scope);
@@ -1963,3 +1972,4 @@ Enter the script below to **Scripts contents**:
 })();
 </script>
 ```
+

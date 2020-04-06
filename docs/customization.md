@@ -913,19 +913,55 @@ All blog images should have same size to have the best visual display. No image 
 
 ![homepage instagram](img/homepage-instagram.png)
 
-Configure Instagram section on the home page in **Theme Editor** > **Home Page** > **Instagram**:
 
-* **Token Access**: Use this tool to generate your Instagram token access code: <https://bit.ly/2rpaWxU>.
-* **Number of photos** to display.
-* **Columns** (or photos per row).
-* **Type**: `Boxed` - display like Furniture demo. `Fullwidth` - display like Fashion demo.
-* **Heading**.
-* **Subheading**.
-* **Image fit**: `Cover` or `Contain`.
+The old Instagram API has been retired from Oct 15 2019. We've built another tool: <https://papathemes.com/embed-instagram-photos-on-bigcommerce-shopify-wordpress/>
+
+Please use this tool to generate the custom code snippet. For example your generated code is:
+
+```html
+<script>!function(){var e=document.createElement("script");e.defer=!0,e.src="https://papathemes.s3.amazonaws.com/instagramapp/assets/js/embed-1.0.1.js",e.onload=function(){PapathemesInstagramApp.init({account_id:"XXXXXXXXXXXXXXXXXXXX",element_id:"papainstagram-render",limit:"12",preset:"grid"})},document.body.appendChild(e)}();</script>
+```
+
+Create a new banner in **Marketing** > **Banners** > click <button disabled>**Create a Banner**</button> button.
+
+Click <button disabled>**HTML**</button> in **Banner Content** editor to open **HTML Source Editor**:
+
+Insert to code below:
+
+```html
+<h2 class="page-heading">INSTAGRAM</h2>
+<p class="page-subheading">Follow us on instagram</p>
+<div id="papainstagram-render">&nbsp;</div>
+
+<script type="text/javascript">// <![CDATA[
+(function() {
+var style = document.createElement('style');
+style.innerHTML = '.banners[data-banner-location="bottom"] { background-color: transparent }';
+document.head.appendChild(style);
+})();
+// ]]></script>
+```
+
+Then insert the generated code after:
+
+```html
+<script>!function(){var e=document.createElement("script");e.defer=!0,e.src="https://papathemes.s3.amazonaws.com/instagramapp/assets/js/embed-1.0.1.js",e.onload=function(){PapathemesInstagramApp.init({account_id:"XXXXXXXXXXXXXXXXXXXX",element_id:"papainstagram-render",limit:"12",preset:"grid"})},document.body.appendChild(e)}();</script>
+```
+
+The banner content code should like below screenshot:
+
+![edit-instagram-banner](img/edit-instagram-banner.png)
+
+Click <button disabled>**Update**</button>.
 
 
+Choose other options:
 
+- **Show on Page**: `Home Page`
+- **Visible**: `Yes`
+- **Location**: `Bottom of Page`
 
+Then click <button disabled>**Save**</button> to save your banner.
 
 
 

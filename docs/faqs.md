@@ -1973,3 +1973,37 @@ Enter the script below to **Scripts contents**:
 </script>
 ```
 
+
+## Change Gift Wrapping messages on the cart page
+
+To change the gift wrapping messages:
+
+- Gift wrapping has been applied to the selected items in your cart successfully.
+- The selected item(s) in your cart will no longer be gift wrapped.
+
+Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
+
+- **Location on page** = `Footer`
+- **Select pages where script will be added** = `All Pages`
+- **Script type** = `Script`
+
+Enter the script below to **Scripts contents**:
+
+```html
+<script>
+(function() {
+    var NEW_GIFT_APPLIED_MESSAGE = 'A gift option has been applied to the selected items in your cart successfully.';
+    var NEW_GIFT_REMOVED_MESSAGE = 'A gift option has been removed from your cart.';
+
+    var el = document.querySelector('[data-cart-status] .alertBox-message span');
+    if (el && el.innerText) {
+        if (el.innerText.toLowerCase().trim().indexOf('gift wrapping has been applied to the selected items in your cart successfully') >= 0) {
+            el.innerText = NEW_GIFT_APPLIED_MESSAGE;
+        }
+        if (el.innerText.toLowerCase().trim().indexOf('the selected item(s) in your cart will no longer be gift wrapped') >= 0) {
+            el.innerText = NEW_GIFT_REMOVED_MESSAGE;
+        }
+    }
+})();
+</script>
+```

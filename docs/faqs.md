@@ -2007,3 +2007,52 @@ Enter the script below to **Scripts contents**:
 })();
 </script>
 ```
+
+
+## Add form validation for Gift Wrapping option
+
+![add-form-validation-for-gift-wrapping-option](img/add-form-validation-for-gift-wrapping-option.png)
+
+Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
+
+- **Location on page** = `Footer`
+- **Select pages where script will be added** = `All Pages`
+- **Script type** = `Script`
+
+Enter the script below to **Scripts contents**:
+
+```html
+<script>
+{{#if page_type '==' 'cart'}}
+(function() {
+    function debounce(func, wait, immediate) {
+        var timeout;
+        return function() {
+            var context = this, args = arguments;
+            var later = function() {
+                timeout = null;
+                if (!immediate) func.apply(context, args);
+            };
+            var callNow = immediate && !timeout;
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+            if (callNow) func.apply(context, args);
+        };
+    };
+
+    function main() {
+        var el = document.getElementById('giftWrapping-select-same');
+        if (el && !el.getAttribute('data-validation-added')) {
+            el.setAttribute('data-validation-added', true);
+            el.setAttribute('required', true);
+        }
+    }
+
+    var mb = new MutationObserver(debounce(main, 300));
+    mb.observe(document.body, { childList: true, subtree: true });
+})();
+{{/if}}
+</script>
+```
+
+

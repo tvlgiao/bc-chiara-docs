@@ -216,6 +216,8 @@
         
             <li><a class="toctree-l3" href="#add-form-validation-for-gift-wrapping-option">Add form validation for Gift Wrapping option</a></li>
         
+            <li><a class="toctree-l3" href="#change-the-tabs-order-on-the-product-page">Change the tabs order on the product page</a></li>
+        
         </ul>
     
 
@@ -2028,6 +2030,94 @@ By the code below:
 })();
 {{/if}}
 &lt;/script&gt;
+</code></pre>
+
+<h2 id="change-the-tabs-order-on-the-product-page">Change the tabs order on the product page<a class="headerlink" href="#change-the-tabs-order-on-the-product-page" title="Permanent link">&para;</a></h2>
+<p>Go to <strong>Storefront</strong> &gt; <strong>Script Manager</strong>, click <strong>Create a Script</strong>, choose:</p>
+<ul>
+<li><strong>Location on page</strong> = <code>Footer</code></li>
+<li><strong>Select pages where script will be added</strong> = <code>All Pages</code></li>
+<li><strong>Script type</strong> = <code>Script</code></li>
+</ul>
+<p>Enter the script below to <strong>Scripts contents</strong>:</p>
+<pre><code class="html">&lt;script&gt;
+(function() {
+    var DESCRIPTION_TAB = 0;
+    var INFO_TAB = 1;
+    var WARRANTY_TAB = 2;
+    var SPECS_TAB = 3;
+    var REVIEWS_TAB = 4;
+    var VIDEOS_TAB = 5;
+
+    var tabMap = new Array(6);
+    tabMap[DESCRIPTION_TAB] = '.productView-tab--description';
+    tabMap[INFO_TAB] = '.productView-tab--properties';
+    tabMap[WARRANTY_TAB] = '.productView-tab--warranty';
+    tabMap[SPECS_TAB] = '.productView-tab--addition';
+    tabMap[REVIEWS_TAB] = '.productView-tab--reviews';
+    tabMap[VIDEOS_TAB] = '.productView-tab--videos';
+
+    function debounce(func, wait, immediate) {
+        var timeout;
+        return function() {
+            var context = this, args = arguments;
+            var later = function() {
+                timeout = null;
+                if (!immediate) func.apply(context, args);
+            };
+            var callNow = immediate &amp;&amp; !timeout;
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+            if (callNow) func.apply(context, args);
+        };
+    };
+
+    function css() {
+        var style = document.createElement('style');
+        style.innerHTML = '@media (min-width: 801px) {'
+        style.innerHTML += '.productView-tabs { display: flex; flex-wrap: wrap }';
+        for (var i = 0; i &lt; tabMap.length; i++) {
+            style.innerHTML += tabMap[i] + '{ order: ' + i + '; margin-left: 0 !important; margin-right: 1.5rem !important }';
+        }
+        style.innerHTML += '}';
+        document.head.appendChild(style);
+    }
+
+    function main() {
+        var tabsArr = document.querySelectorAll('.productView-tabs');
+        for (var i = 0; i &lt; tabsArr.length; i++) {
+            var tabs = tabsArr[i];
+            if (!tabs.getAttribute('data-modified')) {
+                tabs.setAttribute('data-modified', true);
+                for (var j = 0; j &lt; tabMap.length; j++) {
+                    var li = tabs.querySelector(tabMap[j]);
+                    if (li) {
+                        li.querySelector('a').click();
+                        break;
+                    }
+                }
+            }
+        }
+    }
+
+    var debouncedMain = debounce(main, 300);
+
+    css();
+    debouncedMain();
+
+    var ob = new MutationObserver(debouncedMain);
+    ob.observe(document.body, { subtree: true, childList: true });
+})();
+&lt;/script&gt;
+</code></pre>
+
+<p>Edit the lines below to change the tabs order:</p>
+<pre><code class="js">    var DESCRIPTION_TAB = 0;
+    var INFO_TAB = 1;
+    var WARRANTY_TAB = 2;
+    var SPECS_TAB = 3;
+    var REVIEWS_TAB = 4;
+    var VIDEOS_TAB = 5;
 </code></pre>
               
             </div>

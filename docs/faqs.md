@@ -2056,3 +2056,96 @@ Enter the script below to **Scripts contents**:
 ```
 
 
+## Change the tabs order on the product page
+
+Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
+
+- **Location on page** = `Footer`
+- **Select pages where script will be added** = `All Pages`
+- **Script type** = `Script`
+
+Enter the script below to **Scripts contents**:
+
+```html
+<script>
+(function() {
+    var DESCRIPTION_TAB = 0;
+    var INFO_TAB = 1;
+    var WARRANTY_TAB = 2;
+    var SPECS_TAB = 3;
+    var REVIEWS_TAB = 4;
+    var VIDEOS_TAB = 5;
+
+    var tabMap = new Array(6);
+    tabMap[DESCRIPTION_TAB] = '.productView-tab--description';
+    tabMap[INFO_TAB] = '.productView-tab--properties';
+    tabMap[WARRANTY_TAB] = '.productView-tab--warranty';
+    tabMap[SPECS_TAB] = '.productView-tab--addition';
+    tabMap[REVIEWS_TAB] = '.productView-tab--reviews';
+    tabMap[VIDEOS_TAB] = '.productView-tab--videos';
+
+    function debounce(func, wait, immediate) {
+        var timeout;
+        return function() {
+            var context = this, args = arguments;
+            var later = function() {
+                timeout = null;
+                if (!immediate) func.apply(context, args);
+            };
+            var callNow = immediate && !timeout;
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+            if (callNow) func.apply(context, args);
+        };
+    };
+
+    function css() {
+        var style = document.createElement('style');
+        style.innerHTML = '@media (min-width: 801px) {'
+        style.innerHTML += '.productView-tabs { display: flex; flex-wrap: wrap }';
+        for (var i = 0; i < tabMap.length; i++) {
+            style.innerHTML += tabMap[i] + '{ order: ' + i + '; margin-left: 0 !important; margin-right: 1.5rem !important }';
+        }
+        style.innerHTML += '}';
+        document.head.appendChild(style);
+    }
+
+    function main() {
+        var tabsArr = document.querySelectorAll('.productView-tabs');
+        for (var i = 0; i < tabsArr.length; i++) {
+            var tabs = tabsArr[i];
+            if (!tabs.getAttribute('data-modified')) {
+                tabs.setAttribute('data-modified', true);
+                for (var j = 0; j < tabMap.length; j++) {
+                    var li = tabs.querySelector(tabMap[j]);
+                    if (li) {
+                        li.querySelector('a').click();
+                        break;
+                    }
+                }
+            }
+        }
+    }
+
+    var debouncedMain = debounce(main, 300);
+
+    css();
+    debouncedMain();
+
+    var ob = new MutationObserver(debouncedMain);
+    ob.observe(document.body, { subtree: true, childList: true });
+})();
+</script>
+```
+
+Edit the lines below to change the tabs order:
+
+```js
+    var DESCRIPTION_TAB = 0;
+    var INFO_TAB = 1;
+    var WARRANTY_TAB = 2;
+    var SPECS_TAB = 3;
+    var REVIEWS_TAB = 4;
+    var VIDEOS_TAB = 5;
+```
+

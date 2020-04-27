@@ -2149,3 +2149,48 @@ Edit the lines below to change the tabs order:
     var VIDEOS_TAB = 5;
 ```
 
+
+## Hide Options section on mobile
+
+Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
+
+- **Location on page** = `Footer`
+- **Select pages where script will be added** = `Store Pages`
+- **Script type** = `Script`
+
+Enter the script below to **Scripts contents**:
+
+```html
+<script>
+(function($) {
+    /** debounce(func, wait, immediate) */
+    function debounce(n,t,u){var e;return function(){var i=this,o=arguments,a=u&&!e;clearTimeout(e),e=setTimeout(function(){e=null,u||n.apply(i,o)},t),a&&n.apply(i,o)}}
+
+    function css() {
+        var style = document.createElement('style');
+        style.innerHTML = '@media (max-width: 801px) {'
+            + '.productView-options._hideOnMobile { padding: 0; margin: 0 }'
+            + '.productView-options._hideOnMobile .productView-options-panel-heading { display: none }'
+            + '}';
+        document.head.appendChild(style);
+    }
+
+    function main() {
+        var $el = $('[data-product-option-change]');
+        if ($el.data('emptyChecked')) {
+            return;
+        }
+        $el.data('emptyChecked', true);
+        if ($el.children().length === 0) {
+            $el.closest('.productView-options').addClass('_hideOnMobile');
+        }
+    }
+
+    $(document).ready(function() {
+        css();
+        main();
+        (new MutationObserver(debounce(main, 300))).observe(document.body, { subtree: true, childList: true });
+    })
+})(window.chiarajQuery);
+</script>
+```

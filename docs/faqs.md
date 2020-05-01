@@ -2194,3 +2194,34 @@ Enter the script below to **Scripts contents**:
 })(window.chiarajQuery);
 </script>
 ```
+
+
+
+## Display the blog page 2 columns
+
+Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
+
+- **Location on page** = `Footer`
+- **Select pages where script will be added** = `All Pages`
+- **Script type** = `Script`
+
+Enter the script below to **Scripts contents**:
+
+```html
+<script>
+    (function() {
+        var css = document.createElement('style');
+        css.innerHTML = '@media (min-width: 801px) {'
+            + '.page-type-blog .page-content { display: grid; grid-template-columns: 50% 50%; grid-gap: 30px }'
+            + '.page-type-blog .page-content .page-heading,'
+            + '.page-type-blog .page-content .pagination { grid-column: 1 / 3; }'
+            + '.page-type-blog .page-content .blog { margin: 0 0 1.5rem }'
+            + '.page-type-blog .page-content .blog-post-figure,'
+            + '.page-type-blog .page-content .blog-post-body { width: 100% }'
+            + '}';
+        document.head.appendChild(css);
+    })();
+</script>
+```
+
+

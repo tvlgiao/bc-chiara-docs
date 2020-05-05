@@ -224,6 +224,8 @@
         
             <li><a class="toctree-l3" href="#fix-share-button-not-working-in-quick-view">Fix Share button not working in Quick-View</a></li>
         
+            <li><a class="toctree-l3" href="#display-brand-carousel-retina-images">Display brand carousel retina images</a></li>
+        
         </ul>
     
 
@@ -2215,6 +2217,27 @@ By the code below:
             e.stopPropagation();
         });
     }, 500))).observe(document.body, {subtree: true, childList: true });
+})(window.chiarajQuery || window.jQuery);
+&lt;/script&gt;
+</code></pre>
+
+<h2 id="display-brand-carousel-retina-images">Display brand carousel retina images<a class="headerlink" href="#display-brand-carousel-retina-images" title="Permanent link">&para;</a></h2>
+<p>Upload your brand images with double size. For example your standard image width is 220px, upload 440px image.</p>
+<p>Go to <strong>Storefront</strong> &gt; <strong>Script Manager</strong>, click <strong>Create a Script</strong>, choose:</p>
+<ul>
+<li><strong>Location on page</strong> = <code>Footer</code></li>
+<li><strong>Select pages where script will be added</strong> = <code>Store Pages</code></li>
+<li><strong>Script type</strong> = <code>Script</code></li>
+</ul>
+<p>Enter the script below to <strong>Scripts contents</strong>:</p>
+<pre><code class="html">&lt;script&gt;
+(function($) {
+    $('.chiara-brandsCarousel-item img').each(function(i, el) {
+        var $el = $(el);
+        var src = $el.attr('src');
+        var s = src.replace(/product_images/, 'images/stencil/220w');
+        $el.attr('srcset', s + ' 1x, ' + src + ' 2x').attr('src', s).attr('width', 220);
+    });
 })(window.chiarajQuery || window.jQuery);
 &lt;/script&gt;
 </code></pre>

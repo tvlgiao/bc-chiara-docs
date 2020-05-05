@@ -2235,6 +2235,7 @@ Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
 
 Enter the script below to **Scripts contents**:
 
+```html
 <script>
 (function($) {
     /** debounce(func, wait, immediate) */
@@ -2252,3 +2253,4 @@ Enter the script below to **Scripts contents**:
     }, 500))).observe(document.body, {subtree: true, childList: true });
 })(window.chiarajQuery || window.jQuery);
 </script>
+```

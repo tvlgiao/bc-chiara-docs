@@ -2225,3 +2225,30 @@ Enter the script below to **Scripts contents**:
 ```
 
 
+## Fix Share button not working in Quick-View
+
+Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
+
+- **Location on page** = `Footer`
+- **Select pages where script will be added** = `All Pages`
+- **Script type** = `Script`
+
+Enter the script below to **Scripts contents**:
+
+<script>
+(function($) {
+    /** debounce(func, wait, immediate) */
+    function debounce(n,t,u){var e;return function(){var i=this,o=arguments,a=u&&!e;clearTimeout(e),e=setTimeout(function(){e=null,u||n.apply(i,o)},t),a&&n.apply(i,o)}}
+
+    (new MutationObserver(debounce(function() {
+        const $el = $('.modal .productView-share-toggle');
+        if ($el.length === 0 || $el.data('fixedShareButton')) {
+            return;
+        }
+        $el.data('fixedShareButton', true);
+        $el.closest('.modal').on('click', '.productView-share-toggle', function(e) {
+            e.stopPropagation();
+        });
+    }, 500))).observe(document.body, {subtree: true, childList: true });
+})(window.chiarajQuery || window.jQuery);
+</script>

@@ -2254,3 +2254,30 @@ Enter the script below to **Scripts contents**:
 })(window.chiarajQuery || window.jQuery);
 </script>
 ```
+
+
+## Display brand carousel retina images
+
+Upload your brand images with double size. For example your standard image width is 220px, upload 440px image.
+
+Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
+
+- **Location on page** = `Footer`
+- **Select pages where script will be added** = `Store Pages`
+- **Script type** = `Script`
+
+Enter the script below to **Scripts contents**:
+
+
+```html
+<script>
+(function($) {
+    $('.chiara-brandsCarousel-item img').each(function(i, el) {
+        var $el = $(el);
+        var src = $el.attr('src');
+        var s = src.replace(/product_images/, 'images/stencil/220w');
+        $el.attr('srcset', s + ' 1x, ' + src + ' 2x').attr('src', s).attr('width', 220);
+    });
+})(window.chiarajQuery || window.jQuery);
+</script>
+```

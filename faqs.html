@@ -222,6 +222,8 @@
         
             <li><a class="toctree-l3" href="#display-the-blog-page-2-columns">Display the blog page 2 columns</a></li>
         
+            <li><a class="toctree-l3" href="#fix-share-button-not-working-in-quick-view">Fix Share button not working in Quick-View</a></li>
+        
         </ul>
     
 
@@ -2189,6 +2191,32 @@ By the code below:
     })();
 &lt;/script&gt;
 </code></pre>
+
+<h2 id="fix-share-button-not-working-in-quick-view">Fix Share button not working in Quick-View<a class="headerlink" href="#fix-share-button-not-working-in-quick-view" title="Permanent link">&para;</a></h2>
+<p>Go to <strong>Storefront</strong> &gt; <strong>Script Manager</strong>, click <strong>Create a Script</strong>, choose:</p>
+<ul>
+<li><strong>Location on page</strong> = <code>Footer</code></li>
+<li><strong>Select pages where script will be added</strong> = <code>All Pages</code></li>
+<li><strong>Script type</strong> = <code>Script</code></li>
+</ul>
+<p>Enter the script below to <strong>Scripts contents</strong>:</p>
+<script>
+(function($) {
+    /** debounce(func, wait, immediate) */
+    function debounce(n,t,u){var e;return function(){var i=this,o=arguments,a=u&&!e;clearTimeout(e),e=setTimeout(function(){e=null,u||n.apply(i,o)},t),a&&n.apply(i,o)}}
+
+    (new MutationObserver(debounce(function() {
+        const $el = $('.modal .productView-share-toggle');
+        if ($el.length === 0 || $el.data('fixedShareButton')) {
+            return;
+        }
+        $el.data('fixedShareButton', true);
+        $el.closest('.modal').on('click', '.productView-share-toggle', function(e) {
+            e.stopPropagation();
+        });
+    }, 500))).observe(document.body, {subtree: true, childList: true });
+})(window.chiarajQuery || window.jQuery);
+</script>
               
             </div>
           </div>

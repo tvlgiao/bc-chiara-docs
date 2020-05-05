@@ -2200,10 +2200,10 @@ By the code below:
 <li><strong>Script type</strong> = <code>Script</code></li>
 </ul>
 <p>Enter the script below to <strong>Scripts contents</strong>:</p>
-<script>
+<pre><code class="html">&lt;script&gt;
 (function($) {
     /** debounce(func, wait, immediate) */
-    function debounce(n,t,u){var e;return function(){var i=this,o=arguments,a=u&&!e;clearTimeout(e),e=setTimeout(function(){e=null,u||n.apply(i,o)},t),a&&n.apply(i,o)}}
+    function debounce(n,t,u){var e;return function(){var i=this,o=arguments,a=u&amp;&amp;!e;clearTimeout(e),e=setTimeout(function(){e=null,u||n.apply(i,o)},t),a&amp;&amp;n.apply(i,o)}}
 
     (new MutationObserver(debounce(function() {
         const $el = $('.modal .productView-share-toggle');
@@ -2216,7 +2216,8 @@ By the code below:
         });
     }, 500))).observe(document.body, {subtree: true, childList: true });
 })(window.chiarajQuery || window.jQuery);
-</script>
+&lt;/script&gt;
+</code></pre>
               
             </div>
           </div>

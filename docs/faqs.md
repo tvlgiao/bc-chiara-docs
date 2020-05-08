@@ -2281,3 +2281,38 @@ Enter the script below to **Scripts contents**:
 })(window.chiarajQuery || window.jQuery);
 </script>
 ```
+
+
+## Move Description to above Info tab
+
+![move-description-above-info-tab](img/move-description-above-info-tab.png)
+
+Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
+
+- **Location on page** = `Footer`
+- **Select pages where script will be added** = `Store Pages`
+- **Script type** = `Script`
+
+Enter the script below to **Scripts contents**:
+
+```html
+<script>
+(function($) {
+    /** debounce(func, wait, immediate) */
+    function debounce(n,t,u){var e;return function(){var i=this,o=arguments,a=u&&!e;clearTimeout(e),e=setTimeout(function(){e=null,u||n.apply(i,o)},t),a&&n.apply(i,o)}}
+
+    function main() {
+        $('.productView-desc').each(function(i, el) {
+            $el = $(el);
+            if (!$el.data('movedBeforeTabs')) {
+                $el.data('movedBeforeTabs', true);
+                $el.closest('.productView').find('.productView-tabs').first().before($el);
+            }
+        });
+    }
+
+    $(document).ready(main);
+    (new MutationObserver(debounce(main, 300))).observe(document.body, {subtree: true, childList: true });
+})(window.chiarajQuery || window.jQuery);
+</script>
+```

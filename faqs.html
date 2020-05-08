@@ -226,6 +226,8 @@
         
             <li><a class="toctree-l3" href="#display-brand-carousel-retina-images">Display brand carousel retina images</a></li>
         
+            <li><a class="toctree-l3" href="#move-description-to-above-info-tab">Move Description to above Info tab</a></li>
+        
         </ul>
     
 
@@ -2238,6 +2240,36 @@ By the code below:
         var s = src.replace(/product_images/, 'images/stencil/220w');
         $el.attr('srcset', s + ' 1x, ' + src + ' 2x').attr('src', s).attr('width', 220);
     });
+})(window.chiarajQuery || window.jQuery);
+&lt;/script&gt;
+</code></pre>
+
+<h2 id="move-description-to-above-info-tab">Move Description to above Info tab<a class="headerlink" href="#move-description-to-above-info-tab" title="Permanent link">&para;</a></h2>
+<p><img alt="move-description-above-info-tab" src="img/move-description-above-info-tab.png" /></p>
+<p>Go to <strong>Storefront</strong> &gt; <strong>Script Manager</strong>, click <strong>Create a Script</strong>, choose:</p>
+<ul>
+<li><strong>Location on page</strong> = <code>Footer</code></li>
+<li><strong>Select pages where script will be added</strong> = <code>Store Pages</code></li>
+<li><strong>Script type</strong> = <code>Script</code></li>
+</ul>
+<p>Enter the script below to <strong>Scripts contents</strong>:</p>
+<pre><code class="html">&lt;script&gt;
+(function($) {
+    /** debounce(func, wait, immediate) */
+    function debounce(n,t,u){var e;return function(){var i=this,o=arguments,a=u&amp;&amp;!e;clearTimeout(e),e=setTimeout(function(){e=null,u||n.apply(i,o)},t),a&amp;&amp;n.apply(i,o)}}
+
+    function main() {
+        $('.productView-desc').each(function(i, el) {
+            $el = $(el);
+            if (!$el.data('movedBeforeTabs')) {
+                $el.data('movedBeforeTabs', true);
+                $el.closest('.productView').find('.productView-tabs').first().before($el);
+            }
+        });
+    }
+
+    $(document).ready(main);
+    (new MutationObserver(debounce(main, 300))).observe(document.body, {subtree: true, childList: true });
 })(window.chiarajQuery || window.jQuery);
 &lt;/script&gt;
 </code></pre>

@@ -2,14 +2,24 @@
 
 ## Change text of BUY button on the product page on mobile
 
-Add this custom code below into your **Storefront** > **Footer Scripts**:
+Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
+
+- **Location on page** = `Footer`
+- **Select pages where script will be added** = `Store Pages`
+- **Script type** = `Script`
+
+Enter the script below to **Scripts contents**:
 
 ```html
-<style>
-.productView-options-toggle { width: 110px; border-radius: 3px; }
-.productView-options-toggle .on { font-size: 0; }
-.productView-options-toggle .on:before { font-size: 12px; content: 'Customize'; }
-</style>
+<script>
+(function() {
+var style = document.createElement('style');
+style.innerHTML = ".productView-options-toggle { width: 110px; border-radius: 3px; }"
++ ".productView-options-toggle .on { font-size: 0; }"
++ ".productView-options-toggle .on:before { font-size: 12px; content: 'Customize'; }";
+document.head.appendChild(style);
+})();
+</script>
 ```
 
 Where `Customize` is an example text to change.
@@ -17,30 +27,51 @@ Where `Customize` is an example text to change.
 
 ## Display the product options on the product page on mobile
 
-To display the product options on the product page on mobile instead of having to click BUY button, add the code below into **Storefont** > **Footer Scripts**:
+Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
+
+- **Location on page** = `Footer`
+- **Select pages where script will be added** = `Store Pages`
+- **Script type** = `Script`
+
+Enter the script below to **Scripts contents**:
 
 ```html
-<style>
-@media (max-width: 800px) {
-.productView-options-toggle { display: none }
-.productView-options-content { position: static; right: 0; opacity: 1; box-shadow: none; border-top: 1px solid #ddd}
-.productView-options-panel-body { position: static; padding-bottom: 0px; }
-.productView-options-panel-heading ~ .mobile-panel-close { display: none; }
-.productView-options-content .form-action { position: static; right: auto; }
-.productView-options-panel-heading { display: none }
-.productView-options { order: 6; }
-}
-</style>
+<script>
+(function() {
+var style = document.createElement('style');
+style.innerHTML = ''
++ '@media (max-width: 800px) {'
++ '.productView-options-toggle { display: none }'
++ '.productView-options-content { position: static; right: 0; opacity: 1; box-shadow: none; border-top: 1px solid #ddd}'
++ '.productView-options-panel-body { position: static; padding-bottom: 0px; }'
++ '.productView-options-panel-heading ~ .mobile-panel-close { display: none; }'
++ '.productView-options-content .form-action { position: static; right: auto; }'
++ '.productView-options-panel-heading { display: none }'
++ '.productView-options { order: 6; }'
++ '}';
+document.head.appendChild(style);
+})();
+</script>
 ```
 
 ## Hide the "Home" link on the main menu
 
-Add the custom code below into **Storefront** > **Footer Scripts**:
+Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
+
+- **Location on page** = `Footer`
+- **Select pages where script will be added** = `All Pages`
+- **Script type** = `Script`
+
+Enter the script below to **Scripts contents**:
 
 ```html
-<style>
-#navPages-main > .navPages-item:first-child { display: none }
-</style>
+<script>
+(function() {
+var style = document.createElement('style');
+style.innerHTML = '#navPages-main > .navPages-item:first-child { display: none }';
+document.head.appendChild(style);
+})();
+</script>
 ```
 
 
@@ -85,7 +116,13 @@ Your script should look like this screenshot:
 
 ![add custom text on the orders page](img/add-custom-text-on-orders-page.png)
 
-Add the scripts below to **Footer Scripts**:
+Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
+
+- **Location on page** = `Footer`
+- **Select pages where script will be added** = `Checkout Pages`
+- **Script type** = `Script`
+
+Enter the script below to **Scripts contents**:
 
 ```html
 <script>
@@ -131,28 +168,36 @@ Enter the script below to **Scripts contents**:
 
 ![responsive top banner](img/responsive-top-banner.png)
 
-Add the custom CSS below to **Storefront** > **Footer Scripts** or add to file `assets/scss/_chiara-custom.scss` if you prefer to edit theme files:
+Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
+
+- **Location on page** = `Footer`
+- **Select pages where script will be added** = `All Pages`
+- **Script type** = `Script`
+
+Enter the script below to **Scripts contents**:
 
 ```html
-<style>
-.list-unstyled { display: block; list-style: none; margin: 0; padding: 0; }
-.font-size-larger { font-size: larger }
-
-@media (min-width: 801px) {
-    .flex-desktop { display: flex }
-    .flex-desktop > * { flex: 1 }
-    .display-inline-desktop { display: inline }
-    .ml-2-desktop { margin-left: 2rem }
-}
-
-@media (max-width: 550px) {
-    .hide-mobile { display: none }
-}
-
-@media (min-width: 551px) and (max-width: 800px) {
-    .hide-tablet { display: none }
-}
-</style>
+<script>
+(function() {
+var style = document.createElement('style');
+style.innerHTML = ''
++ '.list-unstyled { display: block; list-style: none; margin: 0; padding: 0; }'
++ '.font-size-larger { font-size: larger }'
++ '@media (min-width: 801px) {'
+    + '.flex-desktop { display: flex }'
+    + '.flex-desktop > * { flex: 1 }'
+    + '.display-inline-desktop { display: inline }'
+    + '.ml-2-desktop { margin-left: 2rem }'
++ '}'
++ '@media (max-width: 550px) {'
+    + '.hide-mobile { display: none }'
++ '}'
++ '@media (min-width: 551px) and (max-width: 800px) {'
+    + '.hide-tablet { display: none }'
++ '}';
+document.head.appendChild(style);
+})();
+</script>
 ```
 
 
@@ -243,25 +288,46 @@ Enter the script below to **Scripts contents**:
 
 According to our design intent, the site logo will be hidden on some pages and the main title of that page will appear in the header on mobile. If you want your logo to appear on every page, you can use the following custom code snippet.
 
-Insert the code below to **Storefront** > **Footer Scripts**:
+Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
+
+- **Location on page** = `Footer`
+- **Select pages where script will be added** = `All Pages`
+- **Script type** = `Script`
+
+Enter the script below to **Scripts contents**:
 
 ```html
-<style>
-@media (max-width: 800px) {
-  .page-type-account_addressbook .page-heading-logo, .page-type-account_addressbook h1.page-heading, .page-type-account_inbox .page-heading-logo, .page-type-account_inbox h1.page-heading, .page-type-account_order .page-heading-logo, .page-type-account_order h1.page-heading, .page-type-account_orderstatus .page-heading-logo, .page-type-account_orderstatus h1.page-heading, .page-type-account_recentitems .page-heading-logo, .page-type-account_recentitems h1.page-heading, .page-type-account_returns .page-heading-logo, .page-type-account_returns h1.page-heading, .page-type-accountcreated .page-heading-logo, .page-type-accountcreated h1.page-heading, .page-type-blog .page-heading-logo, .page-type-blog h1.page-heading, .page-type-brand .page-heading-logo, .page-type-brand h1.page-heading, .page-type-brands .page-heading-logo, .page-type-brands h1.page-heading, .page-type-cart .page-heading-logo, .page-type-cart h1.page-heading, .page-type-category .page-heading-logo, .page-type-category h1.page-heading, .page-type-createaccount .page-heading-logo, .page-type-createaccount h1.page-heading, .page-type-editaccount .page-heading-logo, .page-type-editaccount h1.page-heading, .page-type-forgotpassword .page-heading-logo, .page-type-forgotpassword h1.page-heading, .page-type-giftcertificates .page-heading-logo, .page-type-giftcertificates h1.page-heading, .page-type-giftcertificates_balance .page-heading-logo, .page-type-giftcertificates_balance h1.page-heading, .page-type-giftcertificates_redeem .page-heading-logo, .page-type-giftcertificates_redeem h1.page-heading, .page-type-login .page-heading-logo, .page-type-login h1.page-heading, .page-type-newpassword .page-heading-logo, .page-type-newpassword h1.page-heading, .page-type-page_contact_form .page-heading-logo, .page-type-page_contact_form h1.page-heading, .page-type-wishlists .page-heading-logo, .page-type-wishlists h1.page-heading { display: none }
-  .page-type-account_addressbook .header-logo, .page-type-account_inbox .header-logo, .page-type-account_order .header-logo, .page-type-account_orderstatus .header-logo, .page-type-account_recentitems .header-logo, .page-type-account_returns .header-logo, .page-type-accountcreated .header-logo, .page-type-blog .header-logo, .page-type-brand .header-logo, .page-type-brands .header-logo, .page-type-cart .header-logo, .page-type-category .header-logo, .page-type-createaccount .header-logo, .page-type-editaccount .header-logo, .page-type-forgotpassword .header-logo, .page-type-giftcertificates .header-logo, .page-type-giftcertificates_balance .header-logo, .page-type-giftcertificates_redeem .header-logo, .page-type-login .header-logo, .page-type-newpassword .header-logo, .page-type-page_contact_form .header-logo, .page-type-wishlists .header-logo { display: block }
-}
-</style>
+<script>
+(function() {
+var style = document.createElement('style');
+style.innerHTML = ''
++ '@media (max-width: 800px) {'
+  + '.page-type-account_addressbook .page-heading-logo, .page-type-account_addressbook h1.page-heading, .page-type-account_inbox .page-heading-logo, .page-type-account_inbox h1.page-heading, .page-type-account_order .page-heading-logo, .page-type-account_order h1.page-heading, .page-type-account_orderstatus .page-heading-logo, .page-type-account_orderstatus h1.page-heading, .page-type-account_recentitems .page-heading-logo, .page-type-account_recentitems h1.page-heading, .page-type-account_returns .page-heading-logo, .page-type-account_returns h1.page-heading, .page-type-accountcreated .page-heading-logo, .page-type-accountcreated h1.page-heading, .page-type-blog .page-heading-logo, .page-type-blog h1.page-heading, .page-type-brand .page-heading-logo, .page-type-brand h1.page-heading, .page-type-brands .page-heading-logo, .page-type-brands h1.page-heading, .page-type-cart .page-heading-logo, .page-type-cart h1.page-heading, .page-type-category .page-heading-logo, .page-type-category h1.page-heading, .page-type-createaccount .page-heading-logo, .page-type-createaccount h1.page-heading, .page-type-editaccount .page-heading-logo, .page-type-editaccount h1.page-heading, .page-type-forgotpassword .page-heading-logo, .page-type-forgotpassword h1.page-heading, .page-type-giftcertificates .page-heading-logo, .page-type-giftcertificates h1.page-heading, .page-type-giftcertificates_balance .page-heading-logo, .page-type-giftcertificates_balance h1.page-heading, .page-type-giftcertificates_redeem .page-heading-logo, .page-type-giftcertificates_redeem h1.page-heading, .page-type-login .page-heading-logo, .page-type-login h1.page-heading, .page-type-newpassword .page-heading-logo, .page-type-newpassword h1.page-heading, .page-type-page_contact_form .page-heading-logo, .page-type-page_contact_form h1.page-heading, .page-type-wishlists .page-heading-logo, .page-type-wishlists h1.page-heading { display: none }'
+  + '.page-type-account_addressbook .header-logo, .page-type-account_inbox .header-logo, .page-type-account_order .header-logo, .page-type-account_orderstatus .header-logo, .page-type-account_recentitems .header-logo, .page-type-account_returns .header-logo, .page-type-accountcreated .header-logo, .page-type-blog .header-logo, .page-type-brand .header-logo, .page-type-brands .header-logo, .page-type-cart .header-logo, .page-type-category .header-logo, .page-type-createaccount .header-logo, .page-type-editaccount .header-logo, .page-type-forgotpassword .header-logo, .page-type-giftcertificates .header-logo, .page-type-giftcertificates_balance .header-logo, .page-type-giftcertificates_redeem .header-logo, .page-type-login .header-logo, .page-type-newpassword .header-logo, .page-type-page_contact_form .header-logo, .page-type-wishlists .header-logo { display: block }'
++ '}';
+document.head.appendChild(style);
+})();
+</script>
 ```
 
 ## Add item units behind prices (i.e $19.95 lb)
 
-Yes, it is possible. Simply add the custom code below to **Storefront** > **Footer Scripts**:
+Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
+
+- **Location on page** = `Footer`
+- **Select pages where script will be added** = `All Pages`
+- **Script type** = `Script`
+
+Enter the script below to **Scripts contents**:
 
 ```html
-<style>
-.price:after { content: ' lb'; }
-</style>
+<script>
+(function() {
+var style = document.createElement('style');
+style.innerHTML = '.price:after { content: ' lb'; }';
+document.head.appendChild(style);
+})();
+</script>
 ```
 
 
@@ -517,18 +583,29 @@ You can find it by going to your cart page after added some products to cart, ri
 
 ## Always show Add to Cart button on desktop screens
 
-Add the custom CSS below to **Storefront** > **Footer Scripts**:
+Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
+
+- **Location on page** = `Footer`
+- **Select pages where script will be added** = `Store Pages`
+- **Script type** = `Script`
+
+Enter the script below to **Scripts contents**:
 
 ```html
-<style>
-@media (min-width: 801px) {
-.card-img-container { position: relative }
-.card-figcaption { position: static; display: block; opacity: 1; margin-top: .42857rem; overflow: visible }
-.card-figcaption-body { position: static; transform: none; display: block }
-.card-figcaption-body-alt { z-index: 2; display: none }
-.card-figure:hover .card-figcaption-body-alt { display: block }
-}
-</style>
+<script>
+(function() {
+var style = document.createElement('style');
+style.innerHTML = ''
++ '@media (min-width: 801px) {'
++ '.card-img-container { position: relative }'
++ '.card-figcaption { position: static; display: block; opacity: 1; margin-top: .42857rem; overflow: visible }'
++ '.card-figcaption-body { position: static; transform: none; display: block }'
++ '.card-figcaption-body-alt { z-index: 2; display: none }'
++ '.card-figure:hover .card-figcaption-body-alt { display: block }'
++ '}';
+document.head.appendChild(style);
+})();
+</script>
 ```
 
 ## Fix product variant image not change when click on product swatches on product card items if "Show Image Slider" is enabled
@@ -606,17 +683,28 @@ Enter the script below to **Scripts contents**:
 
 ## Show all image thumbnails and display videos at third position on PDP
 
-Add the custom CSS below to **Storefront** > **Footer Scripts**:
+Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
+
+- **Location on page** = `Footer`
+- **Select pages where script will be added** = `Store Pages`
+- **Script type** = `Script`
+
+Enter the script below to **Scripts contents**:
 
 ```html
-<style>
-.productView-imageCarousel-nav { height: auto !important; max-height: none !important }
-.productView-imageCarousel-nav .slick-track { width: auto !important; transform: none !important; display: flex; flex-wrap: wrap }
-.productView-imageCarousel-nav-item { margin: 0.1875rem !important; max-width: 100px !important; order: 5 }
-.productView-imageCarousel-nav .productView-imageCarousel-nav-item:nth-child(1) { order: 1 }
-.productView-imageCarousel-nav .productView-imageCarousel-nav-item:nth-child(2) { order: 2 }
-.productView-imageCarousel-nav .productView-imageCarousel-nav-item--video { order: 3 }
-</style>
+<script>
+(function() {
+var style = document.createElement('style');
+style.innerHTML = ''
++ '.productView-imageCarousel-nav { height: auto !important; max-height: none !important }'
++ '.productView-imageCarousel-nav .slick-track { width: auto !important; transform: none !important; display: flex; flex-wrap: wrap }'
++ '.productView-imageCarousel-nav-item { margin: 0.1875rem !important; max-width: 100px !important; order: 5 }'
++ '.productView-imageCarousel-nav .productView-imageCarousel-nav-item:nth-child(1) { order: 1 }'
++ '.productView-imageCarousel-nav .productView-imageCarousel-nav-item:nth-child(2) { order: 2 }'
++ '.productView-imageCarousel-nav .productView-imageCarousel-nav-item--video { order: 3 }';
+document.head.appendChild(style);
+})();
+</script>
 ```
 
 

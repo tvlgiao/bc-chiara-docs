@@ -1208,7 +1208,7 @@ Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
 
 Enter the script below to **Scripts contents**: 
 
-```
+```html
 <script>
 (function($) {
     if (!$('body').is('.page-type-default')) {
@@ -1257,6 +1257,36 @@ Enter the script below to **Scripts contents**:
 })(window.chiarajQuery);
 </script>
 ```
+
+
+## Display the bottom banner on Home page to all pages
+
+Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
+
+- **Location on page** = `Footer`
+- **Select pages where script will be added** = `All Pages`
+- **Script type** = `Script`
+
+Enter the script below to **Scripts contents**: 
+
+```html
+<script>
+(function($) {
+    if (!$('body').is('.page-type-default')) {
+        stencilUtils.api.getPage('/', { template: 'common/footer' }, function(err, resp) {
+            if (!err && resp) {
+                var $banners = $(resp).filter('[data-banner-location=bottom]').first();
+                if ($banners.length > 0) {
+                    $('body > .footer').first().before($banners);
+                }
+            }
+        });
+    }
+})(window.chiarajQuery);
+</script>
+```
+
+
 
 ## Display a better bulk discount rates table to show per piece price and savings
 

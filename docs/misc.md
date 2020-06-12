@@ -37,10 +37,18 @@ You are freely to edit the heading, short description or product category:
 ## Hide all countries except USA in the checkout page and create account page
 
 ```html
+<script>
+    window.PAPATHEMES_HIDE_COUNTRY_SETTINGS = {
+        supportedCountries: ['EG'],
+        supportedCountryNames: ['Egypt']
+    };
+</script>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/javascript-debounce@1.0.1/dist/javascript-debounce.min.js" integrity="sha256-yppCMizPjrL8s22FQM9X70dJSYbV39pH9VA/gc2nlUE=" crossorigin="anonymous"></script>
 <script>
     (function($) {
+        var conf = window.PAPATHEMES_HIDE_COUNTRY_SETTINGS;
+
         function checkoutPage() {
             var ob = new MutationObserver(debounce(function() {
                 var $el = $('#countryCodeInput');
@@ -48,14 +56,18 @@ You are freely to edit the heading, short description or product category:
 
                 if ($el.length > 0 && !$el.data('updatedCountries')) {
                     $el.data('updatedCountries', true);
-                    $el.find('option').not('[value=US]').remove();
-                    $el.val('US');
+                    $el.find('option').each(function(i, opt) {
+                        if (conf.supportedCountries.indexOf($(opt).attr('value')) === -1) {
+                            $(opt).remove();
+                        }
+                    });
+                    $el.val(conf.supportedCountries[0]);
 
                     // Trigger onchange event
                     // https://stackoverflow.com/questions/23892547/what-is-the-best-way-to-trigger-onchange-event-in-react-js
                     var ev = new Event('change', { bubbles: true });
                     ev.simulated = true;
-                    el.value = 'US';
+                    el.value = conf.supportedCountries[0];
                     el.dispatchEvent(ev);
                 }
             }, 300));
@@ -66,8 +78,12 @@ You are freely to edit the heading, short description or product category:
             var $el = $('select[data-field-type=Country]');
             if ($el.length > 0 && !$el.data('updatedCountries')) {
                 $el.data('updatedCountries', true);
-                $el.find('option').not('[value="United States"]').remove();
-                $el.val('United States').trigger('change');
+                $el.find('option').each(function(i, opt) {
+                    if (conf.supportedCountryNames.indexOf($(opt).attr('value')) === -1) {
+                        $(opt).remove();
+                    }
+                });
+                $el.val(conf.supportedCountryNames[0]).trigger('change');
             }
         }
 

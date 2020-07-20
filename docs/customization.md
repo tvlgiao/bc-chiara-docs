@@ -936,7 +936,7 @@ Insert to code below:
 <script type="text/javascript">// <![CDATA[
 (function() {
 var style = document.createElement('style');
-style.innerHTML = '.banners[data-banner-location="bottom"] { background-color: transparent }';
+style.innerHTML = '.banners[data-banner-location="bottom"] { background-color: transparent } .papainstagram-card-body { display: none }';
 document.head.appendChild(style);
 })();
 // ]]></script>

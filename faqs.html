@@ -232,6 +232,8 @@
         
             <li><a class="toctree-l3" href="#reload-stampedio-rating-badge-on-the-quick-search">Reload Stamped.io rating badge on the quick search</a></li>
         
+            <li><a class="toctree-l3" href="#fix-infinite-products-loading-suddenly-stop-working">Fix infinite products loading suddenly stop working</a></li>
+        
         </ul>
     
 
@@ -2415,6 +2417,36 @@ By the code below:
             }
         }
     }, 300))).observe(document.body, { childList: true, subtree: true });
+})();
+&lt;/script&gt;
+</code></pre>
+
+<h2 id="fix-infinite-products-loading-suddenly-stop-working">Fix infinite products loading suddenly stop working<a class="headerlink" href="#fix-infinite-products-loading-suddenly-stop-working" title="Permanent link">&para;</a></h2>
+<p>Go to <strong>Storefront</strong> &gt; <strong>Script Manager</strong>, click <strong>Create a Script</strong>, choose:</p>
+<ul>
+<li><strong>Location on page</strong> = <code>Footer</code></li>
+<li><strong>Select pages where script will be added</strong> = <code>Store Pages</code></li>
+<li><strong>Script type</strong> = <code>Script</code></li>
+</ul>
+<p>Enter the script below to <strong>Scripts contents</strong>:</p>
+<pre><code class="html">&lt;script&gt;
+(function() {
+    /** debounce(func, wait, immediate) */
+    function debounce(n,t,u){var e;return function(){var i=this,o=arguments,a=u&amp;&amp;!e;clearTimeout(e),e=setTimeout(function(){e=null,u||n.apply(i,o)},t),a&amp;&amp;n.apply(i,o)}}
+
+    function fix() {
+        var els = document.querySelectorAll('.pagination-item--next a.pagination-link:not(.infinite-loading-fixed)');
+        if (els.length &gt; 0) {
+            for (var i = 0; i &lt; els.length; i++) {
+                var el = els[i];
+                el.classList.add('infinite-loading-fixed');
+                el.href = el.href.replace(/&amp;?limit=[0-9]+/, '') + '&amp;limit={{theme_settings.products_per_page}}';
+            }
+        }
+    }
+
+    (new MutationObserver(debounce(fix, 300))).observe(document.body, { childList: true, subtree: true });
+    fix();
 })();
 &lt;/script&gt;
 </code></pre>

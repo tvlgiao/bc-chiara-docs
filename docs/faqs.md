@@ -2468,3 +2468,39 @@ Enter the script below to **Scripts contents**:
 </script>
 ```
 
+
+
+## Fix infinite products loading suddenly stop working
+
+
+Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
+
+- **Location on page** = `Footer`
+- **Select pages where script will be added** = `Store Pages`
+- **Script type** = `Script`
+
+Enter the script below to **Scripts contents**:
+
+```html
+<script>
+(function() {
+    /** debounce(func, wait, immediate) */
+    function debounce(n,t,u){var e;return function(){var i=this,o=arguments,a=u&&!e;clearTimeout(e),e=setTimeout(function(){e=null,u||n.apply(i,o)},t),a&&n.apply(i,o)}}
+
+    function fix() {
+        var els = document.querySelectorAll('.pagination-item--next a.pagination-link:not(.infinite-loading-fixed)');
+        if (els.length > 0) {
+            for (var i = 0; i < els.length; i++) {
+                var el = els[i];
+                el.classList.add('infinite-loading-fixed');
+                el.href = el.href.replace(/&?limit=[0-9]+/, '') + '&limit={{theme_settings.products_per_page}}';
+            }
+        }
+    }
+
+    (new MutationObserver(debounce(fix, 300))).observe(document.body, { childList: true, subtree: true });
+    fix();
+})();
+</script>
+```
+

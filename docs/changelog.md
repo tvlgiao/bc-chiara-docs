@@ -4,6 +4,32 @@
     If you encounter any issues, please <a href="https://papathemes.com/contact-us/">report to us</a>. You can always <a href="https://support.bigcommerce.com/s/article/Marketplace-Theme-Updates#restore">restore the ealier theme version</a>, check this <a href="https://youtu.be/eZdmudDUrQE">video</a> for instruction.
 </div>
 
+## 1.7.0 (07-29-2020)
+- Support PhotoSwipe product image popup
+- Fix Buy Now button should not show for pre-order
+- Show View Cart button on added to cart popup
+- Fix Categories Menu scroll issue occasionally on mobile
+- Auto play video on iframe open
+- Update stencil-cli v1.12.1
+- Fix variant SKU, UPC not display if the product has no SKU, UPC
+- Fix Share button not working in Quick-View
+- Fix wishlist dropdown show wrong position in quickview on PDP
+- Add option blog_posts_per_page
+- Fix wishlist icon not working on product card
+- Fix missing alt attribute in writeReview-productImage
+- Show rating on related products
+- Fix cannot add to wishlist on the product cards
+- Correct label of container-fill-base
+- Disable image zoom on iOS
+- [CORNERSTONE] CATALOG-5557 Special characters are not rendered for product review
+- [CORNERSTONE] STRF-3591 add return instructions in return-saved.html
+- Move header_bottom region outside the sticky header
+- Fix infinite products loading suddenly stop working
+- Remove duplicate scripts in order-confirmation page
+- Fix payment icons not show when social icons = bottom_none
+- Fix stencil-cli@2 bundle validation
+- Update Frequently Bought Together version 2
+
 ## 1.6.1 (2020-03-30)
 - Add regions like Cornersone
 - Add option to show store addres & phone in the footer

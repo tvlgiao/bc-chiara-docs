@@ -2504,3 +2504,106 @@ Enter the script below to **Scripts contents**:
 </script>
 ```
 
+
+## Fix product card image slider not working if advanced ecommerce tracking is enabled
+
+Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
+
+- **Location on page** = `Footer`
+- **Select pages where script will be added** = `Store Pages`
+- **Script type** = `Script`
+
+Enter the script below to **Scripts contents**:
+
+```html
+<script>
+(function() {
+    /** debounce(func, wait, immediate) */
+    function debounce(n,t,u){var e;return function(){var i=this,o=arguments,a=u&&!e;clearTimeout(e),e=setTimeout(function(){e=null,u||n.apply(i,o)},t),a&&n.apply(i,o)}}
+
+    function fix() {
+        var els = document.querySelectorAll('.card-image-link--slider[data-event-type]');
+        if (els.length > 0) {
+            for (var i = 0; i < els.length; i++) {
+                var el = els[i];
+                var clonedEl = el.cloneNode(true);
+                clonedEl.removeAttribute('data-event-type');
+                el.parentNode.insertBefore(clonedEl, el);
+                el.parentNode.removeChild(el);
+            }
+        }
+    }
+
+    (new MutationObserver(debounce(fix, 300))).observe(document.body, { childList: true, subtree: true });
+    fix();
+})();
+</script>
+```
+
+## Make the main carousel images not link
+
+Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
+
+- **Location on page** = `Footer`
+- **Select pages where script will be added** = `Store Pages`
+- **Script type** = `Script`
+
+Enter the script below to **Scripts contents**:
+
+```html
+<script>
+    (function() {
+        var t = setInterval(function() {
+            if (window.chiarajQuery) {
+                clearInterval(t);
+                var $ = window.chiarajQuery;
+                $('.heroCarousel a').on('click', function(event) {
+                    if (!$(event.target).is('.button')) {
+                        event.preventDefault();
+                    }
+                });
+            }
+        }, 500);
+        var css = document.createElement('style');
+        css.innerHTML = '.heroCarousel a.slick-slide { cursor: default } .heroCarousel a.slick-slide .button { cursor: pointer }';
+        document.head.appendChild(css);
+    })();
+</script>
+```
+
+
+## Move price under the product title on PDP
+
+
+Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
+
+- **Location on page** = `Footer`
+- **Select pages where script will be added** = `Store Pages`
+- **Script type** = `Script`
+
+Enter the script below to **Scripts contents**:
+
+```html
+<script>
+(function() {
+    /** debounce(func, wait, immediate) */
+    function debounce(n,t,u){var e;return function(){var i=this,o=arguments,a=u&&!e;clearTimeout(e),e=setTimeout(function(){e=null,u||n.apply(i,o)},t),a&&n.apply(i,o)}}
+
+    function fix() {
+        var els = document.querySelectorAll('.productView-details:not(._movedPrice)');
+        if (els.length > 0) {
+            for (var i = 0; i < els.length; i++) {
+                var el = els[i];
+                el.classList.add('_movedPrice');
+
+                var titleEl = el.querySelector('.productView-title');
+                el.insertBefore(titleEl, el.firstChild);
+            }
+        }
+    }
+
+    (new MutationObserver(debounce(fix, 300))).observe(document.body, { childList: true, subtree: true });
+    fix();
+})();
+</script>
+```

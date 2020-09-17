@@ -113,6 +113,10 @@
         
             <li><a class="toctree-l3" href="#-products-by-category-widget">--- Products By Category Widget</a></li>
         
+            <li><a class="toctree-l3" href="#category-brand-pages">Category &amp; Brand Pages</a></li>
+        
+            <li><a class="toctree-l3" href="#-top-bottom-banners-on-all-categories">--- Top &amp; bottom banners on all categories</a></li>
+        
             <li><a class="toctree-l3" href="#-top-bottom-banners-on-a-specific-category">--- Top &amp; bottom banners on a specific category</a></li>
         
             <li><a class="toctree-l3" href="#-top-banner-on-all-brands">--- Top banner on all brands</a></li>
@@ -1127,27 +1131,22 @@ document.head.appendChild(style);
         &lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-  ```
+</code></pre>
 
-- Replace `CATEGORY NAME` by the category name.
-- Replace `Short description here` by your custom text.
-- Edit the category URL in `data-products-by-category data-url=&quot;/new-arrival&quot;`. In this example, the category URL is `/new-arrival`.
-- Edit the products display type in `data-type=&quot;carousel&quot;`. Support `carousel` and `grid`.
-
-
-
-## Category &amp; Brand Pages
-
-To display custom banners on category pages or brand pages, create a new banner in **Marketing** &gt; **Banners**:
-
-## --- Top &amp; bottom banners on all categories
-
-![category top banner on all pages](img/category-top-banner1.jpg)
-
-- In **Banner Content**, click HTML button to input HTML code:
-
-```html
-&lt;!--
+<ul>
+<li>Replace <code>CATEGORY NAME</code> by the category name.</li>
+<li>Replace <code>Short description here</code> by your custom text.</li>
+<li>Edit the category URL in <code>data-products-by-category data-url="/new-arrival"</code>. In this example, the category URL is <code>/new-arrival</code>.</li>
+<li>Edit the products display type in <code>data-type="carousel"</code>. Support <code>carousel</code> and <code>grid</code>.</li>
+</ul>
+<h2 id="category-brand-pages">Category &amp; Brand Pages<a class="headerlink" href="#category-brand-pages" title="Permanent link">&para;</a></h2>
+<p>To display custom banners on category pages or brand pages, create a new banner in <strong>Marketing</strong> &gt; <strong>Banners</strong>:</p>
+<h2 id="-top-bottom-banners-on-all-categories">--- Top &amp; bottom banners on all categories<a class="headerlink" href="#-top-bottom-banners-on-all-categories" title="Permanent link">&para;</a></h2>
+<p><img alt="category top banner on all pages" src="img/category-top-banner1.jpg" /></p>
+<ul>
+<li>In <strong>Banner Content</strong>, click HTML button to input HTML code:</li>
+</ul>
+<pre><code class="html">&lt;!--
   -- TOP BANNER ABOVE PRODUCTS LIST
   --&gt;
 &lt;div data-remote-banner-position=&quot;chiara-category-banner1&quot;&gt;&lt;a href=&quot;#&quot;&gt;&lt;img title=&quot;1500x360&quot; src=&quot;//placehold.it/1500x360&quot; alt=&quot;1500x360&quot; /&gt;&lt;/a&gt;&lt;/div&gt;

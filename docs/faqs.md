@@ -2607,3 +2607,25 @@ Enter the script below to **Scripts contents**:
 })();
 </script>
 ```
+
+
+## Use SVG image for the store logo
+
+Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
+
+- **Location on page** = `Footer`
+- **Select pages where script will be added** = `All Pages`
+- **Script type** = `Script`
+
+Enter the script below to **Scripts contents**:
+
+```html
+<script>
+(function() {
+    var els = document.querySelectorAll('.header-logo-image, .footer-logo-image');
+    for (var i = 0; i < els.length; i++) {
+        els[i].srcset = 'https://store-mntuk9urgk.mybigcommerce.com/content/positivebakes%20mobilelogo%2050x50.svg 50w, https://store-mntuk9urgk.mybigcommerce.com/content/Positive%20Bakes%20125by125px%20logo.svg 100w';
+    }
+})();
+</script>
+```

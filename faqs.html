@@ -240,6 +240,8 @@
         
             <li><a class="toctree-l3" href="#move-price-under-the-product-title-on-pdp">Move price under the product title on PDP</a></li>
         
+            <li><a class="toctree-l3" href="#use-svg-image-for-the-store-logo">Use SVG image for the store logo</a></li>
+        
         </ul>
     
 
@@ -2545,6 +2547,24 @@ By the code below:
 
     (new MutationObserver(debounce(fix, 300))).observe(document.body, { childList: true, subtree: true });
     fix();
+})();
+&lt;/script&gt;
+</code></pre>
+
+<h2 id="use-svg-image-for-the-store-logo">Use SVG image for the store logo<a class="headerlink" href="#use-svg-image-for-the-store-logo" title="Permanent link">&para;</a></h2>
+<p>Go to <strong>Storefront</strong> &gt; <strong>Script Manager</strong>, click <strong>Create a Script</strong>, choose:</p>
+<ul>
+<li><strong>Location on page</strong> = <code>Footer</code></li>
+<li><strong>Select pages where script will be added</strong> = <code>All Pages</code></li>
+<li><strong>Script type</strong> = <code>Script</code></li>
+</ul>
+<p>Enter the script below to <strong>Scripts contents</strong>:</p>
+<pre><code class="html">&lt;script&gt;
+(function() {
+    var els = document.querySelectorAll('.header-logo-image, .footer-logo-image');
+    for (var i = 0; i &lt; els.length; i++) {
+        els[i].srcset = 'https://store-mntuk9urgk.mybigcommerce.com/content/positivebakes%20mobilelogo%2050x50.svg 50w, https://store-mntuk9urgk.mybigcommerce.com/content/Positive%20Bakes%20125by125px%20logo.svg 100w';
+    }
 })();
 &lt;/script&gt;
 </code></pre>

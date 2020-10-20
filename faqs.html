@@ -242,6 +242,8 @@
         
             <li><a class="toctree-l3" href="#use-svg-image-for-the-store-logo">Use SVG image for the store logo</a></li>
         
+            <li><a class="toctree-l3" href="#move-facebook-chat-icon-to-left">Move Facebook Chat icon to left</a></li>
+        
         </ul>
     
 
@@ -1812,13 +1814,12 @@ By the code below:
 <p>Enter the script below to <strong>Scripts contents</strong>: </p>
 <pre><code class="html">&lt;script&gt;
     (function($) {
-        var $img = $('.header-logo-image');
+        var $img = $('.header-logo-image, .footer-logo-image');
         if ($img.length &gt; 0) {
             var src = $img.attr('src');
             var s = src.replace(/stencil\/[^\/]+\//, 'stencil/***/');
             $img.attr('srcset', src + ' 1x, ' + s.replace('***', '640w') + ' 2x');
         }
-
     })(window.chiarajQuery || window.jQuery);
 &lt;/script&gt;
 </code></pre>
@@ -2566,6 +2567,23 @@ By the code below:
         els[i].srcset = 'https://store-mntuk9urgk.mybigcommerce.com/content/positivebakes%20mobilelogo%2050x50.svg 50w, https://store-mntuk9urgk.mybigcommerce.com/content/Positive%20Bakes%20125by125px%20logo.svg 100w';
     }
 })();
+&lt;/script&gt;
+</code></pre>
+
+<h2 id="move-facebook-chat-icon-to-left">Move Facebook Chat icon to left<a class="headerlink" href="#move-facebook-chat-icon-to-left" title="Permanent link">&para;</a></h2>
+<p>Go to <strong>Storefront</strong> &gt; <strong>Script Manager</strong>, click <strong>Create a Script</strong>, choose:</p>
+<ul>
+<li><strong>Location on page</strong> = <code>Footer</code></li>
+<li><strong>Select pages where script will be added</strong> = <code>All Pages</code></li>
+<li><strong>Script type</strong> = <code>Script</code></li>
+</ul>
+<p>Enter the script below to <strong>Scripts contents</strong>:</p>
+<pre><code class="html">&lt;script&gt;
+  (function() {
+    var style = document.createElement('style');
+    style.innerHTML = '.fb_dialog_mobile iframe[data-testid=&quot;bubble_iframe&quot;] { bottom: 70px !important; right: auto !important; left: 10px !important }';
+    document.head.appendChild(style);
+  })();
 &lt;/script&gt;
 </code></pre>
               

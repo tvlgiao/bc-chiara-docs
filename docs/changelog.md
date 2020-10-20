@@ -4,6 +4,24 @@
     If you encounter any issues, please <a href="https://papathemes.com/contact-us/">report to us</a>. You can always <a href="https://support.bigcommerce.com/s/article/Marketplace-Theme-Updates#restore">restore the ealier theme version</a>, check this <a href="https://youtu.be/eZdmudDUrQE">video</a> for instruction.
 </div>
 
+## 1.8.1 (10-20-2020)
+- Revert Also Bought default off
+- Add global regions
+
+## 1.8.0 (10-06-2020)
+- Add hook "product-productdetails-init" for MQPO addon
+- Remove click event on the card images if enable slider
+- [CORNERSTONE] CHECKOUT-4828 Special characters to render properly on the cart modal pop up
+- Fix special characters in product reviews on mobile
+- Fix search close icon on the checkout page on mobile
+- Add more widget regions on home page and blog page
+- Add new features: Popup Banner + Products by Category
+- Add more widget regions to sidebar
+- Update static web page 100% width
+- Fix Also Bought currency symbol position display wrong in some case
+- [CORNERSTONE] MCU-427 Display modal before switching currencies
+- [THEME-2000] Fix Faceted Filter option title wrong encoded character %
+
 ## 1.7.0 (07-29-2020)
 - Support PhotoSwipe product image popup
 - Fix Buy Now button should not show for pre-order

@@ -1780,13 +1780,12 @@ Enter the script below to **Scripts contents**:
 ```html
 <script>
     (function($) {
-        var $img = $('.header-logo-image');
+        var $img = $('.header-logo-image, .footer-logo-image');
         if ($img.length > 0) {
             var src = $img.attr('src');
             var s = src.replace(/stencil\/[^\/]+\//, 'stencil/***/');
             $img.attr('srcset', src + ' 1x, ' + s.replace('***', '640w') + ' 2x');
         }
-        
     })(window.chiarajQuery || window.jQuery);
 </script>
 ```
@@ -2629,3 +2628,27 @@ Enter the script below to **Scripts contents**:
 })();
 </script>
 ```
+
+
+## Move Facebook Chat icon to left
+
+Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
+
+- **Location on page** = `Footer`
+- **Select pages where script will be added** = `All Pages`
+- **Script type** = `Script`
+
+Enter the script below to **Scripts contents**:
+
+```html
+<script>
+  (function() {
+    var style = document.createElement('style');
+    style.innerHTML = '.fb_dialog_mobile iframe[data-testid="bubble_iframe"] { bottom: 70px !important; right: auto !important; left: 10px !important }';
+    document.head.appendChild(style);
+  })();
+</script>
+```
+
+
+

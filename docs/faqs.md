@@ -2652,3 +2652,93 @@ Enter the script below to **Scripts contents**:
 
 
 
+## Add Accordion script to your store
+
+Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
+
+- **Location on page** = `Footer`
+- **Select pages where script will be added** = `All Pages`
+- **Script type** = `Script`
+
+Enter the script below to **Scripts contents**:
+
+```html
+<script type="text/plain" id="my__accordion-css">
+    body { padding-bottom: 300px }
+    .my__accordion-toggle { display: block; width: 100%; padding: 15px 30px 15px 15px; text-align: left; background-color: #ddd }
+    .my__accordion-toggle:hover,
+    .my__accordion-toggle.is-open { background-color: #ccc }
+    .my__accordion-toggle:before { content: '\002B'; font-size: 18px; float: right; margin-right: -15px }
+    .my__accordion-toggle.is-open:before { content: '\2212' }
+    .my__accordion-content { max-height: 0; transition: .3s; overflow: hidden; padding: 0 15px }
+    .my__accordion-content:before,
+    .my__accordion-content:after { content: ''; display: block; padding-top: 15px }
+</script>
+<script>
+    (function () {
+        /** debounce(func, wait, immediate) */
+        function debounce(n,t,u){var e;return function(){var i=this,o=arguments,a=u&&!e;clearTimeout(e),e=setTimeout(function(){e=null,u||n.apply(i,o)},t),a&&n.apply(i,o)}}
+
+        function css() {
+            var style = document.createElement('style');
+            style.innerHTML = document.getElementById('my__accordion-css').innerHTML;
+            document.head.appendChild(style);
+        }
+
+        function init() {
+            var accordionArr = document.querySelectorAll('.my__accordion');
+            for (var i = 0; i < accordionArr.length; i++) {
+                var accordion = accordionArr[i];
+                if (!accordion.getAttribute('myAccordionLoaded')) {
+                    accordion.setAttribute('myAccordionLoaded', true);
+                    (function() {
+                        var toggle = accordion.querySelector('.my__accordion-toggle');
+                        var content = accordion.querySelector('.my__accordion-content');
+                        if (toggle) {
+                            toggle.addEventListener('click', function(e) {
+                                e.preventDefault();
+                                toggle.classList.toggle('is-open');
+                                if (toggle.classList.contains('is-open')) {
+                                    content.classList.add('is-open');
+                                    content.style.maxHeight = content.scrollHeight + 'px';
+                                } else {
+                                    content.classList.remove('is-open');
+                                    content.style.maxHeight = null;
+                                }
+                            });
+                        }
+                    })();
+                }
+            }
+        }
+
+        css();
+        init();
+        (new MutationObserver(debounce(init, 300))).observe(document.documentElement, { childList: true, subtree: true });
+    })();
+</script>
+```
+
+Add Accordion HTML to your product description or web page content:
+
+```html
+<div class="my__accordion">
+        <button class="my__accordion-toggle">Section 1</button>
+        <div class="my__accordion-content">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+    </div>
+    <div class="my__accordion">
+        <button class="my__accordion-toggle">Section 2</button>
+        <div class="my__accordion-content">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+    </div>
+    <div class="my__accordion">
+        <button class="my__accordion-toggle">Section 2</button>
+        <div class="my__accordion-content">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+    </div>
+```
+

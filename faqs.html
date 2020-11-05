@@ -244,6 +244,8 @@
         
             <li><a class="toctree-l3" href="#move-facebook-chat-icon-to-left">Move Facebook Chat icon to left</a></li>
         
+            <li><a class="toctree-l3" href="#add-accordion-script-to-your-store">Add Accordion script to your store</a></li>
+        
         </ul>
     
 
@@ -2585,6 +2587,91 @@ By the code below:
     document.head.appendChild(style);
   })();
 &lt;/script&gt;
+</code></pre>
+
+<h2 id="add-accordion-script-to-your-store">Add Accordion script to your store<a class="headerlink" href="#add-accordion-script-to-your-store" title="Permanent link">&para;</a></h2>
+<p>Go to <strong>Storefront</strong> &gt; <strong>Script Manager</strong>, click <strong>Create a Script</strong>, choose:</p>
+<ul>
+<li><strong>Location on page</strong> = <code>Footer</code></li>
+<li><strong>Select pages where script will be added</strong> = <code>All Pages</code></li>
+<li><strong>Script type</strong> = <code>Script</code></li>
+</ul>
+<p>Enter the script below to <strong>Scripts contents</strong>:</p>
+<pre><code class="html">&lt;script type=&quot;text/plain&quot; id=&quot;my__accordion-css&quot;&gt;
+    body { padding-bottom: 300px }
+    .my__accordion-toggle { display: block; width: 100%; padding: 15px 30px 15px 15px; text-align: left; background-color: #ddd }
+    .my__accordion-toggle:hover,
+    .my__accordion-toggle.is-open { background-color: #ccc }
+    .my__accordion-toggle:before { content: '\002B'; font-size: 18px; float: right; margin-right: -15px }
+    .my__accordion-toggle.is-open:before { content: '\2212' }
+    .my__accordion-content { max-height: 0; transition: .3s; overflow: hidden; padding: 0 15px }
+    .my__accordion-content:before,
+    .my__accordion-content:after { content: ''; display: block; padding-top: 15px }
+&lt;/script&gt;
+&lt;script&gt;
+    (function () {
+        /** debounce(func, wait, immediate) */
+        function debounce(n,t,u){var e;return function(){var i=this,o=arguments,a=u&amp;&amp;!e;clearTimeout(e),e=setTimeout(function(){e=null,u||n.apply(i,o)},t),a&amp;&amp;n.apply(i,o)}}
+
+        function css() {
+            var style = document.createElement('style');
+            style.innerHTML = document.getElementById('my__accordion-css').innerHTML;
+            document.head.appendChild(style);
+        }
+
+        function init() {
+            var accordionArr = document.querySelectorAll('.my__accordion');
+            for (var i = 0; i &lt; accordionArr.length; i++) {
+                var accordion = accordionArr[i];
+                if (!accordion.getAttribute('myAccordionLoaded')) {
+                    accordion.setAttribute('myAccordionLoaded', true);
+                    (function() {
+                        var toggle = accordion.querySelector('.my__accordion-toggle');
+                        var content = accordion.querySelector('.my__accordion-content');
+                        if (toggle) {
+                            toggle.addEventListener('click', function(e) {
+                                e.preventDefault();
+                                toggle.classList.toggle('is-open');
+                                if (toggle.classList.contains('is-open')) {
+                                    content.classList.add('is-open');
+                                    content.style.maxHeight = content.scrollHeight + 'px';
+                                } else {
+                                    content.classList.remove('is-open');
+                                    content.style.maxHeight = null;
+                                }
+                            });
+                        }
+                    })();
+                }
+            }
+        }
+
+        css();
+        init();
+        (new MutationObserver(debounce(init, 300))).observe(document.documentElement, { childList: true, subtree: true });
+    })();
+&lt;/script&gt;
+</code></pre>
+
+<p>Add Accordion HTML to your product description or web page content:</p>
+<pre><code class="html">&lt;div class=&quot;my__accordion&quot;&gt;
+        &lt;button class=&quot;my__accordion-toggle&quot;&gt;Section 1&lt;/button&gt;
+        &lt;div class=&quot;my__accordion-content&quot;&gt;
+            &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;my__accordion&quot;&gt;
+        &lt;button class=&quot;my__accordion-toggle&quot;&gt;Section 2&lt;/button&gt;
+        &lt;div class=&quot;my__accordion-content&quot;&gt;
+            &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;my__accordion&quot;&gt;
+        &lt;button class=&quot;my__accordion-toggle&quot;&gt;Section 2&lt;/button&gt;
+        &lt;div class=&quot;my__accordion-content&quot;&gt;
+            &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
 </code></pre>
               
             </div>

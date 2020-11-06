@@ -246,6 +246,8 @@
         
             <li><a class="toctree-l3" href="#add-accordion-script-to-your-store">Add Accordion script to your store</a></li>
         
+            <li><a class="toctree-l3" href="#display-different-stores-logo-in-the-footer">Display different store's logo in the footer</a></li>
+        
         </ul>
     
 
@@ -2673,6 +2675,25 @@ By the code below:
         &lt;/div&gt;
     &lt;/div&gt;
 </code></pre>
+
+<h2 id="display-different-stores-logo-in-the-footer">Display different store's logo in the footer<a class="headerlink" href="#display-different-stores-logo-in-the-footer" title="Permanent link">&para;</a></h2>
+<p>Upload the new logo image to <strong>Storefront</strong> &gt; <strong>Image Manager</strong>. Copy the image URL, for example: <code>https://cdn11.bigcommerce.com/s-g0pakqdzwl/product_images/uploaded_images/new-logo.jpg?t=1534577788</code></p>
+<p>Go to <strong>Storefront</strong> &gt; <strong>Script Manager</strong>, click <strong>Create a Script</strong>, choose:</p>
+<ul>
+<li><strong>Location on page</strong> = <code>Footer</code></li>
+<li><strong>Select pages where script will be added</strong> = <code>All Pages</code></li>
+<li><strong>Script type</strong> = <code>Script</code></li>
+</ul>
+<p>Enter the script below to <strong>Scripts contents</strong>:</p>
+<pre><code class="html">&lt;script&gt;
+  (function() {
+      var img = document.querySelector('.footer-logo-image-unknown-size, .footer-logo-image');
+      img.src = 'https://cdn11.bigcommerce.com/s-g0pakqdzwl/product_images/uploaded_images/new-logo.jpg?t=1534577788';
+  })();
+&lt;/script&gt;
+</code></pre>
+
+<p>Replace <code>https://cdn11.bigcommerce.com/s-g0pakqdzwl/product_images/uploaded_images/new-logo.jpg?t=1534577788</code> by your image URL.</p>
               
             </div>
           </div>

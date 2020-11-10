@@ -1021,7 +1021,7 @@ Enter the script below to **Scripts contents**:
 </script>
 ```
 
-## Display AfterPay and ZIP payment icons
+## Display AfterPay payment icon
 
 Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
 
@@ -1034,20 +1034,61 @@ Enter the script below to **Scripts contents**:
 ```html
 <script>
 (function() {
-    var img1 = document.createElement('img');
-    img1.src = 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAgAAZABkAAD/7AARRHVja3kAAQAEAAAAPAAA/+4ADkFkb2JlAGTAAAAAAf/bAIQABgQEBAUEBgUFBgkGBQYJCwgGBggLDAoKCwoKDBAMDAwMDAwQDA4PEA8ODBMTFBQTExwbGxscHx8fHx8fHx8fHwEHBwcNDA0YEBAYGhURFRofHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8f/8AAEQgAKAAyAwERAAIRAQMRAf/EAIoAAQADAQEAAAAAAAAAAAAAAAAFBgcECAEBAAIDAQAAAAAAAAAAAAAAAAMEAQUGAhAAAQMDAgQDBQkAAAAAAAAAAQIDBAAFBhESITFBB1FhEyIyUhQIcYGhYoIjMyQVEQACAgEDAgQEBwAAAAAAAAAAAQIDETEEBSESUWFxE0GRIhSxwTJCMxUG/9oADAMBAAIRAxEAPwD1TQCgFAKAUAoBQERNyuxwrgIEh/a+SArQEpSTyCj0rWX8xt6rfblL6vw9S9Vx11kO+K+kX/K7HYWW3Li/sLv8TSBuWrzCR0q3fuoVLMmNlx125bVa0+R22u6QbpBanQXQ9GdGqFj8QR0IqWuyM490dCvuNvOmbhNYkjqJABJ5DjXshK/huc2DL4cqXZlOqZhyFxHvWaU0fUb010CuY48DUllThqYTyT6lpQkqUQlI5knQVGZG5PiOWv3UBj/dS6Ypj10W7JurKLjL0dTblkbh+dXgnh1rk+S/zcrbXbDL7n1WDqOJ5GPaq7GoRj8Wygt5NGyW8gf6jMmc9oCtawENoHDj8KRVr+t3U5dYSN1LmuO2dP8AJCMF59W/zZudvxeLGwF60RrsuMiQw4pd4jqSlTanBqp1tR4Db0re7Sj2Eo6tHE8hyH3ljtX6Xp6GMds7Xl2RdwFS7Jlt3mYNY3QHrjNcH9+Q37zTKQOLevM+Fbe6UYww4ruZro5b8ituZrm0jt9HdYvj0KbIzF6GJiNqNjaykAK0A1QlSyrQ1L7UVPT9p5y8F5trOQ4V3ns+KO5BLyOzZLDW9MYnqDhbcRr+4nT3QSnhUDxOpyxhxPWjwb56Lfwj3dn6fCteSnmbut9PGe37uFcb1alMS7fdFpd9Z50IcY0SElspVzCdvs7a2m33cIwSfTBWuhLq0u7yO+ydh8os8T5eJCa3K4vPF1ve4fE8eXlVj76vxOM3vE7/AHM+6aXksrCNZtXb9Dnb53E728tTU1txEox1lCkJcOpQhfl9lay6/NndE6ritnKihVzeWQlh+nvCrHNhyrfOu7aYLqXmYvzqgwVJOuim0pSCD1rM93KS6pfIvqCRAZ52Cadx23WLFmy5Dcvhud2TKeAUG39A96atBySPZHOpKt11bl4YMSgXDCuy+J4ne3L4w9NuV2U36DMu4vmQtlr4GyQnQdKhs3MprGiMxgkX2q57FAKAUAoBQCgFAf/Z';
-    img1.alt = 'ZIP';
-    img1.classList.add('footer-payment-icon');
-
-    var img2 = document.createElement('img');
-    img2.src = 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAgAAZABkAAD/7AARRHVja3kAAQAEAAAAPAAA/+4ADkFkb2JlAGTAAAAAAf/bAIQABgQEBAUEBgUFBgkGBQYJCwgGBggLDAoKCwoKDBAMDAwMDAwQDA4PEA8ODBMTFBQTExwbGxscHx8fHx8fHx8fHwEHBwcNDA0YEBAYGhURFRofHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8f/8AAEQgAKAAyAwERAAIRAQMRAf/EAHwAAAIDAQEBAAAAAAAAAAAAAAACAwQFBgEIAQEBAQEAAAAAAAAAAAAAAAAAAwQCEAACAgECBQMDAgcAAAAAAAACAwEEEQAFITESEwZBMgdhIxRRNKEiUmIzVFURAQACAQIHAQEAAAAAAAAAAAABAhFRAyExQXGhEgRhIv/aAAwDAQACEQMRAD8A+qc6AzoDOgM6AzoDOgM6Dkt/+QKe307xVatl70BZGo7slNZtiqszYuGZj2SsurlynGcaCvX8+/BfdTvanBFb8VaG9iFS1z090g6ZYUQXunGcRETx0E1j5P8AHFpW5Cbt1bnKq1yrVjZ3XvR+QK1xwkihfEv6fXQQl8t+JydeK8XLQvJCzaiswgS6yfbUh5T09thFGOmeXr6aBm/K/ikbRa3OuTrK6tavYlS1z3DZcIgRVGJmPvmQ46PT113t0m04hxe8VjMsmz8pby3bT3rbNqrns0rUdRlmxK7D2HgDQCRA/urd9shzwnWuny1mcTP9duTFufXeImYrHr35uz/P33/mj+x/I/zR+7/1uXL+/wDhrL6116+NWv3tp086KVrxLxR91xPiZazvEdabLIWM2gJbjFPX0DLBOczEeueepqpr3jvju4XWWGEUWy7cmSbBrKDXEwtkQBRg4ApHq59M45aDK8j8K2negoIRZhFenuQ3r8g9ouIlVSrRAtA4MDj+Tj1en10DR8beBDYqvVW7M7dKSAFWXAuTqH3Em8BPpaYFOepkTPHjoMza/jHZlpr2LlyEXU70/f2RRMQrk82T0AQsGeoFrwPpxzMYzrum5Nc46p324tj8aeyfHXidG2VrrPcbcbg/ckssME5TZfiGwsVwAwORz0zE8Yzz1SfotjEcIxhOPmpnM8Zicuv1BoUbmx7RdaTbVRbmlERJlHHEcuOgSfHNjIxZNFUmAiIlI8YgPbx+mgc9i2grE2JqB35golkRiZ65mSzjGZmSnjoET47sie7KqSgl4yDpgfeJcZgv1zoEnxXx2ee3I59XsjnoJkbFs6LUW001LsjnDRGIKOrOeP1zOgvaD3QGgNAaA0BoDQf/2Q==';
-    img2.alt = 'AfterPay';
-    img2.classList.add('footer-payment-icon');
-
-    
+    var img = document.createElement('img');
+    img.src = 'https://cdn11.bigcommerce.com/s-c14n6tful3/content/icons/afterpay-black.svg?t=1';
+    img.alt = 'AfterPay';
+    img.classList.add('footer-payment-icon');
+    img.style = 'width: 90px';
     var el = document.querySelector('.footer-payment-icons');
-    el.appendChild(img1);
-    el.appendChild(img2);
+    el.appendChild(img);
+})();
+</script>
+```
+
+## Display ZIP payment icon
+
+Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
+
+- **Location on page** = `Footer`
+- **Select pages where script will be added** = `All Pages`
+- **Script type** = `Script`
+
+Enter the script below to **Scripts contents**: 
+
+```html
+<script>
+(function() {
+    var img = document.createElement('img');
+    img.src = 'https://cdn11.bigcommerce.com/s-c14n6tful3/content/icons/zippay.svg?t=1';
+    img.alt = 'ZIP Pay';
+    img.classList.add('footer-payment-icon');
+    img.style = 'width: 90px';
+    var el = document.querySelector('.footer-payment-icons');
+    el.appendChild(img);
+})();
+</script>
+```
+
+## Display LayBuy payment icon
+
+Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
+
+- **Location on page** = `Footer`
+- **Select pages where script will be added** = `All Pages`
+- **Script type** = `Script`
+
+Enter the script below to **Scripts contents**: 
+
+```html
+<script>
+(function() {
+    var img = document.createElement('img');
+    img.src = 'https://cdn11.bigcommerce.com/s-c14n6tful3/content/icons/laybuy.svg?t=1';
+    img.alt = 'LayBuy';
+    img.classList.add('footer-payment-icon');
+    img.style = 'width: 90px';
+    var el = document.querySelector('.footer-payment-icons');
+    el.appendChild(img);
 })();
 </script>
 ```

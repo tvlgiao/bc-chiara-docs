@@ -248,6 +248,8 @@
         
             <li><a class="toctree-l3" href="#display-different-stores-logo-in-the-footer">Display different store's logo in the footer</a></li>
         
+            <li><a class="toctree-l3" href="#install-google-survey-opt-in-script-to-the-order-confirmation-page">Install Google Survey Opt-In script to the order confirmation page</a></li>
+        
         </ul>
     
 
@@ -2694,6 +2696,43 @@ By the code below:
 </code></pre>
 
 <p>Replace <code>https://cdn11.bigcommerce.com/s-g0pakqdzwl/product_images/uploaded_images/new-logo.jpg?t=1534577788</code> by your image URL.</p>
+<h2 id="install-google-survey-opt-in-script-to-the-order-confirmation-page">Install Google Survey Opt-In script to the order confirmation page<a class="headerlink" href="#install-google-survey-opt-in-script-to-the-order-confirmation-page" title="Permanent link">&para;</a></h2>
+<p>Go to <strong>Storefront</strong> &gt; <strong>Script Manager</strong>, click <strong>Create a Script</strong>, choose:</p>
+<ul>
+<li><strong>Location on page</strong> = <code>Footer</code></li>
+<li><strong>Select pages where script will be added</strong> = <code>Order Confirmation</code></li>
+<li><strong>Script type</strong> = <code>Script</code></li>
+</ul>
+<p>Enter the script below to <strong>Scripts contents</strong>:</p>
+<pre><code class="html">&lt;!-- BEGIN GCR Opt-in Module Code --&gt;
+&lt;script src=&quot;https://cdn.jsdelivr.net/npm/whatwg-fetch@3.5.0/dist/fetch.umd.min.js&quot; defer&gt;&lt;/script&gt;
+&lt;script src=&quot;https://apis.google.com/js/platform.js?onload=renderOptIn&quot; async defer&gt;&lt;/script&gt;
+&lt;script&gt;    
+    window.renderOptIn = function() {
+        window.gapi.load('surveyoptin', function() {
+            var orderId = '{{checkout.order.id}}';
+            fetch('/api/storefront/orders/' + orderId).then(function(resp) {
+                return resp.json();
+            }).then(function(data) {
+                var email = data.billingAddress.email;
+                var countryCode = data.billingAddress.countryCode;
+                var deliveryDate = (new Date((new Date()).getTime() + 86400000)).toISOString().split('T')[0];
+                window.gapi.surveyoptin.render(
+                {
+                    &quot;merchant_id&quot;: &quot;123456789&quot;,
+                    &quot;order_id&quot;: orderId,
+                    &quot;email&quot;: email,
+                    &quot;delivery_country&quot;: countryCode,
+                    &quot;estimated_delivery_date&quot;: deliveryDate,
+                });
+            });
+        });
+    }
+&lt;/script&gt;
+&lt;!-- END GCR Opt-in Module Code --&gt;
+</code></pre>
+
+<p>Replace the Merchant ID in line <code>"merchant_id": "123456789",</code> by yours.</p>
               
             </div>
           </div>

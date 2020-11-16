@@ -1,0 +1,13 @@
+<div class="chiara-section chiara-section--banners" data-local-banner-position="chiara-home-banner1">
+    <div class="chiara-banners">
+        <ul class="chiara-banners-list">
+            <li class="chiara-banners-item"><a href="{{item1_link}}"><img src="{{item1_img_bg}}" alt="{{img1_alt}}" /><img src="{{item1_img_fg}}" alt="{{img1_alt}}" /></a></li>
+            <li class="chiara-banners-item"><a href="{{item2_link}}"><img src="{{item2_img_bg}}" alt="{{img2_alt}}" /><img src="{{item2_img_fg}}" alt="{{img2_alt}}" /></a></li>
+            <li class="chiara-banners-item"><a href="{{item3_link}}"><img src="{{item3_img_bg}}" alt="{{img3_alt}}" /><img src="{{item3_img_fg}}" alt="{{img3_alt}}" /></a></li>
+        </ul>
+        <ul class="chiara-banners-list">
+            <li class="chiara-banners-item"><a href="{{item4_link}}"><img src="{{item4_img_bg}}" alt="{{img4_alt}}" /><img src="{{item4_img_fg}}" alt="{{img4_alt}}" /></a></li>
+            <li class="chiara-banners-item"><a href="{{item5_link}}"><img src="{{item5_img_bg}}" alt="{{img5_alt}}" /><img src="{{item5_img_fg}}" alt="{{img5_alt}}" /></a></li>
+        </ul>
+    </div>
+</div>

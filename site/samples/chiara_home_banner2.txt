@@ -1,0 +1,7 @@
+<div class="chiara-section chiara-section--banners" data-local-banner-position="chiara-home-banner2">
+    <div class="chiara-banners">
+        <ul class="chiara-banners-list">
+            <li class="chiara-banners-item"><a href="{{item1_link}}"><img src="{{item1_img_bg}}" alt="{{item1_alt}}" /><img src="{{item1_img_fg}}" alt="{{item1_alt}}" /></a></li>
+        </ul>
+    </div>
+</div>

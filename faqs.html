@@ -254,6 +254,8 @@
         
             <li><a class="toctree-l3" href="#install-google-survey-opt-in-script-to-the-order-confirmation-page">Install Google Survey Opt-In script to the order confirmation page</a></li>
         
+            <li><a class="toctree-l3" href="#fix-log-in-for-pricing-not-working">Fix Log in for Pricing not working</a></li>
+        
         </ul>
     
 
@@ -2772,6 +2774,28 @@ By the code below:
 </code></pre>
 
 <p>Replace the Merchant ID in line <code>"merchant_id": "123456789",</code> by yours.</p>
+<h2 id="fix-log-in-for-pricing-not-working">Fix Log in for Pricing not working<a class="headerlink" href="#fix-log-in-for-pricing-not-working" title="Permanent link">&para;</a></h2>
+<p>Go to <strong>Storefront</strong> &gt; <strong>Script Manager</strong>, click <strong>Create a Script</strong>, choose:</p>
+<ul>
+<li><strong>Location on page</strong> = <code>Footer</code></li>
+<li><strong>Select pages where script will be added</strong> = <code>Store Pages</code></li>
+<li><strong>Script type</strong> = <code>Script</code></li>
+</ul>
+<p>Enter the script below to <strong>Scripts contents</strong>:</p>
+<pre><code class="html">&lt;script&gt;
+(function() {
+    function debounce(n,t,u){var e;return function(){var i=this,o=arguments,a=u&amp;&amp;!e;clearTimeout(e),e=setTimeout(function(){e=null,u||n.apply(i,o)},t),a&amp;&amp;n.apply(i,o)}}
+    var mo = new MutationObserver(debounce(function() {
+        var els = document.querySelectorAll('.price--login:not(._fixedLoginLink)');
+        for (var i = 0; i &lt; els.length; i++) {
+            var el = els[i];
+            el.classList.add('_fixedLoginLink');
+            el.href = '/login.php';
+        }
+    }, 300));
+    mo.observe(document.body, { childList: true, subtree: true });
+})();
+</code></pre>
               
             </div>
           </div>

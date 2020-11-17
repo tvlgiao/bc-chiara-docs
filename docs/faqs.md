@@ -2850,3 +2850,31 @@ Enter the script below to **Scripts contents**:
 
 Replace the Merchant ID in line `"merchant_id": "123456789",` by yours.
 
+
+
+## Fix Log in for Pricing not working
+
+Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
+
+- **Location on page** = `Footer`
+- **Select pages where script will be added** = `Store Pages`
+- **Script type** = `Script`
+
+Enter the script below to **Scripts contents**:
+
+```html
+<script>
+(function() {
+    function debounce(n,t,u){var e;return function(){var i=this,o=arguments,a=u&&!e;clearTimeout(e),e=setTimeout(function(){e=null,u||n.apply(i,o)},t),a&&n.apply(i,o)}}
+    var mo = new MutationObserver(debounce(function() {
+        var els = document.querySelectorAll('.price--login:not(._fixedLoginLink)');
+        for (var i = 0; i < els.length; i++) {
+            var el = els[i];
+            el.classList.add('_fixedLoginLink');
+            el.href = '/login.php';
+        }
+    }, 300));
+    mo.observe(document.body, { childList: true, subtree: true });
+})();
+```
+

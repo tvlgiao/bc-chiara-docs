@@ -4,6 +4,14 @@
     If you encounter any issues, please <a href="https://papathemes.com/contact-us/">report to us</a>. You can always <a href="https://support.bigcommerce.com/s/article/Marketplace-Theme-Updates#restore">restore the ealier theme version</a>, check this <a href="https://youtu.be/eZdmudDUrQE">video</a> for instruction.
 </div>
 
+## 1.8.3 (12-30-2020)
+- New feature display custom fields on product cards
+- Fix address info not display when newsletter is disabled
+- Fix schema file error
+- Fix Log in for Pricing not working
+- Fix registerValidation function to validate on writeReview-form email field [#1585](https://github.com/bigcommerce/cornerstone/pull/1585)
+- Fix [THEME-2029] products.php calls in color swatches display on product cards
+
 ## 1.8.2 (10-22-2020)
 - Fix Login link not work when turn off side panel in Fashion style
 

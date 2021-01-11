@@ -256,6 +256,8 @@
         
             <li><a class="toctree-l3" href="#fix-log-in-for-pricing-not-working">Fix Log in for Pricing not working</a></li>
         
+            <li><a class="toctree-l3" href="#add-custom-tabs-to-product-pages">Add custom tabs to product pages</a></li>
+        
         </ul>
     
 
@@ -2795,6 +2797,79 @@ By the code below:
     }, 300));
     mo.observe(document.body, { childList: true, subtree: true });
 })();
+</code></pre>
+
+<h2 id="add-custom-tabs-to-product-pages">Add custom tabs to product pages<a class="headerlink" href="#add-custom-tabs-to-product-pages" title="Permanent link">&para;</a></h2>
+<p><strong>Step 1:</strong> Follow this instruction to generate the tab content and add to the product description: https://bc-supermarket-docs.papathemes.com/customization/product-page#custom-tabs</p>
+<p><strong>Step 2:</strong> Go to <strong>Storefront</strong> &gt; <strong>Script Manager</strong>, click <strong>Create a Script</strong>, choose:</p>
+<ul>
+<li><strong>Location on page</strong> = <code>Header</code></li>
+<li><strong>Select pages where script will be added</strong> = <code>Store Page</code></li>
+<li><strong>Script type</strong> = <code>Script</code></li>
+</ul>
+<p>Enter the script below to <strong>Scripts contents</strong>:</p>
+<pre><code class="html">&lt;script&gt;
+    (function() {
+        function debounce(n,t,u){var e;return function(){var i=this,o=arguments,a=u&amp;&amp;!e;clearTimeout(e),e=setTimeout(function(){e=null,u||n.apply(i,o)},t),a&amp;&amp;n.apply(i,o)}}                
+        function load($) {
+            var mo = new MutationObserver(debounce(function() {
+                $('.productView').not('._customTabLoaded').each(function(i, el) {
+                    var $el = $(el).addClass('_customTabLoaded');
+                    var $scope = $el.find('[data-also-bought-parent-scope]');
+                    var $tabs = $scope.find('[data-tab]').first();
+                    var productId = $scope.find('input[name=product_id]').val();
+
+                    $el.find('[data-also-bought-parent-scope] [data-custom-tab]').each(function(j, tabEl) {
+                        var $tabEl = $(tabEl).hide();
+                        var tabTitle = $tabEl.find('[data-custom-tab-title]').html();
+                        var $clonedTab = $tabEl.clone();
+
+                        $clonedTab.find('[data-custom-tab-title]').remove();
+
+                        $tabs.append('&lt;li class=&quot;productView-tab productView-tab--custom-' + j + '&quot;&gt;'
+                            + '&lt;a class=&quot;productView-tab-title&quot; href=&quot;#product-tab-custom-' + j + '-' + productId + '&quot; aria-selected=&quot;true&quot; tabindex=&quot;0&quot;&gt;'
+                            + tabTitle
+                            + '&lt;/a&gt;'
+                            + '&lt;/li&gt;');
+
+                        $tabs.parent().append('&lt;section class=&quot;productView-desc productView-desc--right productView-tab-content productView-tab-custom productView-tab-custom-' + j + '&quot; id=&quot;product-tab-custom-' + j + '-' + productId + '&quot; aria-hidden=&quot;true&quot;&gt;'
+                            + '&lt;h3 class=&quot;productView-desc-heading&quot;&gt;' + tabTitle + '&lt;/h3&gt;'
+                            + '&lt;div class=&quot;productView-desc-content&quot;&gt;' + $clonedTab.html() + '&lt;/div&gt;'
+                            + '&lt;/section&gt;');
+                    });
+
+                    $tabs.foundation('tab', 'reflow');
+                });
+            }, 300));
+            mo.observe(document.body, { childList: true, subtree: true });
+        }
+
+        var style = document.createElement('style');
+        style.innerHTML = ''
+            + '[data-custom-tab] { display: none }'
+            + '.productView-tab-custom-0 { order: 66 }'
+            + '.productView-tab-custom-1 { order: 67 }'
+            + '.productView-tab-custom-2 { order: 68 }'
+            + '.productView-tab-custom-3 { order: 69 }'
+            + '.productView-tab-custom-4 { order: 70 }'
+            + '.productView-tab-custom-5 { order: 71 }'
+            + '.productView-tab-custom-6 { order: 72 }'
+            + '.productView-tab-custom-7 { order: 73 }'
+            + '.productView-tab-custom-8 { order: 74 }';
+        document.head.appendChild(style);
+
+        var t = setInterval(function() {
+            if (window.chiarajQuery || window.jQuery) {
+                clearInterval(t);
+                load(window.chiarajQuery || window.jQuery);
+            }
+        }, 100);
+    })();
+&lt;/script&gt;
+</code></pre>
+
+<p>Or enter the minified script:</p>
+<pre><code class="html">&lt;script&gt;!function(){function t(t){var e,o,a,d;new MutationObserver((e=function(){t(&quot;.productView&quot;).not(&quot;._customTabLoaded&quot;).each(function(e,o){var a=t(o).addClass(&quot;_customTabLoaded&quot;),d=a.find(&quot;[data-also-bought-parent-scope]&quot;),c=d.find(&quot;[data-tab]&quot;).first(),r=d.find(&quot;input[name=product_id]&quot;).val();a.find(&quot;[data-also-bought-parent-scope] [data-custom-tab]&quot;).each(function(e,o){var a=t(o).hide(),d=a.find(&quot;[data-custom-tab-title]&quot;).html(),i=a.clone();i.find(&quot;[data-custom-tab-title]&quot;).remove(),c.append('&lt;li class=&quot;productView-tab productView-tab--custom-'+e+'&quot;&gt;&lt;a class=&quot;productView-tab-title&quot; href=&quot;#product-tab-custom-'+e+&quot;-&quot;+r+'&quot; aria-selected=&quot;true&quot; tabindex=&quot;0&quot;&gt;'+d+&quot;&lt;/a&gt;&lt;/li&gt;&quot;),c.parent().append('&lt;section class=&quot;productView-desc productView-desc--right productView-tab-content productView-tab-custom productView-tab-custom-'+e+'&quot; id=&quot;product-tab-custom-'+e+&quot;-&quot;+r+'&quot; aria-hidden=&quot;true&quot;&gt;&lt;h3 class=&quot;productView-desc-heading&quot;&gt;'+d+'&lt;/h3&gt;&lt;div class=&quot;productView-desc-content&quot;&gt;'+i.html()+&quot;&lt;/div&gt;&lt;/section&gt;&quot;)}),c.foundation(&quot;tab&quot;,&quot;reflow&quot;)})},o=300,function(){var t=this,c=arguments,r=a&amp;&amp;!d;clearTimeout(d),d=setTimeout(function(){d=null,a||e.apply(t,c)},o),r&amp;&amp;e.apply(t,c)})).observe(document.body,{childList:!0,subtree:!0})}var e=document.createElement(&quot;style&quot;);e.innerHTML=&quot;[data-custom-tab] { display: none }.productView-tab-custom-0 { order: 66 }.productView-tab-custom-1 { order: 67 }.productView-tab-custom-2 { order: 68 }.productView-tab-custom-3 { order: 69 }.productView-tab-custom-4 { order: 70 }.productView-tab-custom-5 { order: 71 }.productView-tab-custom-6 { order: 72 }.productView-tab-custom-7 { order: 73 }.productView-tab-custom-8 { order: 74 }&quot;,document.head.appendChild(e);var o=setInterval(function(){(window.chiarajQuery||window.jQuery)&amp;&amp;(clearInterval(o),t(window.chiarajQuery||window.jQuery))},100)}();&lt;/script&gt;
 </code></pre>
               
             </div>

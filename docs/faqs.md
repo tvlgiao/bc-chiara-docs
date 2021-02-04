@@ -2881,7 +2881,7 @@ Enter the script below to **Scripts contents**:
 
 ## Add custom tabs to product pages
 
-**Step 1:** Follow this instruction to generate the tab content and add to the product description: https://bc-supermarket-docs.papathemes.com/customization/product-page#custom-tabs
+**Step 1:** Follow this instruction to generate the tab content and add to the product description: [https://bc-supermarket-docs.papathemes.com/customization/product-page#custom-tabs]
 
 
 **Step 2:** Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
@@ -2957,4 +2957,25 @@ Or enter the minified script:
 
 ```html
 <script>!function(){function t(t){var e,o,a,d;new MutationObserver((e=function(){t(".productView").not("._customTabLoaded").each(function(e,o){var a=t(o).addClass("_customTabLoaded"),d=a.find("[data-also-bought-parent-scope]"),c=d.find("[data-tab]").first(),r=d.find("input[name=product_id]").val();a.find("[data-also-bought-parent-scope] [data-custom-tab]").each(function(e,o){var a=t(o).hide(),d=a.find("[data-custom-tab-title]").html(),i=a.clone();i.find("[data-custom-tab-title]").remove(),c.append('<li class="productView-tab productView-tab--custom-'+e+'"><a class="productView-tab-title" href="#product-tab-custom-'+e+"-"+r+'" aria-selected="true" tabindex="0">'+d+"</a></li>"),c.parent().append('<section class="productView-desc productView-desc--right productView-tab-content productView-tab-custom productView-tab-custom-'+e+'" id="product-tab-custom-'+e+"-"+r+'" aria-hidden="true"><h3 class="productView-desc-heading">'+d+'</h3><div class="productView-desc-content">'+i.html()+"</div></section>")}),c.foundation("tab","reflow")})},o=300,function(){var t=this,c=arguments,r=a&&!d;clearTimeout(d),d=setTimeout(function(){d=null,a||e.apply(t,c)},o),r&&e.apply(t,c)})).observe(document.body,{childList:!0,subtree:!0})}var e=document.createElement("style");e.innerHTML="[data-custom-tab] { display: none }.productView-tab-custom-0 { order: 66 }.productView-tab-custom-1 { order: 67 }.productView-tab-custom-2 { order: 68 }.productView-tab-custom-3 { order: 69 }.productView-tab-custom-4 { order: 70 }.productView-tab-custom-5 { order: 71 }.productView-tab-custom-6 { order: 72 }.productView-tab-custom-7 { order: 73 }.productView-tab-custom-8 { order: 74 }",document.head.appendChild(e);var o=setInterval(function(){(window.chiarajQuery||window.jQuery)&&(clearInterval(o),t(window.chiarajQuery||window.jQuery))},100)}();</script>
+```
+
+
+## Move Frequently Bought Together to right
+
+Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
+
+- **Location on page** = `Header`
+- **Select pages where script will be added** = `Store Page`
+- **Script type** = `Script`
+
+Enter the script below to **Scripts contents**:
+
+```html
+<script>
+    (function() {
+      var style = document.createElement('style');
+      style.innerHTML = '@media (min-width: 801px) { .productView-alsoBought { clear: right; float: right; width: 50% } }';
+      document.head.appendChild(style);
+    })();
+</script>
 ```

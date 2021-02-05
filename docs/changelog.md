@@ -4,6 +4,10 @@
     If you encounter any issues, please <a href="https://papathemes.com/contact-us/">report to us</a>. You can always <a href="https://support.bigcommerce.com/s/article/Marketplace-Theme-Updates#restore">restore the ealier theme version</a>, check this <a href="https://youtu.be/eZdmudDUrQE">video</a> for instruction.
 </div>
 
+## 1.9.0 (02-05-2021)
+- Add GooglePay + Klarna payment icon
+- Add Color Swatches Dropdown display type on PDP
+
 ## 1.8.3 (12-30-2020)
 - New feature display custom fields on product cards
 - Fix address info not display when newsletter is disabled

@@ -511,7 +511,7 @@ Enter the script below to **Scripts contents**:
 ```
 
 
-# Display additional checkout buttons on the checkout page
+## Display additional checkout buttons on the checkout page
 
 ![display-additional-checkout-buttons-on-checkout-page](img/display-additional-checkout-buttons-on-checkout-page.png)
 

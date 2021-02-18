@@ -4,6 +4,9 @@
     If you encounter any issues, please <a href="https://papathemes.com/contact-us/">report to us</a>. You can always <a href="https://support.bigcommerce.com/s/article/Marketplace-Theme-Updates#restore">restore the ealier theme version</a>, check this <a href="https://youtu.be/eZdmudDUrQE">video</a> for instruction.
 </div>
 
+## 1.9.1 (02-18-2021)
+- Fix [THEME-2054] Refactor Frequently Bought Together using GraphQL for better performance
+
 ## 1.9.0 (02-05-2021)
 - Add GooglePay + Klarna payment icon
 - Add Color Swatches Dropdown display type on PDP

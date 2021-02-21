@@ -249,6 +249,8 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#move-frequently-bought-together-to-right">Move Frequently Bought Together to right</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#add-custom-fonts">Add custom fonts</a>
+    </li>
     </ul>
                     </li>
                 </ul>
@@ -2784,6 +2786,43 @@ By the code below:
     })();
 &lt;/script&gt;
 </code></pre>
+<h2 id="add-custom-fonts">Add custom fonts<a class="headerlink" href="#add-custom-fonts" title="Permanent link">&para;</a></h2>
+<p>For example, we will add <strong>Gotham</strong> font.</p>
+<p>First, download the theme.</p>
+<p>Edit file <code>schema.json</code> as below screenshots:</p>
+<p><img alt="edit schema.json" src="img/edit-schema-add-gotham-font.png" /></p>
+<p><img alt="edit schema.json" src="img/edit-schema-add-gotham-font2.png" /></p>
+<p><img alt="edit schema.json" src="img/edit-schema-add-gotham-font3.png" /></p>
+<p><img alt="edit schema.json" src="img/edit-schema-add-gotham-font4.png" /></p>
+<p><img alt="edit schema.json" src="img/edit-schema-add-gotham-font5.png" /></p>
+<p><img alt="edit schema.json" src="img/edit-schema-add-gotham-font6.png" /></p>
+<p><img alt="edit schema.json" src="img/edit-schema-add-gotham-font7.png" /></p>
+<p><img alt="edit schema.json" src="img/edit-schema-add-gotham-font8.png" /></p>
+<p><img alt="edit schema.json" src="img/edit-schema-add-gotham-font9.png" /></p>
+<p><img alt="edit schema.json" src="img/edit-schema-add-gotham-font10.png" /></p>
+<p>Edit file <code>assets\scss\fonts\_fonts.scss</code> as below screenshots:</p>
+<p><img alt="edit schema.json" src="img/edit-fonts-file-add-gotham-font.png" /></p>
+<p>Create a new file <code>assets\scss\fonts\_gotham.scss</code> with content below:</p>
+<pre><code class="language-scss">@mixin gotham {
+    @font-face {
+        font-family: &quot;Gotham&quot;;
+        font-style: normal;
+        font-weight: 400;
+        src: url(&quot;../fonts/gotham-regular-webfont.woff2&quot;) format(&quot;woff2&quot;),
+            url(&quot;../fonts/gotham-regular-webfont.woff&quot;) format(&quot;woff&quot;);
+    }
+
+    @font-face {
+        font-family: &quot;Gotham&quot;;
+        font-style: normal;
+        font-weight: 700;
+        src: url(&quot;../fonts/gotham-bold-webfont.woff2&quot;) format(&quot;woff2&quot;),
+            url(&quot;../fonts/gotham-bold-webfont.woff&quot;) format(&quot;woff&quot;);
+    }
+}
+</code></pre>
+<p>Copy the font files <code>gotham-regular-webfont.woff2</code> and <code>gotham-bold-webfont.woff</code> to folder <code>assets\scss\fonts</code></p>
+<p>Bundle the theme with stencil command and upload to your store. Gotham font will be displayed in Theme Editor.</p>
               
             </div>
           </div>

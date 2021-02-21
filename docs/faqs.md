@@ -2979,3 +2979,64 @@ Enter the script below to **Scripts contents**:
     })();
 </script>
 ```
+
+
+## Add custom fonts
+
+For example, we will add **Gotham** font.
+
+First, download the theme.
+
+Edit file `schema.json` as below screenshots:
+
+![edit schema.json](img/edit-schema-add-gotham-font.png)
+
+![edit schema.json](img/edit-schema-add-gotham-font2.png)
+
+![edit schema.json](img/edit-schema-add-gotham-font3.png)
+
+![edit schema.json](img/edit-schema-add-gotham-font4.png)
+
+![edit schema.json](img/edit-schema-add-gotham-font5.png)
+
+![edit schema.json](img/edit-schema-add-gotham-font6.png)
+
+![edit schema.json](img/edit-schema-add-gotham-font7.png)
+
+![edit schema.json](img/edit-schema-add-gotham-font8.png)
+
+![edit schema.json](img/edit-schema-add-gotham-font9.png)
+
+![edit schema.json](img/edit-schema-add-gotham-font10.png)
+
+
+Edit file `assets\scss\fonts\_fonts.scss` as below screenshots:
+
+![edit schema.json](img/edit-fonts-file-add-gotham-font.png)
+
+Create a new file `assets\scss\fonts\_gotham.scss` with content below:
+
+```scss
+@mixin gotham {
+    @font-face {
+        font-family: "Gotham";
+        font-style: normal;
+        font-weight: 400;
+        src: url("../fonts/gotham-regular-webfont.woff2") format("woff2"),
+            url("../fonts/gotham-regular-webfont.woff") format("woff");
+    }
+
+    @font-face {
+        font-family: "Gotham";
+        font-style: normal;
+        font-weight: 700;
+        src: url("../fonts/gotham-bold-webfont.woff2") format("woff2"),
+            url("../fonts/gotham-bold-webfont.woff") format("woff");
+    }
+}
+```
+
+Copy the font files `gotham-regular-webfont.woff2` and `gotham-bold-webfont.woff` to folder `assets\scss\fonts`
+
+Bundle the theme with stencil command and upload to your store. Gotham font will be displayed in Theme Editor.
+

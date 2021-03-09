@@ -4,6 +4,16 @@
     If you encounter any issues, please <a href="https://papathemes.com/contact-us/">report to us</a>. You can always <a href="https://support.bigcommerce.com/s/article/Marketplace-Theme-Updates#restore">restore the ealier theme version</a>, check this <a href="https://youtu.be/eZdmudDUrQE">video</a> for instruction.
 </div>
 
+## 1.10.0 (03-09-2021)
+- Fix Faceted Search show more selects not scroll on iOS/Safari
+- Fix redeem code text box on the checkout page - theme checkout enabled
+- Fix Burst sale badge smaller
+- Disable Buy Now button if product is not available
+- Show swatch full image on product cards
+- Fix PAYMENTS-4228 include currency_code field in the Account > Payment Methods
+- Update Klarna logo
+- Change image when select card swatch
+- Add option Buy Together - Auto select all items
 ## 1.9.1 (02-18-2021)
 - Fix [THEME-2054] Refactor Frequently Bought Together using GraphQL for better performance
 

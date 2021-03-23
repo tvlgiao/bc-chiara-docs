@@ -251,6 +251,8 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#add-custom-fonts">Add custom fonts</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#limit-color-swatches-displayed-on-the-product-cards">Limit color swatches displayed on the product cards</a>
+    </li>
     </ul>
                     </li>
                 </ul>
@@ -2823,6 +2825,29 @@ By the code below:
 </code></pre>
 <p>Copy the font files <code>gotham-regular-webfont.woff2</code> and <code>gotham-bold-webfont.woff</code> to folder <code>assets\scss\fonts</code></p>
 <p>Bundle the theme with stencil command and upload to your store. Gotham font will be displayed in Theme Editor.</p>
+<h2 id="limit-color-swatches-displayed-on-the-product-cards">Limit color swatches displayed on the product cards<a class="headerlink" href="#limit-color-swatches-displayed-on-the-product-cards" title="Permanent link">&para;</a></h2>
+<p>To limit color swatches displayed on the product cards and show  only one swatches option, please try the custom code below:</p>
+<p>Go to <strong>Storefront</strong> &gt; <strong>Script Manager</strong>, click <strong>Create a Script</strong>, choose:</p>
+<ul>
+<li><strong>Location on page</strong> = <code>Footer</code></li>
+<li><strong>Select pages where script will be added</strong> = <code>Store Page</code></li>
+<li><strong>Script type</strong> = <code>Script</code></li>
+</ul>
+<p>Enter the script below to <strong>Scripts contents</strong>:</p>
+<pre><code class="language-html">&lt;script&gt;
+    window.chiaraSettings = Object.assign(window.chiaraSettings || {}, {
+        cardSwatchesOptions: {
+            swatchesLimit: 6
+        }
+    });
+    (function() {
+        var style = document.createElement('style');
+        style.innerHTML = 'html .productSwatches-swatches { flex-wrap: wrap; justify-content: center } .productSwatches-swatches + .productSwatches-swatches { display: none }';
+        document.head.appendChild(style);
+    })();
+&lt;/script&gt;
+</code></pre>
+<p>Change the number <code>6</code> in the line <code>swatchesLimit: 6</code> by the number of swatches you want to display.</p>
               
             </div>
           </div>

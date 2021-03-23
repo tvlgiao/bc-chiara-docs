@@ -3040,3 +3040,34 @@ Copy the font files `gotham-regular-webfont.woff2` and `gotham-bold-webfont.woff
 
 Bundle the theme with stencil command and upload to your store. Gotham font will be displayed in Theme Editor.
 
+
+
+## Limit color swatches displayed on the product cards
+
+To limit color swatches displayed on the product cards and show  only one swatches option, please try the custom code below:
+
+Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
+
+- **Location on page** = `Footer`
+- **Select pages where script will be added** = `Store Page`
+- **Script type** = `Script`
+
+Enter the script below to **Scripts contents**:
+
+```html
+<script>
+    window.chiaraSettings = Object.assign(window.chiaraSettings || {}, {
+        cardSwatchesOptions: {
+            swatchesLimit: 6
+        }
+    });
+    (function() {
+        var style = document.createElement('style');
+        style.innerHTML = 'html .productSwatches-swatches { flex-wrap: wrap; justify-content: center } .productSwatches-swatches + .productSwatches-swatches { display: none }';
+        document.head.appendChild(style);
+    })();
+</script>
+```
+
+Change the number `6` in the line `swatchesLimit: 6` by the number of swatches you want to display.
+

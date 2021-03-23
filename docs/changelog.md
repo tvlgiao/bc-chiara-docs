@@ -4,6 +4,10 @@
     If you encounter any issues, please <a href="https://papathemes.com/contact-us/">report to us</a>. You can always <a href="https://support.bigcommerce.com/s/article/Marketplace-Theme-Updates#restore">restore the ealier theme version</a>, check this <a href="https://youtu.be/eZdmudDUrQE">video</a> for instruction.
 </div>
 
+## 1.10.1 (03-23-2021)
+- Fix SweetAlert cancel button wrong color
+- Fix [THEME-2074] When Default Option is Out of Stock, Add to Cart Button is Missing from other Option
+
 ## 1.10.0 (03-09-2021)
 - Fix Faceted Search show more selects not scroll on iOS/Safari
 - Fix redeem code text box on the checkout page - theme checkout enabled

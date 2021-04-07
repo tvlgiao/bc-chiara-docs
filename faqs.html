@@ -253,6 +253,8 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#limit-color-swatches-displayed-on-the-product-cards">Limit color swatches displayed on the product cards</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#display-filter-button-inline">Display Filter button inline</a>
+    </li>
     </ul>
                     </li>
                 </ul>
@@ -2848,6 +2850,96 @@ By the code below:
 &lt;/script&gt;
 </code></pre>
 <p>Change the number <code>6</code> in the line <code>swatchesLimit: 6</code> by the number of swatches you want to display.</p>
+<h2 id="display-filter-button-inline">Display Filter button inline<a class="headerlink" href="#display-filter-button-inline" title="Permanent link">&para;</a></h2>
+<p><img alt="display-filter-button-inline" src="img/display-filter-button-inline.jpg" /></p>
+<p>Go to <strong>Storefront</strong> &gt; <strong>Script Manager</strong>, click <strong>Create a Script</strong>, choose:</p>
+<ul>
+<li><strong>Location on page</strong> = <code>Header</code></li>
+<li><strong>Select pages where script will be added</strong> = <code>Store Pages</code></li>
+<li><strong>Script type</strong> = <code>Script</code></li>
+</ul>
+<p>Enter the script below to <strong>Scripts contents</strong>:</p>
+<pre><code class="language-html">&lt;script type=&quot;text/plain&quot; id=&quot;custom_css_a63a0f34&quot;&gt;
+    @media (max-width: 800px) {
+        .mobileSidebar-toggle ~ .page-content .product-listing-container {
+            padding-top: 50px;
+        }
+
+        ._filterButtonAdded .mobileSidebar-toggle ~ .page-content .product-listing-container {
+            padding-top: 0;
+        }
+
+        ._filterButtonAdded .mobileSidebar-toggle {
+            display: none;
+        }
+
+        .PE__filterButton {
+            margin: 0;
+            height: 40px;
+            border: 1px solid #000;
+            border-radius: 4px;
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            font-weight: 700;
+            text-align: left;
+            padding: 0 1rem 0 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .PE__filterButton:hover,
+        .PE__filterButton:focus {
+            background-color: #000;
+            color: #fff;
+        }
+
+        .PE__filterButton:hover:after,
+        .PE__filterButton:focus:after {
+            filter: brightness(1);
+            -webkit-filter: brightness(1);
+        }
+
+        .PE__filterButton:after {
+            content: '';
+            display: block;
+            width: 20px;
+            height: 20px;
+            background-image: url(&quot;data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11.29,16.71a1,1,0,0,0,1.41,0l8-8a1,1,0,0,0-1.41-1.41L12,14.59,4.71,7.29A1,1,0,0,0,3.29,8.71Z' fill='white'/%3E%3C/svg%3E&quot;);
+            filter: brightness(0);
+            -webkit-filter: brightness(0);
+            background-size: contain;
+        }
+    }
+    @media (min-width: 801px) {
+        .PE__filterButton {
+            display: none;
+        }
+    }
+&lt;/script&gt;
+&lt;script&gt;
+    (function() {
+        var style = document.createElement('style');
+        style.innerHTML = document.getElementById('custom_css_a63a0f34').innerHTML;
+        document.head.appendChild(style);
+
+        window.addEventListener('DOMContentLoaded', function() {
+            var button = document.createElement('button');
+            button.innerHTML = 'Filter';
+            button.classList.add('PE__filterButton');
+            button.addEventListener('click', function(event) {
+                document.querySelector('.mobileSidebar-toggle').click();
+            });
+
+            var listEl = document.querySelector('#product-listing-container');
+            listEl.parentElement.insertBefore(button, listEl);
+
+            document.body.classList.add('_filterButtonAdded');
+        });
+    })();
+&lt;/script&gt;
+</code></pre>
               
             </div>
           </div>

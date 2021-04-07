@@ -3071,3 +3071,99 @@ Enter the script below to **Scripts contents**:
 
 Change the number `6` in the line `swatchesLimit: 6` by the number of swatches you want to display.
 
+
+
+## Display Filter button inline
+
+![display-filter-button-inline](img/display-filter-button-inline.jpg)
+
+Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
+
+- **Location on page** = `Header`
+- **Select pages where script will be added** = `Store Pages`
+- **Script type** = `Script`
+
+Enter the script below to **Scripts contents**:
+
+```html
+<script type="text/plain" id="custom_css_a63a0f34">
+    @media (max-width: 800px) {
+        .mobileSidebar-toggle ~ .page-content .product-listing-container {
+            padding-top: 50px;
+        }
+
+        ._filterButtonAdded .mobileSidebar-toggle ~ .page-content .product-listing-container {
+            padding-top: 0;
+        }
+
+        ._filterButtonAdded .mobileSidebar-toggle {
+            display: none;
+        }
+
+        .PE__filterButton {
+            margin: 0;
+            height: 40px;
+            border: 1px solid #000;
+            border-radius: 4px;
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            font-weight: 700;
+            text-align: left;
+            padding: 0 1rem 0 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .PE__filterButton:hover,
+        .PE__filterButton:focus {
+            background-color: #000;
+            color: #fff;
+        }
+
+        .PE__filterButton:hover:after,
+        .PE__filterButton:focus:after {
+            filter: brightness(1);
+            -webkit-filter: brightness(1);
+        }
+
+        .PE__filterButton:after {
+            content: '';
+            display: block;
+            width: 20px;
+            height: 20px;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11.29,16.71a1,1,0,0,0,1.41,0l8-8a1,1,0,0,0-1.41-1.41L12,14.59,4.71,7.29A1,1,0,0,0,3.29,8.71Z' fill='white'/%3E%3C/svg%3E");
+            filter: brightness(0);
+            -webkit-filter: brightness(0);
+            background-size: contain;
+        }
+    }
+    @media (min-width: 801px) {
+        .PE__filterButton {
+            display: none;
+        }
+    }
+</script>
+<script>
+    (function() {
+        var style = document.createElement('style');
+        style.innerHTML = document.getElementById('custom_css_a63a0f34').innerHTML;
+        document.head.appendChild(style);
+
+        window.addEventListener('DOMContentLoaded', function() {
+            var button = document.createElement('button');
+            button.innerHTML = 'Filter';
+            button.classList.add('PE__filterButton');
+            button.addEventListener('click', function(event) {
+                document.querySelector('.mobileSidebar-toggle').click();
+            });
+
+            var listEl = document.querySelector('#product-listing-container');
+            listEl.parentElement.insertBefore(button, listEl);
+
+            document.body.classList.add('_filterButtonAdded');
+        });
+    })();
+</script>
+```

@@ -143,3 +143,25 @@ Enter the script below to **Scripts contents**:
 Edit the limit price in line: `var PRICE_LIMIT = 150;`
 
 
+
+## Change "Free" to "0" in Shipping fee on Checkout page
+
+```html
+<script>
+(function() {
+    function debounce(n,t,u){var e;return function(){var i=this,o=arguments,a=u&&!e;clearTimeout(e),e=setTimeout(function(){e=null,u||n.apply(i,o)},t),a&&n.apply(i,o)}}
+
+    function main() {
+        var el = document.querySelector('[data-test="cart-shipping"] [data-test="cart-price-value"]');
+        if (el && String(el.innerText).toLowerCase() === 'free') {
+            el.innerText = '-';
+        }
+    }
+
+    var mo = new MutationObserver(debounce(main, 300));
+    mo.observe(document.body, { childList: true, subtree: true });
+    main();
+})();
+</script>
+```
+

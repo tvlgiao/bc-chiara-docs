@@ -4,6 +4,14 @@
     If you encounter any issues, please <a href="https://papathemes.com/contact-us/">report to us</a>. You can always <a href="https://support.bigcommerce.com/s/article/Marketplace-Theme-Updates#restore">restore the ealier theme version</a>, check this <a href="https://youtu.be/eZdmudDUrQE">video</a> for instruction.
 </div>
 
+## 1.11.0 (04-09-2021)
+- Fix layout shifts CLS issue, page speed improvement.
+- [PERFORMANCE] Optimize polyfills
+- Load lazyload script async
+- [CORNERSTONE] Reset cart quantity to 0 if we get a 404 for the cart
+- Fix swatch image change display blank when card slider is enabled
+- Fix JS error in function setProductVariant() on IE 11
+
 ## 1.10.1 (03-23-2021)
 - Fix SweetAlert cancel button wrong color
 - Fix [THEME-2074] When Default Option is Out of Stock, Add to Cart Button is Missing from other Option

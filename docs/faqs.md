@@ -3105,7 +3105,6 @@ Enter the script below to **Scripts contents**:
             height: 40px;
             border: 1px solid #000;
             border-radius: 4px;
-            display: block;
             width: 100%;
             margin-bottom: 10px;
             text-transform: uppercase;
@@ -3167,3 +3166,4 @@ Enter the script below to **Scripts contents**:
     })();
 </script>
 ```
+

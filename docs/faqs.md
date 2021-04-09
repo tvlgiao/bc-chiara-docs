@@ -2617,13 +2617,25 @@ Enter the script below to **Scripts contents**:
 
 Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
 
-- **Location on page** = `Footer`
+- **Location on page** = `Header`
 - **Select pages where script will be added** = `Store Pages`
 - **Script type** = `Script`
 
 Enter the script below to **Scripts contents**:
 
 ```html
+<script>
+(function() {
+var style = document.createElement('style');
+style.innerHTML = '.productView-details { display: flex; flex-direction: column }'
++ '.productView-details > .productView-title { order: -1; margin-bottom: .75rem; margin-top: 0 }'
++ '.productView-details > .productView-priceShareWrapper { margin-bottom: .75rem }'
+;document.head.appendChild(style);
+})();
+</script>
+```
+
+<!-- ```html
 <script>
 (function() {
     /** debounce(func, wait, immediate) */
@@ -2646,7 +2658,7 @@ Enter the script below to **Scripts contents**:
     fix();
 })();
 </script>
-```
+``` -->
 
 
 ## Use SVG image for the store logo
@@ -3146,7 +3158,7 @@ Enter the script below to **Scripts contents**:
 </script>
 <script>
     (function() {
-        var style = document.createElement('style');
+    var style = document.createElement('style');
         style.innerHTML = document.getElementById('custom_css_a63a0f34').innerHTML;
         document.head.appendChild(style);
 

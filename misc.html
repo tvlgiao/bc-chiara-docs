@@ -251,6 +251,24 @@
 &lt;/script&gt;
 </code></pre>
 <p>Edit the limit price in line: <code>var PRICE_LIMIT = 150;</code></p>
+<h2 id="change-free-to-0-in-shipping-fee-on-checkout-page">Change "Free" to "0" in Shipping fee on Checkout page<a class="headerlink" href="#change-free-to-0-in-shipping-fee-on-checkout-page" title="Permanent link">&para;</a></h2>
+<pre><code class="language-html">&lt;script&gt;
+(function() {
+    function debounce(n,t,u){var e;return function(){var i=this,o=arguments,a=u&amp;&amp;!e;clearTimeout(e),e=setTimeout(function(){e=null,u||n.apply(i,o)},t),a&amp;&amp;n.apply(i,o)}}
+
+    function main() {
+        var el = document.querySelector('[data-test=&quot;cart-shipping&quot;] [data-test=&quot;cart-price-value&quot;]');
+        if (el &amp;&amp; String(el.innerText).toLowerCase() === 'free') {
+            el.innerText = '-';
+        }
+    }
+
+    var mo = new MutationObserver(debounce(main, 300));
+    mo.observe(document.body, { childList: true, subtree: true });
+    main();
+})();
+&lt;/script&gt;
+</code></pre>
               
             </div>
           </div>

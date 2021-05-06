@@ -4,6 +4,15 @@
     If you encounter any issues, please <a href="https://papathemes.com/contact-us/">report to us</a>. You can always <a href="https://support.bigcommerce.com/s/article/Marketplace-Theme-Updates#restore">restore the ealier theme version</a>, check this <a href="https://youtu.be/eZdmudDUrQE">video</a> for instruction.
 </div>
 
+## 1.11.1 (05-06-2021)
+- [CORNERSTONE] BCTHEME-445 replace page builder ssl settings with new global region for html widget
+- [CORNERSTONE] fixed email address validation in forms. [#2029](https://github.com/bigcommerce/cornerstone/pull/2029)
+- [CORNERSTONE] fix(search): ES-2071 removed adding selected filters for price filter since not needed
+- [CORNERSTONE] Remove AddThis for social sharing, replace with provider sharing links https://github.com/bigcommerce/cornerstone/pull/1997
+- Fix missing data-event-type in infinite product loading
+- Fix extractMoney function not working correct
+
+
 ## 1.11.0 (04-09-2021)
 - Fix layout shifts CLS issue, page speed improvement.
 - [PERFORMANCE] Optimize polyfills

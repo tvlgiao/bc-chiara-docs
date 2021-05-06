@@ -3179,3 +3179,31 @@ Enter the script below to **Scripts contents**:
 </script>
 ```
 
+
+
+## Display title of the selected swatch option on PDP
+
+Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
+
+- **Location on page** = `Footer`
+- **Select pages where script will be added** = `Store Pages`
+- **Script type** = `Script`
+
+Enter the script below to **Scripts contents**:
+
+```html
+<script>
+(function($) {
+    $('body').on('change', '[data-product-attribute="swatch"]', function(event) {
+        var $input = $(event.target);
+        var $label = $input
+                .closest('[data-product-attribute]')
+                .find('[data-option-value]');
+        if ($input.is(':checked')) {
+            $label.text($input.attr('aria-label'))
+        } else {
+            $label.text('');
+        }
+    });
+})(window.chiarajQuery);
+</script>

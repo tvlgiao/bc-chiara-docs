@@ -3207,3 +3207,100 @@ Enter the script below to **Scripts contents**:
     });
 })(window.chiarajQuery);
 </script>
+```
+
+## Display PayPal checkout button on the checkout page
+
+Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
+
+- **Location on page** = `Footer`
+- **Select pages where script will be added** = `Checkout Page`
+- **Script type** = `Script`
+
+Enter the script below to **Scripts contents**:
+
+```html
+<script>
+(function() {
+    /** debounce(func, wait, immediate) */
+    function debounce(n,t,u){var e;return function(){var i=this,o=arguments,a=u&&!e;clearTimeout(e),e=setTimeout(function(){e=null,u||n.apply(i,o)},t),a&&n.apply(i,o)}}
+
+    function loadScript(src) {
+        return new Promise(function(resolve) {
+            var script = document.createElement('script');
+            script.src = src;
+            script.defer = true;
+            script.onload = function() {
+                resolve();
+            };
+            document.head.appendChild(script);
+        });
+    }
+
+    function init() {
+        if (!window.checkoutKitLoader) {
+            var error = new Error('Unable to initialize the checkout button because the required script has not been loaded yet.');
+            error.type = 'SCRIPT_NOT_LOADED';
+            throw error;
+        }
+        window.checkoutKitLoader.load('checkout-button')
+            .then(function (module) {
+                var initializer = window.checkoutButtonInitializer || module.createCheckoutButtonInitializer({ host: 'https://toymakingplans.com' });
+
+                initializer.initializeButton({
+                    methodId: 'braintreepaypal',
+                    containerId: '[data-braintree-paypal-container]',
+                    braintreepaypal: {
+                        shouldProcessPayment: false,
+                        style: {"layout":"horizontal","color":"gold","shape":"rect","size":"medium","label":"checkout","height":"40"},
+                        allowCredit: true
+                    },
+                });
+
+                window.checkoutButtonInitializer = initializer;
+            });
+    }
+
+    function observe() {
+        var checkoutRemoteEl = document.querySelector('.checkoutRemote:not(._loaded)');
+        if (!checkoutRemoteEl) {
+            return;
+        }
+        checkoutRemoteEl.classList.add('_loaded');
+
+        var div = document.createElement('div');
+        div.setAttribute('data-merchant-checkout-container', '');
+        div.className = 'BraintreeContainer paypal-buttons-container';
+        div.style = "display: inline-block; min-width: 200px;";
+        checkoutRemoteEl.appendChild(div);
+
+        var div2 = document.createElement('div');
+        div2.setAttribute('data-braintree-paypal-container', '');
+        div2.className = 'braintree-paypal-button paypal-smart-buttons';
+        div2.style = "display: block";
+        div.appendChild(div2);
+
+        if (window.checkoutKitLoader) {
+            init();
+        } else {
+            Promise.all([
+                loadScript('https://checkout-sdk.bigcommerce.com/v1/loader.js'),
+                loadScript('https://cdn11.bigcommerce.com/r-faab551793d4bd518f33722d8be03a5bcf4d6bc0/vendor/bower_components/braintree-web/index.js'),
+                loadScript('https://cdn11.bigcommerce.com/r-faab551793d4bd518f33722d8be03a5bcf4d6bc0/javascript/braintree.js')
+            ]).then(init);
+        }
+    }
+
+    var mo = new MutationObserver(debounce(observe, 200));
+    mo.observe(document.body, { childList: true, subtree: true });
+    observe();
+
+    var style = document.createElement('style');
+    style.innerHTML = '.checkoutRemote  .paypal-buttons { min-height: 40px !important }'
+        + '@media (min-width: 801px) {'
+        + '.checkout-steps { padding-right: 0 }'
+        + '}';
+    document.head.appendChild(style);
+})();
+</script>
+```

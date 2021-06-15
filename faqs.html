@@ -257,6 +257,8 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#display-title-of-the-selected-swatch-option-on-pdp">Display title of the selected swatch option on PDP</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#display-paypal-checkout-button-on-the-checkout-page">Display PayPal checkout button on the checkout page</a>
+    </li>
     </ul>
                     </li>
                 </ul>
@@ -2961,10 +2963,9 @@ style.innerHTML = '.productView-details { display: flex; flex-direction: column 
 <li><strong>Script type</strong> = <code>Script</code></li>
 </ul>
 <p>Enter the script below to <strong>Scripts contents</strong>:</p>
-<p>```html</p>
-<script>
+<pre><code class="language-html">&lt;script&gt;
 (function($) {
-    $('body').on('change', '[data-product-attribute="swatch"]', function(event) {
+    $('body').on('change', '[data-product-attribute=&quot;swatch&quot;]', function(event) {
         var $input = $(event.target);
         var $label = $input
                 .closest('[data-product-attribute]')
@@ -2976,7 +2977,100 @@ style.innerHTML = '.productView-details { display: flex; flex-direction: column 
         }
     });
 })(window.chiarajQuery);
-</script>
+&lt;/script&gt;
+</code></pre>
+<h2 id="display-paypal-checkout-button-on-the-checkout-page">Display PayPal checkout button on the checkout page<a class="headerlink" href="#display-paypal-checkout-button-on-the-checkout-page" title="Permanent link">&para;</a></h2>
+<p>Go to <strong>Storefront</strong> &gt; <strong>Script Manager</strong>, click <strong>Create a Script</strong>, choose:</p>
+<ul>
+<li><strong>Location on page</strong> = <code>Footer</code></li>
+<li><strong>Select pages where script will be added</strong> = <code>Checkout Page</code></li>
+<li><strong>Script type</strong> = <code>Script</code></li>
+</ul>
+<p>Enter the script below to <strong>Scripts contents</strong>:</p>
+<pre><code class="language-html">&lt;script&gt;
+(function() {
+    /** debounce(func, wait, immediate) */
+    function debounce(n,t,u){var e;return function(){var i=this,o=arguments,a=u&amp;&amp;!e;clearTimeout(e),e=setTimeout(function(){e=null,u||n.apply(i,o)},t),a&amp;&amp;n.apply(i,o)}}
+
+    function loadScript(src) {
+        return new Promise(function(resolve) {
+            var script = document.createElement('script');
+            script.src = src;
+            script.defer = true;
+            script.onload = function() {
+                resolve();
+            };
+            document.head.appendChild(script);
+        });
+    }
+
+    function init() {
+        if (!window.checkoutKitLoader) {
+            var error = new Error('Unable to initialize the checkout button because the required script has not been loaded yet.');
+            error.type = 'SCRIPT_NOT_LOADED';
+            throw error;
+        }
+        window.checkoutKitLoader.load('checkout-button')
+            .then(function (module) {
+                var initializer = window.checkoutButtonInitializer || module.createCheckoutButtonInitializer({ host: 'https://toymakingplans.com' });
+
+                initializer.initializeButton({
+                    methodId: 'braintreepaypal',
+                    containerId: '[data-braintree-paypal-container]',
+                    braintreepaypal: {
+                        shouldProcessPayment: false,
+                        style: {&quot;layout&quot;:&quot;horizontal&quot;,&quot;color&quot;:&quot;gold&quot;,&quot;shape&quot;:&quot;rect&quot;,&quot;size&quot;:&quot;medium&quot;,&quot;label&quot;:&quot;checkout&quot;,&quot;height&quot;:&quot;40&quot;},
+                        allowCredit: true
+                    },
+                });
+
+                window.checkoutButtonInitializer = initializer;
+            });
+    }
+
+    function observe() {
+        var checkoutRemoteEl = document.querySelector('.checkoutRemote:not(._loaded)');
+        if (!checkoutRemoteEl) {
+            return;
+        }
+        checkoutRemoteEl.classList.add('_loaded');
+
+        var div = document.createElement('div');
+        div.setAttribute('data-merchant-checkout-container', '');
+        div.className = 'BraintreeContainer paypal-buttons-container';
+        div.style = &quot;display: inline-block; min-width: 200px;&quot;;
+        checkoutRemoteEl.appendChild(div);
+
+        var div2 = document.createElement('div');
+        div2.setAttribute('data-braintree-paypal-container', '');
+        div2.className = 'braintree-paypal-button paypal-smart-buttons';
+        div2.style = &quot;display: block&quot;;
+        div.appendChild(div2);
+
+        if (window.checkoutKitLoader) {
+            init();
+        } else {
+            Promise.all([
+                loadScript('https://checkout-sdk.bigcommerce.com/v1/loader.js'),
+                loadScript('https://cdn11.bigcommerce.com/r-faab551793d4bd518f33722d8be03a5bcf4d6bc0/vendor/bower_components/braintree-web/index.js'),
+                loadScript('https://cdn11.bigcommerce.com/r-faab551793d4bd518f33722d8be03a5bcf4d6bc0/javascript/braintree.js')
+            ]).then(init);
+        }
+    }
+
+    var mo = new MutationObserver(debounce(observe, 200));
+    mo.observe(document.body, { childList: true, subtree: true });
+    observe();
+
+    var style = document.createElement('style');
+    style.innerHTML = '.checkoutRemote  .paypal-buttons { min-height: 40px !important }'
+        + '@media (min-width: 801px) {'
+        + '.checkout-steps { padding-right: 0 }'
+        + '}';
+    document.head.appendChild(style);
+})();
+&lt;/script&gt;
+</code></pre>
               
             </div>
           </div>

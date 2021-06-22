@@ -3083,6 +3083,25 @@ Enter the script below to **Scripts contents**:
 
 Change the number `6` in the line `swatchesLimit: 6` by the number of swatches you want to display.
 
+## Display in-stock swatches only on product cards
+
+Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
+
+- **Location on page** = `Footer`
+- **Select pages where script will be added** = `Store Page`
+- **Script type** = `Script`
+
+Enter the script below to **Scripts contents**:
+
+```html
+<script>
+    window.chiaraSettings = Object.assign(window.chiaraSettings || {}, {
+        cardSwatchesOptions: {
+            displayInStockOnly: true
+        }
+    });
+</script>
+```
 
 
 ## Display Filter button inline

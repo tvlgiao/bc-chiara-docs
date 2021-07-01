@@ -692,7 +692,7 @@ Theme supports 3 header with logo position left, right or center. It is configur
 
 You can configure Header style, logo size, colors, fonts in **Theme Editor** > **Header & Footer**.
 
-## --- Mega Menu vs. Standard Menu
+## Mega Menu vs. Standard Menu
 
 ![Menus](img/menus.png)
 
@@ -700,7 +700,7 @@ Theme supports both Mega Menu and Standard Menu. You can configure in **Theme Ed
 
 The menu is automatically popuplated from your product categories and web pages (in **Storefront** > **Web Pages**). You can hide all web pages on this menu by tick on the option **Hide web pages in main navigation** in **Theme Editor** > **Header & Footer**.
 
-## --- Top Banner
+## Top Banner
 
 ![top banner](img/top-banner.png)
 
@@ -727,7 +727,7 @@ Configure the footer in **Theme Editor** > **Footer** section.
 
 ## Home Page
 
-## --- Customizing Sections
+### Customizing Sections
 
 You can customize the content display on Home Page, rearrange content blocks, show or hide them from **Theme Editor** > **Home Page** > **Sections**.
 
@@ -740,7 +740,7 @@ Check out this video for quick start:
 
 
 
-## --- Main Carousel
+### Main Carousel
 
 ![Main carousel](img/main-carousel.png)
 
@@ -754,8 +754,6 @@ Our recommended image size is **1920x770px**.
 
 
 
-
-## --- Banners
 
 ### 5 Banners below the main carousel
 
@@ -861,7 +859,7 @@ Our recommended image size is **1500x306px**.
 
 
 
-## --- New / Featured / Bestselling Products
+### New / Featured / Bestselling Products
 
 **Default style:**
 
@@ -891,7 +889,7 @@ Our recommended parallax background image size is **1720x450px**.
 
 
 
-## --- Categories List
+### Categories List
 
 ![categories list](img/homepage-categories-list.png)
 
@@ -916,7 +914,7 @@ Check out this video how to display the images:
 
 
 
-## --- Recent Blog Posts
+### Recent Blog Posts
 
 ![homepage recent blog](img/homepage-recent-blog.png)
 
@@ -935,7 +933,7 @@ All blog images should have same size to have the best visual display. No image 
 
 
 
-## --- Instagram Photos Feed
+### Instagram Photos Feed
 
 ![homepage instagram](img/homepage-instagram.png)
 
@@ -991,7 +989,7 @@ Then click <button disabled>**Save**</button> to save your banner.
 
 
 
-## --- Images Carousel or Brands Carousel
+### Images Carousel or Brands Carousel
 
 ![homepage brands carousel](img/homepage-brands-carousel.png)
 
@@ -1044,7 +1042,7 @@ Or use button below to generate HTML code with your custom content:
 
 Our recommended image size is **220x100px**.
 
-## --- Products By Category Widget
+### Products By Category Widget
 
 To display products by category, drag the HTML widget to any region. Input the code below to the HTML widget content:
 
@@ -1072,7 +1070,7 @@ To display products by category, drag the HTML widget to any region. Input the c
 
 To display custom banners on category pages or brand pages, create a new banner in **Marketing** > **Banners**:
 
-## --- Top & bottom banners on all categories
+### Top & bottom banners on all categories
 
 ![category top banner on all pages](img/category-top-banner1.jpg)
 
@@ -1103,7 +1101,7 @@ Watch this video for a step by step tutorial:
 
 
 
-## --- Top & bottom banners on a specific category
+### Top & bottom banners on a specific category
 
 Edit the category, in **Description** field, click HTML button to input HTML code:
 
@@ -1134,7 +1132,7 @@ Edit the category, in **Description** field, click HTML button to input HTML cod
 Our recommended image size is **670x520px**.
 
 
-## --- Top banner on all brands
+### Top banner on all brands
 
 - In **Banner Content**, click HTML button to input HTML code:
 
@@ -1148,7 +1146,7 @@ Our recommended image size is **670x520px**.
 
 
 
-## --- Custom banners on the sidebar
+### Custom banners on the sidebar
 
 Theme support custom banners display on the sidebar for category pages and brand pages.
 
@@ -1161,7 +1159,7 @@ To enable these banners, open **Theme Editor** > **Sidebar**, tick on these opti
 
 Create a new banner in **Marketing** > **Banners**:
 
-### Banner 1 on category pages
+#### Banner 1 on category pages
 
 ![Sidebar banner1](img/sidebar-banner1.jpg)
 
@@ -1184,7 +1182,7 @@ Or use button below to generate HTML code with your custom content:
 Our recommended image size is **302x302px**.
 
 
-### Banner 2 on category pages
+#### Banner 2 on category pages
 
 ![Sidebar banner2](img/sidebar-banner2.jpg)
 
@@ -1207,7 +1205,7 @@ Or use button below to generate HTML code with your custom content:
 Our recommended image size is **302x500px**.
 
 
-### Banner 1 on brand pages
+#### Banner 1 on brand pages
 
 * **Banner Name**: `Sidebar banner on brand pages (chiara-sidebar-brand-banner1)`
 * **Banner Content**: Click on the HTML to edit HTML source.
@@ -1226,7 +1224,7 @@ Or use button below to generate HTML code with your custom content:
 * **Location**: `Top of Page`
 
 
-### Banner 2 on brand pages
+#### Banner 2 on brand pages
 
 * **Banner Name**: `Sidebar banner on brand pages (chiara-sidebar-brand-banner2)`
 * **Banner Content**: Click on the HTML to edit HTML source.
@@ -1246,7 +1244,7 @@ Or use button below to generate HTML code with your custom content:
 
 
 
-## --- New Products on sidebar
+### New Products on sidebar
 
 ![Sidebar new products](img/sidebar-new-products.png)
 
@@ -1255,7 +1253,7 @@ Configure in **Theme Editor** > **Sidebar**:
 * **New products**: number of products to display.
 
 
-## --- Facebook likes & chat box
+### Facebook likes & chat box
 
 ![sidebar facebook](img/sidebar-facebook.png)
 
@@ -1265,11 +1263,11 @@ Configure in **Theme Editor** > **Sidebar**, input your facebook page name in **
 
 ## Product Page
 
-## -- Custom content placement
+### Custom content placement
 
 ![product page banner placement](img/product-banner-placement.jpg)
 
-### Display custom content on all product pages under product ratings:
+#### Display custom content on all product pages under product ratings:
 
 Create a new banner in **Marketing** > **Banners**:
 
@@ -1286,7 +1284,7 @@ Create a new banner in **Marketing** > **Banners**:
 
 
 
-### Display custom content on a specific product page under product ratings:
+#### Display custom content on a specific product page under product ratings:
 
 Edit a product, in **Description** field, click HTML button to input HTML code:
 
@@ -1297,7 +1295,7 @@ Edit a product, in **Description** field, click HTML button to input HTML code:
 ```
 
 
-### Display custom content on all product pages under add to cart button:
+#### Display custom content on all product pages under add to cart button:
 
 Create a new banner in **Marketing** > **Banners**:
 
@@ -1313,7 +1311,7 @@ Create a new banner in **Marketing** > **Banners**:
 - **Location**: `Top of Page`
 
 
-### Display custom content on a specific page under add to cart button:
+#### Display custom content on a specific page under add to cart button:
 
 
 Edit a product, in **Description** field, click HTML button to input HTML code:
@@ -1324,14 +1322,14 @@ Edit a product, in **Description** field, click HTML button to input HTML code:
 </div>
 ```
 
-## --- Add to Cart & Buy Now button
+### Add to Cart & Buy Now button
 
 Theme allows to display **Add to Cart** or **Buy Now** button or both. Configuring this option in **Theme Editor** > **Storewide** > **Purchase Options** > **Show Add to Cart & Buy Now** as the screenshot below:
 
 ![Configure Add to Cart & Buy Now button](img/config-add-to-cart-buy-now.png)
 
 
-### Buy Now button color
+#### Buy Now button color
 
 Buy Now button color is the primary color. You can change the primary color in **Theme Editor** > **Storewide** > **Primary color**.
 
@@ -1361,22 +1359,22 @@ If you want Buy Now button color separately, you can insert the custom CSS to **
 
 
 
-## --- Product description
+### Product description
 
-### Display product description in tab
+#### Display product description in tab
 
 ![display-description-in-tab](img/display-description-in-tab.png)
 
 Go to **Theme Editor** > **Products** > **Product page** > tick on **Show description in tab**.
 
-### Display product description below product details
+#### Display product description below product details
 
 ![display-description-below-details](img/display-description-below-details.png)
 
 Go to **Theme Editor** > **Products** > **Product page** > untick on **Show description in tab**.
 
 
-## --- Product Info
+### Product Info
 
 The built-in product properties such as **SKU**, **UPC**, **MPN**, **Availibility**, **Weight**, .... can be display in **Info** tab or display before the product options.
 
@@ -1386,59 +1384,59 @@ Input these product properties by editing the product, input **SKU**, **UPC**, *
 
 ![edit product other details](img/edit-product-other-details.png)
 
-### Display product properties in Info tab
+#### Display product properties in Info tab
 
 ![product-properties-in-info-tab](img/product-properties-in-info-tab.png)
 
 In **Theme Editor** > **Products** > **Product pages** > tick on **Show properties in tab**.
 
-### Display product properties inline under ratings
+#### Display product properties inline under ratings
 
 ![product-properties-after-ratings](img/product-properties-after-ratings.png)
 
 
-## --- Specifications tab
+### Specifications tab
 
 **Specificaitions** tab shows the product custom fields. You can create any product custom fields by editing the product, open tab **Custom Fields**:
 
 ![edit-product-custom-fields](img/edit-product-custom-fields.png)
 
-### Display product custom fields in Specifications tab
+#### Display product custom fields in Specifications tab
 
 ![display-custom-fields-in-tab](img/display-custom-fields-in-tab.png)
 
 In Theme Editor > Products > Product pages > tick on **Show custom fields in tab**.
 
-### Display product custom fields together with product properties
+#### Display product custom fields together with product properties
 
 ![display-custom-fields-together-properties](img/display-custom-fields-together-properties.png)
 
 In **Theme Editor** > **Products** > **Product pages** > untick on **Show custom fields in tab**.
 
 
-## --- Warranty tab
+### Warranty tab
 
 ![warranty-tab](img/warranty-tab.png)
 
 To display warranty content in the tab, editing your product, enter Warranty Information.
 
 
-## --- Reviews
+### Reviews
 
-### Display reviews in tab
+#### Display reviews in tab
 
 ![display-reviews-in-tab](img/display-reviews-in-tab.png)
 
 In **Theme Editor** > **Products** > **Product pages** > tick on **Reviews Show in tab**.
 
 
-### Display reviews below description
+#### Display reviews below description
 
 ![display-reviews-below-description](img/display-reviews-below-description.png)
 
 In **Theme Editor** > **Products** > **Product pages** > untick on **Reviews Show in tab**.
 
-## --- Frequently Bought Together
+### Frequently Bought Together
 
 ![frequently-bought-together](img/frequently-bought-together.png)
 
@@ -1458,7 +1456,7 @@ To find the **product ID**, edit the product, then look at the URL address box o
 ![find-product-id](img/find-product-id.png)
 
 
-## --- Product page settings
+### Product page settings
 
 Configure settings for product pages in **Theme Editor** > **Products**.
 
@@ -1466,7 +1464,7 @@ Configure settings for product pages in **Theme Editor** > **Products**.
 
 ## Checkout Page
 
-## --- Show full header & footer
+### Show full header & footer
 
 If you are using [Optimized One-Page Checkout](https://support.bigcommerce.com/s/article/Optimized-Single-Page-Checkout), our theme allows to display full header and footer of your store. Enable it in **Theme Editor** > **Optimized Checkout** > tick **Show full header & footer**.
 
@@ -1474,7 +1472,7 @@ If you are using [Optimized One-Page Checkout](https://support.bigcommerce.com/s
 
 ![theme-editor-checkout-show-header-footer-mobile](img/theme-editor-checkout-show-header-footer-mobile.png)
 
-## --- Colors & Style
+### Colors & Style
 
 Configure colors and style in **Theme Editor** > **Optimized Checkout** section.
 
@@ -1483,7 +1481,7 @@ Configure colors and style in **Theme Editor** > **Optimized Checkout** section.
 
 
 
-## --- Infinite product loading
+### Infinite product loading
 
 Theme support infinite product loading or infinite scroll on category pages, brand pages and search results pages. It is automatically enabled by default. You can configure this option in **Theme Editor** > **Products** > **Infinite Scroll**:
 
@@ -1494,7 +1492,7 @@ Theme support infinite product loading or infinite scroll on category pages, bra
 
 
 
-## --- Product Card & Color Swatches
+### Product Card & Color Swatches
 
 ![product card](img/product-card.png)
 
@@ -1506,7 +1504,7 @@ Configure how products display on listing in **Theme Editor** > **Products** > *
 * **Show color swatches**: To display color swatches for product options with type "Swatches".
 
 
-## --- Bottom bar on mobile
+### Bottom bar on mobile
 
 ![mobile bottom bar](img/mobile-bottom-bar.png)
 
@@ -1519,7 +1517,7 @@ Configure this bottom bar in **Theme Editor** > **Footer** > **Bottom bar on mob
 * **Font size**
 * **Show Shop by Brands in Store panel**: Display "Show by Brands" link in the menu panel when lick on the Store icon.
 
-### Contact info
+#### Contact info
 
 ![mobile contact info](img/mobile-contact-info.png)
 

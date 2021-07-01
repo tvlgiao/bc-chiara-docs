@@ -761,6 +761,20 @@ Our recommended image size is **1920x770px**.
 
 ![homepage 5 banners](img/homepage-5-banners.png)
 
+#### New Solution: Using Widgets
+
+Install [PapaThemes Widgets](https://www.bigcommerce.com/apps/papathemes-widgets/) app to your store. In PapaThemes Widgets app, install all widgets.
+
+Go to **Page Builder** > **Widgets** tab, drag and drop 2 **Flex Banners | PapaThemes Chiara** widget into a particular widget region.
+
+Configure the widget like the screenshot below:
+
+![chiara-furniture-5-banner-widget](img/chiara-furniture-5-banner-widget.jpg)
+
+![chiara-furniture-5-banner-widget2](img/chiara-furniture-5-banner-widget2.jpg)
+
+#### Old Solution: Using Marketing Banners
+
 Create a new banner in **Marketing** > **Banners**.
 
 * **Banner Name**: `5 banners below the main carousel (home-banner1)`
@@ -804,6 +818,18 @@ Check out the video step by step how to create these banners:
 
 ![homepage fullwidth banner](img/homepage-fullwidth-banner.png)
 
+#### New Solution: Using Widgets
+
+Install [PapaThemes Widgets](https://www.bigcommerce.com/apps/papathemes-widgets/) app to your store. In PapaThemes Widgets app, install all widgets.
+
+Go to **Page Builder** > **Widgets** tab, drag and drop **Flex Banners | PapaThemes Chiara** widget into a particular widget region. Delete other slides, keep the first slide only.
+
+Configure the widget like the screenshot below:
+
+![chiara-furniture-wide-banner-widget](img/chiara-furniture-wide-banner-widget.jpg)
+
+
+#### Old Solution: Using Marketing Banners
 
 Create a new banner in **Marketing** > **Banners**.
 
@@ -969,6 +995,19 @@ Then click <button disabled>**Save**</button> to save your banner.
 
 ![homepage brands carousel](img/homepage-brands-carousel.png)
 
+#### New Solution: Using Widgets
+
+Install [PapaThemes Widgets](https://www.bigcommerce.com/apps/papathemes-widgets/) app to your store. In PapaThemes Widgets app, install all widgets.
+
+Go to **Page Builder** > **Widgets** tab, drag and drop **Flex Banners | PapaThemes Chiara** widget into a particular widget region.
+
+Configure the widget like the screenshot below:
+
+![chiara-furniture-brand-carousel-widget](img/chiara-furniture-brand-carousel-widget.jpg)
+
+
+#### Old Solution: Using Marketing Banners
+
 To display the images carousel, create a new banner in **Marketing** > **Banners**:
 
 * **Banner Name**: `Brands carousel (home-banner3)`
@@ -1007,8 +1046,6 @@ Our recommended image size is **220x100px**.
 
 ## --- Products By Category Widget
 
-(Coming soon in version 1.8)
-
 To display products by category, drag the HTML widget to any region. Input the code below to the HTML widget content:
 
 ```html
@@ -1028,6 +1065,7 @@ To display products by category, drag the HTML widget to any region. Input the c
 - Edit the category URL in `data-products-by-category data-url="/new-arrival"`. In this example, the category URL is `/new-arrival`.
 - Edit the products display type in `data-type="carousel"`. Support `carousel` and `grid`.
 
+**New Solution**: Alternately, you can use Products Feed widget from our PapaThemes Widgets app.
 
 
 ## Category & Brand Pages

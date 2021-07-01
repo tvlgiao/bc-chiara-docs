@@ -4,6 +4,19 @@
     If you encounter any issues, please <a href="https://papathemes.com/contact-us/">report to us</a>. You can always <a href="https://support.bigcommerce.com/s/article/Marketplace-Theme-Updates#restore">restore the ealier theme version</a>, check this <a href="https://youtu.be/eZdmudDUrQE">video</a> for instruction.
 </div>
 
+
+## 1.12.0 (07-01-2021)
+- Fix dimensions titles displayed on mobile not follow theme settings
+- Fix sale badge on product carousel not change color on hover
+- Fix reCaptcha position not show correct on the checkout page
+- Fix spacing at the bottom of page if enable PhotoSwipe
+- Fix herocarousel boxed style
+- Add option to disable remote banner
+- Fix MPN not update when selecting product options
+- Fix "# block" typo
+- Optimize PDP: only load zoom image on active slide
+
+
 ## 1.11.1 (05-06-2021)
 - [CORNERSTONE] BCTHEME-445 replace page builder ssl settings with new global region for html widget
 - [CORNERSTONE] fixed email address validation in forms. [#2029](https://github.com/bigcommerce/cornerstone/pull/2029)

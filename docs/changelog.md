@@ -4,6 +4,13 @@
     If you encounter any issues, please <a href="https://papathemes.com/contact-us/">report to us</a>. You can always <a href="https://support.bigcommerce.com/s/article/Marketplace-Theme-Updates#restore">restore the ealier theme version</a>, check this <a href="https://youtu.be/eZdmudDUrQE">video</a> for instruction.
 </div>
 
+## 2.0.0 (08-26-2021)
+- Fix dropdown color in themed checkout page
+- Add theme option "Enable widget regions in mega menus" to allow adding widgets to the mega menu.
+- Fix sweetalert button focus color
+- Fix credit card form on checkout page when checkout_theme is enabled
+- Fix star, sash badge position
+- Discount 25%
 
 ## 1.12.0 (07-01-2021)
 - Fix dimensions titles displayed on mobile not follow theme settings

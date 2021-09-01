@@ -3327,3 +3327,53 @@ Enter the script below to **Scripts contents**:
 })();
 </script>
 ```
+
+
+
+## Insert Google Translator to the header next to the currency select box
+
+Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
+
+- **Location on page** = `Footer`
+- **Select pages where script will be added** = `All Pages`
+- **Script type** = `Script`
+
+Enter the script below to **Scripts contents**:
+
+```html
+<script>
+    function googleTranslateElementInit() {
+    new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'ar,es,fr,id,de,th,pt,ru,zh-CN,zh-TW', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+    }
+    (function() {
+        var currency1 = document.querySelector('.header-top-item--currency');
+        var li1 = document.createElement('li');
+        li1.setAttribute('class', 'header-top-item header-top-item--translate');
+        currency1.parentNode.insertBefore(li1, currency1.nextSibling);
+
+        var currency2 = document.querySelector('.navPages-list--user').children[0];
+        var li2 = document.createElement('li');
+        li2.setAttribute('class', 'navPages-item navPages-item--translate');
+        currency2.parentNode.insertBefore(li2, currency2);
+
+        var div = document.createElement('div');
+        div.id = 'google_translate_element';
+
+        var script = document.createElement('script');
+        script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+        document.body.appendChild(script);
+
+        var cb = function() {
+            if (m.matches)  {
+                li1.appendChild(div);
+            } else {
+                li2.appendChild(div);
+            }
+        };
+
+        var m = window.matchMedia('(min-width: 801px)');
+        m.addListener(cb);
+        cb();
+    })();
+</script>
+```

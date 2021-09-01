@@ -263,6 +263,8 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#display-paypal-checkout-button-on-the-checkout-page">Display PayPal checkout button on the checkout page</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#insert-google-translator-to-the-header-next-to-the-currency-select-box">Insert Google Translator to the header next to the currency select box</a>
+    </li>
     </ul>
                     </li>
                 </ul>
@@ -3091,6 +3093,50 @@ style.innerHTML = '.productView-details { display: flex; flex-direction: column 
         + '}';
     document.head.appendChild(style);
 })();
+&lt;/script&gt;
+</code></pre>
+<h2 id="insert-google-translator-to-the-header-next-to-the-currency-select-box">Insert Google Translator to the header next to the currency select box<a class="headerlink" href="#insert-google-translator-to-the-header-next-to-the-currency-select-box" title="Permanent link">&para;</a></h2>
+<p>Go to <strong>Storefront</strong> &gt; <strong>Script Manager</strong>, click <strong>Create a Script</strong>, choose:</p>
+<ul>
+<li><strong>Location on page</strong> = <code>Footer</code></li>
+<li><strong>Select pages where script will be added</strong> = <code>All Pages</code></li>
+<li><strong>Script type</strong> = <code>Script</code></li>
+</ul>
+<p>Enter the script below to <strong>Scripts contents</strong>:</p>
+<pre><code class="language-html">&lt;script&gt;
+    function googleTranslateElementInit() {
+    new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'ar,es,fr,id,de,th,pt,ru,zh-CN,zh-TW', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+    }
+    (function() {
+        var currency1 = document.querySelector('.header-top-item--currency');
+        var li1 = document.createElement('li');
+        li1.setAttribute('class', 'header-top-item header-top-item--translate');
+        currency1.parentNode.insertBefore(li1, currency1.nextSibling);
+
+        var currency2 = document.querySelector('.navPages-list--user').children[0];
+        var li2 = document.createElement('li');
+        li2.setAttribute('class', 'navPages-item navPages-item--translate');
+        currency2.parentNode.insertBefore(li2, currency2);
+
+        var div = document.createElement('div');
+        div.id = 'google_translate_element';
+
+        var script = document.createElement('script');
+        script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+        document.body.appendChild(script);
+
+        var cb = function() {
+            if (m.matches)  {
+                li1.appendChild(div);
+            } else {
+                li2.appendChild(div);
+            }
+        };
+
+        var m = window.matchMedia('(min-width: 801px)');
+        m.addListener(cb);
+        cb();
+    })();
 &lt;/script&gt;
 </code></pre>
               

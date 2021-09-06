@@ -3374,6 +3374,14 @@ Enter the script below to **Scripts contents**:
         var m = window.matchMedia('(min-width: 801px)');
         m.addListener(cb);
         cb();
+
+        var style = document.createElement('style');
+        style.innerHTML = '@media (max-width: 800px) {'
+        + 'body { top: 0 !important }'
+        + '.skiptranslate { width: 100% }'
+        + '.goog-te-banner-frame { position: static !important; z-index: 0 !important }'
+        + '}';
+        document.head.appendChild(style);
     })();
 </script>
 ```

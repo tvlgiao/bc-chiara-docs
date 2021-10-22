@@ -4,6 +4,14 @@
     If you encounter any issues, please <a href="https://papathemes.com/contact-us/">report to us</a>. You can always <a href="https://support.bigcommerce.com/s/article/Marketplace-Theme-Updates#restore">restore the ealier theme version</a>, check this <a href="https://youtu.be/eZdmudDUrQE">video</a> for instruction.
 </div>
 
+## 2.0.2 (10-22-2021)
+- Fix MPN not change when not show properties tab
+- Fix currency dropdown display incorrect when logo position = top
+- Add try/catch for setProductVariant()
+
+## 2.0.1 (09-09-2021)
+- End discount program.
+
 ## 2.0.0 (08-26-2021)
 - Fix dropdown color in themed checkout page
 - Add theme option "Enable widget regions in mega menus" to allow adding widgets to the mega menu.

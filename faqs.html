@@ -264,6 +264,8 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#insert-google-translator-to-the-header-next-to-the-currency-select-box">Insert Google Translator to the header next to the currency select box</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#disable-the-search-input-box-of-the-swatches-dropdown-in-pdp">Disable the search input box of the swatches dropdown in PDP</a>
+    </li>
     </ul>
                     </li>
                 </ul>
@@ -3145,6 +3147,20 @@ style.innerHTML = '.productView-details { display: flex; flex-direction: column 
         + '}';
         document.head.appendChild(style);
     })();
+&lt;/script&gt;
+</code></pre>
+<h2 id="disable-the-search-input-box-of-the-swatches-dropdown-in-pdp">Disable the search input box of the swatches dropdown in PDP<a class="headerlink" href="#disable-the-search-input-box-of-the-swatches-dropdown-in-pdp" title="Permanent link">&para;</a></h2>
+<p>Go to <strong>Storefront</strong> &gt; <strong>Script Manager</strong>, click <strong>Create a Script</strong>, choose:</p>
+<ul>
+<li><strong>Location on page</strong> = <code>Footer</code></li>
+<li><strong>Select pages where script will be added</strong> = <code>Store Pages</code></li>
+<li><strong>Script type</strong> = <code>Script</code></li>
+</ul>
+<p>Enter the script below to <strong>Scripts contents</strong>:</p>
+<pre><code class="language-html">&lt;script&gt;
+    if (!window.chiaraSettings) window.chiaraSettings = {};
+    if (!window.chiaraSettings.dropdownSwatchesOptions) window.chiaraSettings.dropdownSwatchesOptions = {};
+    window.chiaraSettings.dropdownSwatchesOptions.disableSearchInput = true;
 &lt;/script&gt;
 </code></pre>
               

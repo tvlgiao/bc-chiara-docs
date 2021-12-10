@@ -4,6 +4,12 @@
     If you encounter any issues, please <a href="https://papathemes.com/contact-us/">report to us</a>. You can always <a href="https://support.bigcommerce.com/s/article/Marketplace-Theme-Updates#restore">restore the ealier theme version</a>, check this <a href="https://youtu.be/eZdmudDUrQE">video</a> for instruction.
 </div>
 
+## 2.0.3 (12-10-2021)
+- Fix Google Structured Data schema for product reviews - Invalid object type for field "author".
+- Fix cart items not show on thank you page
+- Add js option "disableSearchInput"
+- Fix ESLint
+
 ## 2.0.2 (10-22-2021)
 - Fix MPN not change when not show properties tab
 - Fix currency dropdown display incorrect when logo position = top

@@ -3386,3 +3386,22 @@ Enter the script below to **Scripts contents**:
 </script>
 ```
 
+
+## Disable the search input box of the swatches dropdown in PDP
+
+
+Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
+
+- **Location on page** = `Footer`
+- **Select pages where script will be added** = `Store Pages`
+- **Script type** = `Script`
+
+Enter the script below to **Scripts contents**:
+
+```html
+<script>
+    if (!window.chiaraSettings) window.chiaraSettings = {};
+    if (!window.chiaraSettings.dropdownSwatchesOptions) window.chiaraSettings.dropdownSwatchesOptions = {};
+    window.chiaraSettings.dropdownSwatchesOptions.disableSearchInput = true;
+</script>
+```

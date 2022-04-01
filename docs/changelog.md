@@ -4,6 +4,16 @@
     If you encounter any issues, please <a href="https://papathemes.com/contact-us/">report to us</a>. You can always <a href="https://support.bigcommerce.com/s/article/Marketplace-Theme-Updates#restore">restore the ealier theme version</a>, check this <a href="https://youtu.be/eZdmudDUrQE">video</a> for instruction.
 </div>
 
+## 2.1.0 (04-01-2022)
+- Fix to make browser back button navigate pagination properly when faceted search is enabled [#1606](https://github.com/bigcommerce/cornerstone/pull/1606)
+- Add related products limit to 3 option
+- Added new region on the cart page [#1901](https://github.com/bigcommerce/cornerstone/pull/1901)
+- Added custom event for product price change on PDP page. [#1948](https://github.com/bigcommerce/cornerstone/pull/1948)
+- PAYPAL-886 added container setting for spb container. [#2041](https://github.com/bigcommerce/cornerstone/pull/2041)
+- Workaround for PayPal Pay Later Message setting doesn't show Product price section
+- Remove Instafeed.
+- Move quick search popup above the header bottom region
+
 ## 2.0.3 (12-10-2021)
 - Fix Google Structured Data schema for product reviews - Invalid object type for field "author".
 - Fix cart items not show on thank you page

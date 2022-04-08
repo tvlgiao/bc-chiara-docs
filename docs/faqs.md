@@ -3405,3 +3405,46 @@ Enter the script below to **Scripts contents**:
     window.chiaraSettings.dropdownSwatchesOptions.disableSearchInput = true;
 </script>
 ```
+
+## Add accordion HTML to product description
+
+
+Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
+
+- **Location on page** = `Head`
+- **Select pages where script will be added** = `Store Pages`
+- **Script type** = `Script`
+
+Enter the script below to **Scripts contents**:
+
+```html
+<script>
+    (function() {
+        var style = document.createElement('style');
+        style.innerHTML = '.my__collapsible-toggle { display: block; position: relative; cursor: pointer; padding: 15px 50px 15px 20px; background-color: #eee; margin-top: 1px; color: inherit; text-decoration: none; font-weight: 700 }'
+            + '.my__collapsible-toggle:after { content: "+"; position: absolute; right: 20px }'
+            + '.my__collapsible-toggle.is-open { background-color: #ccc; }'
+            + '.my__collapsible-toggle.is-open:after { content: "-" }'
+            + '.my__collapsible-toggle:hover { background-color: #ccc; }'
+            + '.my__collapsible-content { padding: 15px 20px; margin-bottom: 20px }'
+            + '.my__collapsible-content:not(.is-open) { display: none }'
+            + '';
+        document.head.appendChild(style);
+    })();
+</script>
+```
+
+Edit your product description. In the description editor, open **HTML Source Editor**, enter the example HTML below:
+
+```html
+<a class="my__collapsible-toggle" data-collapsible="collapse1">Heading</a>
+<div class="my__collapsible-content" id="collapse1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel libero facere porro sed et, suscipit minus, qui, tempore officia reiciendis quia at reprehenderit sint odit ipsa rem aperiam. Libero, praesentium.</div>
+<a class="my__collapsible-toggle" data-collapsible="collapse2">Heading</a>
+<div class="my__collapsible-content" id="collapse2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel libero facere porro sed et, suscipit minus, qui, tempore officia reiciendis quia at reprehenderit sint odit ipsa rem aperiam. Libero, praesentium.</div>
+```
+
+Change `collapse1` and `collapse2` with a word that is unique on the current page.
+
+
+
+

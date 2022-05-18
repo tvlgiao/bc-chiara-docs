@@ -1824,14 +1824,13 @@ Enter the script below to **Scripts contents**:
 
 ```html
 <script>
-    (function($) {
-        var $img = $('.header-logo-image, .footer-logo-image');
-        if ($img.length > 0) {
-            var src = $img.attr('src');
+    (function() {
+        document.querySelectorAll('.header-logo-image, .footer-logo-image').forEach(function(img) {
+            var src = img.getAttribute('data-src') || img.src;
             var s = src.replace(/stencil\/[^\/]+\//, 'stencil/***/');
-            $img.attr('srcset', src + ' 1x, ' + s.replace('***', '640w') + ' 2x');
-        }
-    })(window.chiarajQuery || window.jQuery);
+            img.srcset = src + ' 1x, ' + s.replace('***', '640w') + ' 2x';
+        });
+    })();
 </script>
 ```
 
@@ -3446,5 +3445,83 @@ Edit your product description. In the description editor, open **HTML Source Edi
 Change `collapse1` and `collapse2` with a word that is unique on the current page.
 
 
+
+## Display Size Guide / Color Guide next to the product option label
+
+Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
+
+- **Location on page** = `Footer`
+- **Select pages where script will be added** = `Store Pages`
+- **Script type** = `Script`
+
+```html
+<script>
+(function($) {
+    var $labels = $('.productView [data-also-bought-parent-scope] [data-product-option-change] > .form-field > .form-label:first-child');
+    console.log($labels);
+
+    var css = document.createElement('link');
+    css.rel = 'stylesheet';
+    css.href = 'https://cdn.jsdelivr.net/npm/simple-lightbox@2.1.0/dist/simpleLightbox.min.css';
+    document.head.appendChild(css);
+
+    var js = document.createElement('script');
+    js.src = 'https://cdn.jsdelivr.net/npm/simple-lightbox@2.1.0/dist/simpleLightbox.min.js';
+    document.head.appendChild(js);
+
+    var style = document.createElement('style');
+    style.innerHTML = '.chiara-slb-body { background: #fff}';
+    document.head.appendChild(js);
+
+
+    function onClick(event) {
+        event.preventDefault();
+        $.ajax({
+            url: $(event.target).attr('href'),
+            success: function(res) {
+                var content = '<div class="chiara-slb-body">' + $(res).find('.page-content').html() + '</div>';
+                SimpleLightbox.open({
+                    content: content
+                });
+            }
+        });
+    }
+
+    $('.productView-info-name[class*=productView-info-name--cfModal]').each(function(i, el) {
+       console.log(el);
+       var $el = $(el);
+       var m = $el.text().match(/Modal__(.+)__(.+):/i);
+       if (m) {
+           var name = m[1];
+           var text = m[2];
+           var link = $el.next().text();
+           console.log(name, text, link);
+
+            $labels.each(function(i, labelEl) {
+                var $label = $(labelEl);
+                var label = $label.text().trim().replace(/(.+):[\s\S]*\*?/um, '$1');
+                if (label === name) {
+                    var $a = $(document.createElement('a'))
+                        .attr('href', link)
+                        .addClass('productView-option-guide')
+                        .text(text)
+                        .on('click', onClick);
+
+                    $label.append($a);
+                }
+            });
+       }
+    });
+})(window.chiarajQuery || window.jQuery);
+</script>
+```
+
+Create a product custom field:
+- **Name** = `__Modal__NAME__TEXT`
+- **Value** = URL of a web page
+
+`NAME` is your product option name, such as `Size`. `TEXT` is the tooltip label to display, such as `Size Guide`, the custom field name is `__Modal__Size__Size Guide`.
+
+Create a web page containing the content of the tooltip popup.
 
 

@@ -268,6 +268,8 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#add-accordion-html-to-product-description">Add accordion HTML to product description</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#display-size-guide-color-guide-next-to-the-product-option-label">Display Size Guide / Color Guide next to the product option label</a>
+    </li>
     </ul>
                     </li>
                 </ul>
@@ -1810,14 +1812,13 @@ By the code below:
 </ul>
 <p>Enter the script below to <strong>Scripts contents</strong>: </p>
 <pre><code class="language-html">&lt;script&gt;
-    (function($) {
-        var $img = $('.header-logo-image, .footer-logo-image');
-        if ($img.length &gt; 0) {
-            var src = $img.attr('src');
+    (function() {
+        document.querySelectorAll('.header-logo-image, .footer-logo-image').forEach(function(img) {
+            var src = img.getAttribute('data-src') || img.src;
             var s = src.replace(/stencil\/[^\/]+\//, 'stencil/***/');
-            $img.attr('srcset', src + ' 1x, ' + s.replace('***', '640w') + ' 2x');
-        }
-    })(window.chiarajQuery || window.jQuery);
+            img.srcset = src + ' 1x, ' + s.replace('***', '640w') + ' 2x';
+        });
+    })();
 &lt;/script&gt;
 </code></pre>
 <p>Go to <strong>Storefront</strong> &gt; <strong>Script Manager</strong>, click <strong>Create a Script</strong>, choose:</p>
@@ -3195,6 +3196,78 @@ style.innerHTML = '.productView-details { display: flex; flex-direction: column 
 &lt;div class=&quot;my__collapsible-content&quot; id=&quot;collapse2&quot;&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel libero facere porro sed et, suscipit minus, qui, tempore officia reiciendis quia at reprehenderit sint odit ipsa rem aperiam. Libero, praesentium.&lt;/div&gt;
 </code></pre>
 <p>Change <code>collapse1</code> and <code>collapse2</code> with a word that is unique on the current page.</p>
+<h2 id="display-size-guide-color-guide-next-to-the-product-option-label">Display Size Guide / Color Guide next to the product option label<a class="headerlink" href="#display-size-guide-color-guide-next-to-the-product-option-label" title="Permanent link">&para;</a></h2>
+<p>Go to <strong>Storefront</strong> &gt; <strong>Script Manager</strong>, click <strong>Create a Script</strong>, choose:</p>
+<ul>
+<li><strong>Location on page</strong> = <code>Footer</code></li>
+<li><strong>Select pages where script will be added</strong> = <code>Store Pages</code></li>
+<li><strong>Script type</strong> = <code>Script</code></li>
+</ul>
+<pre><code class="language-html">&lt;script&gt;
+(function($) {
+    var $labels = $('.productView [data-also-bought-parent-scope] [data-product-option-change] &gt; .form-field &gt; .form-label:first-child');
+    console.log($labels);
+
+    var css = document.createElement('link');
+    css.rel = 'stylesheet';
+    css.href = 'https://cdn.jsdelivr.net/npm/simple-lightbox@2.1.0/dist/simpleLightbox.min.css';
+    document.head.appendChild(css);
+
+    var js = document.createElement('script');
+    js.src = 'https://cdn.jsdelivr.net/npm/simple-lightbox@2.1.0/dist/simpleLightbox.min.js';
+    document.head.appendChild(js);
+
+    var style = document.createElement('style');
+    style.innerHTML = '.chiara-slb-body { background: #fff}';
+    document.head.appendChild(js);
+
+
+    function onClick(event) {
+        event.preventDefault();
+        $.ajax({
+            url: $(event.target).attr('href'),
+            success: function(res) {
+                var content = '&lt;div class=&quot;chiara-slb-body&quot;&gt;' + $(res).find('.page-content').html() + '&lt;/div&gt;';
+                SimpleLightbox.open({
+                    content: content
+                });
+            }
+        });
+    }
+
+    $('.productView-info-name[class*=productView-info-name--cfModal]').each(function(i, el) {
+       console.log(el);
+       var $el = $(el);
+       var m = $el.text().match(/Modal__(.+)__(.+):/i);
+       if (m) {
+           var name = m[1];
+           var text = m[2];
+           var link = $el.next().text();
+           console.log(name, text, link);
+
+            $labels.each(function(i, labelEl) {
+                var $label = $(labelEl);
+                var label = $label.text().trim().replace(/(.+):[\s\S]*\*?/um, '$1');
+                if (label === name) {
+                    var $a = $(document.createElement('a'))
+                        .attr('href', link)
+                        .addClass('productView-option-guide')
+                        .text(text)
+                        .on('click', onClick);
+
+                    $label.append($a);
+                }
+            });
+       }
+    });
+})(window.chiarajQuery || window.jQuery);
+&lt;/script&gt;
+</code></pre>
+<p>Create a product custom field:
+- <strong>Name</strong> = <code>__Modal__NAME__TEXT</code>
+- <strong>Value</strong> = URL of a web page</p>
+<p><code>NAME</code> is your product option name, such as <code>Size</code>. <code>TEXT</code> is the tooltip label to display, such as <code>Size Guide</code>, the custom field name is <code>__Modal__Size__Size Guide</code>.</p>
+<p>Create a web page containing the content of the tooltip popup.</p>
               
             </div>
           </div>

@@ -165,3 +165,40 @@ Edit the limit price in line: `var PRICE_LIMIT = 150;`
 </script>
 ```
 
+
+## Display social sharing icons under add to cart button
+
+Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
+
+- **Location on page** = `Footer`
+- **Select pages where script will be added** = `Store Pages`
+- **Script type** = `Script`
+
+Enter the script below to **Scripts contents**:
+
+```html
+<script>
+    (function() {
+        function debounce(n,t,u){var e;return function(){var i=this,o=arguments,a=u&&!e;clearTimeout(e),e=setTimeout(function(){e=null,u||n.apply(i,o)},t),a&&n.apply(i,o)}}
+
+        function main() {
+            var els = document.querySelectorAll('.productView:not(._socialIconsMod)');
+            for (var i = 0; i < els.length; i++) {
+                var el = els[i];
+                var addthis = el.querySelector('.addthis_toolbox');
+                var form = el.querySelector('.form--addToCart');
+
+                el.classList.add('_socialIconsMod');
+                addthis.classList.add('_socialIconsMod');
+                addthis.style = 'margin-top: 1.5rem';
+                form.parentNode.appendChild(addthis);
+                el.querySelector('.productView-share').style = 'display:none';
+            }
+        }
+
+        var mo = new MutationObserver(debounce(main, 300))
+        mo.observe(document.body, { childList: true, subtree: true });
+        main();
+    })();
+</script>
+```

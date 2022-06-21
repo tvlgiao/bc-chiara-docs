@@ -269,6 +269,39 @@
 })();
 &lt;/script&gt;
 </code></pre>
+<h2 id="display-social-sharing-icons-under-add-to-cart-button">Display social sharing icons under add to cart button<a class="headerlink" href="#display-social-sharing-icons-under-add-to-cart-button" title="Permanent link">&para;</a></h2>
+<p>Go to <strong>Storefront</strong> &gt; <strong>Script Manager</strong>, click <strong>Create a Script</strong>, choose:</p>
+<ul>
+<li><strong>Location on page</strong> = <code>Footer</code></li>
+<li><strong>Select pages where script will be added</strong> = <code>Store Pages</code></li>
+<li><strong>Script type</strong> = <code>Script</code></li>
+</ul>
+<p>Enter the script below to <strong>Scripts contents</strong>:</p>
+<pre><code class="language-html">&lt;script&gt;
+    (function() {
+        function debounce(n,t,u){var e;return function(){var i=this,o=arguments,a=u&amp;&amp;!e;clearTimeout(e),e=setTimeout(function(){e=null,u||n.apply(i,o)},t),a&amp;&amp;n.apply(i,o)}}
+
+        function main() {
+            var els = document.querySelectorAll('.productView:not(._socialIconsMod)');
+            for (var i = 0; i &lt; els.length; i++) {
+                var el = els[i];
+                var addthis = el.querySelector('.addthis_toolbox');
+                var form = el.querySelector('.form--addToCart');
+
+                el.classList.add('_socialIconsMod');
+                addthis.classList.add('_socialIconsMod');
+                addthis.style = 'margin-top: 1.5rem';
+                form.parentNode.appendChild(addthis);
+                el.querySelector('.productView-share').style = 'display:none';
+            }
+        }
+
+        var mo = new MutationObserver(debounce(main, 300))
+        mo.observe(document.body, { childList: true, subtree: true });
+        main();
+    })();
+&lt;/script&gt;
+</code></pre>
               
             </div>
           </div>

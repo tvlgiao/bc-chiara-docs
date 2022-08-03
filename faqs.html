@@ -270,6 +270,8 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#display-size-guide-color-guide-next-to-the-product-option-label">Display Size Guide / Color Guide next to the product option label</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#add-read-more-button-on-the-category-description-and-brand-description">Add Read More button on the category description and brand description</a>
+    </li>
     </ul>
                     </li>
                 </ul>
@@ -3268,6 +3270,45 @@ style.innerHTML = '.productView-details { display: flex; flex-direction: column 
 - <strong>Value</strong> = URL of a web page</p>
 <p><code>NAME</code> is your product option name, such as <code>Size</code>. <code>TEXT</code> is the tooltip label to display, such as <code>Size Guide</code>, the custom field name is <code>__Modal__Size__Size Guide</code>.</p>
 <p>Create a web page containing the content of the tooltip popup.</p>
+<h2 id="add-read-more-button-on-the-category-description-and-brand-description">Add Read More button on the category description and brand description<a class="headerlink" href="#add-read-more-button-on-the-category-description-and-brand-description" title="Permanent link">&para;</a></h2>
+<p>Go to <strong>Storefront</strong> &gt; <strong>Script Manager</strong>, click <strong>Create a Script</strong>, choose:</p>
+<ul>
+<li><strong>Location on page</strong> = <code>Footer</code></li>
+<li><strong>Select pages where script will be added</strong> = <code>Store Pages</code></li>
+<li><strong>Script type</strong> = <code>Script</code></li>
+</ul>
+<p>Enter the script below to Scripts contents:</p>
+<pre><code class="language-html">&lt;script&gt;
+(function($) {
+    function main() {
+        var $content = $('.chiara-category-description, .chiara-brand-description');
+        if ($content.length === 0) {
+            return;
+        }
+        if ($content.is('[data-emthemesmodez-mobile-collapse-content]')) {
+            return;
+        }
+
+        $content.addClass('emthemesModez-mobile-collapse-content')
+                .attr('data-emthemesmodez-mobile-collapse-content', true);
+        var $container = $('&lt;div class=&quot;dts-more-container&quot; data-emthemesmodez-mobile-collapse&gt;&lt;/div&gt;')
+                .insertBefore($content)
+                .append($content);
+        var $toggler = $('&lt;a href=&quot;#&quot; class=&quot;emthemesModez-mobile-collapse-handle&quot; data-emthemesmodez-mobile-collapse-handle=&quot;&quot;&gt;&lt;span class=&quot;on&quot;&gt;Read More&lt;/span&gt;&lt;span class=&quot;off&quot;&gt;Close&lt;/span&gt;&lt;/a&gt;')
+                .appendTo($container);
+        var $style = $('&lt;style&gt;'
+            + '.dts-more-container { margin-bottom: 1.5rem }'
+            + '.dts-more-container .emthemesModez-mobile-collapse-content { max-height: 150px; overflow: hidden }'
+            + '.dts-more-container .emthemesModez-mobile-collapse-content.is-active { max-height: none; overflow: visible; overflow-y: auto }'
+            + '.dts-more-container .emthemesModez-mobile-collapse-handle { display: flex; align-items: flex-end; justify-content: center; height: 80px; background-size: contain }'
+            + '.dts-more-container .emthemesModez-mobile-collapse-handle &gt; * { height: 35px; line-height: 35px; padding: 0 1.5rem; margin: 0 }'
+            + '&lt;/style&gt;')
+            .appendTo('head');
+    }
+    main();
+})(window.chiarajQuery || window.jQuery);
+&lt;/script&gt;
+</code></pre>
               
             </div>
           </div>

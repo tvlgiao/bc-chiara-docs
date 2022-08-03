@@ -3525,3 +3525,46 @@ Create a product custom field:
 Create a web page containing the content of the tooltip popup.
 
 
+## Add Read More button on the category description and brand description
+
+Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
+
+- **Location on page** = `Footer`
+- **Select pages where script will be added** = `Store Pages`
+- **Script type** = `Script`
+  
+  Enter the script below to Scripts contents:
+
+```html
+<script>
+(function($) {
+    function main() {
+        var $content = $('.chiara-category-description, .chiara-brand-description');
+        if ($content.length === 0) {
+            return;
+        }
+        if ($content.is('[data-emthemesmodez-mobile-collapse-content]')) {
+            return;
+        }
+
+        $content.addClass('emthemesModez-mobile-collapse-content')
+                .attr('data-emthemesmodez-mobile-collapse-content', true);
+        var $container = $('<div class="dts-more-container" data-emthemesmodez-mobile-collapse></div>')
+                .insertBefore($content)
+                .append($content);
+        var $toggler = $('<a href="#" class="emthemesModez-mobile-collapse-handle" data-emthemesmodez-mobile-collapse-handle=""><span class="on">Read More</span><span class="off">Close</span></a>')
+                .appendTo($container);
+        var $style = $('<style>'
+            + '.dts-more-container { margin-bottom: 1.5rem }'
+            + '.dts-more-container .emthemesModez-mobile-collapse-content { max-height: 150px; overflow: hidden }'
+            + '.dts-more-container .emthemesModez-mobile-collapse-content.is-active { max-height: none; overflow: visible; overflow-y: auto }'
+            + '.dts-more-container .emthemesModez-mobile-collapse-handle { display: flex; align-items: flex-end; justify-content: center; height: 80px; background-size: contain }'
+            + '.dts-more-container .emthemesModez-mobile-collapse-handle > * { height: 35px; line-height: 35px; padding: 0 1.5rem; margin: 0 }'
+            + '</style>')
+            .appendTo('head');
+    }
+    main();
+})(window.chiarajQuery || window.jQuery);
+</script>
+```
+

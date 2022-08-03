@@ -4,6 +4,9 @@
     If you encounter any issues, please <a href="https://papathemes.com/contact-us/">report to us</a>. You can always <a href="https://support.bigcommerce.com/s/article/Marketplace-Theme-Updates#restore">restore the ealier theme version</a>, check this <a href="https://youtu.be/eZdmudDUrQE">video</a> for instruction.
 </div>
 
+## 2.1.2 (06-11-2022)
+- Fix AMP errors when the menu contains widgets
+
 ## 2.1.1 (04-04-2022)
 - Bump @bigcommerce/stencil-utis 6.11.0
 - [CORNERSTONE] fix(storefront): STRF-8599 Drop Jquery: Replaced event's current target to the element passed from utils(on hook)

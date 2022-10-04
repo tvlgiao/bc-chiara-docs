@@ -3202,6 +3202,118 @@ Enter the script below to **Scripts contents**:
 ```
 
 
+## Display both Filter button and Sort button inline
+
+![display-filter-sort-buttons-inline](img/display-filter-sort-buttons-inline.jpg)
+
+Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
+
+- **Location on page** = `Header`
+- **Select pages where script will be added** = `Store Pages`
+- **Script type** = `Script`
+
+Enter the script below to **Scripts contents**:
+
+```html
+<script type="text/plain" id="custom_css_e8b9b9fe">
+    @media (max-width: 800px) {
+        .mobileSidebar-toggle ~ .page-content .product-listing-container {
+            padding-top: 50px;
+        }
+
+        ._filterButtonAdded .mobileSidebar-toggle ~ .page-content .product-listing-container {
+            padding-top: 0;
+        }
+
+        ._filterButtonAdded .mobileSidebar-toggle,
+        ._filterButtonAdded .mobileSortBy-toggle {
+            display: none;
+        }
+
+        .PE__filterButton,
+        .PE__sortButton {
+            margin: 0 0.5rem 0 0;
+            height: 40px;
+            border: 1px solid #000;
+            border-radius: 4px;
+            width: calc(50% - 0.5rem);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            font-weight: 700;
+            text-align: left;
+            padding: 0 1rem 0 1.5rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .PE__sortButton {
+            margin: 0 0 0 0.5rem;
+        }
+        .PE__filterButton:hover,
+        .PE__filterButton:focus,
+        .PE__sortButton:hover,
+        .PE__sortButton:focus {
+            background-color: #000;
+            color: #fff;
+        }
+
+        .PE__filterButton:hover:after,
+        .PE__filterButton:focus:after,
+        .PE__sortButton:hover:after,
+        .PE__sortButton:focus:after {
+            filter: brightness(1);
+            -webkit-filter: brightness(1);
+        }
+
+        .PE__filterButton:after,
+        .PE__sortButton:after {
+            content: '';
+            display: block;
+            width: 20px;
+            height: 20px;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11.29,16.71a1,1,0,0,0,1.41,0l8-8a1,1,0,0,0-1.41-1.41L12,14.59,4.71,7.29A1,1,0,0,0,3.29,8.71Z' fill='white'/%3E%3C/svg%3E");
+            filter: brightness(0);
+            -webkit-filter: brightness(0);
+            background-size: contain;
+        }
+    }
+    @media (min-width: 801px) {
+        .PE__filterButton,
+        .PE__sortButton {
+            display: none;
+        }
+    }
+</script>
+<script>
+    (function() {
+    var style = document.createElement('style');
+        style.innerHTML = document.getElementById('custom_css_e8b9b9fe').innerHTML;
+        document.head.appendChild(style);
+
+        window.addEventListener('DOMContentLoaded', function() {
+            var button = document.createElement('button');
+            button.innerHTML = 'Filter';
+            button.classList.add('PE__filterButton');
+            button.addEventListener('click', function(event) {
+                document.querySelector('.mobileSidebar-toggle').click();
+            });
+
+            var sortBtn = document.createElement('button');
+            sortBtn.innerHTML = 'Sort';
+            sortBtn.classList.add('PE__sortButton');
+            sortBtn.addEventListener('click', function(event) {
+                document.querySelector('.mobileSortBy-toggle').click();
+            });
+
+            var listEl = document.querySelector('#product-listing-container');
+            listEl.parentElement.insertBefore(button, listEl);
+            listEl.parentElement.insertBefore(sortBtn, listEl);
+
+            document.body.classList.add('_filterButtonAdded');
+        });
+    })();
+</script>
+```
 
 ## Display title of the selected swatch option on PDP
 

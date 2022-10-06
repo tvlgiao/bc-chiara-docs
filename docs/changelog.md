@@ -4,6 +4,16 @@
     If you encounter any issues, please <a href="https://papathemes.com/contact-us/">report to us</a>. You can always <a href="https://support.bigcommerce.com/s/article/Marketplace-Theme-Updates#restore">restore the ealier theme version</a>, check this <a href="https://youtu.be/eZdmudDUrQE">video</a> for instruction.
 </div>
 
+## 2.2.0 (10-06-2022)
+- Fix sub-categories not display in Faceted Filter
+- Fix reviews pagination button not working if click on the icon
+- Fix bundle error on stencil-cli 3.13.0
+- Fix scss compatibility for stencil-cli 5.1.0
+- Loading YouTube videos with browser native lazyload
+- Fix Merchant Listings - itemCondition schema
+- Change schema.org from http to https
+- Display YouTube video iframe with browser native lazyload
+
 ## 2.1.2 (06-11-2022)
 - Fix AMP errors when the menu contains widgets
 

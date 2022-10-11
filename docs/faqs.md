@@ -1097,6 +1097,29 @@ Enter the script below to **Scripts contents**:
 </script>
 ```
 
+## Display Stripe payment icon
+
+Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
+
+- **Location on page** = `Footer`
+- **Select pages where script will be added** = `All Pages`
+- **Script type** = `Script`
+
+Enter the script below to **Scripts contents**: 
+
+```html
+<script>
+(function() {
+    var img = document.createElement('img');
+    img.src = 'https://cdn11.bigcommerce.com/s-c14n6tful3/content/icons/stripe.svg?t=1';
+    img.alt = 'Stripe';
+    img.classList.add('footer-payment-icon');
+    img.style = 'width: 90px';
+    var el = document.querySelector('.footer-payment-icons');
+    el.appendChild(img);
+})();
+</script>
+```
 
 ## Show the related products when Frequently Bought Together is enabled
 

@@ -4,6 +4,11 @@
     If you encounter any issues, please <a href="https://papathemes.com/contact-us/">report to us</a>. You can always <a href="https://support.bigcommerce.com/s/article/Marketplace-Theme-Updates#restore">restore the ealier theme version</a>, check this <a href="https://youtu.be/eZdmudDUrQE">video</a> for instruction.
 </div>
 
+## 2.2.2 (01-13-2023)
+- Fix additional checkout buttons (PayPal) on preview cart
+- Remove AMP support
+
+
 ## 2.2.1 (10-21-2022)
 - Disable schema in Frequently Bought Together block
 - Fix missing image schema, gtin, description in AMP page

@@ -4,6 +4,13 @@
     If you encounter any issues, please <a href="https://papathemes.com/contact-us/">report to us</a>. You can always <a href="https://support.bigcommerce.com/s/article/Marketplace-Theme-Updates#restore">restore the ealier theme version</a>, check this <a href="https://youtu.be/eZdmudDUrQE">video</a> for instruction.
 </div>
 
+## 2.3.0 (03-09-2023)
+- Fix image distort on Safari iOS 16.3.1
+- Update stencil-utils 6.15.0
+- [CORNERSTONE] Added translations for Consent Manager. [#2083](https://github.com/bigcommerce/cornerstone/pull/2083)
+- [CORNERSTONE] Added manual captcha to Contact Us form for additional spam protection. [#2290](https://github.com/bigcommerce/cornerstone/pull/2290)
+
+
 ## 2.2.2 (01-13-2023)
 - Fix additional checkout buttons (PayPal) on preview cart
 - Remove AMP support

@@ -2380,6 +2380,21 @@ Enter the script below to **Scripts contents**:
 </script>
 ```
 
+**New solution:**
+
+```html
+<script>
+    (function() {
+        var style = document.createElement('style');
+        style.innerHTML = '@media (max-width: 800px) {'
+        	+ '.productView-options:not(:has(.alertBox--error)):not(:has([data-product-option-change] > *)) {padding: 0; margin: 0 }'
+			+ '.productView-options:not(:has(.alertBox--error)):not(:has([data-product-option-change] > *)) .productView-options-panel-heading { display: none }'
+        	+ '}';
+        document.head.appendChild(style);
+    })();
+</script>
+```
+
 
 
 ## Display the blog page 2 columns

@@ -2312,6 +2312,18 @@ By the code below:
 })(window.chiarajQuery);
 &lt;/script&gt;
 </code></pre>
+<p><strong>New solution:</strong></p>
+<pre><code class="language-html">&lt;script&gt;
+    (function() {
+        var style = document.createElement('style');
+        style.innerHTML = '@media (max-width: 800px) {'
+            + '.productView-options:not(:has(.alertBox--error)):not(:has([data-product-option-change] &gt; *)) {padding: 0; margin: 0 }'
+            + '.productView-options:not(:has(.alertBox--error)):not(:has([data-product-option-change] &gt; *)) .productView-options-panel-heading { display: none }'
+            + '}';
+        document.head.appendChild(style);
+    })();
+&lt;/script&gt;
+</code></pre>
 <h2 id="display-the-blog-page-2-columns">Display the blog page 2 columns<a class="headerlink" href="#display-the-blog-page-2-columns" title="Permanent link">&para;</a></h2>
 <p>Go to <strong>Storefront</strong> &gt; <strong>Script Manager</strong>, click <strong>Create a Script</strong>, choose:</p>
 <ul>

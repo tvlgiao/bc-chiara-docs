@@ -4,6 +4,22 @@
     If you encounter any issues, please <a href="https://papathemes.com/contact-us/">report to us</a>. You can always <a href="https://support.bigcommerce.com/s/article/Marketplace-Theme-Updates#restore">restore the ealier theme version</a>, check this <a href="https://youtu.be/eZdmudDUrQE">video</a> for instruction.
 </div>
 
+## 2.4.0 (06-02-2023)
+- Fix discount price display wrong in cart preview popup
+- Fix tab contents aria-hidden="true" in PDP
+- Fix aria-hidden of product options
+- Use stencilColor for color variables
+- Implemented the ability to show contact form in a popup
+- Bump debug from 2.6.8 to 2.6.9 (#9)
+- Bump decode-uri-component from 0.2.0 to 0.2.2 (#10)
+- Bump json5 from 1.0.1 to 1.0.2 (#11)
+- Bump qs from 6.4.0 to 6.4.1 (#12)
+- [CORNERSTONE] Move phrases and static strings to en.json for improving translation customizing. [#1850](https://github.com/bigcommerce/cornerstone/pull/1850)
+- [CORNERSTONE] Translation Gap: Gift Certificate -> Code required message. [#2064](https://github.com/bigcommerce/cornerstone/pull/2064)
+- [CORNERSTONE] Removed all Google AMP template files [#2308](https://github.com/bigcommerce/cornerstone/pull/2308)
+- [CORNERSTONE] (Partial Merge) Cornerstone performance optimizations: blocking scripts delaying DomContentLoaded. [#2158](https://github.com/bigcommerce/cornerstone/pull/2158)
+- [CORNERSTONE] Webpack 5, Node 18 Support [#2311][https://github.com/bigcommerce/cornerstone/pull/2311]
+
 ## 2.3.0 (03-09-2023)
 - Fix image distort on Safari iOS 16.3.1
 - Update stencil-utils 6.15.0

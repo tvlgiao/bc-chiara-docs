@@ -2970,7 +2970,7 @@ Enter the script below to **Scripts contents**:
                             + '</a>'
                             + '</li>');
 
-                        $tabs.parent().append('<section class="productView-desc productView-desc--right productView-tab-content productView-tab-custom productView-tab-custom-' + j + '" id="product-tab-custom-' + j + '-' + productId + '" aria-hidden="true">'
+                        $tabs.parent().find('.productView-tabs-contents').append('<section class="productView-desc productView-desc--right productView-tab-content productView-tab-custom productView-tab-custom-' + j + '" id="product-tab-custom-' + j + '-' + productId + '" aria-hidden="true">'
                             + '<h3 class="productView-desc-heading">' + tabTitle + '</h3>'
                             + '<div class="productView-desc-content">' + $clonedTab.html() + '</div>'
                             + '</section>');

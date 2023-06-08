@@ -2803,7 +2803,7 @@ style.innerHTML = '.productView-details { display: flex; flex-direction: column 
                             + '&lt;/a&gt;'
                             + '&lt;/li&gt;');
 
-                        $tabs.parent().append('&lt;section class=&quot;productView-desc productView-desc--right productView-tab-content productView-tab-custom productView-tab-custom-' + j + '&quot; id=&quot;product-tab-custom-' + j + '-' + productId + '&quot; aria-hidden=&quot;true&quot;&gt;'
+                        $tabs.parent().find('.productView-tabs-contents').append('&lt;section class=&quot;productView-desc productView-desc--right productView-tab-content productView-tab-custom productView-tab-custom-' + j + '&quot; id=&quot;product-tab-custom-' + j + '-' + productId + '&quot; aria-hidden=&quot;true&quot;&gt;'
                             + '&lt;h3 class=&quot;productView-desc-heading&quot;&gt;' + tabTitle + '&lt;/h3&gt;'
                             + '&lt;div class=&quot;productView-desc-content&quot;&gt;' + $clonedTab.html() + '&lt;/div&gt;'
                             + '&lt;/section&gt;');

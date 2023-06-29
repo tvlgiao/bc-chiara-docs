@@ -4,6 +4,10 @@
     If you encounter any issues, please <a href="https://papathemes.com/contact-us/">report to us</a>. You can always <a href="https://support.bigcommerce.com/s/article/Marketplace-Theme-Updates#restore">restore the ealier theme version</a>, check this <a href="https://youtu.be/eZdmudDUrQE">video</a> for instruction.
 </div>
 
+## 2.4.1 (06-29-2023)
+- Remove document.write when page speed optimization = performance
+- Use faster slider for product carousel and home page carousel
+
 ## 2.4.0 (06-02-2023)
 - Fix discount price display wrong in cart preview popup
 - Fix tab contents aria-hidden="true" in PDP

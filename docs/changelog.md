@@ -4,6 +4,11 @@
     If you encounter any issues, please <a href="https://papathemes.com/contact-us/">report to us</a>. You can always <a href="https://support.bigcommerce.com/s/article/Marketplace-Theme-Updates#restore">restore the ealier theme version</a>, check this <a href="https://youtu.be/eZdmudDUrQE">video</a> for instruction.
 </div>
 
+## 2.4.2 (07-07-2023)
+- Fix JS error when page speed optimization is not None
+- Fix homepage carousel not autoplay
+- Fix  slides to show for product carousels
+
 ## 2.4.1 (06-29-2023)
 - Remove document.write when page speed optimization = performance
 - Use faster slider for product carousel and home page carousel

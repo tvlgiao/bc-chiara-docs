@@ -4,6 +4,12 @@
     If you encounter any issues, please <a href="https://papathemes.com/contact-us/">report to us</a>. You can always <a href="https://support.bigcommerce.com/s/article/Marketplace-Theme-Updates#restore">restore the ealier theme version</a>, check this <a href="https://youtu.be/eZdmudDUrQE">video</a> for instruction.
 </div>
 
+## 2.4.3 (07-28-2023)
+- Fix hero carousel transition effect
+- Fix edit cart item display incorrect message when product is unavailable / out of stock
+- Fixed unavailable options' strikeout display during cart edit
+- Fix cart quantity input change note working
+
 ## 2.4.2 (07-07-2023)
 - Fix JS error when page speed optimization is not None
 - Fix homepage carousel not autoplay

@@ -4,6 +4,10 @@
     If you encounter any issues, please <a href="https://papathemes.com/contact-us/">report to us</a>. You can always <a href="https://support.bigcommerce.com/s/article/Marketplace-Theme-Updates#restore">restore the ealier theme version</a>, check this <a href="https://youtu.be/eZdmudDUrQE">video</a> for instruction.
 </div>
 
+## 2.4.4 (11-10-2023)
+- Fix homepage carousel image overlaps when transition is enabled
+- Fix sale badge display incorrect in some case
+
 ## 2.4.3 (07-28-2023)
 - Fix hero carousel transition effect
 - Fix edit cart item display incorrect message when product is unavailable / out of stock

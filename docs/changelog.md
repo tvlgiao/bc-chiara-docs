@@ -4,6 +4,14 @@
     If you encounter any issues, please <a href="https://papathemes.com/contact-us/">report to us</a>. You can always <a href="https://support.bigcommerce.com/s/article/Marketplace-Theme-Updates#restore">restore the ealier theme version</a>, check this <a href="https://youtu.be/eZdmudDUrQE">video</a> for instruction.
 </div>
 
+## 2.4.6 (02-29-2024)
+- Fix video not playing on homepage carousel
+- Fix [THEME-2116] "Buy Now" on PDP will add 2 products to cart
+if double-clicked
+
+## 2.4.5 (02-05-2024)
+- Sale Off 60%
+
 ## 2.4.4 (11-10-2023)
 - Fix homepage carousel image overlaps when transition is enabled
 - Fix sale badge display incorrect in some case

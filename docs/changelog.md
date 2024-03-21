@@ -4,6 +4,9 @@
     If you encounter any issues, please <a href="https://papathemes.com/contact-us/">report to us</a>. You can always <a href="https://support.bigcommerce.com/s/article/Marketplace-Theme-Updates#restore">restore the ealier theme version</a>, check this <a href="https://youtu.be/eZdmudDUrQE">video</a> for instruction.
 </div>
 
+## 2.5.1 (03-21-2024)
+- Fix JS error of lazyload
+
 ## 2.5.0 (03-21-2024)
 - Update some theme options from text to input type
 - Change menu icon to user icon

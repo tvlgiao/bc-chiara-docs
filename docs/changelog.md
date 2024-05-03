@@ -4,6 +4,9 @@
     If you encounter any issues, please <a href="https://papathemes.com/contact-us/">report to us</a>. You can always <a href="https://support.bigcommerce.com/s/article/Marketplace-Theme-Updates#restore">restore the ealier theme version</a>, check this <a href="https://youtu.be/eZdmudDUrQE">video</a> for instruction.
 </div>
 
+## 2.5.3 (05-03-2024)
+- Fix product card image not zoom when resize window
+
 ## 2.5.2 (03-29-2024)
 - Fix product variant image not change in the previous version
 

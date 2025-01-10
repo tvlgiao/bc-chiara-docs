@@ -4,6 +4,10 @@
     If you encounter any issues, please <a href="https://papathemes.com/contact-us/">report to us</a>. You can always <a href="https://support.bigcommerce.com/s/article/Marketplace-Theme-Updates#restore">restore the ealier theme version</a>, check this <a href="https://youtu.be/eZdmudDUrQE">video</a> for instruction.
 </div>
 
+## 2.5.5 (01-10-2025)
+- [CORNERSTONE] Add google recaptcha to password reset request page [#2164](https://github.com/bigcommerce/cornerstone/pull/2164)
+- Fix product card swatches' price not change if products have required checkbox option
+
 ## 2.5.4 (07-12-2024)
 - [THEME-2230] Increase quick search debounce time to 1200ms
 

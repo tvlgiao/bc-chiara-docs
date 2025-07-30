@@ -82,7 +82,7 @@ document.head.appendChild(style);
 
 ## Fix Products Bought Together stop working after BigCommerce API changed
 
-If you suddenly get a problem that the products also bought together stop working on your product pages. 
+If you suddenly get a problem that the products also bought together stop working on your product pages.
 That is because BigCommerce has changed the content type of product ajax request.
 
 To workaround this issue while waiting for the fix from BigCommerce or the theme update, please follow
@@ -157,7 +157,7 @@ Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
 - **Select pages where script will be added** = `Store pages`
 - **Script type** = `Script`
 
-Enter the script below to **Scripts contents**: 
+Enter the script below to **Scripts contents**:
 
 ```html
 <script>
@@ -255,7 +255,7 @@ Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
 - **Select pages where script will be added** = `All pages`
 - **Script type** = `Script`
 
-Enter the script below to **Scripts contents**: 
+Enter the script below to **Scripts contents**:
 
 ```html
 <script>
@@ -276,7 +276,7 @@ Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
 - **Select pages where script will be added** = `Store pages`
 - **Script type** = `Script`
 
-Enter the script below to **Scripts contents**: 
+Enter the script below to **Scripts contents**:
 
 ```html
 <script>
@@ -343,13 +343,13 @@ Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
 - **Select pages where script will be added** = `All pages`
 - **Script type** = `Script`
 
-Enter the script below to **Scripts contents**: 
+Enter the script below to **Scripts contents**:
 
 ```html
 <script>
 (function($) {
     function throttle(callback, wait, immediate = false) {
-      let timeout = null 
+      let timeout = null
       let initialCall = true
 
       return function() {
@@ -359,7 +359,7 @@ Enter the script below to **Scripts contents**:
           timeout = null
         }
 
-        if (callNow) { 
+        if (callNow) {
           initialCall = false
           next()
         }
@@ -400,7 +400,7 @@ Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
 - **Script type** = `Script`
 
 
-Enter the script below to **Scripts contents**: 
+Enter the script below to **Scripts contents**:
 
 ```html
 <script>
@@ -422,7 +422,7 @@ Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
 - **Select pages where script will be added** = `Store pages`
 - **Script type** = `Script`
 
-Enter the script below to **Scripts contents**: 
+Enter the script below to **Scripts contents**:
 
 ```html
 <script>
@@ -456,7 +456,7 @@ Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
 - **Select pages where script will be added** = `All Pages`
 - **Script type** = `Script`
 
-Enter the script below to **Scripts contents**: 
+Enter the script below to **Scripts contents**:
 
 ```html
 <script>
@@ -525,7 +525,7 @@ Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
 - **Select pages where script will be added** = `All Pages`
 - **Script type** = `Script`
 
-Enter the script below to **Scripts contents**: 
+Enter the script below to **Scripts contents**:
 
 ```html
 <script type="text/javascript" src="https://static-na.payments-amazon.com/OffAmazonPayments/us/js/Widgets.js?sellerId=A3CUXN3OT1IR26" defer></script>
@@ -539,7 +539,7 @@ Enter the script below to **Scripts contents**:
     	+ '#checkout-app .customerEmail-container { margin-bottom: 0 }'
     	+ '#checkout-app .customerEmail-container + p { display: none }';
     document.head.appendChild(css);
-    
+
     function checkoutButtons() {
         var $checkoutRemote = $('.checkoutRemote');
         if ($checkoutRemote.length == 0 || $checkoutRemote.data('updated')) {
@@ -620,7 +620,7 @@ Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
 - **Select pages where script will be added** = `All pages`
 - **Script type** = `Script`
 
-Enter the script below to **Scripts contents**: 
+Enter the script below to **Scripts contents**:
 
 
 ```html
@@ -751,7 +751,7 @@ Enter the script below to **Scripts contents**:
     (function() {
         var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
         if (!isSafari) return;
-		
+
         function main($) {
             var $nav = $('.navPages-container, .navPages-container .navPages');
             $(window).on('resize load', function() {
@@ -763,7 +763,7 @@ Enter the script below to **Scripts contents**:
                 }
             });
         }
-        
+
         var ti = setInterval(function() {
             if (typeof window.chiarajQuery !== 'undefined') {
             	clearInterval(ti);
@@ -808,7 +808,7 @@ Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
 - **Select pages where script will be added** = `Store Pages`
 - **Script type** = `Script`
 
-Enter the script below to **Scripts contents**: 
+Enter the script below to **Scripts contents**:
 
 ```html
 <script>
@@ -833,7 +833,7 @@ Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
 - **Select pages where script will be added** = `Store Pages`
 - **Script type** = `Script`
 
-Enter the script below to **Scripts contents**: 
+Enter the script below to **Scripts contents**:
 
 ```html
 <script>
@@ -854,7 +854,7 @@ Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
 - **Select pages where script will be added** = `Store Pages`
 - **Script type** = `Script`
 
-Enter the script below to **Scripts contents**: 
+Enter the script below to **Scripts contents**:
 
 ```html
 <script>
@@ -880,7 +880,7 @@ Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
 - **Select pages where script will be added** = `Store Pages`
 - **Script type** = `Script`
 
-Enter the script below to **Scripts contents**: 
+Enter the script below to **Scripts contents**:
 
 ```html
 <script>
@@ -906,7 +906,7 @@ Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
 - **Select pages where script will be added** = `Store Pages`
 - **Script type** = `Script`
 
-Enter the script below to **Scripts contents**: 
+Enter the script below to **Scripts contents**:
 
 ```html
 <script>
@@ -918,7 +918,7 @@ Enter the script below to **Scripts contents**:
         + '[data-product-attribute="swatch"] .form-option-expanded { left: auto; top: auto; margin-top: 25px; margin-left: 30px; }'
         + '[data-product-attribute="swatch"] .form-radio:checked+.form-option:not(.unavailable) .form-option-variant:after { content: attr(title); position: absolute; top: 0; left: 120px; }';
     document.head.appendChild(css);
-})();  
+})();
 </script>
 ```
 
@@ -933,7 +933,7 @@ Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
 - **Select pages where script will be added** = `All Pages`
 - **Script type** = `Script`
 
-Enter the script below to **Scripts contents**: 
+Enter the script below to **Scripts contents**:
 
 ```html
 <script>
@@ -959,7 +959,7 @@ Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
 - **Select pages where script will be added** = `All Pages`
 - **Script type** = `Script`
 
-Enter the script below to **Scripts contents**: 
+Enter the script below to **Scripts contents**:
 
 ```html
 <script>
@@ -984,7 +984,7 @@ Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
 - **Select pages where script will be added** = `All Pages`
 - **Script type** = `Script`
 
-Enter the script below to **Scripts contents**: 
+Enter the script below to **Scripts contents**:
 
 ```html
 <script>
@@ -1013,7 +1013,7 @@ Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
 - **Select pages where script will be added** = `All Pages`
 - **Script type** = `Script`
 
-Enter the script below to **Scripts contents**: 
+Enter the script below to **Scripts contents**:
 
 ```html
 <script>
@@ -1033,7 +1033,7 @@ Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
 - **Select pages where script will be added** = `All Pages`
 - **Script type** = `Script`
 
-Enter the script below to **Scripts contents**: 
+Enter the script below to **Scripts contents**:
 
 ```html
 <script>
@@ -1057,7 +1057,7 @@ Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
 - **Select pages where script will be added** = `All Pages`
 - **Script type** = `Script`
 
-Enter the script below to **Scripts contents**: 
+Enter the script below to **Scripts contents**:
 
 ```html
 <script>
@@ -1081,7 +1081,7 @@ Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
 - **Select pages where script will be added** = `All Pages`
 - **Script type** = `Script`
 
-Enter the script below to **Scripts contents**: 
+Enter the script below to **Scripts contents**:
 
 ```html
 <script>
@@ -1105,7 +1105,7 @@ Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
 - **Select pages where script will be added** = `All Pages`
 - **Script type** = `Script`
 
-Enter the script below to **Scripts contents**: 
+Enter the script below to **Scripts contents**:
 
 ```html
 <script>
@@ -1133,7 +1133,7 @@ If you want to show the related products for a specific products while Products 
 - **Select pages where script will be added** = `All Pages`
 - **Script type** = `Script`
 
-Enter the script below to **Scripts contents**: 
+Enter the script below to **Scripts contents**:
 
 ```html
 <script>
@@ -1159,7 +1159,7 @@ Enter the script below to **Scripts contents**:
             }
 
             $scope.find('.productView-alsoBought').hide();
-            
+
             var  productId = $scope.find('input[name=product_id]').val();
             if (!productId) {
                 return;
@@ -1176,7 +1176,7 @@ Enter the script below to **Scripts contents**:
                 if (err) {
                     return;
                 }
-                
+
                 var $wrapper = $('<section class="productView-productsList productView-productsList--related"><h3 class="productView-productsList-heading">Related Products</h3><div class="productView-productsList-content" data-content></div></section>');
                 var $content = $wrapper.find('[data-content]');
 
@@ -1239,7 +1239,7 @@ Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
 - **Select pages where script will be added** = `All Pages`
 - **Script type** = `Script`
 
-Enter the script below to **Scripts contents**: 
+Enter the script below to **Scripts contents**:
 
 ```html
 <script>
@@ -1275,7 +1275,7 @@ Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
 - **Select pages where script will be added** = `All Pages`
 - **Script type** = `Script`
 
-Enter the script below to **Scripts contents**: 
+Enter the script below to **Scripts contents**:
 
 ```html
 <script>
@@ -1303,7 +1303,7 @@ Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
 - **Select pages where script will be added** = `All Pages`
 - **Script type** = `Script`
 
-Enter the script below to **Scripts contents**: 
+Enter the script below to **Scripts contents**:
 
 ```html
 <script>
@@ -1313,7 +1313,7 @@ Enter the script below to **Scripts contents**:
             var $content = $(resp).find('.header-top-item--banner');
             if ($content.length > 0) {
                 $content.prependTo($('.header-top-list'));
-                
+
                 var $top = $('.banners[data-banner-location="top"]');
                 if ($top.length === 0) {
                     $top = $('<div class="banners u-hiddenVisually-desktop" data-banner-location="top">');
@@ -1336,7 +1336,7 @@ Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
 - **Select pages where script will be added** = `All Pages`
 - **Script type** = `Script`
 
-Enter the script below to **Scripts contents**: 
+Enter the script below to **Scripts contents**:
 
 ```html
 <script>
@@ -1434,7 +1434,7 @@ Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
 - **Select pages where script will be added** = `All Pages`
 - **Script type** = `Script`
 
-Enter the script below to **Scripts contents**: 
+Enter the script below to **Scripts contents**:
 
 ```html
 <script>
@@ -1458,7 +1458,7 @@ Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
 - **Select pages where script will be added** = `All Pages`
 - **Script type** = `Script`
 
-Enter the script below to **Scripts contents**: 
+Enter the script below to **Scripts contents**:
 
 ```html
 <script>
@@ -1479,7 +1479,7 @@ Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
 - **Select pages where script will be added** = `All Pages`
 - **Script type** = `Script`
 
-Enter the script below to **Scripts contents**: 
+Enter the script below to **Scripts contents**:
 
 ```html
 <script>
@@ -1510,7 +1510,7 @@ Enter the script below to **Scripts contents**:
 
 ## Move Cookie Consent notification to bottom of page
 
-To move the notification bar **Manage Website Data Collection Preferences** to bottom of page, 
+To move the notification bar **Manage Website Data Collection Preferences** to bottom of page,
 
 Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
 
@@ -1518,7 +1518,7 @@ Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
 - **Select pages where script will be added** = `All Pages`
 - **Script type** = `Script`
 
-Enter the script below to **Scripts contents**: 
+Enter the script below to **Scripts contents**:
 
 ![move-cookie-consent-bar-to-bottom-of-page](img/move-cookie-consent-bar-to-bottom-of-page.png)
 
@@ -1547,7 +1547,7 @@ Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
 - **Select pages where script will be added** = `All Pages`
 - **Script type** = `Script`
 
-Enter the script below to **Scripts contents**: 
+Enter the script below to **Scripts contents**:
 
 ```html
 <script>
@@ -1570,7 +1570,7 @@ Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
 - **Select pages where script will be added** = `Store Pages`
 - **Script type** = `Script`
 
-Enter the script below to **Scripts contents**: 
+Enter the script below to **Scripts contents**:
 
 ```html
 <script>
@@ -1602,7 +1602,7 @@ Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
 - **Select pages where script will be added** = `All Pages`
 - **Script type** = `Script`
 
-Enter the script below to **Scripts contents**: 
+Enter the script below to **Scripts contents**:
 
 ```html
 <script>
@@ -1635,7 +1635,7 @@ Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
 - **Select pages where script will be added** = `Store Pages`
 - **Script type** = `Script`
 
-Enter the script below to **Scripts contents**: 
+Enter the script below to **Scripts contents**:
 
 ```html
 <script>
@@ -1660,7 +1660,7 @@ Enter the script below to **Scripts contents**:
 - **Select pages where script will be added** = `Store Pages`
 - **Script type** = `Script`
 
-Enter the script below to **Scripts contents**: 
+Enter the script below to **Scripts contents**:
 
 ```html
 <script>
@@ -1727,7 +1727,7 @@ Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
 - **Select pages where script will be added** = `All Pages`
 - **Script type** = `Script`
 
-Enter the script below to **Scripts contents**: 
+Enter the script below to **Scripts contents**:
 
 ```html
 <script type="text/html" id="footer-address">
@@ -1770,7 +1770,7 @@ Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
 - **Select pages where script will be added** = `All Pages`
 - **Script type** = `Script`
 
-Enter the script below to **Scripts contents**: 
+Enter the script below to **Scripts contents**:
 
 ```html
 <script>
@@ -1808,7 +1808,7 @@ Enter the script below to **Scripts contents**:
 
 Edit line:
 
-`var color = '#ff0000';` 
+`var color = '#ff0000';`
 
 Change `#ff0000` by the color hex code you want.
 
@@ -1821,7 +1821,7 @@ Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
 - **Select pages where script will be added** = `Store Pages`
 - **Script type** = `Script`
 
-Enter the script below to **Scripts contents**: 
+Enter the script below to **Scripts contents**:
 
 ```html
 <script>
@@ -1843,7 +1843,7 @@ Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
 - **Script type** = `Script`
 
 
-Enter the script below to **Scripts contents**: 
+Enter the script below to **Scripts contents**:
 
 ```html
 <script>
@@ -1865,7 +1865,7 @@ Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
 - **Script type** = `Script`
 
 
-Enter the script below to **Scripts contents**: 
+Enter the script below to **Scripts contents**:
 
 
 ```html
@@ -1875,12 +1875,12 @@ Enter the script below to **Scripts contents**:
   crossorigin="anonymous"></script>
 <script>
 (function($) {
-    var $img = $('#logoImage'); 
+    var $img = $('#logoImage');
     var src = $img.attr('src');
     var s = src.replace(/stencil\/[^\/]+\//, 'stencil/***/');
                         console.log(s);
     $img.attr('srcset', src + ' 1x, ' + s.replace('***', '640w') + ' 2x');
-    
+
 })(window.chiarajQuery || window.jQuery);
 </script>
 ```
@@ -1898,7 +1898,7 @@ Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
 - **Script type** = `Script`
 
 
-Enter the script below to **Scripts contents**: 
+Enter the script below to **Scripts contents**:
 
 ```html
 <script>
@@ -1942,7 +1942,7 @@ Enter the script below to **Scripts contents**:
                 nonsale = Number($('[data-product-non-sale-price-without-tax]', $scope).first().text().trim().split(/\s-/)[0].replace(/[^0-9\.]/g, ''));
                 rrp = Number($('[data-product-rrp-without-tax]', $scope).first().text().trim().split(/\s-/)[0].replace(/[^0-9\.]/g, ''));
             }
-            
+
             // Stop if no sale
             if (!nonsale && !rrp) {
                 return;
@@ -1962,7 +1962,7 @@ Enter the script below to **Scripts contents**:
                             .prepend('<div class="sale-flag-side"><span class="sale-text">Sale</span></div>');
                     }
                 }
-                var $badge = $('.sale-flag-side', $scope).not('[class*="sale-flag-side--"]').find('.sale-text');                
+                var $badge = $('.sale-flag-side', $scope).not('[class*="sale-flag-side--"]').find('.sale-text');
                 $badge.html(discountPercent + '%');
             }
         });
@@ -2003,7 +2003,7 @@ Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
 - **Script type** = `Script`
 
 
-Enter the script below to **Scripts contents**: 
+Enter the script below to **Scripts contents**:
 
 ```html
 <script>
@@ -2057,7 +2057,7 @@ Enter the script below to **Scripts contents**:
                 nonsale = Number($('[data-product-non-sale-price-without-tax]', $scope).first().text().trim().split(/\s-/)[0].replace(/[^0-9\.]/g, ''));
                 rrp = Number($('[data-product-rrp-without-tax]', $scope).first().text().trim().split(/\s-/)[0].replace(/[^0-9\.]/g, ''));
             }
-            
+
             // Stop if no sale
             if (!nonsale && !rrp) {
                 return;
@@ -2123,7 +2123,7 @@ Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
 - **Script type** = `Script`
 
 
-Enter the script below to **Scripts contents**: 
+Enter the script below to **Scripts contents**:
 
 ```html
 <script>
@@ -2876,7 +2876,7 @@ Enter the script below to **Scripts contents**:
 <!-- BEGIN GCR Opt-in Module Code -->
 <script src="https://cdn.jsdelivr.net/npm/whatwg-fetch@3.5.0/dist/fetch.umd.min.js" defer></script>
 <script src="https://apis.google.com/js/platform.js?onload=renderOptIn" async defer></script>
-<script>    
+<script>
     window.renderOptIn = function() {
         window.gapi.load('surveyoptin', function() {
             var orderId = '{{checkout.order.id}}';
@@ -2948,7 +2948,7 @@ Enter the script below to **Scripts contents**:
 ```html
 <script>
     (function() {
-        function debounce(n,t,u){var e;return function(){var i=this,o=arguments,a=u&&!e;clearTimeout(e),e=setTimeout(function(){e=null,u||n.apply(i,o)},t),a&&n.apply(i,o)}}                
+        function debounce(n,t,u){var e;return function(){var i=this,o=arguments,a=u&&!e;clearTimeout(e),e=setTimeout(function(){e=null,u||n.apply(i,o)},t),a&&n.apply(i,o)}}
         function load($) {
             var mo = new MutationObserver(debounce(function() {
                 $('.productView').not('._customTabLoaded').each(function(i, el) {
@@ -3682,7 +3682,7 @@ Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
 - **Location on page** = `Footer`
 - **Select pages where script will be added** = `Store Pages`
 - **Script type** = `Script`
-  
+
   Enter the script below to Scripts contents:
 
 ```html
@@ -3718,3 +3718,33 @@ Go to **Storefront** > **Script Manager**, click **Create a Script**, choose:
 </script>
 ```
 
+
+
+## Fix CSS styling issues for product reviews when integrating with PapaThemes Reviews App
+
+To resolve CSS conflicts that may occur when using the PapaThemes Reviews App, you'll need to add custom styling through BigCommerce's Script Manager.
+
+Navigate to **Storefront** > **Script Manager** and click **Create a Script**. Configure the script with the following settings:
+
+- Set **Location on page** to `Head`
+- Set **Select pages where script will be added** to `Store Pages`
+- Set **Script type** to `Script`
+
+Then paste the following code into the **Scripts contents** field:
+
+```html
+<script>
+    (function() {
+        var style = document.createElement('style');
+        style.innerHTML = `
+            .productReviews-list { font-size: inherit; }
+            .productReview article { font-size: inherit; }
+            .productReview header { display: block; width: 100%; }
+            .productReview-body { display: block; width: 100%; padding: 0; border: 0; }
+            .productReview-rating { float: none; }
+            .productReview-author { float: none; }
+        `;
+        document.head.appendChild(style);
+    })();
+</script>
+```

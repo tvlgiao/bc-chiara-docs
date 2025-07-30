@@ -269,6 +269,8 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#add-read-more-button-on-the-category-description-and-brand-description">Add Read More button on the category description and brand description</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#fix-css-styling-issues-for-product-reviews-when-integrating-with-papathemes-reviews-app">Fix CSS styling issues for product reviews when integrating with PapaThemes Reviews App</a>
+    </li>
     </ul>
                 </li>
               </ul>
@@ -367,7 +369,7 @@ document.head.appendChild(style);
 &lt;/script&gt;
 </code></pre>
 <h2 id="fix-products-bought-together-stop-working-after-bigcommerce-api-changed">Fix Products Bought Together stop working after BigCommerce API changed<a class="headerlink" href="#fix-products-bought-together-stop-working-after-bigcommerce-api-changed" title="Permanent link">&para;</a></h2>
-<p>If you suddenly get a problem that the products also bought together stop working on your product pages. 
+<p>If you suddenly get a problem that the products also bought together stop working on your product pages.
 That is because BigCommerce has changed the content type of product ajax request.</p>
 <p>To workaround this issue while waiting for the fix from BigCommerce or the theme update, please follow
 this instruction.</p>
@@ -424,7 +426,7 @@ window.chiarajQuery(document).ajaxSend((event, xhr, settings) =&gt; {
 <li><strong>Select pages where script will be added</strong> = <code>Store pages</code></li>
 <li><strong>Script type</strong> = <code>Script</code></li>
 </ul>
-<p>Enter the script below to <strong>Scripts contents</strong>: </p>
+<p>Enter the script below to <strong>Scripts contents</strong>:</p>
 <pre><code class="language-html">&lt;script&gt;
 (function($) {
     $('.productView-tab--description.is-active, .productView-desc.is-active').removeClass('is-active');
@@ -499,7 +501,7 @@ document.head.appendChild(style);
 <li><strong>Select pages where script will be added</strong> = <code>All pages</code></li>
 <li><strong>Script type</strong> = <code>Script</code></li>
 </ul>
-<p>Enter the script below to <strong>Scripts contents</strong>: </p>
+<p>Enter the script below to <strong>Scripts contents</strong>:</p>
 <pre><code class="language-html">&lt;script&gt;
 if (!window.chiaraSettings) window.chiaraSettings = {};
 window.chiaraSettings.disableAutoSizeNavPages = true;
@@ -513,7 +515,7 @@ window.chiaraSettings.disableAutoSizeNavPages = true;
 <li><strong>Select pages where script will be added</strong> = <code>Store pages</code></li>
 <li><strong>Script type</strong> = <code>Script</code></li>
 </ul>
-<p>Enter the script below to <strong>Scripts contents</strong>: </p>
+<p>Enter the script below to <strong>Scripts contents</strong>:</p>
 <pre><code class="language-html">&lt;script&gt;
 (function($) {
     var $el = $('.productView-info--desktopOnly').css('margin-top', '1rem');
@@ -565,11 +567,11 @@ document.head.appendChild(style);
 <li><strong>Select pages where script will be added</strong> = <code>All pages</code></li>
 <li><strong>Script type</strong> = <code>Script</code></li>
 </ul>
-<p>Enter the script below to <strong>Scripts contents</strong>: </p>
+<p>Enter the script below to <strong>Scripts contents</strong>:</p>
 <pre><code class="language-html">&lt;script&gt;
 (function($) {
     function throttle(callback, wait, immediate = false) {
-      let timeout = null 
+      let timeout = null
       let initialCall = true
 
       return function() {
@@ -579,7 +581,7 @@ document.head.appendChild(style);
           timeout = null
         }
 
-        if (callNow) { 
+        if (callNow) {
           initialCall = false
           next()
         }
@@ -616,7 +618,7 @@ document.head.appendChild(style);
 <li><strong>Select pages where script will be added</strong> = <code>Store pages</code></li>
 <li><strong>Script type</strong> = <code>Script</code></li>
 </ul>
-<p>Enter the script below to <strong>Scripts contents</strong>: </p>
+<p>Enter the script below to <strong>Scripts contents</strong>:</p>
 <pre><code class="language-html">&lt;script&gt;
 (function($) {
     $('.productView-productsList--related .productView-productsList-heading').text('RELATED PRODUCTS TITLE');
@@ -631,7 +633,7 @@ document.head.appendChild(style);
 <li><strong>Select pages where script will be added</strong> = <code>Store pages</code></li>
 <li><strong>Script type</strong> = <code>Script</code></li>
 </ul>
-<p>Enter the script below to <strong>Scripts contents</strong>: </p>
+<p>Enter the script below to <strong>Scripts contents</strong>:</p>
 <pre><code class="language-html">&lt;script&gt;
 (function($) {
     function update() {
@@ -658,7 +660,7 @@ document.head.appendChild(style);
 <li><strong>Select pages where script will be added</strong> = <code>All Pages</code></li>
 <li><strong>Script type</strong> = <code>Script</code></li>
 </ul>
-<p>Enter the script below to <strong>Scripts contents</strong>: </p>
+<p>Enter the script below to <strong>Scripts contents</strong>:</p>
 <pre><code class="language-html">&lt;script&gt;
 (function() {
     var css = document.createElement('style');
@@ -721,7 +723,7 @@ document.head.appendChild(style);
 <li><strong>Select pages where script will be added</strong> = <code>All Pages</code></li>
 <li><strong>Script type</strong> = <code>Script</code></li>
 </ul>
-<p>Enter the script below to <strong>Scripts contents</strong>: </p>
+<p>Enter the script below to <strong>Scripts contents</strong>:</p>
 <pre><code class="language-html">&lt;script type=&quot;text/javascript&quot; src=&quot;https://static-na.payments-amazon.com/OffAmazonPayments/us/js/Widgets.js?sellerId=A3CUXN3OT1IR26&quot; defer&gt;&lt;/script&gt;
 &lt;script type=&quot;text/javascript&quot; src=&quot;https://cdn11.bigcommerce.com/shared/bower/checkout-sdk/dist/checkout-button.umd-885565be8216c9c2857dcfce98505b42e97a9661.js&quot; defer&gt;&lt;/script&gt;
 &lt;script src=&quot;https://code.jquery.com/jquery-3.4.1.min.js&quot; integrity=&quot;sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
@@ -801,7 +803,7 @@ document.head.appendChild(style);
 <li><strong>Select pages where script will be added</strong> = <code>All pages</code></li>
 <li><strong>Script type</strong> = <code>Script</code></li>
 </ul>
-<p>Enter the script below to <strong>Scripts contents</strong>: </p>
+<p>Enter the script below to <strong>Scripts contents</strong>:</p>
 <pre><code class="language-html">&lt;script&gt;
 (function($) {
     $('body').on('click', '.productCard-colorSwatch', function() {
@@ -958,7 +960,7 @@ document.head.appendChild(style);
 <li><strong>Select pages where script will be added</strong> = <code>Store Pages</code></li>
 <li><strong>Script type</strong> = <code>Script</code></li>
 </ul>
-<p>Enter the script below to <strong>Scripts contents</strong>: </p>
+<p>Enter the script below to <strong>Scripts contents</strong>:</p>
 <pre><code class="language-html">&lt;script&gt;
 (function() {
     var css = document.createElement('style');
@@ -978,7 +980,7 @@ document.head.appendChild(style);
 <li><strong>Select pages where script will be added</strong> = <code>Store Pages</code></li>
 <li><strong>Script type</strong> = <code>Script</code></li>
 </ul>
-<p>Enter the script below to <strong>Scripts contents</strong>: </p>
+<p>Enter the script below to <strong>Scripts contents</strong>:</p>
 <pre><code class="language-html">&lt;script&gt;
 (function() {
     if (document.querySelector('.productView-info').innerText.trim() === '') {
@@ -995,7 +997,7 @@ document.head.appendChild(style);
 <li><strong>Select pages where script will be added</strong> = <code>Store Pages</code></li>
 <li><strong>Script type</strong> = <code>Script</code></li>
 </ul>
-<p>Enter the script below to <strong>Scripts contents</strong>: </p>
+<p>Enter the script below to <strong>Scripts contents</strong>:</p>
 <pre><code class="language-html">&lt;script&gt;
 (function() {
     var css = document.createElement('style');
@@ -1016,7 +1018,7 @@ document.head.appendChild(style);
 <li><strong>Select pages where script will be added</strong> = <code>Store Pages</code></li>
 <li><strong>Script type</strong> = <code>Script</code></li>
 </ul>
-<p>Enter the script below to <strong>Scripts contents</strong>: </p>
+<p>Enter the script below to <strong>Scripts contents</strong>:</p>
 <pre><code class="language-html">&lt;script&gt;
 (function() {
     var css = document.createElement('style');
@@ -1038,7 +1040,7 @@ document.head.appendChild(style);
 <li><strong>Select pages where script will be added</strong> = <code>Store Pages</code></li>
 <li><strong>Script type</strong> = <code>Script</code></li>
 </ul>
-<p>Enter the script below to <strong>Scripts contents</strong>: </p>
+<p>Enter the script below to <strong>Scripts contents</strong>:</p>
 <pre><code class="language-html">&lt;script&gt;
 (function() {
     var css = document.createElement('style');
@@ -1048,7 +1050,7 @@ document.head.appendChild(style);
         + '[data-product-attribute=&quot;swatch&quot;] .form-option-expanded { left: auto; top: auto; margin-top: 25px; margin-left: 30px; }'
         + '[data-product-attribute=&quot;swatch&quot;] .form-radio:checked+.form-option:not(.unavailable) .form-option-variant:after { content: attr(title); position: absolute; top: 0; left: 120px; }';
     document.head.appendChild(css);
-})();  
+})();
 &lt;/script&gt;
 </code></pre>
 <p>You can adjust <code>left: 120px</code> if the option label is longer.</p>
@@ -1059,7 +1061,7 @@ document.head.appendChild(style);
 <li><strong>Select pages where script will be added</strong> = <code>All Pages</code></li>
 <li><strong>Script type</strong> = <code>Script</code></li>
 </ul>
-<p>Enter the script below to <strong>Scripts contents</strong>: </p>
+<p>Enter the script below to <strong>Scripts contents</strong>:</p>
 <pre><code class="language-html">&lt;script&gt;
 (function() {
     var css = document.createElement('style');
@@ -1078,7 +1080,7 @@ document.head.appendChild(style);
 <li><strong>Select pages where script will be added</strong> = <code>All Pages</code></li>
 <li><strong>Script type</strong> = <code>Script</code></li>
 </ul>
-<p>Enter the script below to <strong>Scripts contents</strong>: </p>
+<p>Enter the script below to <strong>Scripts contents</strong>:</p>
 <pre><code class="language-html">&lt;script&gt;
 (function() {
     var css = document.createElement('style');
@@ -1097,7 +1099,7 @@ document.head.appendChild(style);
 <li><strong>Select pages where script will be added</strong> = <code>All Pages</code></li>
 <li><strong>Script type</strong> = <code>Script</code></li>
 </ul>
-<p>Enter the script below to <strong>Scripts contents</strong>: </p>
+<p>Enter the script below to <strong>Scripts contents</strong>:</p>
 <pre><code class="language-html">&lt;script&gt;
 (function(link, title) {
     var lastEl = Array.from(document.querySelectorAll('.navPages .navPages-list--main &gt; .navPages-item--category')).pop();
@@ -1122,7 +1124,7 @@ document.head.appendChild(style);
 <li><strong>Select pages where script will be added</strong> = <code>All Pages</code></li>
 <li><strong>Script type</strong> = <code>Script</code></li>
 </ul>
-<p>Enter the script below to <strong>Scripts contents</strong>: </p>
+<p>Enter the script below to <strong>Scripts contents</strong>:</p>
 <pre><code class="language-html">&lt;script&gt;
 (function() {
     var css = document.createElement('style');
@@ -1138,7 +1140,7 @@ document.head.appendChild(style);
 <li><strong>Select pages where script will be added</strong> = <code>All Pages</code></li>
 <li><strong>Script type</strong> = <code>Script</code></li>
 </ul>
-<p>Enter the script below to <strong>Scripts contents</strong>: </p>
+<p>Enter the script below to <strong>Scripts contents</strong>:</p>
 <pre><code class="language-html">&lt;script&gt;
 (function() {
     var img = document.createElement('img');
@@ -1158,7 +1160,7 @@ document.head.appendChild(style);
 <li><strong>Select pages where script will be added</strong> = <code>All Pages</code></li>
 <li><strong>Script type</strong> = <code>Script</code></li>
 </ul>
-<p>Enter the script below to <strong>Scripts contents</strong>: </p>
+<p>Enter the script below to <strong>Scripts contents</strong>:</p>
 <pre><code class="language-html">&lt;script&gt;
 (function() {
     var img = document.createElement('img');
@@ -1178,7 +1180,7 @@ document.head.appendChild(style);
 <li><strong>Select pages where script will be added</strong> = <code>All Pages</code></li>
 <li><strong>Script type</strong> = <code>Script</code></li>
 </ul>
-<p>Enter the script below to <strong>Scripts contents</strong>: </p>
+<p>Enter the script below to <strong>Scripts contents</strong>:</p>
 <pre><code class="language-html">&lt;script&gt;
 (function() {
     var img = document.createElement('img');
@@ -1198,7 +1200,7 @@ document.head.appendChild(style);
 <li><strong>Select pages where script will be added</strong> = <code>All Pages</code></li>
 <li><strong>Script type</strong> = <code>Script</code></li>
 </ul>
-<p>Enter the script below to <strong>Scripts contents</strong>: </p>
+<p>Enter the script below to <strong>Scripts contents</strong>:</p>
 <pre><code class="language-html">&lt;script&gt;
 (function() {
     var img = document.createElement('img');
@@ -1226,7 +1228,7 @@ document.head.appendChild(style);
 <li><strong>Select pages where script will be added</strong> = <code>All Pages</code></li>
 <li><strong>Script type</strong> = <code>Script</code></li>
 </ul>
-<p>Enter the script below to <strong>Scripts contents</strong>: </p>
+<p>Enter the script below to <strong>Scripts contents</strong>:</p>
 <pre><code class="language-html">&lt;script&gt;
     (function($) {
         function debounce(func, wait, immediate) {
@@ -1324,7 +1326,7 @@ document.head.appendChild(style);
 <li><strong>Select pages where script will be added</strong> = <code>All Pages</code></li>
 <li><strong>Script type</strong> = <code>Script</code></li>
 </ul>
-<p>Enter the script below to <strong>Scripts contents</strong>: </p>
+<p>Enter the script below to <strong>Scripts contents</strong>:</p>
 <pre><code class="language-html">&lt;script&gt;
 (function() {
     function debounce(func, wait, immediate) {
@@ -1356,7 +1358,7 @@ document.head.appendChild(style);
 <li><strong>Select pages where script will be added</strong> = <code>All Pages</code></li>
 <li><strong>Script type</strong> = <code>Script</code></li>
 </ul>
-<p>Enter the script below to <strong>Scripts contents</strong>: </p>
+<p>Enter the script below to <strong>Scripts contents</strong>:</p>
 <pre><code class="language-html">&lt;script&gt;
 (function($) {
     if (!$('body').is('.page-type-default')) {
@@ -1379,7 +1381,7 @@ document.head.appendChild(style);
 <li><strong>Select pages where script will be added</strong> = <code>All Pages</code></li>
 <li><strong>Script type</strong> = <code>Script</code></li>
 </ul>
-<p>Enter the script below to <strong>Scripts contents</strong>: </p>
+<p>Enter the script below to <strong>Scripts contents</strong>:</p>
 <pre><code class="language-html">&lt;script&gt;
 (function($) {
     if ($('.header-top-item--banner').length === 0) {
@@ -1407,7 +1409,7 @@ document.head.appendChild(style);
 <li><strong>Select pages where script will be added</strong> = <code>All Pages</code></li>
 <li><strong>Script type</strong> = <code>Script</code></li>
 </ul>
-<p>Enter the script below to <strong>Scripts contents</strong>: </p>
+<p>Enter the script below to <strong>Scripts contents</strong>:</p>
 <pre><code class="language-html">&lt;script&gt;
 (function($) {
     if (!$('body').is('.page-type-default')) {
@@ -1494,7 +1496,7 @@ By the code below:
 <li><strong>Select pages where script will be added</strong> = <code>All Pages</code></li>
 <li><strong>Script type</strong> = <code>Script</code></li>
 </ul>
-<p>Enter the script below to <strong>Scripts contents</strong>: </p>
+<p>Enter the script below to <strong>Scripts contents</strong>:</p>
 <pre><code class="language-html">&lt;script&gt;
     (function() {
         var css = document.createElement('style');
@@ -1511,7 +1513,7 @@ By the code below:
 <li><strong>Select pages where script will be added</strong> = <code>All Pages</code></li>
 <li><strong>Script type</strong> = <code>Script</code></li>
 </ul>
-<p>Enter the script below to <strong>Scripts contents</strong>: </p>
+<p>Enter the script below to <strong>Scripts contents</strong>:</p>
 <pre><code class="language-html">&lt;script&gt;
     (function() {
         var css = document.createElement('style');
@@ -1527,7 +1529,7 @@ By the code below:
 <li><strong>Select pages where script will be added</strong> = <code>All Pages</code></li>
 <li><strong>Script type</strong> = <code>Script</code></li>
 </ul>
-<p>Enter the script below to <strong>Scripts contents</strong>: </p>
+<p>Enter the script below to <strong>Scripts contents</strong>:</p>
 <pre><code class="language-html">&lt;script&gt;
 (function() {
     var i = 0;
@@ -1553,14 +1555,14 @@ By the code below:
 &lt;/script&gt;
 </code></pre>
 <h2 id="move-cookie-consent-notification-to-bottom-of-page">Move Cookie Consent notification to bottom of page<a class="headerlink" href="#move-cookie-consent-notification-to-bottom-of-page" title="Permanent link">&para;</a></h2>
-<p>To move the notification bar <strong>Manage Website Data Collection Preferences</strong> to bottom of page, </p>
+<p>To move the notification bar <strong>Manage Website Data Collection Preferences</strong> to bottom of page,</p>
 <p>Go to <strong>Storefront</strong> &gt; <strong>Script Manager</strong>, click <strong>Create a Script</strong>, choose:</p>
 <ul>
 <li><strong>Location on page</strong> = <code>Footer</code></li>
 <li><strong>Select pages where script will be added</strong> = <code>All Pages</code></li>
 <li><strong>Script type</strong> = <code>Script</code></li>
 </ul>
-<p>Enter the script below to <strong>Scripts contents</strong>: </p>
+<p>Enter the script below to <strong>Scripts contents</strong>:</p>
 <p><img alt="move-cookie-consent-bar-to-bottom-of-page" src="img/move-cookie-consent-bar-to-bottom-of-page.png" /></p>
 <pre><code class="language-html">&lt;script&gt;
     (function() {
@@ -1581,7 +1583,7 @@ By the code below:
 <li><strong>Select pages where script will be added</strong> = <code>All Pages</code></li>
 <li><strong>Script type</strong> = <code>Script</code></li>
 </ul>
-<p>Enter the script below to <strong>Scripts contents</strong>: </p>
+<p>Enter the script below to <strong>Scripts contents</strong>:</p>
 <pre><code class="language-html">&lt;script&gt;
     (function() {
         var css = document.createElement('style');
@@ -1600,7 +1602,7 @@ By the code below:
 <li><strong>Select pages where script will be added</strong> = <code>Store Pages</code></li>
 <li><strong>Script type</strong> = <code>Script</code></li>
 </ul>
-<p>Enter the script below to <strong>Scripts contents</strong>: </p>
+<p>Enter the script below to <strong>Scripts contents</strong>:</p>
 <pre><code class="language-html">&lt;script&gt;
     (function() {
         var css = document.createElement('style');
@@ -1626,7 +1628,7 @@ By the code below:
 <li><strong>Select pages where script will be added</strong> = <code>All Pages</code></li>
 <li><strong>Script type</strong> = <code>Script</code></li>
 </ul>
-<p>Enter the script below to <strong>Scripts contents</strong>: </p>
+<p>Enter the script below to <strong>Scripts contents</strong>:</p>
 <pre><code class="language-html">&lt;script&gt;
     (function() {
         var el = document.querySelector('.header-top-item--phone');
@@ -1650,7 +1652,7 @@ By the code below:
 <li><strong>Select pages where script will be added</strong> = <code>Store Pages</code></li>
 <li><strong>Script type</strong> = <code>Script</code></li>
 </ul>
-<p>Enter the script below to <strong>Scripts contents</strong>: </p>
+<p>Enter the script below to <strong>Scripts contents</strong>:</p>
 <pre><code class="language-html">&lt;script&gt;
     (function() {
         var el = document.querySelector('.chiara-category-mainImage img');
@@ -1676,7 +1678,7 @@ By the code below:
 <li><strong>Select pages where script will be added</strong> = <code>Store Pages</code></li>
 <li><strong>Script type</strong> = <code>Script</code></li>
 </ul>
-<p>Enter the script below to <strong>Scripts contents</strong>: </p>
+<p>Enter the script below to <strong>Scripts contents</strong>:</p>
 <pre><code class="language-html">&lt;script&gt;
     (function() {
         var css = document.createElement('style');
@@ -1723,7 +1725,7 @@ By the code below:
 <li><strong>Select pages where script will be added</strong> = <code>All Pages</code></li>
 <li><strong>Script type</strong> = <code>Script</code></li>
 </ul>
-<p>Enter the script below to <strong>Scripts contents</strong>: </p>
+<p>Enter the script below to <strong>Scripts contents</strong>:</p>
 <pre><code class="language-html">&lt;script type=&quot;text/html&quot; id=&quot;footer-address&quot;&gt;
     &lt;article class=&quot;footer-info-col&quot; data-section-type=&quot;footer-webPages&quot;&gt;
         &lt;p&gt;&lt;a href=&quot;{{urls.home}}&quot;&gt;&lt;span class=&quot;header-logo-text&quot;&gt;{{settings.store_logo.title}}&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
@@ -1761,7 +1763,7 @@ By the code below:
 <li><strong>Select pages where script will be added</strong> = <code>All Pages</code></li>
 <li><strong>Script type</strong> = <code>Script</code></li>
 </ul>
-<p>Enter the script below to <strong>Scripts contents</strong>: </p>
+<p>Enter the script below to <strong>Scripts contents</strong>:</p>
 <pre><code class="language-html">&lt;script&gt;
 (function() {
     var color = '#ff0000';
@@ -1794,7 +1796,7 @@ By the code below:
 &lt;/script&gt;
 </code></pre>
 <p>Edit line:</p>
-<p><code>var color = '#ff0000';</code> </p>
+<p><code>var color = '#ff0000';</code></p>
 <p>Change <code>#ff0000</code> by the color hex code you want.</p>
 <h2 id="move-yotpo-reviews-on-pdp-down-on-mobile">Move Yotpo reviews on PDP down on mobile<a class="headerlink" href="#move-yotpo-reviews-on-pdp-down-on-mobile" title="Permanent link">&para;</a></h2>
 <p>Go to <strong>Storefront</strong> &gt; <strong>Script Manager</strong>, click <strong>Create a Script</strong>, choose:</p>
@@ -1803,7 +1805,7 @@ By the code below:
 <li><strong>Select pages where script will be added</strong> = <code>Store Pages</code></li>
 <li><strong>Script type</strong> = <code>Script</code></li>
 </ul>
-<p>Enter the script below to <strong>Scripts contents</strong>: </p>
+<p>Enter the script below to <strong>Scripts contents</strong>:</p>
 <pre><code class="language-html">&lt;script&gt;
     (function() {
         var css = document.createElement('style');
@@ -1819,7 +1821,7 @@ By the code below:
 <li><strong>Select pages where script will be added</strong> = <code>Store pages</code></li>
 <li><strong>Script type</strong> = <code>Script</code></li>
 </ul>
-<p>Enter the script below to <strong>Scripts contents</strong>: </p>
+<p>Enter the script below to <strong>Scripts contents</strong>:</p>
 <pre><code class="language-html">&lt;script&gt;
     (function() {
         document.querySelectorAll('.header-logo-image, .footer-logo-image').forEach(function(img) {
@@ -1836,14 +1838,14 @@ By the code below:
 <li><strong>Select pages where script will be added</strong> = <code>Checkout</code></li>
 <li><strong>Script type</strong> = <code>Script</code></li>
 </ul>
-<p>Enter the script below to <strong>Scripts contents</strong>: </p>
+<p>Enter the script below to <strong>Scripts contents</strong>:</p>
 <pre><code class="language-html">&lt;script
   src=&quot;https://code.jquery.com/jquery-3.4.1.min.js&quot;
   integrity=&quot;sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=&quot;
   crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
 &lt;script&gt;
 (function($) {
-    var $img = $('#logoImage'); 
+    var $img = $('#logoImage');
     var src = $img.attr('src');
     var s = src.replace(/stencil\/[^\/]+\//, 'stencil/***/');
                         console.log(s);
@@ -1860,7 +1862,7 @@ By the code below:
 <li><strong>Select pages where script will be added</strong> = <code>All Pages</code></li>
 <li><strong>Script type</strong> = <code>Script</code></li>
 </ul>
-<p>Enter the script below to <strong>Scripts contents</strong>: </p>
+<p>Enter the script below to <strong>Scripts contents</strong>:</p>
 <pre><code class="language-html">&lt;script&gt;
 (function() {
     var $;
@@ -1922,7 +1924,7 @@ By the code below:
                             .prepend('&lt;div class=&quot;sale-flag-side&quot;&gt;&lt;span class=&quot;sale-text&quot;&gt;Sale&lt;/span&gt;&lt;/div&gt;');
                     }
                 }
-                var $badge = $('.sale-flag-side', $scope).not('[class*=&quot;sale-flag-side--&quot;]').find('.sale-text');                
+                var $badge = $('.sale-flag-side', $scope).not('[class*=&quot;sale-flag-side--&quot;]').find('.sale-text');
                 $badge.html(discountPercent + '%');
             }
         });
@@ -1954,7 +1956,7 @@ By the code below:
 <li><strong>Select pages where script will be added</strong> = <code>All Pages</code></li>
 <li><strong>Script type</strong> = <code>Script</code></li>
 </ul>
-<p>Enter the script below to <strong>Scripts contents</strong>: </p>
+<p>Enter the script below to <strong>Scripts contents</strong>:</p>
 <pre><code class="language-html">&lt;script&gt;
 (function() {
     var $;
@@ -2065,7 +2067,7 @@ By the code below:
 <li><strong>Select pages where script will be added</strong> = <code>All Pages</code></li>
 <li><strong>Script type</strong> = <code>Script</code></li>
 </ul>
-<p>Enter the script below to <strong>Scripts contents</strong>: </p>
+<p>Enter the script below to <strong>Scripts contents</strong>:</p>
 <pre><code class="language-html">&lt;script&gt;
 (function() {
     var $;
@@ -2706,7 +2708,7 @@ style.innerHTML = '.productView-details { display: flex; flex-direction: column 
 <pre><code class="language-html">&lt;!-- BEGIN GCR Opt-in Module Code --&gt;
 &lt;script src=&quot;https://cdn.jsdelivr.net/npm/whatwg-fetch@3.5.0/dist/fetch.umd.min.js&quot; defer&gt;&lt;/script&gt;
 &lt;script src=&quot;https://apis.google.com/js/platform.js?onload=renderOptIn&quot; async defer&gt;&lt;/script&gt;
-&lt;script&gt;    
+&lt;script&gt;
     window.renderOptIn = function() {
         window.gapi.load('surveyoptin', function() {
             var orderId = '{{checkout.order.id}}';
@@ -2764,7 +2766,7 @@ style.innerHTML = '.productView-details { display: flex; flex-direction: column 
 <p>Enter the script below to <strong>Scripts contents</strong>:</p>
 <pre><code class="language-html">&lt;script&gt;
     (function() {
-        function debounce(n,t,u){var e;return function(){var i=this,o=arguments,a=u&amp;&amp;!e;clearTimeout(e),e=setTimeout(function(){e=null,u||n.apply(i,o)},t),a&amp;&amp;n.apply(i,o)}}                
+        function debounce(n,t,u){var e;return function(){var i=this,o=arguments,a=u&amp;&amp;!e;clearTimeout(e),e=setTimeout(function(){e=null,u||n.apply(i,o)},t),a&amp;&amp;n.apply(i,o)}}
         function load($) {
             var mo = new MutationObserver(debounce(function() {
                 $('.productView').not('._customTabLoaded').each(function(i, el) {
@@ -3434,6 +3436,30 @@ style.innerHTML = '.productView-details { display: flex; flex-direction: column 
     }
     main();
 })(window.chiarajQuery || window.jQuery);
+&lt;/script&gt;
+</code></pre>
+<h2 id="fix-css-styling-issues-for-product-reviews-when-integrating-with-papathemes-reviews-app">Fix CSS styling issues for product reviews when integrating with PapaThemes Reviews App<a class="headerlink" href="#fix-css-styling-issues-for-product-reviews-when-integrating-with-papathemes-reviews-app" title="Permanent link">&para;</a></h2>
+<p>To resolve CSS conflicts that may occur when using the PapaThemes Reviews App, you'll need to add custom styling through BigCommerce's Script Manager.</p>
+<p>Navigate to <strong>Storefront</strong> &gt; <strong>Script Manager</strong> and click <strong>Create a Script</strong>. Configure the script with the following settings:</p>
+<ul>
+<li>Set <strong>Location on page</strong> to <code>Head</code></li>
+<li>Set <strong>Select pages where script will be added</strong> to <code>Store Pages</code></li>
+<li>Set <strong>Script type</strong> to <code>Script</code></li>
+</ul>
+<p>Then paste the following code into the <strong>Scripts contents</strong> field:</p>
+<pre><code class="language-html">&lt;script&gt;
+    (function() {
+        var style = document.createElement('style');
+        style.innerHTML = `
+            .productReviews-list { font-size: inherit; }
+            .productReview article { font-size: inherit; }
+            .productReview header { display: block; width: 100%; }
+            .productReview-body { display: block; width: 100%; padding: 0; border: 0; }
+            .productReview-rating { float: none; }
+            .productReview-author { float: none; }
+        `;
+        document.head.appendChild(style);
+    })();
 &lt;/script&gt;
 </code></pre>
               

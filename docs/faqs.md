@@ -3748,3 +3748,39 @@ Then paste the following code into the **Scripts contents** field:
     })();
 </script>
 ```
+
+## How can I fix product images becoming very small when zooming or scrolling, especially on mobile?
+
+You can apply a safe workaround by adding a small JavaScript snippet via **BigCommerce Script Manager**. This forces the main product image to properly fill its container and ensures the zoom image loads at an appropriate resolution, preventing it from shrinking on scroll or zoom.
+
+**Steps:**
+
+1. Go to **BigCommerce Admin → Storefront → Script Manager**
+2. Click **Create a Script**
+3. Set:
+    - Location: **Footer**
+    - Pages: **Product Pages**
+    - Category: **Essential**
+4. Paste the script below and save:
+
+```html
+<script>
+(function () {
+  var style = document.createElement('style');
+  style.type = 'text/css';
+  style.innerHTML = `
+    .productView-imageCarousel-main-item-img-container img {
+      width: 100%;
+      height: 100%;
+    }
+    .productView-imageCarousel-main-item .zoomImg {
+      width: 1280px !important;
+      height: 1280px !important;
+    }
+  `;
+  document.head.appendChild(style);
+})();
+</script>
+```
+
+This adjustment is theme-level only and does **not** affect product data, uploaded images, or CDN settings.

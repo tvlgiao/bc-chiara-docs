@@ -271,6 +271,8 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#fix-css-styling-issues-for-product-reviews-when-integrating-with-papathemes-reviews-app">Fix CSS styling issues for product reviews when integrating with PapaThemes Reviews App</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#how-can-i-fix-product-images-becoming-very-small-when-zooming-or-scrolling-especially-on-mobile">How can I fix product images becoming very small when zooming or scrolling, especially on mobile?</a>
+    </li>
     </ul>
                 </li>
               </ul>
@@ -3462,6 +3464,39 @@ style.innerHTML = '.productView-details { display: flex; flex-direction: column 
     })();
 &lt;/script&gt;
 </code></pre>
+<h2 id="how-can-i-fix-product-images-becoming-very-small-when-zooming-or-scrolling-especially-on-mobile">How can I fix product images becoming very small when zooming or scrolling, especially on mobile?<a class="headerlink" href="#how-can-i-fix-product-images-becoming-very-small-when-zooming-or-scrolling-especially-on-mobile" title="Permanent link">&para;</a></h2>
+<p>You can apply a safe workaround by adding a small JavaScript snippet via <strong>BigCommerce Script Manager</strong>. This forces the main product image to properly fill its container and ensures the zoom image loads at an appropriate resolution, preventing it from shrinking on scroll or zoom.</p>
+<p><strong>Steps:</strong></p>
+<ol>
+<li>Go to <strong>BigCommerce Admin → Storefront → Script Manager</strong></li>
+<li>Click <strong>Create a Script</strong></li>
+<li>Set:<ul>
+<li>Location: <strong>Footer</strong></li>
+<li>Pages: <strong>Product Pages</strong></li>
+<li>Category: <strong>Essential</strong></li>
+</ul>
+</li>
+<li>Paste the script below and save:</li>
+</ol>
+<pre><code class="language-html">&lt;script&gt;
+(function () {
+  var style = document.createElement('style');
+  style.type = 'text/css';
+  style.innerHTML = `
+    .productView-imageCarousel-main-item-img-container img {
+      width: 100%;
+      height: 100%;
+    }
+    .productView-imageCarousel-main-item .zoomImg {
+      width: 1280px !important;
+      height: 1280px !important;
+    }
+  `;
+  document.head.appendChild(style);
+})();
+&lt;/script&gt;
+</code></pre>
+<p>This adjustment is theme-level only and does <strong>not</strong> affect product data, uploaded images, or CDN settings.</p>
               
             </div>
           </div><footer>

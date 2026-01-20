@@ -227,6 +227,40 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#popup-banner">Popup Banner</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#quick-search-keyword-suggestions">Quick Search - Keyword Suggestions</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#quick-start">Quick Start</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#features">Features</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#configuration">Configuration</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#enabledisable-the-feature">Enable/Disable the Feature</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#csv-file-configuration">CSV File Configuration</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#to-disable">To Disable</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#csv-file-format">CSV File Format</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#creating-csv-files">Creating CSV Files</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#method-1-use-the-keyword-extractor-tool-recommended">Method 1: Use the Keyword Extractor Tool (Recommended)</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#method-2-create-manually">Method 2: Create Manually</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#how-it-works">How It Works</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#advanced-configuration">Advanced Configuration</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#tips-for-best-results">Tips for Best Results</a>
+    </li>
+        </ul>
+    </li>
     </ul>
                 </li>
               </ul>
@@ -964,7 +998,7 @@
 <p>You can edit the top banner on the homepage, category pages, product pages in <strong>Marketing</strong> &gt; <strong>Banner Manager</strong>.</p>
 <h2 id="footer">Footer<a class="headerlink" href="#footer" title="Permanent link">&para;</a></h2>
 <p><img alt="Footers" src="img/footers.png" /></p>
-<p>Configure the footer in <strong>Theme Editor</strong> &gt; <strong>Footer</strong> section. </p>
+<p>Configure the footer in <strong>Theme Editor</strong> &gt; <strong>Footer</strong> section.</p>
 <ul>
 <li>You can change colors.</li>
 <li>Show/hide web page links, categories, brands.</li>
@@ -1222,8 +1256,8 @@ document.head.appendChild(style);
 
 <h3 id="top-bottom-banners-on-a-specific-category">Top &amp; bottom banners on a specific category<a class="headerlink" href="#top-bottom-banners-on-a-specific-category" title="Permanent link">&para;</a></h3>
 <p>Edit the category, in <strong>Description</strong> field, click HTML button to input HTML code:</p>
-<pre><code class="language-html">&lt;!-- 
-  -- TOP BANNERS ABOVE PRODUCTS LIST 
+<pre><code class="language-html">&lt;!--
+  -- TOP BANNERS ABOVE PRODUCTS LIST
   --&gt;
 &lt;div class=&quot;chiara-banners u-hiddenVisually-mobile&quot; data-local-banner-position=&quot;chiara-category-banner2&quot;&gt;
 &lt;ul class=&quot;chiara-banners-list&quot;&gt;
@@ -1233,8 +1267,8 @@ document.head.appendChild(style);
 &lt;/ul&gt;
 &lt;/div&gt;
 
-&lt;!-- 
-  -- BOTTOM BANNERS BELOW PRODUCTS LIST 
+&lt;!--
+  -- BOTTOM BANNERS BELOW PRODUCTS LIST
   --&gt;
 &lt;div class=&quot;chiara-banners u-hiddenVisually-mobile&quot; data-local-banner-position=&quot;chiara-category-banner4&quot;&gt;
 &lt;ul class=&quot;chiara-banners-list&quot;&gt;
@@ -1531,6 +1565,308 @@ document.head.appendChild(style);
 <li><code>width</code>: Popup banner width in pixel.</li>
 <li><code>cookieName</code>: A unique cookie name. No need to change.</li>
 </ul>
+<h2 id="quick-search-keyword-suggestions">Quick Search - Keyword Suggestions<a class="headerlink" href="#quick-search-keyword-suggestions" title="Permanent link">&para;</a></h2>
+<p>The keyword suggestions feature enhances the search experience by displaying popular keyword suggestions when users interact with the search box. This feature includes autocomplete functionality similar to Google Search and keyboard navigation support.</p>
+<p><img alt="Keyword suggestions in action" src="img/keyword-suggestions.jpg" /></p>
+<h3 id="quick-start">Quick Start<a class="headerlink" href="#quick-start" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p><strong>Generate keywords</strong>:</p>
+<ul>
+<li>Go to <strong><a href="https://bc-tools.papathemes.com/">BC Tools</a></strong> and click <strong>"Keyword Extractor"</strong> menu item</li>
+<li>Enter your store URL and extract keywords (includes free credits)</li>
+<li>Download the generated CSV files</li>
+</ul>
+</li>
+<li>
+<p><strong>Upload CSV files</strong>:</p>
+<ul>
+<li>Upload the downloaded files to BigCommerce WebDAV <code>/content/</code> folder</li>
+<li>Or upload to your own server/CDN</li>
+</ul>
+</li>
+<li>
+<p><strong>Enable feature</strong>:</p>
+<ul>
+<li>Go to <strong>Theme Editor</strong> &gt; <strong>Header</strong> &gt; <strong>Quick search</strong></li>
+<li>Enable <strong>"Enable keyword suggestions"</strong></li>
+<li>Configure the CSV file paths</li>
+<li>Save &amp; Publish</li>
+</ul>
+</li>
+<li>
+<p><strong>Test</strong>: Try searching on your storefront!</p>
+</li>
+</ol>
+<h3 id="features">Features<a class="headerlink" href="#features" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Smart Display</strong>: Shows top 10 popular keywords when focusing on the search box</li>
+<li><strong>Realtime Filtering</strong>: Updates suggestions as users type, matching keywords that start with the search query</li>
+<li><strong>Inline Autocomplete</strong>: Like Google Search, displays suggested completion directly in the search input<ul>
+<li>Type "bo" → Shows "bo<strong>ok</strong>" with "ok" dimmed</li>
+<li>Press Right Arrow (→) to accept and continue suggesting</li>
+</ul>
+</li>
+<li><strong>Keyboard Navigation</strong>:<ul>
+<li><code>→</code> (Right Arrow): Accept autocomplete suggestion</li>
+<li><code>↑/↓</code>: Navigate between suggestions</li>
+<li><code>Enter</code>: Select highlighted suggestion</li>
+<li><code>Esc</code>: Clear selection and autocomplete</li>
+</ul>
+</li>
+<li><strong>Responsive Design</strong>: Adapts to mobile and desktop layouts</li>
+<li><strong>Smart Loading</strong>: Uses lazy loading for optimal performance</li>
+</ul>
+<h3 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h3>
+<h4 id="enabledisable-the-feature">Enable/Disable the Feature<a class="headerlink" href="#enabledisable-the-feature" title="Permanent link">&para;</a></h4>
+<p>Go to <strong>Theme Editor</strong> &gt; <strong>Header</strong> &gt; <strong>Quick search</strong> section:</p>
+<ol>
+<li>Enable <strong>Enable keyword suggestions</strong> checkbox</li>
+<li>Configure CSV file paths (see below)</li>
+<li>Save &amp; Publish</li>
+</ol>
+<h4 id="csv-file-configuration">CSV File Configuration<a class="headerlink" href="#csv-file-configuration" title="Permanent link">&para;</a></h4>
+<p>You can specify up to 3 CSV files containing keywords:</p>
+<ul>
+<li><strong>Keywords file 1</strong>: Single-word keywords (e.g., "laptop", "phone")</li>
+<li><strong>Keywords file 2</strong>: Two-word keywords (e.g., "gaming laptop", "wireless mouse")</li>
+<li><strong>Keywords file 3</strong>: Three+ word keywords (e.g., "best gaming laptop 2024")</li>
+</ul>
+<p><strong>File Path Options:</strong></p>
+<p>You can use either relative paths or full URLs:</p>
+<pre><code>Relative path: /content/suggest-keywords-1.csv
+Full URL: https://example.com/data/suggest-keywords-1.csv
+</code></pre>
+<p><strong>Note about Lazy Loading:</strong></p>
+<ul>
+<li>If <strong>any</strong> file uses a relative path, CSV files load only when users focus on search (lazy loading) - except on the search page where they load immediately</li>
+<li>If <strong>all</strong> files use full URLs, CSV files load immediately on page load</li>
+<li>Lazy loading reduces traffic since BigCommerce servers don't support browser cache headers</li>
+</ul>
+<h4 id="to-disable">To Disable<a class="headerlink" href="#to-disable" title="Permanent link">&para;</a></h4>
+<p><strong>Method 1</strong>: Uncheck "Enable keyword suggestions" in Theme Editor</p>
+<p><strong>Method 2</strong>: Leave all 3 file paths empty</p>
+<h3 id="csv-file-format">CSV File Format<a class="headerlink" href="#csv-file-format" title="Permanent link">&para;</a></h3>
+<p>Each CSV file should have 2 columns <strong>without a header row</strong>:</p>
+<ol>
+<li><strong>Keyword</strong> (text)</li>
+<li><strong>Rank</strong> (number - <strong>higher rank = better match, higher priority</strong>)</li>
+</ol>
+<p><strong>Example CSV file:</strong></p>
+<pre><code class="language-csv">laptop,80000
+phone,70000
+tablet,60000
+computer,50000
+monitor,40000
+</code></pre>
+<p><strong>Important:</strong> Higher rank numbers mean the keyword will appear first in suggestions. Keywords are sorted by rank in descending order.</p>
+<h3 id="creating-csv-files">Creating CSV Files<a class="headerlink" href="#creating-csv-files" title="Permanent link">&para;</a></h3>
+<h4 id="method-1-use-the-keyword-extractor-tool-recommended">Method 1: Use the Keyword Extractor Tool (Recommended)<a class="headerlink" href="#method-1-use-the-keyword-extractor-tool-recommended" title="Permanent link">&para;</a></h4>
+<p>The easiest way to create keyword CSV files is to use our <strong>Keyword Extractor</strong> tool:</p>
+<p><strong>Step-by-step instructions:</strong></p>
+<ol>
+<li>
+<p><strong>Open BC Tools</strong>:</p>
+<ul>
+<li>Go to <strong><a href="https://bc-tools.papathemes.com/">https://bc-tools.papathemes.com/</a></strong></li>
+<li>Click on the <strong>"Keyword Extractor"</strong> menu item to access the tool</li>
+</ul>
+</li>
+<li>
+<p><strong>Extract Keywords</strong>:</p>
+<ul>
+<li>Enter your BigCommerce store URL in the input field</li>
+<li>Click the extract button</li>
+<li>The tool will automatically analyze your store's products and extract relevant keywords</li>
+<li>Keywords will be organized by word count with appropriate rank values</li>
+</ul>
+</li>
+<li>
+<p><strong>Download CSV Files</strong>:</p>
+<ul>
+<li>Once extraction is complete, download the generated CSV files</li>
+<li>You'll typically get 3 files:<ul>
+<li><code>suggest-keywords-1.csv</code> (single-word keywords)</li>
+<li><code>suggest-keywords-2.csv</code> (two-word keywords)</li>
+<li><code>suggest-keywords-3.csv</code> (three+ word keywords)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Upload to Your Store</strong>:</p>
+<ul>
+<li>
+<p><strong>Option A - Upload to BigCommerce WebDAV</strong>:</p>
+<ul>
+<li>Connect to your store via WebDAV</li>
+<li>Create a <code>/content/</code> folder if it doesn't exist</li>
+<li>Upload the 3 CSV files to <code>/content/</code> folder</li>
+</ul>
+</li>
+<li>
+<p><strong>Option B - Upload to Your Own Server/CDN</strong>:</p>
+<ul>
+<li>Upload the CSV files to your own hosting/CDN</li>
+<li>Use the full URLs in Theme Editor settings (e.g., <code>https://yourdomain.com/keywords/suggest-keywords-1.csv</code>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Configure in Theme Editor</strong> (see Configuration section above)</p>
+</li>
+</ol>
+<p>This tool analyzes your actual product data and generates keyword suggestions with appropriate rank values automatically.</p>
+<p><strong>Note:</strong> The Keyword Extractor tool includes a few free credits to extract keywords. If you need to extract more keywords beyond the free credits, you'll need to purchase additional credits.</p>
+<h4 id="method-2-create-manually">Method 2: Create Manually<a class="headerlink" href="#method-2-create-manually" title="Permanent link">&para;</a></h4>
+<p>If you prefer to create CSV files manually:</p>
+<ol>
+<li><strong>Create the CSV files</strong> on your computer using the format above</li>
+<li>Use a spreadsheet program (Excel, Google Sheets) or text editor</li>
+<li>Save as CSV format with 2 columns: keyword, rank (no header row)</li>
+<li>Name your files:<ul>
+<li><code>suggest-keywords-1.csv</code> (single-word keywords)</li>
+<li><code>suggest-keywords-2.csv</code> (two-word keywords)</li>
+<li><code>suggest-keywords-3.csv</code> (three+ word keywords)</li>
+</ul>
+</li>
+</ol>
+<p><strong>Then upload using one of these options:</strong></p>
+<ul>
+<li>
+<p><strong>Upload to BigCommerce WebDAV</strong>:</p>
+<ul>
+<li>Connect to your store via WebDAV</li>
+<li>Create a <code>/content/</code> folder if it doesn't exist</li>
+<li>Upload the 3 CSV files to the <code>/content/</code> folder</li>
+<li>Use relative paths in Theme Editor: <code>/content/suggest-keywords-1.csv</code></li>
+</ul>
+</li>
+<li>
+<p><strong>Upload to Your Own Server/CDN</strong>:</p>
+<ul>
+<li>Upload to your hosting or CDN service</li>
+<li>Use full URLs in Theme Editor: <code>https://yourdomain.com/keywords/suggest-keywords-1.csv</code></li>
+</ul>
+</li>
+</ul>
+<p>After uploading, configure the file paths in <strong>Theme Editor</strong> &gt; <strong>Header</strong> &gt; <strong>Quick search</strong> section.</p>
+<p><strong>Sample Data (based on actual demo data):</strong></p>
+<p><strong>suggest-keywords-1.csv</strong> (single words):</p>
+<pre><code class="language-csv">set,80023
+usb,70042
+travel,70002
+new,60028
+wireless,60016
+original,60007
+fashion,60004
+men,60000
+high,50044
+bag,50013
+phone,45000
+laptop,40000
+tablet,35000
+computer,30000
+monitor,25000
+keyboard,20000
+mouse,15000
+camera,12000
+watch,10000
+shoes,8000
+</code></pre>
+<p><strong>suggest-keywords-2.csv</strong> (two words):</p>
+<pre><code class="language-csv">micro sd,30007
+high heels,30000
+sd card,20010
+card reader,20008
+memory card,20007
+gaming laptop,18000
+wireless mouse,16000
+bluetooth headphone,14000
+mechanical keyboard,12000
+usb cable,10000
+running shoes,8000
+smart watch,7000
+leather bag,6000
+phone case,5000
+laptop stand,4000
+</code></pre>
+<p><strong>suggest-keywords-3.csv</strong> (three+ words):</p>
+<pre><code class="language-csv">micro sd card,20006
+breathable mesh men,20000
+cotton baby hat,10001
+baby hat scarf,10001
+gaming laptop 2024,9000
+wireless gaming mouse,8000
+noise cancelling headphone,7000
+mechanical keyboard rgb,6000
+fast charging cable,5000
+leather travel bag,4000
+running shoes men,3000
+smart watch women,2500
+phone case clear,2000
+laptop stand adjustable,1500
+</code></pre>
+<p><strong>Live Examples:</strong> You can download actual working CSV files from the demo site:</p>
+<ul>
+<li><a href="http://chiara-furniture-demo.mybigcommerce.com/content/suggest-keywords-1.csv">suggest-keywords-1.csv</a></li>
+<li><a href="http://chiara-furniture-demo.mybigcommerce.com/content/suggest-keywords-2.csv">suggest-keywords-2.csv</a></li>
+<li><a href="http://chiara-furniture-demo.mybigcommerce.com/content/suggest-keywords-3.csv">suggest-keywords-3.csv</a></li>
+</ul>
+<h3 id="how-it-works">How It Works<a class="headerlink" href="#how-it-works" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p><strong>On Page Load</strong>:</p>
+<ul>
+<li>If using full URLs: CSV files load with low priority (doesn't block page)</li>
+<li>If using relative paths: Waits until user focuses on search box (or on search page)</li>
+</ul>
+</li>
+<li>
+<p><strong>On Search Focus</strong>: Displays top 10 keywords sorted by rank</p>
+</li>
+<li>
+<p><strong>While Typing</strong>:</p>
+<ul>
+<li>Filters keywords that <strong>start with</strong> the typed text</li>
+<li>Shows inline autocomplete suggestion (first match)</li>
+<li>Updates in realtime (debounced 100ms)</li>
+</ul>
+</li>
+<li>
+<p><strong>Selecting Keyword</strong>: Fills the search box and triggers quick search</p>
+</li>
+</ol>
+<h3 id="advanced-configuration">Advanced Configuration<a class="headerlink" href="#advanced-configuration" title="Permanent link">&para;</a></h3>
+<p>For advanced users who want to use external CDN or customize file paths, you can:</p>
+<ol>
+<li>Upload CSV files to your own CDN</li>
+<li>Use full URLs in the Theme Editor settings</li>
+<li>This enables immediate loading with browser caching support</li>
+</ol>
+<p><strong>Example with CDN:</strong></p>
+<pre><code>Keywords file 1: https://cdn.yourstore.com/keywords/single-words.csv
+Keywords file 2: https://cdn.yourstore.com/keywords/two-words.csv
+Keywords file 3: https://cdn.yourstore.com/keywords/three-words.csv
+</code></pre>
+<h3 id="tips-for-best-results">Tips for Best Results<a class="headerlink" href="#tips-for-best-results" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Use the Keyword Extractor Tool</strong>: Start with our <strong><a href="https://bc-tools.papathemes.com/">Keyword Extractor</a></strong> to automatically generate keywords from your actual products - this is the fastest and most accurate way</li>
+<li><strong>Rank Keywords by Popularity</strong>: Assign higher rank numbers to more popular search terms (e.g., "laptop,80000" appears before "mouse,15000")</li>
+<li><strong>Use Meaningful Rank Gaps</strong>: Leave gaps between ranks (e.g., 80000, 70000, 60000) so you can easily insert new keywords later</li>
+<li><strong>Organize by Word Count</strong>: Use the 3 files to separate keywords by length for better matching:<ul>
+<li>File 1: Single words ("laptop", "phone")</li>
+<li>File 2: Two words ("gaming laptop", "wireless mouse")</li>
+<li>File 3: Three+ words ("best gaming laptop 2024")</li>
+</ul>
+</li>
+<li><strong>Base on Search Analytics</strong>: Use your store's actual search data to identify popular keywords</li>
+<li><strong>Update Regularly</strong>: Refresh your keyword lists based on seasonal trends and new products</li>
+<li><strong>Start Small</strong>: Begin with 20-30 keywords per file and expand as needed</li>
+<li><strong>Test Thoroughly</strong>: After uploading CSV files, test on different devices to ensure smooth performance</li>
+<li><strong>Match Your Products</strong>: Include keywords that actually match products in your store</li>
+</ol>
               
             </div>
           </div><footer>
